@@ -3,6 +3,11 @@ import Button from 'react-bootstrap/Button';
 
 import AIchatbot from '../../assets/images/banner-img.png';
 import './Home.scss';
+import About from '../About/About';
+import KeyFeature from '../KeyFeature/KeyFeature';
+import HowItWorks from '../HowItWorks/HowItWorks';
+import WhatUsersSay from '../WhatUsersSay/WhatUsersSay';
+import Questions from '../Questions/Questions';
 
 function Home() {
   return (
@@ -24,6 +29,11 @@ function Home() {
           </div>
         </div>
       </div>
+      <About />
+      <KeyFeature />
+      <HowItWorks />
+      <WhatUsersSay />
+      <Questions />
     </>
   )
 }
