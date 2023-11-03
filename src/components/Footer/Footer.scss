@@ -1,0 +1,42 @@
+footer {
+  .footer-signup {
+    .btn {
+      min-width: 11.875rem;
+    }
+  }
+  .footer-bottom {
+    margin-top: 8.25rem;
+    .f-logo {
+      max-width: 6.375rem;
+    }
+   .nav {
+      .nav-link {
+        font-size: 1.0625rem;
+        font-weight: 600;
+        color: var(--gray200);
+        padding: 0 1.5625rem;
+        &:hover {
+          color: var(--primaryhover);
+        }
+      }
+    }
+  }
+  .copyright {
+    border-top: 1px solid #D4D4D8;
+    font-size: 1rem;
+    font-weight: 400;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    margin-top: 50px;
+    a {
+      color: var(--gray50);
+      margin: 0 20px;
+      &:hover {
+        color: var(--primaryhover);
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

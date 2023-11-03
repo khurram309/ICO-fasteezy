@@ -1,7 +1,7 @@
 .navbar {
   background-color: var(--gray400);
   .logo {
-    width: 102px;
+    width: 6.375rem;
     img {
       width: 100%;
     }
@@ -12,7 +12,7 @@
       color: #12141D;
       display: flex;
       align-items: center;
-      margin: 0 20px;
+      margin: 0 1.25rem;
       &:first-child {
         margin-left: 0;
       }

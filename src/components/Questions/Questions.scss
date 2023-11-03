@@ -1,0 +1,11 @@
+.questions {
+  padding: 0 7.292vw;
+  .questions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-gap: 1rem;
+    .form-select {
+      height: 3.5rem;
+    }
+  }
+}

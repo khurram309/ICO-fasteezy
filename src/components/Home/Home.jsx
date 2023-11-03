@@ -20,8 +20,8 @@ function Home() {
             </h2>
             <h5>Our AI assistant UVO is here to help you navigate the world of health and wellness.</h5>
             <div className="bnt-section mt-5">
-              <Button variant="outline-primary me-1">Try Demo</Button>{' '}
-              <Button variant="primary">Get Started</Button>{' '}
+              <Button variant="outline-primary me-1 small-btn">Try Demo</Button>{' '}
+              <Button variant="primary small-btn">Get Started</Button>{' '}
             </div>
           </div>
           <div className="AIchatbot-img">

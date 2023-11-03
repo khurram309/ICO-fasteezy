@@ -8,11 +8,25 @@ body {
   --primary: #7C2AE8;
   --primaryhover: #5a0dbf;
   --darkgray: #4B3425;
+  --gray50: #52525B;
+  --gray100: #18181B;
+  --gray200: #12141D;
+  --gray300: #3F3F46;
   --gray400: #FAFAFA;
+  --gray500: #F4F4F5;
+  --gray600: #D4D4D8;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  &:hover {
+    color: var(--primaryhover);
+  }
 }
 
 .btn {
-  padding: 12px 20px;
+  padding: .75rem 1.25rem;
   &-primary {
     border-radius: 100px;
     background-color: var(--primary);
@@ -65,17 +79,33 @@ h2 {
   font-weight: 700;
   color: var(--darkgray);
   letter-spacing: -4px;
-  span {
+  span, .markerlight {
     color: var(--primary);
     background: url('../src/assets/images/marker.svg') no-repeat 0px 25px;
     display: inline-flex;
     background-size: 100% 100%;
-    padding: 0 24px 20px 0;
+    padding: 0 1.5rem 1.25rem 0;
+  }
+  .markerlight {
+    background: url('../src/assets/images/markerlight.svg') no-repeat 0px 65px;
   }
 }
 
 h5 {
   font-size: clamp(1.125rem, 0.6962rem + 0.67vw, 1.5rem);
   font-weight: 400;
-  line-height: 35px;
+  line-height: 2.375rem;
+}
+
+.small-btn {
+  padding: .75rem 2rem;
+  font-weight: bold;
+}
+
+.grayBg {
+  background-color: var(--gray400);
+}
+
+.section-spacing {
+  padding-block: 100px;
 }
