@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+:root {
+  --primary: #7C2AE8;
+  --primaryhover: #5a0dbf;
+  --darkgray: #4B3425;
+  --gray400: #FAFAFA;
+}
+
+.btn {
+  padding: 12px 20px;
+  &-primary {
+    border-radius: 100px;
+    background-color: var(--primary);
+    border-color: var(--primary);
+    font-weight: 600;
+    &:hover {
+      background-color: var(--primaryhover);
+      border-color: var(--primaryhover);
+    }
+  }
+  &-outline-primary {
+    border-color: var(--primary);
+    border-radius: 100px;
+    border-width: 2px;
+    color: var(--primary);
+    &:hover {
+      background-color: var(--primaryhover);
+      border-color: var(--primaryhover);
+    }
+  }
+  &:focus-visible,
+  &:focus {
+    background-color: var(--primaryhover);
+    border-color: var(--primaryhover);
+    box-shadow: none;
+  }
+  &:not(.btn-check)+.btn {
+    &:active {
+      background-color: var(--primaryhover);
+        border-color: var(--primaryhover);
+        box-shadow: none;
+      &:focus-visible {
+        background-color: var(--primaryhover);
+        border-color: var(--primaryhover);
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+:not(.btn-check) + .btn:active,
+:not(.btn-check)+.btn:active:focus-visible {
+  background-color: var(--primaryhover);
+  border-color: var(--primaryhover);
+  box-shadow: none;
+}
+
+h2 {
+  font-size: clamp(3rem, 2.7378rem + 1.104vw, 4.0625rem);
+  font-weight: 700;
+  color: var(--darkgray);
+  letter-spacing: -4px;
+  span {
+    color: var(--primary);
+    background: url('../src/assets/images/marker.svg') no-repeat 0px 25px;
+    display: inline-flex;
+    background-size: 100% 100%;
+    padding: 0 24px 20px 0;
+  }
+}
+
+h5 {
+  font-size: clamp(1.125rem, 0.6962rem + 0.67vw, 1.5rem);
+  font-weight: 400;
+  line-height: 35px;
+}

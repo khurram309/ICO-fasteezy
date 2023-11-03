@@ -1,0 +1,18 @@
+.main-banner {
+  background-color: var(--gray400);
+  padding-bottom: 20px;
+  .banner-text {
+    max-width: 450px;
+  }
+  .AIchatbot-img {
+    max-width: 45.833vw;
+    margin-bottom: -50px;
+    img {
+      width: 100%;
+    }
+  }
+  .btn {
+    padding: 12px 32px;
+    font-weight: bold;
+  }
+}

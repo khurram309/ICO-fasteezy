@@ -1,0 +1,27 @@
+.navbar {
+  background-color: var(--gray400);
+  .logo {
+    width: 102px;
+    img {
+      width: 100%;
+    }
+  }
+  .navbar-nav {
+    a {
+      font-weight: 600;
+      color: #12141D;
+      display: flex;
+      align-items: center;
+      margin: 0 20px;
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      &:hover {
+        color: var(--primary);
+      }
+    }
+  }
+}
