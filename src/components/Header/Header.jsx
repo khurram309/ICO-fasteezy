@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import logo from '../../assets/images/logo.png';
-
 import Button from 'react-bootstrap/Button';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 
+import logo from '../../assets/images/logo.png';
+import Login from '../Modals/Login/Login';
+import GetStarted from '../Modals/GetStarted/GetStarted';
 import './Header.scss';
 
 function Header() {
@@ -25,8 +25,8 @@ function Header() {
             <Nav.Link href="#link">Chatbot</Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link href="#login">Login</Nav.Link>
-            <Button variant="primary">Get Started Free</Button>{' '}
+            <Login />
+            <GetStarted />
           </Nav>
         </Navbar.Collapse>
       </div>
@@ -34,5 +34,5 @@ function Header() {
   )
 }
 
-export default Header
+export default Header;
                                                 
