@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Nav, Button, Modal, Form } from 'react-bootstrap';
 
+
 import './Login.scss';
 
 function Login() {
@@ -18,12 +19,12 @@ function Login() {
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
-        centered
+        centered className="users-modal"
       >
-        <Modal.Header closeButton>
-          <Modal.Title>Let’s Sign In</Modal.Title>
+        <Modal.Header closeButton className="d-flex flex-column-reverse pb-0">
+          <Modal.Title>Let's Sign In</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="pt-3">
         <Form>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email Address*</Form.Label>
@@ -33,9 +34,12 @@ function Login() {
             <Form.Label>Password</Form.Label>
             <Form.Control type="password" placeholder="Insert your password" />
           </Form.Group>
-          <Button variant="primary" type="submit">
-            Submit
+          <Button className="w-100" variant="primary" type="submit">
+            Sign in
           </Button>
+          <div className="text-center pt-4">
+            Don't have an account? <a className="fw-semibold ms-2" href="#register">Register</a>
+          </div>
         </Form>
         </Modal.Body>
       </Modal>

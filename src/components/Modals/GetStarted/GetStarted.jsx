@@ -18,9 +18,9 @@ function GetStarted() {
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
-        centered
+        centered className="users-modal"
       >
-        <Modal.Header closeButton>
+        <Modal.Header closeButton className="d-flex flex-column-reverse pb-0">
           <Modal.Title>Create Your UVO Account</Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -41,12 +41,15 @@ function GetStarted() {
             <Form.Label>Password</Form.Label>
             <Form.Control type="password" placeholder="Confirm your password" />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+          <Form.Group className="mb-4 pb-2 mt-3 fw-semibold" controlId="formBasicCheckbox">
             <Form.Check type="checkbox" label="Agree to Terms and Conditions" />
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button className="w-100" variant="primary" type="submit">
             Next
           </Button>
+          <div className="text-center pt-4">
+            Already have an account? <a className="fw-medium ms-2" href="#register">Log in</a>
+          </div>
         </Form>
         </Modal.Body>
       </Modal>
