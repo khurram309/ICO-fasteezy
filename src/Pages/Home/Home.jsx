@@ -2,12 +2,12 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 
 import AIchatbot from '../../assets/images/banner-img.png';
+import About from '../../components/About/About';
+import KeyFeature from '../../components/KeyFeature/KeyFeature';
+import HowItWorks from '../../components/HowItWorks/HowItWorks';
+import WhatUsersSay from '../../components/WhatUsersSay/WhatUsersSay';
+import Questions from '../../components/Questions/Questions';
 import './Home.scss';
-import About from '../About/About';
-import KeyFeature from '../KeyFeature/KeyFeature';
-import HowItWorks from '../HowItWorks/HowItWorks';
-import WhatUsersSay from '../WhatUsersSay/WhatUsersSay';
-import Questions from '../Questions/Questions';
 
 function Home() {
   return (
@@ -38,4 +38,4 @@ function Home() {
   )
 }
 
-export default Home
+export default Home;

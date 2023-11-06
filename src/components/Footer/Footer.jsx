@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './Footer.scss';
 import Nav from 'react-bootstrap/Nav';
@@ -61,4 +61,4 @@ function Footer() {
   )
 }
 
-export default Footer
+export default Footer;
