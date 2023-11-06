@@ -21,7 +21,7 @@ function Header() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mx-auto center-nav">
-            <Nav.Link href="#home">Pricing</Nav.Link>
+            <NavLink to="/pricing">Pricing</NavLink>
             <Nav.Link href="#link">Chatbot</Nav.Link>
           </Nav>
           <Nav>
