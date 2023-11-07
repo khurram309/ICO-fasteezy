@@ -9,14 +9,15 @@ function GetStarted() {
   const [showModal, setShowModal] = useState(false);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = () => {
+    setShow(true);
+    setShowModal(false);
+  }
 
   const onNextClick = () => {
     console.log('hasdf');
     setShowModal(true);
     setShow(false);
-    // return(
-    // )
   }
 
   return (
