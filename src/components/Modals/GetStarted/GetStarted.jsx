@@ -2,12 +2,22 @@ import React, { useState } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
 
 import './GetStarted.scss';
+import PaymentInformation from '../PaymentInformation/PaymentInformation';
 
 function GetStarted() {
   const [show, setShow] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const onNextClick = () => {
+    console.log('hasdf');
+    setShowModal(true);
+    setShow(false);
+    // return(
+    // )
+  }
 
   return (
     <>
@@ -44,15 +54,17 @@ function GetStarted() {
           <Form.Group className="mb-4 pb-2 mt-3 fw-semibold" controlId="formBasicCheckbox">
             <Form.Check type="checkbox" label="Agree to Terms and Conditions" />
           </Form.Group>
-          <Button className="w-100" variant="primary" type="submit">
+          <Button className="w-100" variant="primary" onClick={onNextClick}>
             Next
           </Button>
+          {/* <PaymentInformation onClick={buttonClick} /> */}
           <div className="text-center pt-4">
             Already have an account? <a className="fw-medium ms-2" href="#register">Log in</a>
           </div>
         </Form>
         </Modal.Body>
       </Modal>
+      { showModal && <PaymentInformation showModal={showModal} /> }
     </>
   )
 }

@@ -12,48 +12,48 @@ function Questions() {
         </div>
         <div className="questions-grid mt-5">
           <div>
-            <select class="form-select" name="" id="">
-              <option selected>How does UVO provide medical answers?</option>
+            <select className="form-select" name="" id="">
+              <option defaultValue={`How does UVO provide medical answers?`}>How does UVO provide medical answers?</option>
               <option value="">New Delhi</option>
               <option value="">Istanbul</option>
               <option value="">Jakarta</option>
             </select>
           </div>
           <div>
-            <select class="form-select" name="" id="">
-              <option selected>How does UVO provide medical answers?</option>
+            <select className="form-select" name="" id="">
+              <option defaultValue={`How does UVO provide medical answers?`}>How does UVO provide medical answers?</option>
               <option value="">New Delhi</option>
               <option value="">Istanbul</option>
               <option value="">Jakarta</option>
             </select>
           </div>
           <div>
-            <select class="form-select" name="" id="">
-              <option selected>How does UVO provide medical answers?</option>
+            <select className="form-select" name="" id="">
+              <option defaultValue={`How does UVO provide medical answers?`}>How does UVO provide medical answers?</option>
               <option value="">New Delhi</option>
               <option value="">Istanbul</option>
               <option value="">Jakarta</option>
             </select>
           </div>
           <div>
-            <select class="form-select" name="" id="">
-              <option selected>How does UVO provide medical answers?</option>
+            <select className="form-select" name="" id="">
+              <option defaultValue={`How does UVO provide medical answers?`}>How does UVO provide medical answers?</option>
               <option value="">New Delhi</option>
               <option value="">Istanbul</option>
               <option value="">Jakarta</option>
             </select>
           </div>
           <div>
-            <select class="form-select" name="" id="">
-              <option selected>How does UVO provide medical answers?</option>
+            <select className="form-select" name="" id="">
+              <option defaultValue={`How does UVO provide medical answers?`}>How does UVO provide medical answers?</option>
               <option value="">New Delhi</option>
               <option value="">Istanbul</option>
               <option value="">Jakarta</option>
             </select>
           </div>
           <div>
-            <select class="form-select" name="" id="">
-              <option selected>How does UVO provide medical answers?</option>
+            <select className="form-select" name="" id="">
+              <option defaultValue={`How does UVO provide medical answers?`}>How does UVO provide medical answers?</option>
               <option value="">New Delhi</option>
               <option value="">Istanbul</option>
               <option value="">Jakarta</option>
