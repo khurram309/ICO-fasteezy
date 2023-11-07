@@ -2,6 +2,7 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
+  color: var(--gray32);
 }
 
 :root {
@@ -19,7 +20,7 @@ body {
   --grayf8: #F8F9FB;
   --graye5: #E5E5E7;
   --gray85: #858C95;
-  --gray32: #323539
+  --gray32: #323539;
 }
 
 a {
@@ -96,6 +97,11 @@ h2 {
   }
 }
 
+h3 {
+  font-size: clamp(1.75rem, 1.17848rem + 0.893vw, 2.25rem);
+  font-weight: bold;
+}
+
 h4 {
   font-size: 1.5rem;
   font-weight: bold;
@@ -105,6 +111,14 @@ h5 {
   font-size: clamp(1.125rem, 0.6962rem + 0.67vw, 1.5rem);
   font-weight: 400;
   line-height: 2.375rem;
+}
+
+p {
+  font-size: clamp(0.875rem, 0.73228rem + 0.223vw, 1rem);
+}
+
+li {
+  font-size: clamp(0.875rem, 0.73228rem + 0.223vw, 1rem);
 }
 
 .small-btn {
