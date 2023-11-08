@@ -22,7 +22,7 @@ function Header() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mx-auto center-nav">
             <NavLink to="/pricing">Pricing</NavLink>
-            <Nav.Link href="#link">Chatbot</Nav.Link>
+            <NavLink to="/chat">Chatbot</NavLink>
           </Nav>
           <Nav>
             <Login />

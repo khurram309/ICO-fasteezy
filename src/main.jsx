@@ -5,12 +5,14 @@ import './index.scss';
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import Home from './Pages/Home/Home.jsx';
 import Pricing from './Pages/Pricing/Pricing.jsx';
+import Chatbot from './Pages/Chatbot/Chatbot.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route path="" element={<Home />} />
       <Route path="pricing" element={<Pricing />} />
+      <Route path="chat" element={<Chatbot />} />
     </Route>
   )
 )
