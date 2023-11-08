@@ -2,13 +2,18 @@ import React, { useState } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
 
 import './PaymentInformation.scss';
+import Welcome from '../Welcome/Welcome';
 
 function PaymentInformation(props) {
-  console.log(props);
-    const [show, setShow] = useState(props.showModal);
+  const [show, setShow] = useState(props.showModal);
+  const [showWelcome, setShowWelcome] = useState(false);
 
   const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
+  
+  const checkout = () => {
+    setShowWelcome(true);
+    setShow(false);
+  }
 
   return (
     <>
@@ -46,7 +51,7 @@ function PaymentInformation(props) {
           <Button className="w-50" type="submit">
             Back
           </Button>
-          <Button className="w-50" variant="primary" type="submit">
+          <Button className="w-50" variant="primary" onClick={checkout}>
             Checkout
           </Button>
           <div className="text-center pt-4">
@@ -55,6 +60,7 @@ function PaymentInformation(props) {
         </Form>
         </Modal.Body>
       </Modal>
+      { showWelcome && <Welcome showWelcome={showWelcome} /> }
     </>
   )
 }

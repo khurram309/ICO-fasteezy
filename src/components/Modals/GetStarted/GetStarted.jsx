@@ -15,7 +15,6 @@ function GetStarted() {
   }
 
   const onNextClick = () => {
-    console.log('hasdf');
     setShowModal(true);
     setShow(false);
   }
