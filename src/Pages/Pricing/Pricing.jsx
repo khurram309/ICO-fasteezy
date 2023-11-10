@@ -28,12 +28,14 @@ function Pricing() {
                   <CardSubtitle className="py-2">Basic Plan</CardSubtitle>
                   <CardText className="pb-3">Get started with our Basic Plan for free and access a limited number of medical questions and answers. Perfect for occasional health inquiries.  </CardText>
                   <hr />
-                  <ul className="mt-3">
-                    <li>Limited access to the medical chat bot.</li>
-                    <li>Access to a limited number of Q&A</li>
-                    <li>No commitment, cancel anytime.</li>
-                    <li>Access to all features</li>
-                  </ul>
+                  <div className="list-view">
+                    <ul className="mt-3">
+                      <li>Limited access to the medical chat bot.</li>
+                      <li>Access to a limited number of Q&A</li>
+                      <li>No commitment, cancel anytime.</li>
+                      <li>Access to all features</li>
+                    </ul>
+                  </div>
                 </div>
                 <Button className="w-100 mt-3">Get Started for Free</Button>
               </div>
@@ -49,12 +51,14 @@ function Pricing() {
                 <CardSubtitle className="py-2">Premium Plan</CardSubtitle>
                 <CardText className="pb-3">Upgrade to our Premium Plan for just $4.99 per month and enjoy unlimited access to our medical chat bot. Get answers to all your health questions, anytime you need them.</CardText>
                 <hr />
-                <ul className="mt-3">
-                  <li>Limited access to the medical chat bot.</li>
-                  <li>Ask as many questions as you want.</li>
-                  <li>Priority support for faster responses.</li>
-                  <li>Cancel anytime.</li>
-                </ul>
+                <div className="list-view">
+                  <ul className="mt-3">
+                    <li>Limited access to the medical chat bot.</li>
+                    <li>Ask as many questions as you want.</li>
+                    <li>Priority support for faster responses.</li>
+                    <li>Cancel anytime.</li>
+                  </ul>
+                </div>
               </div>
               <Button className="w-100 mt-3">Upgrade to Premium</Button>
             </div>
@@ -70,12 +74,14 @@ function Pricing() {
                 <CardSubtitle className="py-2">Family Plan</CardSubtitle>
                 <CardText className="pb-3">Share the benefits of our Premium Plan with your family. For just $14.99 per month, get unlimited access for up to 5 family members.</CardText>
                 <hr />
-                <ul className="mt-3">
-                  <li>Unlimited access for up to 5 family members.</li>
-                  <li>Access to premium features for all users.</li>
-                  <li>Priority support for all family members.</li>
-                  <li>Cancel anytime.</li>
-                </ul>
+                <div className="list-view">
+                  <ul className="mt-3">
+                    <li>Unlimited access for up to 5 family members.</li>
+                    <li>Access to premium features for all users.</li>
+                    <li>Priority support for all family members.</li>
+                    <li>Cancel anytime.</li>
+                  </ul>
+                </div>
               </div>
               <Button className="w-100 mt-3">Get Family Plan</Button>
             </div>

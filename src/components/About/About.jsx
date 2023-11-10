@@ -10,7 +10,7 @@ function About() {
       <div className="about-assistant section-spacing pb-4 mt-5">
         <div className="row">
           <div className="col-6">
-            <img src={AboutCard} alt="Logo" />
+            <img src={AboutCard} alt="About" />
           </div>
           <div className="col-6">
             <h2>About <span>UVO Al assistant</span></h2>

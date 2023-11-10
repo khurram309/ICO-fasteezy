@@ -1,0 +1,68 @@
+.PaymentInformation {
+  .card {
+    border-radius: .625rem;
+    padding: 1rem;
+    .form-label {
+      span {
+        color: var(--danger);
+      }
+    }
+    .form-check-input {
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-top: 0.15em;
+      margin-right: 0.625rem;
+      &:checked {
+        background-color: var(--primary);
+        border-color: var(--primary);
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+    .form-check-label {
+      font-weight: 600;
+    }
+  }
+  .coupon-grid {
+    display: grid;
+    grid-template-columns: 1fr 92px;
+    grid-gap: 15px;
+    .btn {
+      font-size: .9375rem;
+      padding: .625rem;
+      height: 2.875rem;
+    }
+  }
+  .premium-plan {
+    border: 1px solid var(--gray97);
+    border-radius: 10px;
+    padding: 1.125rem;
+    h6 {
+      font-size: 1.125rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+    p {
+      line-height: 1.5rem;
+      color: var(--gray85);
+    }
+    a {
+      img {
+        &:hover {
+          filter: brightness(0) saturate(100%) invert(26%) sepia(39%) saturate(4217%) hue-rotate(347deg) brightness(90%) contrast(84%);
+        }
+      }
+    }
+  }
+  .card-title {
+    font-size: clamp(1.75rem, 1.17848rem + 0.893vw, 1.5rem);
+    font-weight: bold;
+    color: var(--gray32);
+    span {
+      font-size: 1.25rem;
+      color: var(--gray85);
+      font-weight: 400;
+    }
+  }
+}

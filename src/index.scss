@@ -6,21 +6,23 @@ body {
 }
 
 :root {
-  --primary: #7C2AE8;
-  --primaryhover: #5a0dbf;
-  --darkgray: #4B3425;
-  --gray50: #52525B;
-  --gray100: #18181B;
-  --gray200: #12141D;
-  --gray300: #3F3F46;
-  --gray400: #FAFAFA;
-  --gray500: #F4F4F5;
-  --gray600: #D4D4D8;
-  --gray700: #E4E4E7;
-  --grayf8: #F8F9FB;
-  --graye5: #E5E5E7;
-  --gray85: #858C95;
-  --gray32: #323539;
+  --primary:           #7C2AE8;
+  --primaryhover:      #5a0dbf;
+  --darkgray:          #4B3425;
+  --gray50:            #52525B;
+  --gray100:           #18181B;
+  --gray200:           #12141D;
+  --gray300:           #3F3F46;
+  --gray400:           #FAFAFA;
+  --gray500:           #F4F4F5;
+  --gray600:           #D4D4D8;
+  --gray700:           #E4E4E7;
+  --grayf8:            #F8F9FB;
+  --graye5:            #E5E5E7;
+  --gray85:            #858C95;
+  --gray32:            #323539;
+  --gray97:            #979797;
+  --danger:            #C8322B;
 }
 
 a {
@@ -29,6 +31,10 @@ a {
   &:hover {
     color: var(--primaryhover);
   }
+}
+
+.gray85 {
+  color: var(--gray85);
 }
 
 .btn {
@@ -41,6 +47,16 @@ a {
     &:hover {
       background-color: var(--primaryhover);
       border-color: var(--primaryhover);
+    }
+  }
+  &-outline-secondary {
+    border-radius: 100px;
+    background-color: var(--graye5);
+    border-color: var(--gray97);
+    font-weight: 600;
+    &:hover {
+      background-color: var(--gray85);
+      border-color: var(--gray85);
     }
   }
   &-outline-primary {
@@ -174,6 +190,11 @@ li {
       }
     }
   }
+  &.welcomModal {
+    .modal-dialog {
+      max-width: 38.75rem;
+    }
+  }
 }
 
 .form-check {
@@ -185,4 +206,29 @@ li {
   width: 1.25rem;
   height: 1.25rem;
   border-radius: 6px;
+}
+
+.list-view {
+  ul {
+    padding: 0;
+    margin: 0;
+    li {
+      list-style: none;
+      position: relative;
+      font-weight: 600;
+      color: var(--gray85);
+      padding: .375rem 0 .375rem 2.125rem;
+      display: flex;
+      align-items: center;
+      &::before {
+        background: url("../src/assets/images/list-tick.svg");
+        position: absolute;
+        content: '';
+        width: 1.375rem;
+        height: 1.375rem;
+        background-size: 100%;
+        left: 0;
+      }
+    }
+  }
 }
