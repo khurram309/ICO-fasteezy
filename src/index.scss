@@ -12,6 +12,8 @@ body {
   --gray50:            #52525B;
   --gray100:           #18181B;
   --gray200:           #12141D;
+  --gray181:           #181B1F;
+  --gray39:            #393E44;
   --gray300:           #3F3F46;
   --gray400:           #FAFAFA;
   --gray500:           #F4F4F5;
@@ -19,7 +21,13 @@ body {
   --gray700:           #E4E4E7;
   --grayf8:            #F8F9FB;
   --graye5:            #E5E5E7;
+  --grayfc:            #FCFDFE;
+  --graye3:            #E3E9EE;
+  --grayf1:            #F1F5F9;
+  --grayed:            #EDEDED;
+  --gray7c:            #7C878E;
   --gray85:            #858C95;
+  --gray5c:            #5C5F62;
   --gray32:            #323539;
   --gray97:            #979797;
   --danger:            #C8322B;
@@ -35,6 +43,18 @@ a {
 
 .gray85 {
   color: var(--gray85);
+}
+
+.gray7c {
+  color: var(--gray7c);
+}
+
+.gray5c {
+  color: var(--gray5c);
+}
+
+.fw-small {
+  font-size: 14px;
 }
 
 .btn {
@@ -242,6 +262,12 @@ li {
   width: 1.25rem;
   height: 1.25rem;
   border-radius: 6px;
+}
+
+.form-control {
+  &:focus {
+    box-shadow: none;
+  }
 }
 
 .list-view {
