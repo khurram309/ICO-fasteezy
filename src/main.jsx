@@ -6,6 +6,7 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 import Home from './Pages/Home/Home.jsx';
 import Pricing from './Pages/Pricing/Pricing.jsx';
 import Chatbot from './Pages/Chatbot/Chatbot.jsx';
+import General from './Pages/Settings/General/General.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -13,6 +14,7 @@ const router = createBrowserRouter(
       <Route path="" element={<Home />} />
       <Route path="pricing" element={<Pricing />} />
       <Route path="chat" element={<Chatbot />} />
+      <Route path="general" element={<General />} />
     </Route>
   )
 )
