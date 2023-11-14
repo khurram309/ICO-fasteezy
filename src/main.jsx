@@ -7,6 +7,9 @@ import Home from './Pages/Home/Home.jsx';
 import Pricing from './Pages/Pricing/Pricing.jsx';
 import Chatbot from './Pages/Chatbot/Chatbot.jsx';
 import General from './Pages/Settings/General/General.jsx';
+import SettingsLayout from './Layouts/SettingsLayout.jsx';
+import Billing from './Pages/Settings/Billing/Billing.jsx';
+import Security from './Pages/Settings/Security/Security.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -14,7 +17,11 @@ const router = createBrowserRouter(
       <Route path="" element={<Home />} />
       <Route path="pricing" element={<Pricing />} />
       <Route path="chat" element={<Chatbot />} />
-      <Route path="general" element={<General />} />
+      <Route path="settings" element={<SettingsLayout /> }>
+        <Route path="general" element={<General />} />
+        <Route path="billing" element={<Billing />} />
+        <Route path="security" element={<Security />} />
+      </Route>
     </Route>
   )
 )
