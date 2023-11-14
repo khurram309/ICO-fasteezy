@@ -4,7 +4,9 @@ import './Billing.scss';
 
 function Billing() {
   return (
-    <div>Billing</div>
+    <div className="custom-container">
+      Billing
+    </div>
   )
 }
 

@@ -4,7 +4,9 @@ import './Security.scss';
 
 function Security() {
   return (
-    <div>Security</div>
+    <div className="custom-container">
+      Billing
+    </div>
   )
 }
 
