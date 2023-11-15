@@ -1,0 +1,104 @@
+.billing-page {
+  .billing-outer {
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.04);
+    border-radius: .625rem;
+    border: 1px solid var(--graye5);
+    margin-bottom: 1.9375rem;
+  }
+  .billing-heading {
+    border-bottom: 1px solid var(--graye5);
+    padding: .9063rem 1rem .9063rem 1.5rem;
+    .dot-dropdown {
+      .dropdown-toggle {
+        padding: 0;
+        border: 0;
+        &::after {
+          display: none;
+        }
+        &:first-child:active {
+          border: 0;
+        }
+      }
+      .dropdown-menu {
+        left: auto !important;
+        right: 0 !important;
+      }
+    }
+  }
+  .cards-bar {
+    padding: .7125rem 1.5rem .7063rem 1.5rem;
+    border-bottom: 1px solid var(--graye5);
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+  .status {
+    background-color: var(--graye3);
+    border-radius: 100px;
+    line-height: normal;
+    padding: 0 10px;
+    height: 1.5rem;
+    span {
+      width: 6px;
+      height: 6px;
+      border-radius: 6.25rem;
+      background: var(--primary);
+      margin-right: 7px;
+    }
+    &.available {
+      color: var(--green);
+      background-color: var(--green400);
+      span {
+        background: var(--green);
+      }
+    }
+    &.expired {
+      color: var(--red);
+      background-color: var(--red400);
+      span {
+        background: var(--red);
+      }
+    }
+    &.pending {
+      color: var(--gray32);
+      background-color: var(--grayf8);
+      span {
+        background: var(--gray32);
+      }
+    }
+  }
+  table {
+    margin: 0;
+    thead {
+      th {
+        width: 30.5%;
+        background-color: var(--grayf8);
+        font-size: .8125rem;
+        color: var(--gray85);
+        font-weight: 600;
+        padding: .75rem 1.5rem;
+        &:last-child {
+          width: 150px;
+        }
+      }
+    }
+    tbody {
+      tr {
+        &:last-child {
+          td {
+            box-shadow: none;
+            border-bottom: 1px solid transparent;
+          }
+        }
+        td {
+          padding: 1.2188rem 1.5rem;
+          color: var(--gray85);
+          font-weight: 600;
+          &:first-child {
+            color: var(--gray32);
+          }
+        }
+      }
+    }
+  }
+}
