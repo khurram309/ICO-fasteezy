@@ -157,6 +157,26 @@ a {
     background-color: var(--danger);
     border-color: var(--danger);
   }
+  &-default {
+    border-radius: 6px;
+    border-color: var(--graye5);
+    box-shadow: 0px 1px 2px 0px #1018280A;
+    font-weight: 600;
+    &:hover {
+      background-color: var(--graye5);
+      border-color: var(--gray85);
+    }
+    &:first-child {
+      &:active {
+        background-color: var(--gray85);
+        border-color: var(--graye5);
+        box-shadow: none;
+        &:focus-visible {
+          box-shadow: none;
+        }
+      }
+    }
+  }
 }
 
 h2 {
@@ -343,6 +363,49 @@ hr {
         background-size: 100%;
         left: 0;
       }
+    }
+  }
+}
+
+.settings {
+  .btn {
+    font-size: .875rem;
+    padding: .5938rem .75rem;
+  }
+  .outer {
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.04);
+    border-radius: .625rem;
+    border: 1px solid var(--graye5);
+    margin-bottom: 1.9375rem;
+    .btn {
+      &.btn-default {
+        padding: .4063rem .75rem;
+      }
+    }
+  }
+  .cards-bar {
+    padding: .7125rem 1.5rem .7063rem 1.5rem;
+    border-bottom: 1px solid var(--graye5);
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
+
+.form-group {
+  position: relative;
+  span {
+    background: url('../src/assets/images/eye-icon.svg') no-repeat center;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    transform: translateX(0%);
+    cursor: pointer;
+    &:hover, &:focus, &.active {
+      filter: brightness(0) saturate(100%) invert(9%) sepia(100%) saturate(7142%) hue-rotate(271deg) brightness(79%) contrast(100%);
     }
   }
 }

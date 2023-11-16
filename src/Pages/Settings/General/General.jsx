@@ -7,7 +7,7 @@ import './General.scss';
 function General() {
   return (
     <div className="custom-container">
-      <div className="general-page">
+      <div className="general-page settings">
         <div className='d-flex align-content-center justify-content-between avatar-top pb-4 mb-4'>
           <div className="d-flex">
             <img src={avatar} alt="info" className="rounded-circle me-3 img-fluid" />

@@ -1,10 +1,4 @@
 .billing-page {
-  .billing-outer {
-    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.04);
-    border-radius: .625rem;
-    border: 1px solid var(--graye5);
-    margin-bottom: 1.9375rem;
-  }
   .billing-heading {
     border-bottom: 1px solid var(--graye5);
     padding: .9063rem 1rem .9063rem 1.5rem;
@@ -23,13 +17,6 @@
         left: auto !important;
         right: 0 !important;
       }
-    }
-  }
-  .cards-bar {
-    padding: .7125rem 1.5rem .7063rem 1.5rem;
-    border-bottom: 1px solid var(--graye5);
-    &:last-child {
-      border-bottom: 0;
     }
   }
   .status {

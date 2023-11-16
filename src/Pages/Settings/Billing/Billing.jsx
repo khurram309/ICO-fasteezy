@@ -12,8 +12,8 @@ import './Billing.scss';
 function Billing() {
   return (
     <div className="custom-container">
-      <div className="billing-page">
-        <div className="billing-outer">
+      <div className="billing-page settings">
+        <div className="outer">
           <div className="billing-heading d-flex justify-content-between align-items-center">
             <div className="fw-semibold">Payment Methods</div>
             <div className="dot-dropdown">
