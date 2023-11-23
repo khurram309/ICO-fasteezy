@@ -1,1 +1,1 @@
-web: npm start --port import.meta.env.PORT
+web: npm start
