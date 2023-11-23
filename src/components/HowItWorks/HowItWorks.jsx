@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './HowitWorks.scss';
+import './HowItWorks.scss';
 import count1 from '../../assets/images/1-icon.svg';
 import count2 from '../../assets/images/2-icon.svg';
 import count3 from '../../assets/images/3-icon.svg';
