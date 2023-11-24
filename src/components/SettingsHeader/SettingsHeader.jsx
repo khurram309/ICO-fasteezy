@@ -1,6 +1,6 @@
 import React from 'react';
-
-import { Nav, Navbar, NavLink } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
+import { Nav, Navbar } from 'react-bootstrap';
 import './SettingsHeader.scss';
 
 function SettingsHeader() {
@@ -12,9 +12,9 @@ function SettingsHeader() {
 
         <Navbar bg="transparent" className="bg-transparent border-0 border-bottom rounded-0 p-0">
           <Nav className="mr-auto" activeKey="/settings/general">
-            <NavLink href="/settings/general">General</NavLink>
-            <NavLink href="/settings/billing">Billing</NavLink>
-            <NavLink href="/settings/security">Security</NavLink>
+            <NavLink to="/settings/general">General</NavLink>
+            <NavLink to="/settings/billing">Billing</NavLink>
+            <NavLink to="/settings/security">Security</NavLink>
           </Nav>
         </Navbar>
       </div>
