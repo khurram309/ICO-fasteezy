@@ -1,14 +1,29 @@
 .main-banner {
   background-color: var(--gray400);
-  padding-bottom: 20px;
+  padding: .9375rem .9375rem 1.25rem .9375rem;
   .banner-text {
-    max-width: 450px;
+    max-width: 28.125rem;
   }
   .AIchatbot-img {
     max-width: 45.833vw;
-    margin-bottom: -50px;
+    margin-bottom: -3.125rem;
     img {
       width: 100%;
+    }
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .main-banner {
+    .banner-inner {
+      flex-flow: column-reverse;
+      .banner-text {
+        text-align: center;
+      }
+    }
+    .AIchatbot-img {
+      margin-bottom: 0rem;
+      max-width: 100%;
     }
   }
 }

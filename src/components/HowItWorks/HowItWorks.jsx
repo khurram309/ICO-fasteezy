@@ -8,7 +8,7 @@ import count4 from '../../assets/images/4-icon.svg';
 
 function HowItWorks() {
   return (
-    <div className="tile-block grayBg section-spacing">
+    <div className="tile-block grayBg section-spacing how-works">
       <div className="container-lg">
         <h2 className="text-center">How <span>it Works</span></h2>
         <h5 className="text-center">Discover how easy it is to get medical guidance and answers with UVO in just four simple steps</h5>

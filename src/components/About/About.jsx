@@ -7,14 +7,14 @@ import './About.scss';
 function About() {
   return (
     <div className="container-lg">
-      <div className="about-assistant section-spacing pb-4 mt-5">
+      <div className="about-assistant section-spacing pb-4 mt-md-5">
         <div className="row">
-          <div className="col-6">
+          <div className="col-md-6 col-sm-12">
             <img src={AboutCard} alt="About" />
           </div>
-          <div className="col-6">
+          <div className="col-md-6 col-sm-12">
             <h2>About <span>UVO Al assistant</span></h2>
-            <h5 className="pe-5">
+            <h5 className="p-0 pe-lg-5">
               At UVO, we're dedicated to your health and well-being. We understand that navigating
               the world of healthcare can be complex and sometimes overwhelming. That's why we've
               created UVO - Your Personal Medical Guru.

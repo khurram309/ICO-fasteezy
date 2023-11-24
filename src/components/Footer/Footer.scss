@@ -26,18 +26,35 @@ footer {
     border-top: 1px solid #D4D4D8;
     font-size: 1rem;
     font-weight: 400;
-    padding-top: 20px;
-    padding-bottom: 50px;
-    margin-top: 50px;
+    padding-top: 1.25rem;
+    padding-bottom: 3.125rem;
+    margin-top: 3.125rem;
     a {
       color: var(--gray50);
-      margin: 0 20px;
+      margin: 0 1.25rem;
       &:hover {
         color: var(--primaryhover);
       }
       &:last-child {
         margin-right: 0;
       }
+    }
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  footer {
+    .footer-bottom {
+      margin-top: 4.125rem;
+      gap: 1.875rem;
+      .nav {
+        .nav-link {
+          font-size: 12px;
+        }
+      }
+    }
+    .copyright {
+      gap: 1.25rem;
     }
   }
 }
