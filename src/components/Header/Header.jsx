@@ -11,7 +11,7 @@ import './Header.scss';
 
 function Header() {
   return (
-    <Navbar expand="lg" className='py-4'>
+    <Navbar expand="lg" className='py-4 mb-0'>
       <div className="container-lg">
         <div className="logo">
           <Navbar.Brand href="#home" className='p-0 d-flex w-100'>

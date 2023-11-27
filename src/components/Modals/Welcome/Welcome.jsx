@@ -24,10 +24,10 @@ function Welcome(props) {
           <div className="gray85">Congratulations, you've successfully signed up for UVO! Your subscription includes:</div>
           <div className="list-view">
             <ul className="mt-3">
-              <li>Limited access to the medical chat bot.</li>
-              <li>Access to a limited number of Q&A</li>
-              <li>No commitment, cancel anytime.</li>
-              <li>Access to all features</li>
+              <li>Unlimited access to the medical chat bot.</li>
+              <li>Ask as many questions as you want.</li>
+              <li>Priority support for faster responses.</li>
+              <li>Cancel anytime.</li>
             </ul>
           </div>
           <div className="welcom-info mt-2">

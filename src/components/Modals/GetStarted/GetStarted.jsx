@@ -58,7 +58,7 @@ function GetStarted() {
             Next
           </Button>
           {/* <PaymentInformation onClick={buttonClick} /> */}
-          <div className="text-center pt-4">
+          <div className="text-center pt-4 gray85">
             Already have an account? <a className="fw-medium ms-2" href="#register">Log in</a>
           </div>
         </Form>
