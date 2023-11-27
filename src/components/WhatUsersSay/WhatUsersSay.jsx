@@ -24,8 +24,8 @@ function WhatUsersSay() {
           </div>
         </div>
         <div>
-          <h4 className='text-white bold mb-4'>Reliable Health Companion</h4>
-          <p>"I can't thank UVO enough for the peace of mind it's given me. Whenever I have a health question or concern, UVO is there with accurate information and reassuring guidance."</p>
+          <h4 className='text-white bold mb-4'>Invaluable for Busy Moms</h4>
+          <p>"As a busy mom, UVO has been a lifesaver. It's like having a medical expert in my pocket. It helps me understand my family's health better and decide when to seek professional help."</p>
           <div className="d-flex mt-5">
             <div className="cust-pic me-3">
               <img className="img-fluid" src={customer2} alt="customer" />
@@ -37,8 +37,8 @@ function WhatUsersSay() {
           </div>
         </div>
         <div>
-          <h4 className='text-white bold mb-4'>Reliable Health Companion</h4>
-          <p>"I can't thank UVO enough for the peace of mind it's given me. Whenever I have a health question or concern, UVO is there with accurate information and reassuring guidance."</p>
+          <h4 className='text-white bold mb-4'>Invaluable for Busy Moms</h4>
+          <p>"As a busy mom, UVO has been a lifesaver. It's like having a medical expert in my pocket. It helps me understand my family's health better and decide when to seek professional help."</p>
           <div className="d-flex mt-5">
             <div className="cust-pic me-3">
               <img className="img-fluid" src={customer1} alt="customer" />

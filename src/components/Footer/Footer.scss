@@ -26,17 +26,27 @@ footer {
     border-top: 1px solid #D4D4D8;
     font-size: 1rem;
     font-weight: 400;
-    padding-top: 20px;
-    padding-bottom: 50px;
-    margin-top: 50px;
+    padding-top: 1.25rem;
+    padding-bottom: 3.125rem;
+    margin-top: 3.125rem;
+    .cr {
+      color: var(--gray50);
+    }
     a {
       color: var(--gray50);
-      margin: 0 20px;
+      margin: 0 1.25rem;
       &:hover {
         color: var(--primaryhover);
       }
       &:last-child {
         margin-right: 0;
+      }
+    }
+  }
+  .twitter {
+    a {
+      img {
+        width: 16px;
       }
     }
   }

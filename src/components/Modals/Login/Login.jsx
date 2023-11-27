@@ -37,7 +37,7 @@ function Login() {
           <Button className="w-100" variant="primary" type="submit">
             Sign in
           </Button>
-          <div className="text-center pt-4">
+          <div className="text-center pt-4 gray85">
             Don't have an account? <a className="fw-semibold ms-2" href="#register">Register</a>
           </div>
         </Form>

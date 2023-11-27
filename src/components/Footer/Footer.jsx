@@ -35,7 +35,7 @@ function Footer() {
             </Nav>
           </div>
           <div className="f-social d-flex">
-            <div className="mx-3">
+            <div className="mx-3 twitter">
               <Link to="#twitter"><img src={twitter} alt="twitter" /></Link>
             </div>
             <div className="mx-3">
