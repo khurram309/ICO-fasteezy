@@ -18,7 +18,7 @@ function WhatUsersSay() {
               <img className="img-fluid" src={customer1} alt="customer" />
             </div>
             <div>
-              <div className="fw-bold text-white">Theresa Webb</div>
+              <div className="fw-bold text-white">Dianne Russell</div>
               <div className="name">Customer</div>
             </div>
           </div>
@@ -41,7 +41,7 @@ function WhatUsersSay() {
           <p>"As a busy mom, UVO has been a lifesaver. It's like having a medical expert in my pocket. It helps me understand my family's health better and decide when to seek professional help."</p>
           <div className="d-flex mt-5">
             <div className="cust-pic me-3">
-              <img className="img-fluid" src={customer1} alt="customer" />
+              <img className="img-fluid" src={customer2} alt="customer" />
             </div>
             <div>
               <div className="fw-bold text-white">Theresa Webb</div>
