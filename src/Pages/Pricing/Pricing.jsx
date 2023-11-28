@@ -10,16 +10,16 @@ function Pricing() {
   return (
     <>
       <Container fluid="lg">
-        <Row className="justify-content-md-center my-5 pb-5">
-          <Col sm={7} lg={6}>
+        <Row className="justify-content-center my-5 mb-sm-0 pb-md-5 pb-sm-0">
+          <Col sm={8} lg={6}>
             <h2 className="text-center">A quick look at our <span>Pricing</span> Options</h2>
           </Col>
           <Col lg="12">
             <h5 className="text-center">Explore UVO's Flexible Subscription Plans for Personalized Health Support and Guidance.</h5>
           </Col>
         </Row>
-        <Row className="my-5 pb-3 pt-5">
-        <Col lg={4}>
+        <Row className="my-5 pb-3 pt-md-5 pt-sm-0">
+        <Col sm={12} md={4} lg={4} className="mb-md-0 mb-sm-5">
           <Card className="h-100">
             <CardBody className="p-0">
               <div className="d-flex flex-column justify-content-between h-100">
@@ -42,7 +42,7 @@ function Pricing() {
             </CardBody>
           </Card>
         </Col>
-        <Col lg={4}>
+        <Col sm={12} md={4} lg={4} className="mb-md-0 mb-sm-5">
           <Card className="h-100">
             <CardBody className="p-0">
             <div className="d-flex flex-column justify-content-between h-100">
@@ -65,7 +65,7 @@ function Pricing() {
             </CardBody>
           </Card>
         </Col>
-        <Col lg={4}>
+        <Col sm={12} md={4} lg={4} className="mb-md-0 mb-sm-5">
           <Card className="h-100">
             <CardBody className="p-0">
             <div className="d-flex flex-column justify-content-between h-100">
