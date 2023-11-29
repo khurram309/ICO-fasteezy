@@ -12,7 +12,7 @@ function About() {
           <div className="col-md-6 col-sm-12">
             <img src={AboutCard} alt="About" />
           </div>
-          <div className="col-md-6 col-sm-12 text-sm-center text-md-start">
+          <div className="col-md-6 col-sm-12 text-center text-md-start">
             <h2>About <span>UVO Al assistant</span></h2>
             <h5 className="p-0 pe-lg-5">
               At UVO, we're dedicated to your health and well-being. We understand that navigating

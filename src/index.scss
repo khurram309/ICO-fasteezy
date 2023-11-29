@@ -117,6 +117,7 @@ a {
       }
     }
   }
+  
   &-outline-primary {
     border-color: var(--primary);
     border-radius: 100px;
@@ -183,6 +184,12 @@ a {
   }
 }
 
+:not(.btn-check)+.btn:active {
+  background-color: var(--primaryhover);
+  border-color: var(--primaryhover);
+  box-shadow: none;
+}
+
 h2 {
   font-size: clamp(3rem, 2.7378rem + 1.104vw, 4.0625rem);
   font-weight: 700;
@@ -212,7 +219,7 @@ h4 {
 }
 
 h5 {
-  font-size: clamp(1.125rem, 0.6962rem + 0.67vw, 1.5rem);
+  font-size: clamp(1.3rem, 0.6962rem + 0.67vw, 1.5rem);
   font-weight: 400;
   line-height: 2.375rem;
 }
@@ -419,5 +426,11 @@ hr {
 @media (max-width: 75rem) {
   html {
     font-size: 14px;
+  }
+}
+
+@media (max-width: 64rem) {
+  .custom-container {
+    margin: 0 1.25rem;
   }
 }

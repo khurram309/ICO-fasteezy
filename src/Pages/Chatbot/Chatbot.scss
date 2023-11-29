@@ -3,11 +3,11 @@
   border: 1px solid var(--graye3);
   border-radius: .75rem;
   padding: 0.29rem;
-  gap: 20px;
+  gap: 1.25rem;
   box-shadow: inset 0px 0px 0px 2px rgba(255, 255, 255, 0.5);
   .nav-item {
     .nav-link {
-      font-size: 14px;
+      font-size: .875rem;
       font-weight: 600;
       color: var(--gray181);
       border: 0;
@@ -51,10 +51,10 @@
           border-radius: 8px;
           background-color: white;
           color: var(--gray5c);
-          font-size: 15px;
+          font-size: .9375rem;
           border: 1px solid rgba(0, 0, 0, 0.14);
-          padding: 6px 8px;
-          margin-right: 6px;
+          padding: .375rem .5rem;
+          margin-right: .375rem;
           &:last-child {
             margin-right: 0;
           }
@@ -67,7 +67,7 @@
         a {
           width: 2.25rem;
           height: 2.25rem;
-          border-radius: 100px;
+          border-radius: 6.25rem;
           border: 1px solid rgba(0, 0, 0, 0.14);
           display: flex;
         }
@@ -75,7 +75,7 @@
       .chat-input {
         border: 1px solid var(--primary);
         border-radius: 1rem;
-        padding: 8px 30px 8px 20px;
+        padding: .5rem 1.875rem .5rem 1.25rem;
         .form-control {
           border: 0;
           background-color: transparent;
@@ -86,7 +86,7 @@
   .contextual-sidebar {
     border-left: 1px solid var(--graye3);
     .search-section {
-      padding: 8px 0 8px 1.75rem;
+      padding: .5rem 0 .5rem 1.75rem;
       border-bottom: 1px solid var(--graye3);
       .form-control {
         border: 0;
@@ -96,10 +96,10 @@
     .history-tabs {
       padding: .9375rem;
       .nav-tabs {
-        padding: 3px;
+        padding: .1875rem;
         .nav-item {
           .nav-link {
-            padding: 6px 16px;
+            padding: .375rem 1rem;
           }
         }
       }
@@ -109,7 +109,7 @@
           li {
             list-style: none;
             a {
-              font-size: 14px;
+              font-size: .875rem;
               color: var(--gray39);
               font-weight: 600;
               padding: 8px;
@@ -137,19 +137,71 @@
         border-radius: 100px;
         display: flex;
         position: absolute;
-        right: 15px;
-        top: 15px;
+        right: .9375rem;
+        top: .9375rem;
         &:hover {
           box-shadow: inset 0px 0px 0px 2px rgba(124, 42, 232, 0.5);
         }
       }
       .empty-chat {
-        max-width: 160px;
+        max-width: 10rem;
         margin: 0 auto;
       }
       .btn {
-        font-size: 16px;
+        font-size: 1rem;
         font-weight: 700;
+      }
+    }
+  }
+}
+
+@media (max-width: 64rem) {
+  .chat-grid {
+    .conversation-cover {
+      .chat-tabs-section {
+        padding: 2rem;
+      }
+      .suggestions {
+        padding: 2rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 48rem) {
+  .chat-grid {
+    .conversation-cover {
+      padding: 1rem;
+      .chat-tabs-section {
+        padding: 1rem;
+      }
+      .suggestions {
+        padding: 1rem;
+        .btn-tags {
+          .btn {
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .chat-grid {
+    grid-template-columns: 1fr;
+    .conversation-cover {
+      padding: 1rem;
+      .chat-tabs-section {
+        padding: 1rem;
+      }
+      .suggestions {
+        padding: 1rem;
+        .btn-tags {
+          .btn {
+            margin-bottom: 10px;
+          }
+        }
       }
     }
   }
