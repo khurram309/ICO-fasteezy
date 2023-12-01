@@ -1,14 +1,50 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Nav, Button, Modal, Form } from 'react-bootstrap';
-
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import Notiflix from 'notiflix';
 
 import './Login.scss';
+import { apiRequests } from '../../../Common/apiRequests';
+import { setToken } from '../../../Redux/actions/authActions';
 
 function Login() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [show, setShow] = useState(false);
+  const form  = useRef(null);
+  const [validated, setValidated] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const loginForm = e.currentTarget;
+    if(!loginForm.checkValidity()) {
+      setValidated(true);
+      return;
+    }
+    const endPoint = `login`;
+    const data = new FormData(form.current);
+    const userData = {
+      user : {
+        email: data.get('email'),
+        password: data.get('password')
+      }
+    }
+    await apiRequests(endPoint, 'post', userData)
+    .then((response) => {
+      if(response.status === 200) {
+        dispatch(setToken(response.headers.authorization));
+        localStorage.setItem('user', JSON.stringify(response.data.data.attributes));
+        navigate('/settings/billing');
+      }
+    })
+    .catch((err) => {
+      Notiflix.Notify.failure(err.response.data);
+    })
+  }
 
   return (
     <>
@@ -25,14 +61,20 @@ function Login() {
           <Modal.Title>Let's Sign In</Modal.Title>
         </Modal.Header>
         <Modal.Body className="pt-3">
-        <Form>
+        <Form noValidate validated={validated} ref={form} onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email Address*</Form.Label>
-            <Form.Control type="email" placeholder="Insert your email" />
+            <Form.Control type="email" name="email" placeholder="Insert your email" required />
+            <Form.Control.Feedback type="invalid">
+              A valid email address is required!
+            </Form.Control.Feedback>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Insert your password" />
+            <Form.Control type="password" name="password" placeholder="Insert your password" required />
+            <Form.Control.Feedback type="invalid">
+              Password is required!
+            </Form.Control.Feedback>
           </Form.Group>
           <Button className="w-100" variant="primary" type="submit">
             Sign in

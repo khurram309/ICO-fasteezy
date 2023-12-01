@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Nav from 'react-bootstrap/Nav';
@@ -8,8 +8,13 @@ import logo from '../../assets/images/logo.png';
 import Login from '../Modals/Login/Login';
 import GetStarted from '../Modals/GetStarted/GetStarted';
 import './Header.scss';
+import store from '../../Redux/store';
+import { useSelector } from 'react-redux';
 
 function Header() {
+  // const state = store.getState();
+  const userToken = useSelector(state => state.auth.token);
+
   return (
     <Navbar expand="lg" className='py-4 mb-0'>
       <div className="container-lg">
@@ -24,10 +29,15 @@ function Header() {
             <NavLink to="/pricing">Pricing</NavLink>
             <NavLink to="/chat">Chatbot</NavLink>
           </Nav>
+          {userToken ? (
           <Nav>
-            <Login />
-            <GetStarted />
-          </Nav>
+          <p>User Login</p>
+        </Nav>) : (
+            <Nav>
+              <Login />
+              <GetStarted />
+            </Nav>
+          )}
         </Navbar.Collapse>
       </div>
     </Navbar>
