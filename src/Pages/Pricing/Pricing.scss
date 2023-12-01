@@ -26,3 +26,11 @@
     opacity: 1;
   }
 }
+
+@media (max-width: 47.9375rem) {
+  .card {
+    .card-text {
+      min-height: 0;
+    }
+  }
+}

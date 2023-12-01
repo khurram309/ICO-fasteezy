@@ -14,7 +14,7 @@ function Home() {
     <>
       <div className="main-banner">
         <div className="banner-inner d-flex justify-content-end align-items-center">
-          <div className="banner-text">
+          <div className="banner-text mt-4 mt-md-0">
             <h2>
               Empathetic Mental Health <span>AI Chatbot</span>
             </h2>

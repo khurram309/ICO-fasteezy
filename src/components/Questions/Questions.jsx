@@ -4,7 +4,7 @@ import "./Questions.scss";
 
 function Questions() {
   return (
-    <div className="questions">
+    <div className="questions section-spacing pb-0">
       <div className="container-lg">
         <h2 className="text-center">Frequently Asked <span>Questions</span></h2>
         <h5 className='text-center'>Got questions about UVO? Check out our FAQs below for answers to common queries. If you don't find what you're looking for, feel free to reach out to our support team.</h5>

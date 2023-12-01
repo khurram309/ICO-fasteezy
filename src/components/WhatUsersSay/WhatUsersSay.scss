@@ -26,3 +26,22 @@
     }
   }
 }
+
+@media (max-width: 75rem) {
+  .whatusers {
+    .users-grid {
+      padding: 0 1.25rem;
+    }
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .whatusers {
+    h5 {
+      padding: 0 1.25rem;
+    }
+    .users-grid {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+  }
+}
