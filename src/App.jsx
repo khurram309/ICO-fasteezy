@@ -1,17 +1,30 @@
-import { useState } from 'react';
+import React, { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './Redux/store';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Notiflix from 'notiflix';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    Notiflix.Notify.init({
+      className: 'notiflix-notify',
+      width: '380px',
+      position: 'right-top',
+      timeout: 6000
+    });
+  })
 
   return (
     <>
-    <Header />
-    <Outlet />
-    <Footer />
+    <Provider store={store}>
+      <Header />
+      <Outlet />
+      <Footer />
+    </Provider>
     </>
   )
 }
