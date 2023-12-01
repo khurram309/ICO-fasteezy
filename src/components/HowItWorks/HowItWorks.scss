@@ -19,3 +19,26 @@
     }
   }
 }
+
+@media (max-width: 75rem) {
+  .how-works {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .tile-block {
+    .key-grid {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+  }
+  .how-works {
+    &.tile-block {
+      .key-grid {
+        .tile {
+          text-align: center;
+        }
+      }
+    }
+  }
+}

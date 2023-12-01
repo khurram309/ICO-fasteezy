@@ -56,7 +56,7 @@ function GetStarted() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>Get Started Free</Button>
+      <Button variant="primary mt-lg-0 mt-5" onClick={handleShow}>Get Started Free</Button>
 
       <Modal
         show={show}

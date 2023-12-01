@@ -1,11 +1,27 @@
 .questions {
-  padding: 0 7.292vw;
+  padding-left: 7.292vw;
+  padding-right: 7.292vw;
   .questions-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-gap: 1rem;
     .form-select {
       height: 3.5rem;
+    }
+  }
+}
+
+@media (max-width: 75rem) {
+  .questions {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .questions {
+    .questions-grid {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
     }
   }
 }

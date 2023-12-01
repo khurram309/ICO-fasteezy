@@ -51,3 +51,20 @@ footer {
     }
   }
 }
+
+@media (max-width: 47.9375rem) {
+  footer {
+    .footer-bottom {
+      margin-top: 4.125rem;
+      gap: 1.875rem;
+      .nav {
+        .nav-link {
+          font-size: 12px;
+        }
+      }
+    }
+    .copyright {
+      gap: 1.25rem;
+    }
+  }
+}

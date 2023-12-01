@@ -22,7 +22,7 @@ function Footer() {
         <div className="d-flex justify-content-center mt-4 footer-signup">
           <Button variant="primary">Sign Up Now</Button>{' '}
         </div>
-        <div className="footer-bottom d-flex justify-content-between align-items-center">
+        <div className="footer-bottom d-flex justify-content-between align-items-center flex-column flex-md-row">
           <div className="f-logo">
             <img className="img-fluid " src={logo} alt="Logo" />
           </div>
@@ -49,7 +49,7 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div className="copyright d-flex justify-content-between align-items-center ">
+        <div className="copyright d-flex justify-content-between align-items-center flex-column flex-md-row ">
           <div className="cr">© Copyright 2023, All Rights Reserved</div>
           <div className="quick-links">
             <Link to="pp">Privacy Policy</Link>

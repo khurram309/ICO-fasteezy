@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
   color: var(--gray32);
@@ -113,6 +117,7 @@ a {
       }
     }
   }
+  
   &-outline-primary {
     border-color: var(--primary);
     border-radius: 100px;
@@ -179,6 +184,12 @@ a {
   }
 }
 
+:not(.btn-check)+.btn:active {
+  background-color: var(--primaryhover);
+  border-color: var(--primaryhover);
+  box-shadow: none;
+}
+
 h2 {
   font-size: clamp(3rem, 2.7378rem + 1.104vw, 4.0625rem);
   font-weight: 700;
@@ -186,13 +197,14 @@ h2 {
   letter-spacing: -4px;
   span, .markerlight {
     color: var(--primary);
-    background: url('../src/assets/images/marker.svg') no-repeat 0px 25px;
+    background: url('../src/assets/images/marker.svg') no-repeat 0px 1.5625rem;
     display: inline-flex;
     background-size: 100% 100%;
     padding: 0 1.5rem 1.25rem 0;
   }
   .markerlight {
-    background: url('../src/assets/images/markerlight.svg') no-repeat 0px 65px;
+    background: url('../src/assets/images/markerlight.svg') no-repeat 0px 4.0625rem;
+    background-size: contain !important;
   }
 }
 
@@ -207,7 +219,7 @@ h4 {
 }
 
 h5 {
-  font-size: clamp(1.125rem, 0.6962rem + 0.67vw, 1.5rem);
+  font-size: clamp(1.3rem, 0.6962rem + 0.67vw, 1.5rem);
   font-weight: 400;
   line-height: 2.375rem;
 }
@@ -235,7 +247,7 @@ hr {
 }
 
 .section-spacing {
-  padding-block: 100px;
+  padding-block: 6.25rem;
 }
 
 .form-label {
@@ -396,16 +408,29 @@ hr {
   position: relative;
   span {
     background: url('../src/assets/images/eye-icon.svg') no-repeat center;
-    width: 28px;
-    height: 28px;
+    width: 1.75rem;
+    height: 1.75rem;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    right: 10px;
+    right: .625rem;
     transform: translateX(0%);
     cursor: pointer;
     &:hover, &:focus, &.active {
       filter: brightness(0) saturate(100%) invert(9%) sepia(100%) saturate(7142%) hue-rotate(271deg) brightness(79%) contrast(100%);
     }
+  }
+}
+
+
+@media (max-width: 75rem) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 64rem) {
+  .custom-container {
+    margin: 0 1.25rem;
   }
 }
