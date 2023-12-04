@@ -46,7 +46,7 @@ function GetStarted() {
         last_name: data.get('last_name'),
         email: data.get('email'),
         password: data.get('password'),
-        comfirm_password: data.get('confirm_password')
+        password_confirmation: data.get('confirm_password')
       }
     }
     await apiRequests(endPoint, 'post', userData)
