@@ -5,14 +5,21 @@ import Login from '../Modals/Login/Login';
 import GetStarted from '../Modals/GetStarted/GetStarted';
 import './Header.scss';
 import store from '../../Redux/store';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import dp from '../../assets/images/dp.jpg';
 import bell from '../../assets/images/bell-icon.svg';
+import { logout } from '../../Redux/actions/authActions';
 
 
 function Header() {
   // const state = store.getState();
+  const dispatch = useDispatch()
   const userToken = useSelector(state => state.auth.token);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    localStorage.clear();
+  }
 
   return (
     <Navbar expand="lg" className='py-4 mb-0'>
@@ -45,9 +52,7 @@ function Header() {
                   Jene Smith
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                  <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                  <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </div>
