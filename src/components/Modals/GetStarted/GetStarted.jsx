@@ -14,12 +14,22 @@ function GetStarted() {
   const [showPayment, setShowPayment] = useState(false);
   const form  = useRef(null);
   const [validated, setValidated] = useState(false);
+  const [password, setPassword] = useState('');
+  const [passwordsMatch, setPasswordsMatch] = useState(true);
 
   const handleClose = () => setShowSignUp(false);
   const handleShow = () => {
     setShowSignUp(true);
     setShowPayment(false);
   }
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleConfirmPasswordChange = (e) => {
+    setPasswordsMatch(password === e.target.value);
+  };
 
   const onNextClick = async (e) => {
     e.preventDefault();
@@ -91,17 +101,18 @@ function GetStarted() {
           </Form.Group>
           <Form.Group className="mb-3" controlId="formPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Insert your password" name="password" required />
+            <Form.Control type="password" placeholder="Insert your password" name="password" required onChange={handlePasswordChange} />
             <Form.Control.Feedback type="invalid">
               Password is required!
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formConfirmPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Confirm your password" name="confirm_password" required />
+            <Form.Control type="password" placeholder="Confirm your password" name="confirm_password" required onChange={handleConfirmPasswordChange} />
             <Form.Control.Feedback type="invalid">
               Your name is required!
             </Form.Control.Feedback>
+            {passwordsMatch ? null : <Form.Text className="text-danger">Passwords do not match</Form.Text>}
           </Form.Group>
           <Form.Group className="mb-4 pb-2 mt-3 fw-semibold" controlId="formBasicCheckbox">
             <Form.Check type="checkbox" label="Agree to Terms and Conditions" />
