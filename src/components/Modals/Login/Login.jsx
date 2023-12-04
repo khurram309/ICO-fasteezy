@@ -36,8 +36,7 @@ function Login() {
     await apiRequests(endPoint, 'post', userData)
     .then((response) => {
       if(response.status === 200) {
-        dispatch(setToken(response.headers.authorization));
-        localStorage.setItem('user', JSON.stringify(response.data.data.attributes));
+        dispatch(setToken(response));
         navigate('/settings/billing');
       }
     })
