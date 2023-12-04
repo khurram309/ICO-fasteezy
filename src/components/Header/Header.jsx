@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Nav, Navbar, Dropdown, NavLink } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
+import { Nav, Navbar, Dropdown } from 'react-bootstrap';
 import logo from '../../assets/images/logo.png';
 import Login from '../Modals/Login/Login';
 import GetStarted from '../Modals/GetStarted/GetStarted';
@@ -15,6 +16,7 @@ function Header() {
   // const state = store.getState();
   const dispatch = useDispatch()
   const userToken = useSelector(state => state.auth.token);
+  const user = useSelector(state => state.auth.user);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -25,9 +27,9 @@ function Header() {
     <Navbar expand="lg" className='py-4 mb-0'>
       <div className="container-lg">
         <div className="logo">
-          <Navbar.Brand href="#home" className='p-0 d-flex w-100'>
+          <NavLink to="/" className='p-0 d-flex w-100'>
             <img src={logo} alt="Logo" />
-          </Navbar.Brand>
+          </NavLink>
         </div>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -49,7 +51,7 @@ function Header() {
               </div>
               <Dropdown>
                 <Dropdown.Toggle variant="" id="dropdown-basic">
-                  Jene Smith
+                  { `${user?.first_name} ${user?.last_name}` }
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                   <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
