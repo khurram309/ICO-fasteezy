@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Nav, Navbar, Dropdown } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+
+import store from '../../Redux/store';
 import logo from '../../assets/images/logo.png';
 import Login from '../Modals/Login/Login';
 import GetStarted from '../Modals/GetStarted/GetStarted';
 import './Header.scss';
-import store from '../../Redux/store';
-import { useDispatch, useSelector } from 'react-redux';
 import dp from '../../assets/images/dp.jpg';
 import bell from '../../assets/images/bell-icon.svg';
+import { apiRequests } from '../../Common/apiRequests';
 import { logout } from '../../Redux/actions/authActions';
 
 
@@ -18,9 +20,16 @@ function Header() {
   const userToken = useSelector(state => state.auth.token);
   const user = useSelector(state => state.auth.user);
 
-  const handleLogout = () => {
-    dispatch(logout());
-    localStorage.clear();
+  const handleLogout = async () => {
+    const endPoint = `logout`;
+    await apiRequests(endPoint, 'delete')
+    .then((response) => {
+      dispatch(logout());
+      localStorage.clear();
+    })
+    .catch((err) => {
+      Notiflix.Notify.failure(err.response.data);
+    })
   }
 
   return (
