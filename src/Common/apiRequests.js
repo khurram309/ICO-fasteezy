@@ -9,5 +9,19 @@ export var apiRequests = async (ENDPOINT, METHOD, PAYLOAD) => {
     data: PAYLOAD
   };
 
+  axios.interceptors.request.use(
+    config => {
+      const token = localStorage.getItem('accessToken')
+      if (token) {
+        config.headers['Authorization'] = token
+      }
+      // config.headers['Content-Type'] = 'application/json';
+      return config
+    },
+    error => {
+      Promise.reject(error)
+    }
+  )
+
   return axios(options);
 }
