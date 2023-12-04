@@ -1,25 +1,24 @@
 import React, { useRef, useState } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import Notiflix from 'notiflix';
 
 import './GetStarted.scss';
 import PaymentInformation from '../PaymentInformation/PaymentInformation';
 import { apiRequests } from '../../../Common/apiRequests';
+import { setSignUp } from '../../../Redux/actions/authActions';
 
 function GetStarted() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const [show, setShow] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(false);
+  const [showPayment, setShowPayment] = useState(false);
   const form  = useRef(null);
   const [validated, setValidated] = useState(false);
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => setShowSignUp(false);
   const handleShow = () => {
-    setShow(true);
-    setShowModal(false);
+    setShowSignUp(true);
+    setShowPayment(false);
   }
 
   const onNextClick = async (e) => {
@@ -29,7 +28,7 @@ function GetStarted() {
       setValidated(true);
       return;
     }
-    const endPoint = `sign_up`;
+    const endPoint = `signup`;
     const data = new FormData(form.current);
     const userData = {
       user: {
@@ -37,20 +36,19 @@ function GetStarted() {
         last_name: data.get('last_name'),
         email: data.get('email'),
         password: data.get('password'),
-        comfirm_password: data.get('confim_password')
+        comfirm_password: data.get('confirm_password')
       }
     }
     await apiRequests(endPoint, 'post', userData)
     .then((response) => {
       if(response.status === 200) {
-        console.log(response);
-        dispatch(setToken(response.headers.authorization));
-        // setShowModal(true);
-        // setShow(false);
+        dispatch(setSignUp(response));
+        setShowPayment(true);
+        setShowSignUp(false);
       }
     })
     .catch((err) => {
-      Notiflix.Notify.failure(err.response.data);
+      Notiflix.Notify.failure(err.response.data.status.message);
     })
   }
 
@@ -59,7 +57,7 @@ function GetStarted() {
       <Button variant="primary mt-lg-0 mt-5" onClick={handleShow}>Get Started Free</Button>
 
       <Modal
-        show={show}
+        show={showSignUp}
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
@@ -118,7 +116,7 @@ function GetStarted() {
         </Form>
         </Modal.Body>
       </Modal>
-      { showModal && <PaymentInformation showModal={showModal} /> }
+      { showPayment && <PaymentInformation showModal={showPayment} /> }
     </>
   )
 }
