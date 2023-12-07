@@ -1,10 +1,14 @@
 .navbar {
-  background-color: var(--gray400);
+  border-bottom: 1px solid var(--graye5);
+  padding: 1.4375rem 0;
   .logo {
     width: 6.375rem;
     img {
       width: 100%;
     }
+  }
+  .centerNav {
+    width: calc(100% - 6.375rem);
   }
   .navbar-nav {
     a {
@@ -69,8 +73,18 @@
           }
         }
         .dropdown-menu {
+          left: auto;
+          right: 0;
+          top: 36px;
           a {
             margin: 0;
+            padding: .625rem .9375rem;
+            font-weight: normal;
+            font-size: 14px;
+            &:hover, &:active {
+              box-shadow: none;
+              background-color: var(--bs-dropdown-link-hover-bg);
+            }
           }
         }
       }
@@ -98,16 +112,31 @@
 }
 
 @media (max-width: 62rem) {
-  .navbar {
-    .navbar-nav {
-      a {
-        margin: 0;
-        border-bottom: 1px solid var(--graye5);
-        padding: .9375rem;
-        &.nav-link {
+  .navbar-collapse {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 78px;
+    background: white;
+  }
+
+  .topHeader {
+    &.navbar {
+      .navbar-toggler {
+        &:focus:not(:focus-visible) {
+          box-shadow: 0px 0px 0px 3px rgb(124, 42, 232);
+        }
+      }
+      .navbar-nav {
+        a {
+          margin: 0;
+          border-bottom: 1px solid var(--graye5);
           padding: .9375rem;
-          color: var(--gray200);
-          font-size: 14px;
+          &.nav-link {
+            padding: .9375rem;
+            color: var(--gray200);
+            font-size: 14px;
+          }
         }
       }
     }
