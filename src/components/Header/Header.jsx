@@ -33,48 +33,74 @@ function Header() {
   }
 
   return (
-    <Navbar expand="lg" className='py-4 mb-0'>
+    <Navbar expand="lg" className='topHeader mb-0'>
       <div className="container-lg">
         <div className="logo">
           <NavLink to="/" className='p-0 d-flex w-100'>
             <img src={logo} alt="Logo" />
           </NavLink>
         </div>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mx-auto center-nav">
-            <NavLink to="/pricing">Pricing</NavLink>
-            <NavLink to="/chat">Chatbot</NavLink>
-          </Nav>
-          {userToken ? (
-          <Nav>
-          <div className="right-nav d-flex align-items-center">
-            <div className="bell me-3 d-flex align-items-center justify-content-center">
-              <div className="notification"></div>
-              <img src={bell} alt="Bell" />
-            </div>
-            <div className=' d-flex align-items-center profile-dropdown'>
-              <div className="avatar">
-                <div className="dot"></div>
-                <img src={dp} alt="Dp" />
+        <div className='d-flex justify-content-end centerNav'>
+          <div className='d-md-block d-lg-none me-4'>
+            <div className="right-nav d-flex align-items-center">
+              <div className="bell me-3 d-flex align-items-center justify-content-center">
+                <div className="notification"></div>
+                <img src={bell} alt="Bell" />
               </div>
-              <Dropdown>
-                <Dropdown.Toggle variant="" id="dropdown-basic">
-                  { `${user?.first_name} ${user?.last_name}` }
-                </Dropdown.Toggle>
-                <Dropdown.Menu>
-                  <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
+              <div className=' d-flex align-items-center profile-dropdown'>
+                <div className="avatar">
+                  <div className="dot"></div>
+                  <img src={dp} alt="Dp" />
+                </div>
+                <Dropdown>
+                  <Dropdown.Toggle variant="" id="dropdown-basic">
+                    { `${user?.first_name} ${user?.last_name}` }
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </div>
             </div>
           </div>
-        </Nav>) : (
-          <Nav>
-            <Login />
-            <GetStarted />
-          </Nav>
-        )}
-        </Navbar.Collapse>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mx-auto center-nav">
+              <NavLink to="/pricing">Pricing</NavLink>
+              <NavLink to="/chat">Chatbot</NavLink>
+            </Nav>
+            {userToken ? (
+            <Nav>
+              <div className='d-lg-block d-none'>
+                <div className="right-nav d-flex align-items-center">
+                  <div className="bell me-3 d-flex align-items-center justify-content-center">
+                    <div className="notification"></div>
+                    <img src={bell} alt="Bell" />
+                  </div>
+                  <div className='d-flex align-items-center profile-dropdown'>
+                    <div className="avatar">
+                      <div className="dot"></div>
+                      <img src={dp} alt="Dp" />
+                    </div>
+                    <Dropdown>
+                      <Dropdown.Toggle variant="" id="dropdown-basic">
+                        { `${user?.first_name} ${user?.last_name}` }
+                      </Dropdown.Toggle>
+                      <Dropdown.Menu>
+                        <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  </div>
+                </div>
+              </div>
+            </Nav>) : (
+            <Nav>
+              <Login />
+              <GetStarted />
+            </Nav>
+          )}
+          </Navbar.Collapse>
+        </div>
       </div>
     </Navbar>
   )
