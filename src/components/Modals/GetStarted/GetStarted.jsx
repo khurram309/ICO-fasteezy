@@ -11,6 +11,7 @@ import { setSignUp } from '../../../Redux/actions/authActions';
 
 function GetStarted(props) {
   const dispatch = useDispatch();
+  const [email, setEmail] = useState('');
   const [showSignUp, setShowSignUp] = useState(props.showRegister);
   const [showLogin, setShowLogin] = useState(false);
   const [showPayment, setShowPayment] = useState(false);
@@ -103,9 +104,9 @@ function GetStarted(props) {
           </Form.Group>
           <Form.Group className="mb-3" controlId="formEmail">
             <Form.Label>Email Address*</Form.Label>
-            <Form.Control type="email" placeholder="Insert your email" name="email" required />
+            <Form.Control type="email" placeholder="Insert your email" name="email" required onChange={(e) => setEmail(e.target.value)} />
             <Form.Control.Feedback type="invalid">
-              Email is required!
+            {email === '' ? 'Email is required!' : 'Enter valid email address!'}
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formPassword">
@@ -119,12 +120,12 @@ function GetStarted(props) {
             <Form.Label>Confirm Password*</Form.Label>
             <Form.Control type="password" placeholder="Confirm your password" name="confirm_password" required onChange={handleConfirmPasswordChange} />
             <Form.Control.Feedback type="invalid">
-              Your name is required!
+              Confirm Password is required!
             </Form.Control.Feedback>
             {passwordsMatch ? null : <Form.Text className="text-danger">Passwords do not match</Form.Text>}
           </Form.Group>
           <Form.Group className="mb-4 pb-2 mt-3 fw-semibold" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Agree to Terms and Conditions" />
+            <Form.Check type="checkbox" label="Agree to Terms and Conditions" required />
           </Form.Group>
           <Button className="w-100" variant="primary" type="submit">
             Next
