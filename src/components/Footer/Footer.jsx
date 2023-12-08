@@ -9,6 +9,7 @@ import twitter from '../../assets/images/twitter-icon.svg';
 import fb from '../../assets/images/fb-icon.svg';
 import instagram from '../../assets/images/instagram-icon.svg';
 import github from '../../assets/images/github-icon.svg';
+import GetStarted from '../Modals/GetStarted/GetStarted';
 
 function Footer() {
   return (
@@ -20,7 +21,7 @@ function Footer() {
           with instant medical insights.
         </h5>
         <div className="d-flex justify-content-center mt-4 footer-signup">
-          <Button variant="primary">Sign Up Now</Button>{' '}
+          <GetStarted source="footer" />
         </div>
         <div className="footer-bottom d-flex justify-content-between align-items-center flex-column flex-md-row">
           <div className="f-logo">

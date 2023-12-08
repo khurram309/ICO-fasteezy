@@ -7,16 +7,21 @@ import Notiflix from 'notiflix';
 import './Login.scss';
 import { apiRequests } from '../../../Common/apiRequests';
 import { setToken } from '../../../Redux/actions/authActions';
+import GetStarted from '../GetStarted/GetStarted';
 
-function Login() {
+function Login(props) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(props.showLogin);
+  const [showRegister, setShowRegister] = useState(false);
   const form  = useRef(null);
   const [validated, setValidated] = useState(false);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = () => {
+    setShow(true)
+    setShowRegister(false);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,7 +52,7 @@ function Login() {
 
   return (
     <>
-      <Nav.Link onClick={handleShow}>Login</Nav.Link>
+      {!props.showLogin && <Nav.Link onClick={handleShow}>Login</Nav.Link>}
 
       <Modal
         show={show}
@@ -79,11 +84,16 @@ function Login() {
             Sign in
           </Button>
           <div className="text-center pt-4 gray85">
-            Don't have an account? <a className="fw-semibold ms-2" href="#register">Register</a>
+            Don't have an account? 
+            <a className="fw-semibold ms-2" role='button' onClick={() => {
+              setShowRegister(!showRegister)
+              setShow(!show)
+              }}>Register</a>
           </div>
         </Form>
         </Modal.Body>
       </Modal>
+      {showRegister && <GetStarted showRegister={showRegister} />}
     </>
   );
 }
