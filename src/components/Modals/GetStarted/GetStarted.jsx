@@ -88,14 +88,14 @@ function GetStarted(props) {
         <Modal.Body>
         <Form noValidate validated={validated} ref={form} onSubmit={onNextClick}>
           <Form.Group className="mb-3" controlId="formName">
-            <Form.Label>First Name</Form.Label>
+            <Form.Label>First Name*</Form.Label>
             <Form.Control type="text" placeholder="Insert first name" name="first_name" required />
             <Form.Control.Feedback type="invalid">
               First name is required!
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formName">
-            <Form.Label>Last Name</Form.Label>
+            <Form.Label>Last Name*</Form.Label>
             <Form.Control type="text" placeholder="Insert last name" name="last_name" required />
             <Form.Control.Feedback type="invalid">
               Last name is required!
@@ -109,14 +109,14 @@ function GetStarted(props) {
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formPassword">
-            <Form.Label>Password</Form.Label>
+            <Form.Label>Password*</Form.Label>
             <Form.Control type="password" placeholder="Insert your password" name="password" required onChange={handlePasswordChange} />
             <Form.Control.Feedback type="invalid">
               Password is required!
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formConfirmPassword">
-            <Form.Label>Password</Form.Label>
+            <Form.Label>Password*</Form.Label>
             <Form.Control type="password" placeholder="Confirm your password" name="confirm_password" required onChange={handleConfirmPasswordChange} />
             <Form.Control.Feedback type="invalid">
               Your name is required!
