@@ -12,6 +12,7 @@ import GetStarted from '../GetStarted/GetStarted';
 function Login(props) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [email, setEmail] = useState('');
   const [show, setShow] = useState(props.showLogin);
   const [showRegister, setShowRegister] = useState(false);
   const form  = useRef(null);
@@ -68,12 +69,9 @@ function Login(props) {
         <Form noValidate validated={validated} ref={form} onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email Address*</Form.Label>
-            <Form.Control type="email" name="email" placeholder="Insert your email" required />
-            <Form.Control.Feedback type="required">
-              A valid email address is required!
-            </Form.Control.Feedback>
+            <Form.Control type="email" name="email" placeholder="Insert your email" required onChange={(e) => setEmail(e.target.value)} />
             <Form.Control.Feedback type="invalid">
-              Email is required!
+            {email === '' ? 'Email is required!' : 'Enter valid email address!'}
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
