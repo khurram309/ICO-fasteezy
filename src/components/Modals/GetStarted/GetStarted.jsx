@@ -5,12 +5,14 @@ import Notiflix from 'notiflix';
 
 import './GetStarted.scss';
 import PaymentInformation from '../PaymentInformation/PaymentInformation';
+import Login from '../Login/Login';
 import { apiRequests } from '../../../Common/apiRequests';
 import { setSignUp } from '../../../Redux/actions/authActions';
 
-function GetStarted() {
+function GetStarted(props) {
   const dispatch = useDispatch();
-  const [showSignUp, setShowSignUp] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(props.showRegister);
+  const [showLogin, setShowLogin] = useState(false);
   const [showPayment, setShowPayment] = useState(false);
   const form  = useRef(null);
   const [validated, setValidated] = useState(false);
@@ -21,6 +23,7 @@ function GetStarted() {
   const handleShow = () => {
     setShowSignUp(true);
     setShowPayment(false);
+    setShowLogin(false);
   }
 
   const handlePasswordChange = (e) => {
@@ -64,7 +67,13 @@ function GetStarted() {
 
   return (
     <>
-      <Button variant="primary mt-lg-0 mt-5" onClick={handleShow}>Get Started Free</Button>
+      {props.source == 'home' ? (
+        <Button variant="primary mt-lg-0 mt-5" onClick={handleShow}>Get Started</Button>
+      ) : props.source == 'footer' ? (
+        <Button variant="primary mt-lg-0 mt-5" onClick={handleShow}>Sign Up Now</Button>
+      ) : (
+        !props.showRegister && <Button variant="primary mt-lg-0 mt-5" onClick={handleShow}>Get Started Free</Button>
+      )}
 
       <Modal
         show={showSignUp}
@@ -122,12 +131,16 @@ function GetStarted() {
           </Button>
           {/* <PaymentInformation onClick={buttonClick} /> */}
           <div className="text-center pt-4 gray85">
-            Already have an account? <a className="fw-medium ms-2" href="#register">Log in</a>
+            Already have an account? <a className="fw-medium ms-2" role='button' onClick={() => {
+              setShowLogin(true)
+              setShowSignUp(false)
+              }} >Log in</a>
           </div>
         </Form>
         </Modal.Body>
       </Modal>
       { showPayment && <PaymentInformation showModal={showPayment} /> }
+      { showLogin && <Login showLogin={showLogin} /> }
     </>
   )
 }

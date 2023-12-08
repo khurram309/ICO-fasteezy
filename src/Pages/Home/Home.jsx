@@ -8,6 +8,7 @@ import HowItWorks from '../../components/HowItWorks/HowItWorks';
 import WhatUsersSay from '../../components/WhatUsersSay/WhatUsersSay';
 import Questions from '../../components/Questions/Questions';
 import './Home.scss';
+import GetStarted from '../../components/Modals/GetStarted/GetStarted';
 
 function Home() {
   return (
@@ -21,7 +22,7 @@ function Home() {
             <h5>Our AI assistant UVO is here to help you navigate the world of health and wellness.</h5>
             <div className="bnt-section mt-5">
               <Button variant="outline-primary me-1 small-btn">Try Demo</Button>{' '}
-              <Button variant="primary small-btn">Get Started</Button>{' '}
+              <GetStarted source="home" />
             </div>
           </div>
           <div className="AIchatbot-img">

@@ -2,6 +2,7 @@ import React from 'react';
 
 import Button from 'react-bootstrap/Button';
 import AboutCard from '../../assets/images/about-card.png';
+import GetStarted from '../Modals/GetStarted/GetStarted';
 import './About.scss';
 
 function About() {
@@ -21,7 +22,7 @@ function About() {
             </h5>
             <div className="bnt-section mt-5">
               <Button variant="outline-primary me-1 small-btn">Try Demo</Button>{' '}
-              <Button variant="primary small-btn">Get Started</Button>{' '}
+              <GetStarted source="home" />
             </div>
           </div>
         </div>
