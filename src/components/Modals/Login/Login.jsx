@@ -69,12 +69,15 @@ function Login(props) {
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email Address*</Form.Label>
             <Form.Control type="email" name="email" placeholder="Insert your email" required />
-            <Form.Control.Feedback type="invalid">
+            <Form.Control.Feedback type="required">
               A valid email address is required!
+            </Form.Control.Feedback>
+            <Form.Control.Feedback type="invalid">
+              Email is required!
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
+            <Form.Label>Password*</Form.Label>
             <Form.Control type="password" name="password" placeholder="Insert your password" required />
             <Form.Control.Feedback type="invalid">
               Password is required!
