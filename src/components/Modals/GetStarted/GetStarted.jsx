@@ -116,7 +116,7 @@ function GetStarted(props) {
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formConfirmPassword">
-            <Form.Label>Password*</Form.Label>
+            <Form.Label>Confirm Password*</Form.Label>
             <Form.Control type="password" placeholder="Confirm your password" name="confirm_password" required onChange={handleConfirmPasswordChange} />
             <Form.Control.Feedback type="invalid">
               Your name is required!
