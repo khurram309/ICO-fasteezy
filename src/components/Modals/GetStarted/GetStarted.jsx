@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Notiflix from 'notiflix';
 
 import './GetStarted.scss';
@@ -11,10 +11,11 @@ import { setSignUp } from '../../../Redux/actions/authActions';
 
 function GetStarted(props) {
   const dispatch = useDispatch();
+  const showPayment = useSelector(state => state.auth.showPayment);
+  const userToken = useSelector(state => state.auth.user);
   const [email, setEmail] = useState('');
   const [showSignUp, setShowSignUp] = useState(props.showRegister);
   const [showLogin, setShowLogin] = useState(false);
-  const [showPayment, setShowPayment] = useState(false);
   const form  = useRef(null);
   const [validated, setValidated] = useState(false);
   const [password, setPassword] = useState('');
@@ -23,7 +24,6 @@ function GetStarted(props) {
   const handleClose = () => setShowSignUp(false);
   const handleShow = () => {
     setShowSignUp(true);
-    setShowPayment(false);
     setShowLogin(false);
   }
 
@@ -57,7 +57,6 @@ function GetStarted(props) {
     .then((response) => {
       if(response.status === 200) {
         dispatch(setSignUp(response));
-        setShowPayment(true);
         setShowSignUp(false);
       }
     })
@@ -140,7 +139,7 @@ function GetStarted(props) {
         </Form>
         </Modal.Body>
       </Modal>
-      { showPayment && <PaymentInformation showModal={showPayment} /> }
+      { userToken && props.source == 'footer' && <PaymentInformation showModal={showPayment} /> }
       { showLogin && <Login showLogin={showLogin} /> }
     </>
   )

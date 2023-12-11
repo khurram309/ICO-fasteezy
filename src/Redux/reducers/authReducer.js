@@ -14,7 +14,8 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         token: action.payload.headers.authorization,
-        user: action.payload.data.data.attributes
+        user: action.payload.data.data.attributes,
+        showPayment: false
       };
     case SET_SIGN_UP:
       localStorage.setItem('accessToken', action.payload.headers.authorization);
