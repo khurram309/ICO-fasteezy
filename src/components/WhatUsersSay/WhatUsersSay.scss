@@ -38,9 +38,10 @@
 @media (max-width: 47.9375rem) {
   .whatusers {
     h5 {
-      padding: 0 1.25rem;
+      padding: 0 10px;
     }
     .users-grid {
+      padding: 0 10px;
       grid-template-columns: repeat(1, minmax(0, 1fr));
     }
   }

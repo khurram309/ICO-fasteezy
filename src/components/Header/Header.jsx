@@ -41,7 +41,7 @@ function Header() {
           </NavLink>
         </div>
         <div className='d-flex justify-content-end centerNav'>
-          <div className='d-md-block d-lg-none me-4'>
+          {userToken && <div className='d-md-block d-lg-none me-4'>
             <div className="right-nav d-flex align-items-center">
               <div className="bell me-3 d-flex align-items-center justify-content-center">
                 <div className="notification"></div>
@@ -54,7 +54,9 @@ function Header() {
                 </div>
                 <Dropdown>
                   <Dropdown.Toggle variant="" id="dropdown-basic">
-                    { `${user?.first_name} ${user?.last_name}` }
+                    <span>
+                      { `${user?.first_name} ${user?.last_name}` }
+                    </span>
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
                     <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
@@ -62,7 +64,7 @@ function Header() {
                 </Dropdown>
               </div>
             </div>
-          </div>
+          </div>}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mx-auto center-nav">
