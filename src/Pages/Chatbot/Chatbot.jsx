@@ -13,7 +13,7 @@ import './Chatbot.scss';
 
 function Chatbot() {
   return (
-    <div className="custom-container chatbot-bg mt-4">
+    <div className="custom-container chatbot-bg mt-md-4 pt-4 pt-md-0">
       <div className="chat-grid">
         <div className="conversation-cover">
           <div className="chat-tabs-section">

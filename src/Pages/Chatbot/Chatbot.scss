@@ -190,13 +190,19 @@
 @media (max-width: 47.9375rem) {
   .chat-grid {
     grid-template-columns: 1fr;
+    .contextual-sidebar {
+      border-left: 0;
+      .history-tabs {
+        padding: 10px;
+      }
+    }
     .conversation-cover {
-      padding: 1rem;
+      padding: 10px;
       .chat-tabs-section {
         padding: 1rem;
       }
       .suggestions {
-        padding: 1rem;
+        padding: 0;
         .btn-tags {
           .btn {
             margin-bottom: 10px;

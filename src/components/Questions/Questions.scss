@@ -20,6 +20,8 @@
 
 @media (max-width: 47.9375rem) {
   .questions {
+    padding-left: 10px;
+    padding-right: 10px;
     .questions-grid {
       grid-template-columns: repeat(1, minmax(0, 1fr));
     }
