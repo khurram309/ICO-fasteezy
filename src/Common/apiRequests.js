@@ -6,8 +6,13 @@ export var apiRequests = async (ENDPOINT, METHOD, PAYLOAD) => {
     url: `${baseUrl}/${ENDPOINT}`,
     method: METHOD,
     headers: { "Content-Type": "application/json" },
-    data: PAYLOAD
+    // data: PAYLOAD
   };
+  if(METHOD == "get") {
+    options.params = PAYLOAD
+  } else {
+    options.data = PAYLOAD
+  }
 
   axios.interceptors.request.use(
     config => {

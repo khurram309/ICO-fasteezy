@@ -1,7 +1,9 @@
-import React from 'react';
-
+import React, { useRef, useState, useEffect } from 'react';
 import { Row, Col, Button, Tab, Tabs, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { ClientJS } from 'clientjs';
+
 import info from '../../assets/images/info-icon.svg';
 import bot from '../../assets/images/bot-small.svg';
 import plus from '../../assets/images/plus-icon.svg';
@@ -9,14 +11,74 @@ import search from '../../assets/images/search-arrow.svg';
 import list from '../../assets/images/list-icon.svg';
 import chat from '../../assets/images/empty-chat.png';
 import stars from '../../assets/images/stars.svg';
+import { apiRequests } from '../../Common/apiRequests';
 import './Chatbot.scss';
 
 function Chatbot() {
+  const form  = useRef(null);
+  const [validated, setValidated] = useState(false);
+  const client = new ClientJS();
+  const userToken = useSelector(state => state.auth.token);
+  const fingerprint = client.getFingerprint();
+  const [deviceToken, setDeviceToken] = useState(null);
+  const [messages, setMessages] = useState([]);
+  const [chatId, setChatId] = useState(null);
+  const [question, setQuestion] = useState('');
+
+  useEffect(() => {
+    if(userToken == null) {
+      setDeviceToken(fingerprint);
+      if(deviceToken != null) {
+        getChat();
+      }
+    }
+  }, [deviceToken])
+
+  const addMessage = (newMessage) => {
+    const messageExists = messages.some((msg) => msg.message === newMessage.message);
+    if (!messageExists) {
+      setMessages(prevMessages => [...prevMessages, newMessage]);
+    }
+  };
+
+  const getChat = async () => {
+    const endPoint = `public_chats`;
+    const userData = {
+        device_token: deviceToken
+    }
+    await apiRequests(endPoint, 'get', userData)
+    .then((response) => {
+      console.log(response);
+      let message = {
+        message: response.data.data.attributes.welcome_message,
+        type: 'bot',
+        count: response.data.data.attributes.message_count
+      }
+      setChatId(response.data.data.attributes.chat_id);
+      addMessage(message);
+    })
+    .catch((err) => {
+      console.log(err);
+      // Notiflix.Notify.failure(err.response.data);
+    })
+  }
+
+  const sendMessage = async (e) => {
+    e.preventDefault();
+    const messageForm = e.currentTarget;
+    if(!messageForm.checkValidity()) {
+      setValidated(true);
+      return;
+    }
+    const data = new FormData(form.current);
+    console.log('message', data.get('message'));
+  }
+
   return (
     <div className="custom-container chatbot-bg mt-md-4 pt-4 pt-md-0">
       <div className="chat-grid">
         <div className="conversation-cover">
-          <div className="chat-tabs-section">
+          { messages.count == 0 && <div className="chat-tabs-section">
 
             <Row className="justify-content-center">
               <Col sm={12} lg={12} xl={11} xxl={8}>
@@ -47,6 +109,17 @@ function Chatbot() {
               <Tab eventKey="contact" title="Low">
               </Tab>
             </Tabs>
+          </div> }
+          {console.log('messagesss', messages)}
+          <div className="chat-tabs-section">
+            <div>Chat Title</div>
+            <div>
+              { messages.map((message, index) => (
+                <div key={index}>
+                  <p>{message.message}</p>
+                </div>
+              ))}
+            </div>
           </div>
           <div className="tabcontent"></div>
           <div className="suggestions">
@@ -71,7 +144,14 @@ function Chatbot() {
                 <img src={bot} alt="info" />
               </Link>
             </div>
-            <Form.Control type="text" placeholder="|How i can help you?" />
+            <Form noValidate validated={validated} ref={form} onSubmit={sendMessage}>
+              <Form.Control type="text" name="message" placeholder="|How i can help you?" required />
+              {/* <div>
+                <Button type="submit">
+                  <img src={search} alt="info" />
+                </Button>
+              </div> */}
+            </Form>
             <div>
               <Link>
                 <img src={plus} alt="info" />
