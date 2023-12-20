@@ -3,6 +3,7 @@ import { Row, Col, Button, Tab, Tabs, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { ClientJS } from 'clientjs';
+import { openai } from '../../Common/openai';
 
 import info from '../../assets/images/info-icon.svg';
 import bot from '../../assets/images/bot-small.svg';
@@ -23,7 +24,6 @@ function Chatbot() {
   const [deviceToken, setDeviceToken] = useState(null);
   const [messages, setMessages] = useState([]);
   const [chatId, setChatId] = useState(null);
-  const [question, setQuestion] = useState('');
 
   useEffect(() => {
     if(userToken == null) {
@@ -48,10 +48,10 @@ function Chatbot() {
     }
     await apiRequests(endPoint, 'get', userData)
     .then((response) => {
-      console.log(response);
+      getOpenAIList();
       let message = {
         message: response.data.data.attributes.welcome_message,
-        type: 'bot',
+        role: 'assistant',
         count: response.data.data.attributes.message_count
       }
       setChatId(response.data.data.attributes.chat_id);
@@ -71,7 +71,49 @@ function Chatbot() {
       return;
     }
     const data = new FormData(form.current);
-    console.log('message', data.get('message'));
+    const text = data.get('message');
+    const endPoint = 'public_chats';
+    const messageData = {
+      device_token: deviceToken,
+      chat: {
+          "chat_id": chatId,
+          "message": text
+      }
+    }
+    await apiRequests(endPoint, 'patch', messageData)
+    .then((response) => {
+      console.log('response', response);
+      let message = {
+        message: text,
+        role: 'user',
+        count: response.data.data.attributes.message_count
+      }
+      if(response.status === 200) {
+        addMessage(message);
+        setTimeout(() => {
+          getOpenAIList();
+        }, 1000)
+      }
+    })
+    .catch((err) => {
+      // Notiflix.Notify.failure(err.response.data.status.message);
+    })
+  }
+
+  const getOpenAIList = async () => {
+    console.log('chatID', chatId);
+    const threadMessages = await openai.beta.threads.messages.list(
+      chatId
+    );
+    threadMessages.data.slice().reverse().map((thread, index) => {
+      let message = { 
+        message: thread.content[0].text.value,
+        role: thread.role
+      }
+      addMessage(message);
+    })
+  
+    console.log(threadMessages.data);
   }
 
   return (
@@ -145,7 +187,7 @@ function Chatbot() {
               </Link>
             </div>
             <Form noValidate validated={validated} ref={form} onSubmit={sendMessage}>
-              <Form.Control type="text" name="message" placeholder="|How i can help you?" required />
+              <Form.Control type="text" name="message" placeholder="|How i can help you?" autoComplete="off" autofill="off" required />
               {/* <div>
                 <Button type="submit">
                   <img src={search} alt="info" />
