@@ -84,7 +84,6 @@
           width: 100%;
         }
         .up-arrow {
-          border: 1.5px solid var(--graye3);
           width: 1.875rem;
           height: 1.875rem;
           border-radius: .3125rem;
@@ -92,14 +91,14 @@
           align-items: center;
           justify-content: center;
           margin-right: 0.75rem;
-          background-color: var(--graye55);
+          background-color: var(--primary);
           cursor: pointer;
           transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
           img {
             width: 12px;
           }
           &:hover {
-            background-color: var(--grayed);
+            background-color: var(--primaryhover);
           }
         }
       }
@@ -181,6 +180,18 @@
   hr {
     margin: 0;
   }
+  .chat-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    .chat-share {
+      padding: .375rem 1rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 14px;
+      background-color: var(--gray181);
+      color: var(--grayfc);
+    }
+  }
   .chat-wrap {
     max-height: calc(100vh - 460px);
     min-height: calc(100vh - 460px);
@@ -201,33 +212,21 @@
           }
         }
       }
-      .chat-title {
-        font-size: 1.25rem;
-        font-weight: 600;
-        .chat-share {
-          padding: .375rem 1rem;
-          border-radius: 40px;
-          font-weight: 600;
-          font-size: 14px;
-          background-color: var(--gray181);
-          color: var(--grayfc);
-        }
-      }
     }
-  }
-  .chat-btns-group {
-    .chat-btn {
-      border: 1.5px solid var(--graye3);
-      width: 2.5rem;
-      height: 2.5rem;
-      border-radius: .75rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: .75rem;
-      transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-      &:hover {
-        background-color: var(--grayed);
+    .chat-btns-group {
+      .chat-btn {
+        border: 1.5px solid var(--graye3);
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: .75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: .75rem;
+        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        &:hover {
+          background-color: var(--grayed);
+        }
       }
     }
   }
