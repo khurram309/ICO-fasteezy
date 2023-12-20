@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { ClientJS } from 'clientjs';
 import { openai } from '../../Common/openai';
+import Notiflix from 'notiflix';
 
 import info from '../../assets/images/info-icon.svg';
 import bot from '../../assets/images/bot-small.svg';
@@ -14,6 +15,7 @@ import chat from '../../assets/images/empty-chat.png';
 import stars from '../../assets/images/stars.svg';
 import { apiRequests } from '../../Common/apiRequests';
 import './Chatbot.scss';
+import GetStarted from '../../components/Modals/GetStarted/GetStarted';
 
 function Chatbot() {
   const form  = useRef(null);
@@ -24,6 +26,7 @@ function Chatbot() {
   const [deviceToken, setDeviceToken] = useState(null);
   const [messages, setMessages] = useState([]);
   const [chatId, setChatId] = useState(null);
+  const [showSignUp, setShowSignUp] = useState(false);
 
   useEffect(() => {
     if(userToken == null) {
@@ -33,6 +36,12 @@ function Chatbot() {
       }
     }
   }, [deviceToken])
+
+  useEffect(() => {
+    if(chatId != null || chatId != undefined) {
+      getOpenAIList();
+    }
+  }, [chatId])
 
   const addMessage = (newMessage) => {
     const messageExists = messages.some((msg) => msg.message === newMessage.message);
@@ -48,7 +57,6 @@ function Chatbot() {
     }
     await apiRequests(endPoint, 'get', userData)
     .then((response) => {
-      getOpenAIList();
       let message = {
         message: response.data.data.attributes.welcome_message,
         role: 'assistant',
@@ -58,8 +66,8 @@ function Chatbot() {
       addMessage(message);
     })
     .catch((err) => {
+      Notiflix.Notify.failure(err.response.data);
       console.log(err);
-      // Notiflix.Notify.failure(err.response.data);
     })
   }
 
@@ -82,7 +90,6 @@ function Chatbot() {
     }
     await apiRequests(endPoint, 'patch', messageData)
     .then((response) => {
-      console.log('response', response);
       let message = {
         message: text,
         role: 'user',
@@ -96,12 +103,14 @@ function Chatbot() {
       }
     })
     .catch((err) => {
-      // Notiflix.Notify.failure(err.response.data.status.message);
+      if(err.response.data.status.code === 403) {
+        Notiflix.Notify.failure(err.response.data.status.message);
+        setShowSignUp(true);
+      }
     })
   }
 
   const getOpenAIList = async () => {
-    console.log('chatID', chatId);
     const threadMessages = await openai.beta.threads.messages.list(
       chatId
     );
@@ -112,11 +121,10 @@ function Chatbot() {
       }
       addMessage(message);
     })
-  
-    console.log(threadMessages.data);
   }
 
   return (
+    <>
     <div className="custom-container chatbot-bg mt-md-4 pt-4 pt-md-0">
       <div className="chat-grid">
         <div className="conversation-cover">
@@ -269,6 +277,8 @@ function Chatbot() {
         </div>
       </div>
     </div>
+    { showSignUp && <GetStarted showRegister={showSignUp} /> }
+    </>
   )
 }
 
