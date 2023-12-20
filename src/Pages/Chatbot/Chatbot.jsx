@@ -21,6 +21,7 @@ import thumbDown from '../../assets/images/thumb-down.svg';
 import shareChat from '../../assets/images/share-chat.svg';
 import copy from '../../assets/images/chat-copy.svg';
 import repeat from '../../assets/images/repeat.svg';
+import upArrow from '../../assets/images/up-arrow.svg';
 import { apiRequests } from '../../Common/apiRequests';
 import './Chatbot.scss';
 import GetStarted from '../../components/Modals/GetStarted/GetStarted';
@@ -182,7 +183,7 @@ function Chatbot() {
                 </a>
               </div>
             </div>
-            <div>
+            <div className='chat-wrap'>
               {/* { messages.map((message, index) => ( */}
                 <div className='chat-inner'>
                   <div className="chat-grid">
@@ -235,7 +236,6 @@ function Chatbot() {
               {/* ))} */}
             </div>
           </div>
-          <div className="tabcontent"></div>
           <div className="suggestions">
             <div className="d-flex justify-content-between align-items-center">
               <div className="gray5c fw-semibold">Suggestions</div>
@@ -268,6 +268,9 @@ function Chatbot() {
                 </div> */}
               </Form>
             </div>
+            <a className='up-arrow'>
+              <img src={upArrow} alt="Up Arrow" />
+            </a>
             <div>
               <Link>
                 <img src={plus} alt="info" />

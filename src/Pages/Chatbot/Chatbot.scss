@@ -80,6 +80,28 @@
           border: 0;
           background-color: transparent;
         }
+        form {
+          width: 100%;
+        }
+        .up-arrow {
+          border: 1.5px solid var(--graye3);
+          width: 1.875rem;
+          height: 1.875rem;
+          border-radius: .3125rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 0.75rem;
+          background-color: var(--graye55);
+          cursor: pointer;
+          transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+          img {
+            width: 12px;
+          }
+          &:hover {
+            background-color: var(--grayed);
+          }
+        }
       }
     }
   }
@@ -159,32 +181,37 @@
   hr {
     margin: 0;
   }
-  .chat-inner {
-    padding: 1.5rem;
-    p {
-      margin-bottom: 0;
-    }
-    .chat-grid {
-      display: grid;
-      grid-template-columns: 2rem 1fr;
-      grid-gap: 1.25rem;
-      .user-img {
-        width: 2rem;
-        img {
-          width: 100%;
+  .chat-wrap {
+    max-height: calc(100vh - 460px);
+    min-height: calc(100vh - 460px);
+    overflow: auto;
+    .chat-inner {
+      padding: 1.5rem;
+      p {
+        margin-bottom: 0;
+      }
+      .chat-grid {
+        display: grid;
+        grid-template-columns: 2rem 1fr;
+        grid-gap: 1.25rem;
+        .user-img {
+          width: 2rem;
+          img {
+            width: 100%;
+          }
         }
       }
-    }
-    .chat-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      .chat-share {
-        padding: .375rem 1rem;
-        border-radius: 40px;
+      .chat-title {
+        font-size: 1.25rem;
         font-weight: 600;
-        font-size: 14px;
-        background-color: var(--gray181);
-        color: var(--grayfc);
+        .chat-share {
+          padding: .375rem 1rem;
+          border-radius: 40px;
+          font-weight: 600;
+          font-size: 14px;
+          background-color: var(--gray181);
+          color: var(--grayfc);
+        }
       }
     }
   }
@@ -198,8 +225,9 @@
       align-items: center;
       justify-content: center;
       margin-right: .75rem;
+      transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
       &:hover {
-        background-color: var(--graye3);
+        background-color: var(--grayed);
       }
     }
   }
