@@ -12,6 +12,14 @@ import search from '../../assets/images/search-arrow.svg';
 import list from '../../assets/images/list-icon.svg';
 import chat from '../../assets/images/empty-chat.png';
 import stars from '../../assets/images/stars.svg';
+import chattitle from '../../assets/images/chat-title.svg';
+import share from '../../assets/images/share-icon.svg';
+import user from '../../assets/images/avatar.png';
+import thumbUp from '../../assets/images/thumb-up.svg';
+import thumbDown from '../../assets/images/thumb-down.svg';
+import shareChat from '../../assets/images/share-chat.svg';
+import copy from '../../assets/images/chat-copy.svg';
+import repeat from '../../assets/images/repeat.svg';
 import { apiRequests } from '../../Common/apiRequests';
 import './Chatbot.scss';
 
@@ -48,7 +56,7 @@ function Chatbot() {
     }
     await apiRequests(endPoint, 'get', userData)
     .then((response) => {
-      getOpenAIList();
+      // getOpenAIList();
       let message = {
         message: response.data.data.attributes.welcome_message,
         role: 'assistant',
@@ -153,14 +161,70 @@ function Chatbot() {
             </Tabs>
           </div> }
           {console.log('messagesss', messages)}
-          <div className="chat-tabs-section">
-            <div>Chat Title</div>
-            <div>
-              { messages.map((message, index) => (
-                <div key={index}>
-                  <p>{message.message}</p>
+          <div className="chat-section">
+            <div className="chat-inner">
+              <div className='chat-title d-flex justify-content-between align-items-center'>
+                <div>
+                  <img src={chattitle} alt="chat Title" className="me-4"/>
+                  Chat Title
                 </div>
-              ))}
+                <a href="#" className='chat-share'>
+                  Share
+                  <img src={share} alt="Share" className="ms-2"/>
+                </a>
+              </div>
+            </div>
+            <div>
+              {/* { messages.map((message, index) => ( */}
+                <div className='chat-inner'>
+                  <div className="chat-grid">
+                    <div className="user-img">
+                      <img src={user} alt="User"/>
+                    </div>
+                    <div className="chat-text">
+                      <p>I've been experiencing chest pain. What could it be?</p>
+                    </div>
+                  </div>
+                </div>
+                <hr />
+                <div className='chat-inner'>
+                  <div className="chat-grid">
+                    <div className="user-img">
+                      <img src={bot} alt="info" />
+                    </div>
+                    <div className="chat-text">
+                      <p>
+                        I'm here to help. Chest pain can have various causes, from heart issues to muscle strain.
+                        To assist you better, could you provide more details about the pain, such as its location 
+                        and any accompanying symptoms?
+                      </p>
+                      <div className="chat-btns-group mt-2">
+                        <div className="d-flex justify-content-between align-content-center">
+                          <div className='d-flex'>
+                            <a className='chat-btn' href='#'>
+                              <img src={thumbUp} alt="Thumb Up" />
+                            </a>
+                            <a className='chat-btn' href='#'>
+                              <img src={thumbDown} alt="Thumb Down" />
+                            </a>
+                            <a className='chat-btn' href='#'>
+                              <img src={shareChat} alt="Share" />
+                            </a>
+                            <a className='chat-btn' href='#'>
+                              <img src={copy} alt="Copy Up" />
+                            </a>
+                          </div>
+                          <div>
+                            <a className='chat-btn' href='#'>
+                              <img src={repeat} alt="Repeat" />
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {/* ))} */}
             </div>
           </div>
           <div className="tabcontent"></div>
@@ -181,19 +245,21 @@ function Chatbot() {
             </div>
 
           <div className="chat-input d-flex justify-content-between align-items-center mt-3">
-            <div>
-              <Link>
-                <img src={bot} alt="info" />
-              </Link>
+            <div className='d-flex align-items-center w-100'>
+              <div>
+                <Link>
+                  <img src={bot} alt="info" />
+                </Link>
+              </div>
+              <Form noValidate validated={validated} ref={form} onSubmit={sendMessage}>
+                <Form.Control type="text" name="message" placeholder="|How i can help you?" autoComplete="off" autofill="off" required />
+                {/* <div>
+                  <Button type="submit">
+                    <img src={search} alt="info" />
+                  </Button>
+                </div> */}
+              </Form>
             </div>
-            <Form noValidate validated={validated} ref={form} onSubmit={sendMessage}>
-              <Form.Control type="text" name="message" placeholder="|How i can help you?" autoComplete="off" autofill="off" required />
-              {/* <div>
-                <Button type="submit">
-                  <img src={search} alt="info" />
-                </Button>
-              </div> */}
-            </Form>
             <div>
               <Link>
                 <img src={plus} alt="info" />

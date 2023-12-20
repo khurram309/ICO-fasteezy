@@ -112,7 +112,7 @@
               font-size: .875rem;
               color: var(--gray39);
               font-weight: 600;
-              padding: 8px;
+              padding: .5rem;
               display: block;
               &:hover {
                 background-color: var(--gray500);
@@ -150,6 +150,56 @@
       .btn {
         font-size: 1rem;
         font-weight: 700;
+      }
+    }
+  }
+}
+
+.chat-section {
+  hr {
+    margin: 0;
+  }
+  .chat-inner {
+    padding: 1.5rem;
+    p {
+      margin-bottom: 0;
+    }
+    .chat-grid {
+      display: grid;
+      grid-template-columns: 2rem 1fr;
+      grid-gap: 1.25rem;
+      .user-img {
+        width: 2rem;
+        img {
+          width: 100%;
+        }
+      }
+    }
+    .chat-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      .chat-share {
+        padding: .375rem 1rem;
+        border-radius: 40px;
+        font-weight: 600;
+        font-size: 14px;
+        background-color: var(--gray181);
+        color: var(--grayfc);
+      }
+    }
+  }
+  .chat-btns-group {
+    .chat-btn {
+      border: 1.5px solid var(--graye3);
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: .75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: .75rem;
+      &:hover {
+        background-color: var(--graye3);
       }
     }
   }
@@ -207,6 +257,15 @@
           .btn {
             margin-bottom: 10px;
           }
+        }
+      }
+    }
+  }
+  .chat-section {
+    .chat-btns-group {
+      .chat-btn {
+        img {
+          width: 1rem;
         }
       }
     }
