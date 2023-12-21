@@ -81,6 +81,7 @@ function Chatbot() {
   }
 
   const sendMessage = async (e) => {
+    setShowSignUp(false);
     e.preventDefault();
     const messageForm = e.currentTarget;
     if(!messageForm.checkValidity()) {
@@ -169,7 +170,6 @@ function Chatbot() {
               </Tab>
             </Tabs>
           </div> }
-          {console.log('messagesss', messages)}
           <div className="chat-section">
             <div className="chat-inner">
               <div className='chat-title d-flex justify-content-between align-items-center'>
@@ -184,56 +184,61 @@ function Chatbot() {
               </div>
             </div>
             <div className='chat-wrap'>
-              {/* { messages.map((message, index) => ( */}
-                <div className='chat-inner'>
-                  <div className="chat-grid">
-                    <div className="user-img">
-                      <img src={user} alt="User"/>
-                    </div>
-                    <div className="chat-text">
-                      <p>I've been experiencing chest pain. What could it be?</p>
+              { messages.map((message, index) => (
+                <>
+                  { message.role == 'user' && 
+                  <div className='chat-inner'>
+                    <div className="chat-grid">
+                      <div className="user-img">
+                        <img src={user} alt="User"/>
+                      </div>
+                      <div className="chat-text">
+                        <p>{ message.message }</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <hr />
-                <div className='chat-inner'>
-                  <div className="chat-grid">
-                    <div className="user-img">
-                      <img src={bot} alt="info" />
-                    </div>
-                    <div className="chat-text">
-                      <p>
-                        I'm here to help. Chest pain can have various causes, from heart issues to muscle strain.
-                        To assist you better, could you provide more details about the pain, such as its location 
-                        and any accompanying symptoms?
-                      </p>
-                      <div className="chat-btns-group mt-2">
-                        <div className="d-flex justify-content-between align-content-center">
-                          <div className='d-flex'>
-                            <a className='chat-btn' href='#'>
-                              <img src={thumbUp} alt="Thumb Up" />
-                            </a>
-                            <a className='chat-btn' href='#'>
-                              <img src={thumbDown} alt="Thumb Down" />
-                            </a>
-                            <a className='chat-btn' href='#'>
-                              <img src={shareChat} alt="Share" />
-                            </a>
-                            <a className='chat-btn' href='#'>
-                              <img src={copy} alt="Copy Up" />
-                            </a>
-                          </div>
-                          <div>
-                            <a className='chat-btn' href='#'>
-                              <img src={repeat} alt="Repeat" />
-                            </a>
+                  }
+                  { message.role == 'assistant' && 
+                  <>
+                  <div className='chat-inner'>
+                    <div className="chat-grid">
+                      <div className="user-img">
+                        <img src={bot} alt="info" />
+                      </div>
+                      <div className="chat-text">
+                        <p>
+                          { message.message }
+                        </p>
+                        <div className="chat-btns-group mt-2">
+                          <div className="d-flex justify-content-between align-content-center">
+                            <div className='d-flex'>
+                              <a className='chat-btn' href='#'>
+                                <img src={thumbUp} alt="Thumb Up" />
+                              </a>
+                              <a className='chat-btn' href='#'>
+                                <img src={thumbDown} alt="Thumb Down" />
+                              </a>
+                              <a className='chat-btn' href='#'>
+                                <img src={shareChat} alt="Share" />
+                              </a>
+                              <a className='chat-btn' href='#'>
+                                <img src={copy} alt="Copy Up" />
+                              </a>
+                            </div>
+                            <div>
+                              <a className='chat-btn' href='#'>
+                                <img src={repeat} alt="Repeat" />
+                              </a>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              {/* ))} */}
+                  <hr />
+                  </>}
+                </>
+              ))}
             </div>
           </div>
           <div className="suggestions">

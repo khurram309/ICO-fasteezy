@@ -192,27 +192,27 @@
       color: var(--grayfc);
     }
   }
+  .chat-inner {
+    padding: 1.5rem;
+    p {
+      margin-bottom: 0;
+    }
+    .chat-grid {
+      display: grid;
+      grid-template-columns: 2rem 1fr;
+      grid-gap: 1.25rem;
+      .user-img {
+        width: 2rem;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
   .chat-wrap {
     max-height: calc(100vh - 460px);
     min-height: calc(100vh - 460px);
     overflow: auto;
-    .chat-inner {
-      padding: 1.5rem;
-      p {
-        margin-bottom: 0;
-      }
-      .chat-grid {
-        display: grid;
-        grid-template-columns: 2rem 1fr;
-        grid-gap: 1.25rem;
-        .user-img {
-          width: 2rem;
-          img {
-            width: 100%;
-          }
-        }
-      }
-    }
     .chat-btns-group {
       .chat-btn {
         border: 1.5px solid var(--graye3);
