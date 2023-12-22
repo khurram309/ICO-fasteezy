@@ -8,6 +8,7 @@ import PaymentInformation from '../PaymentInformation/PaymentInformation';
 import Login from '../Login/Login';
 import { apiRequests } from '../../../Common/apiRequests';
 import { setSignUp } from '../../../Redux/actions/authActions';
+import { deviceToken } from '../../../Common/deviceToken';
 
 function GetStarted(props) {
   const dispatch = useDispatch();
@@ -50,7 +51,8 @@ function GetStarted(props) {
         last_name: data.get('last_name'),
         email: data.get('email'),
         password: data.get('password'),
-        password_confirmation: data.get('confirm_password')
+        password_confirmation: data.get('confirm_password'),
+        device_token: deviceToken
       }
     }
     await apiRequests(endPoint, 'post', userData)
