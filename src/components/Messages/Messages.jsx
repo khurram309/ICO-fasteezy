@@ -1,4 +1,6 @@
 import React, { Fragment } from 'react';
+import { useSelector } from 'react-redux';
+import Notiflix from 'notiflix';
 
 import chattitle from '../../assets/images/chat-title.svg';
 import share from '../../assets/images/share-icon.svg';
@@ -9,9 +11,29 @@ import shareChat from '../../assets/images/share-chat.svg';
 import copy from '../../assets/images/chat-copy.svg';
 import repeat from '../../assets/images/repeat.svg';
 import bot from '../../assets/images/bot-small.svg';
+import { apiRequests } from '../../Common/apiRequests';
 
 function Messages(props) {
+  const userToken = useSelector(state => state.auth.token);
   const messages = props.messages;
+
+  const createChat = async () => {
+    const endPoint = `user/chats`;
+    await apiRequests(endPoint, 'post')
+    .then((response) => {
+      let message = {
+        message: response.data.data.attributes.welcome_message,
+        role: 'assistant',
+        count: response.data.data.attributes.message_count
+      }
+      props.addMessage(message);
+      props.setChatId(response.data.data.attributes.chat_id);
+    })
+    .catch((err) => {
+      console.log(err);
+      Notiflix.Notify.failure(err.response.data);
+    })
+  }
 
   return (
     <div className="chat-section">
@@ -21,6 +43,9 @@ function Messages(props) {
             <img src={chattitle} alt="chat Title" className="me-4"/>
             Chat Title
           </div>
+          {userToken && <p className='chat-share' onClick={createChat}>
+            New Chat
+          </p>}
           <a href="#" className='chat-share'>
             Share
             <img src={share} alt="Share" className="ms-2"/>
