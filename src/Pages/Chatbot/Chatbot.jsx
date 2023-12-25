@@ -9,14 +9,11 @@ import Notiflix from 'notiflix';
 import info from '../../assets/images/info-icon.svg';
 import bot from '../../assets/images/bot-small.svg';
 import plus from '../../assets/images/plus-icon.svg';
-import search from '../../assets/images/search-arrow.svg';
-import list from '../../assets/images/list-icon.svg';
-import chat from '../../assets/images/empty-chat.png';
-import stars from '../../assets/images/stars.svg';
 import upArrow from '../../assets/images/up-arrow.svg';
 import { apiRequests } from '../../Common/apiRequests';
 import GetStarted from '../../components/Modals/GetStarted/GetStarted';
 import Messages from '../../components/Messages/Messages';
+import History from '../../components/History/History';
 import './Chatbot.scss';
 
 function Chatbot() {
@@ -46,27 +43,6 @@ function Chatbot() {
     }
   }, [chatId])
 
-  // const createChat = async () => {
-  //   const endPoint = `user/chats`;
-  //   // const userData = {
-  //   //     device_token: deviceToken
-  //   // }
-  //   await apiRequests(endPoint, 'post')
-  //   .then((response) => {
-  //     let message = {
-  //       message: response.data.data.attributes.welcome_message,
-  //       role: 'assistant',
-  //       count: response.data.data.attributes.message_count
-  //     }
-  //     setChatId(response.data.data.attributes.chat_id);
-  //     addMessage(message);
-  //   })
-  //   .catch((err) => {
-  //     Notiflix.Notify.failure(err.response.data);
-  //     console.log(err);
-  //   })
-  // }
-
   const addMessage = (newMessage) => {
     const messageExists = messages.some((msg) => msg.message === newMessage.message);
     if (!messageExists) {
@@ -74,8 +50,9 @@ function Chatbot() {
     }
   };
 
-  const getChat = async () => {
-    const endPoint = `public_chats`;
+  const getChat = async (aiChatId = '') => {
+    setMessages([]);
+    const endPoint = userToken ? `user/chats/${aiChatId}` : `public_chats`;
     const userData = {
         device_token: token
     }
@@ -104,7 +81,7 @@ function Chatbot() {
     }
     const data = new FormData(form.current);
     const text = data.get('message');
-    const endPoint = 'public_chats';
+    const endPoint = userToken ? `user/chats/${chatId}` : 'public_chats';
     const messageData = {
       device_token: deviceToken,
       chat: {
@@ -112,6 +89,7 @@ function Chatbot() {
           "message": text
       }
     }
+    e.target.reset();
     await apiRequests(endPoint, 'patch', messageData)
     .then((response) => {
       let message = {
@@ -120,9 +98,9 @@ function Chatbot() {
         count: response.data.data.attributes.message_count
       }
       if(response.status === 200) {
-        addMessage(message);
+        // addMessage(message);
         setTimeout(() => {
-          checkRunRetrieve(chatId, response.data.data.attributes.run_id);
+          checkRunRetrieve(response.data.data.attributes.run_id);
         }, 1000)
       }
     })
@@ -196,7 +174,7 @@ function Chatbot() {
               </Tab>
             </Tabs>
           </div> }
-          <Messages messages={messages} />
+          <Messages messages={messages} setChatId={setChatId} addMessage={addMessage} />
           <div className="suggestions">
             <div className="d-flex justify-content-between align-items-center">
               <div className="gray5c fw-semibold">Suggestions</div>
@@ -222,84 +200,20 @@ function Chatbot() {
               </div>
               <Form noValidate validated={validated} ref={form} onSubmit={sendMessage}>
                 <Form.Control type="text" name="message" placeholder="|How i can help you?" autoComplete="off" autofill="off" required />
+                <Button type="submit" className='up-arrow'>
+                  <img src={upArrow} alt="Up Arrow" />
+                </Button>
+                <div>
+                  <Link>
+                    <img src={plus} alt="info" />
+                  </Link>
+                </div>
               </Form>
             </div>
-            <a className='up-arrow'>
-              <img src={upArrow} alt="Up Arrow" />
-            </a>
-            <div>
-              <Link>
-                <img src={plus} alt="info" />
-              </Link>
-            </div>
           </div>
           </div>
         </div>
-        <div className="contextual-sidebar">
-          <div className="search-section d-flex align-items-center">
-            <img src={search} alt="search" />
-            <Form.Control type="text" placeholder="Search" className=" mr-sm-2" />
-          </div>
-          <div className="history-tabs">
-            <Tabs
-                defaultActiveKey="Prompts"
-                id="justify-tab-example"
-                className="mb-3"
-                justify
-              >
-              <Tab eventKey="Prompts" title="Prompts">
-                <ul>
-                  <li>
-                    <Link>
-                      <img src={list} alt="List" className="me-3" />
-                      Experiencing symptoms?
-                    </Link>
-                  </li>
-                  <li>
-                    <Link>
-                      <img src={list} alt="List" className="me-3" />
-                      Need help with lab results?
-                    </Link>
-                  </li>
-                  <li>
-                    <Link>
-                      <img src={list} alt="List" className="me-3" />
-                      Have a health question?
-                    </Link>
-                  </li>
-                  <li>
-                    <Link>
-                      <img src={list} alt="List" className="me-3" />
-                      Experiencing symptoms?
-                    </Link>
-                  </li>
-                  <li>                    
-                    <Link>
-                      <img src={list} alt="List" className="me-3" />
-                      Have a health question?
-                    </Link>
-                  </li>
-                  <li>
-                    <Link>
-                      <img src={list} alt="List" className="me-3" />
-                      Need help with lab results?
-                    </Link>
-                  </li>
-                </ul>
-              </Tab>
-              <Tab eventKey="History" title="History">
-              </Tab>
-            </Tabs>
-          </div>
-          <div className="upgrade-chat mt-0">
-            <Link className="btn-close"></Link>
-            <div className="empty-chat">
-              <img src={chat} alt="chat" className="img-fluid" />
-            </div>
-            <Button variant="primary w-100">Upgrade to Pro <img src={stars} alt="star" className="ms-2"/> </Button>{' '}
-          </div>
-          <div className="d-flex justify-content-center fw-semibold">Follow us on</div>
-        </div>
+        <History getChat={getChat} />
       </div>
     </div>
     { showSignUp && <GetStarted showRegister={showSignUp} /> }
