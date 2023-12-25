@@ -10,19 +10,25 @@ import fb from '../../assets/images/fb-icon.svg';
 import instagram from '../../assets/images/instagram-icon.svg';
 import github from '../../assets/images/github-icon.svg';
 import GetStarted from '../Modals/GetStarted/GetStarted';
+import { useSelector } from 'react-redux';
 
 function Footer() {
+  const userToken = useSelector(state => state.auth.token);
+
   return (
     <footer>
       <div className="container-lg">
-        <h2 className="text-center">Ready to <span>Get Started?</span></h2>
-        <h5 className="text-center">Join the thousands who have already experienced the convenience and peace
-          of mind that UVO brings to their healthcare journey. Sign up today and empower yourself
-          with instant medical insights.
-        </h5>
-        <div className="d-flex justify-content-center mt-4 footer-signup">
-          <GetStarted source="footer" />
-        </div>
+        {userToken == null && 
+        <>
+          <h2 className="text-center">Ready to <span>Get Started?</span></h2>
+          <h5 className="text-center">Join the thousands who have already experienced the convenience and peace
+            of mind that UVO brings to their healthcare journey. Sign up today and empower yourself
+            with instant medical insights.
+          </h5>
+          <div className="d-flex justify-content-center mt-4 footer-signup">
+            <GetStarted source="footer" />
+          </div>
+        </>}
         <div className="footer-bottom d-flex justify-content-between align-items-center flex-column flex-md-row">
           <div className="f-logo">
             <img className="img-fluid " src={logo} alt="Logo" />
