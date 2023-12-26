@@ -43,13 +43,15 @@ function Messages(props) {
             <img src={chattitle} alt="chat Title" className="me-4"/>
             Chat Title
           </div>
-          {userToken && <p className='chat-share' onClick={createChat}>
-            New Chat
-          </p>}
-          <a href="#" className='chat-share'>
-            Share
-            <img src={share} alt="Share" className="ms-2"/>
-          </a>
+          <div className='d-flex'>
+            {userToken && <p className='chat-share me-2' onClick={createChat}>
+              New Chat
+            </p>}
+            <a href="#" className='chat-share'>
+              Share
+              <img src={share} alt="Share" className="ms-2"/>
+            </a>
+          </div>
         </div>
       </div>
       <div className='chat-wrap'>

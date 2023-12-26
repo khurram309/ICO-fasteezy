@@ -84,8 +84,9 @@
           width: 100%;
         }
         .up-arrow {
-          width: 1.75rem;
-          height: 1.625rem;
+          width: 30px;
+          height: 30px;
+          padding: 0;
           border-radius: .3125rem;
           display: flex;
           align-items: center;
@@ -125,18 +126,35 @@
         }
       }
       .tab-content {
+        height: 300px;
+        overflow: auto;
         ul {
           padding: 0;
           li {
             list-style: none;
+            color: var(--gray39);
+            padding: .5rem;
             a {
               font-size: .875rem;
-              color: var(--gray39);
               font-weight: 600;
-              padding: .5rem;
+              color: var(--gray39);
               display: block;
-              &:hover {
-                background-color: var(--gray500);
+              width: calc(100% - 20px);
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+            &:hover {
+              background-color: var(--gray500);
+            }
+            .trash {
+              width: 15px;
+              img {
+                width: 100%;
+                &:hover {
+                  filter: invert(22%) sepia(95%) saturate(7483%) hue-rotate(355deg) brightness(101%) contrast(114%);
+                  cursor: pointer;
+                }
               }
             }
           }
@@ -210,8 +228,8 @@
     }
   }
   .chat-wrap {
-    max-height: calc(100vh - 460px);
-    min-height: calc(100vh - 460px);
+    max-height: calc(100vh - 500px);
+    min-height: calc(100vh - 500px);
     overflow: auto;
     .chat-btns-group {
       .chat-btn {

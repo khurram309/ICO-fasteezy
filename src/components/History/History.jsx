@@ -8,6 +8,7 @@ import search from '../../assets/images/search-arrow.svg';
 import list from '../../assets/images/list-icon.svg';
 import chat from '../../assets/images/empty-chat.png';
 import stars from '../../assets/images/stars.svg';
+import trash from '../../assets/images/trash.svg';
 import { apiRequests } from '../../Common/apiRequests';
 
 function History(props) {
@@ -36,11 +37,12 @@ function History(props) {
     return (
       <ul>
         { allChats.map((chat, index) => (
-          <li key={index}>
+          <li key={index} className='d-flex align-items-center justify-content-between'>
             <Link onClick={() => props.getChat(chat.attributes.chat_id)}>
               <img src={list} alt="List" className="me-3" />
               {chat.attributes.id}
             </Link>
+            <div className='trash'><img src={trash} alt="Trash" /></div>
           </li>
         ))}
       </ul>
