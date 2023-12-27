@@ -28,6 +28,19 @@ function History(props) {
       setAllChats(response.data.data);
     })
     .catch((err) => {
+      Notiflix.Notify.failure(err.response.data);
+    })
+  }
+
+  const deleteChat = async (chatId) => {
+    const endPoint = `user/chats/${chatId}`;
+    await apiRequests(endPoint, 'delete')
+    .then((response) => {
+      console.log("response", response);
+      Notiflix.Notify.success(response.data.status.message);
+      getAllChats();
+    })
+    .catch((err) => {
       console.log(err);
       Notiflix.Notify.failure(err.response.data);
     })
@@ -40,9 +53,9 @@ function History(props) {
           <li key={index} className='d-flex align-items-center justify-content-between'>
             <Link onClick={() => props.getChat(chat.attributes.chat_id)}>
               <img src={list} alt="List" className="me-3" />
-              {chat.attributes.id}
+              {chat.attributes.title || 'What is your health related question?'}
             </Link>
-            <div className='trash'><img src={trash} alt="Trash" /></div>
+            <div className='trash' onClick={() => deleteChat(chat.attributes.chat_id)}><img src={trash} alt="Trash" /></div>
           </li>
         ))}
       </ul>
