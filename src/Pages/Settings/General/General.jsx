@@ -1,10 +1,48 @@
-import React from 'react';
-
+import React, { useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, Button , Form } from 'react-bootstrap';
+import Notiflix from 'notiflix';
+
 import avatar from '../../../assets/images/avatar.png';
+import { apiRequests } from '../../../Common/apiRequests';
+import { updateUser } from '../../../Redux/actions/authActions';
 import './General.scss';
 
 function General() {
+  const form  = useRef(null);
+  const dispatch = useDispatch();
+  const [validated, setValidated] = useState(false);
+  const user = useSelector(state => state.auth.user);
+  const [email, setEmail] = useState('');
+
+  const updateUserData = async (e) => {
+    e.preventDefault();
+    const userForm = e.currentTarget;
+    if(!userForm.checkValidity()) {
+      setValidated(true);
+      return;
+    }
+    const endPoint = `user/update_info`;
+    const data = new FormData(form.current);
+    const userData = {
+      user: {
+        first_name: data.get('first_name'),
+        last_name: data.get('last_name'),
+        phone: data.get('phone'),
+      }
+    }
+    await apiRequests(endPoint, 'patch', userData)
+    .then((response) => {
+      if(response.status === 200) {
+        console.log('line 41', response);
+        dispatch(updateUser(response));
+        Notiflix.Notify.success(response.data.status.message);
+      }
+    })
+    .catch((err) => {
+      Notiflix.Notify.failure(err.response.data.status.message);
+    })
+  }
   return (
     <div className="custom-container">
       <div className="general-page settings">
@@ -21,34 +59,50 @@ function General() {
           </div>
         </div>
 
-        <Row>
-          <Col lg={6}>
-            <Form.Group className="mb-4" controlId="formEmail">
-              <Form.Label>First Name</Form.Label>
-              <Form.Control type="text" placeholder="Month / Year" />
-            </Form.Group>
-          </Col>
-          <Col lg={6}>
-            <Form.Group className="mb-4" controlId="formEmail">
-              <Form.Label>Last Name</Form.Label>
-              <Form.Control type="text" placeholder="" />
-            </Form.Group>
-          </Col>
-        </Row>
-        <Row>
-          <Col lg={6}>
-            <Form.Group className="mb-4" controlId="formEmail">
-              <Form.Label>Phone</Form.Label>
-              <Form.Control type="number" placeholder="Month / Year" />
-            </Form.Group>
-          </Col>
-          <Col lg={6}>
-            <Form.Group className="mb-4" controlId="formEmail">
-              <Form.Label>Email Address</Form.Label>
-              <Form.Control type="email" placeholder="" />
-            </Form.Group>
-          </Col>
-        </Row>
+        <Form noValidate validated={validated} ref={form} onSubmit={updateUserData}>
+          <Row>
+            <Col lg={6}>
+              <Form.Group className="mb-4" controlId="formEmail">
+                <Form.Label>First Name</Form.Label>
+                <Form.Control type="text" name="first_name" required placeholder="First Name" defaultValue={user.first_name} />
+                <Form.Control.Feedback type="invalid">
+                  First name is required!
+                </Form.Control.Feedback>
+              </Form.Group>
+            </Col>
+            <Col lg={6}>
+              <Form.Group className="mb-4" controlId="formEmail">
+                <Form.Label>Last Name</Form.Label>
+                <Form.Control type="text" placeholder="Last Name" name="last_name" required defaultValue={user.last_name} />
+                <Form.Control.Feedback type="invalid">
+                  Last name is required!
+                </Form.Control.Feedback>
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col lg={6}>
+              <Form.Group className="mb-4" controlId="formEmail">
+                <Form.Label>Phone</Form.Label>
+                <Form.Control type="text" placeholder="Phone" name="phone" defaultValue={user.phone} />
+              </Form.Group>
+            </Col>
+            <Col lg={6}>
+              <Form.Group className="mb-4" controlId="formEmail">
+                <Form.Label>Email Address</Form.Label>
+                <Form.Control type="email" placeholder="Email" name="email" required onChange={(e) => setEmail(e.target.value)} value={user.email} disabled />
+                <Form.Control.Feedback type="invalid">
+                {email === '' ? 'Email is required!' : 'Enter valid email address!'}
+                </Form.Control.Feedback>
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <div>
+              <Button variant="primary" type="submit">Update</Button>{' '}
+            </div>
+          </Row>
+        </Form>
         <hr className="mt-0 mb-4" />
 
         <div className="news-letter">

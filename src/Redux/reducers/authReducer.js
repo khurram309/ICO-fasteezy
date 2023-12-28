@@ -1,4 +1,4 @@
-import { SET_TOKEN, SET_SIGN_UP, LOGOUT } from "../actions/authActionTypes";
+import { SET_TOKEN, SET_SIGN_UP, LOGOUT, UPDATE_USER } from "../actions/authActionTypes";
 
 const initialState = {
   token: localStorage.getItem('accessToken') || null,
@@ -32,6 +32,12 @@ const authReducer = (state = initialState, action) => {
         token: null,
         user: null,
         showPayment: false
+      };
+    case UPDATE_USER:
+      localStorage.setItem('user', JSON.stringify(action.payload.data.data.attributes));
+      return {
+        ...state,
+        user: action.payload.data.data.attributes
       };
     default:
       return state;
