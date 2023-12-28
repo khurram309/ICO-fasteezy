@@ -34,7 +34,6 @@ function General() {
     await apiRequests(endPoint, 'patch', userData)
     .then((response) => {
       if(response.status === 200) {
-        console.log('line 41', response);
         dispatch(updateUser(response));
         Notiflix.Notify.success(response.data.status.message);
       }
