@@ -97,7 +97,7 @@ function General() {
             </Col>
           </Row>
           <Row>
-            <div>
+            <div className='mb-3'>
               <Button variant="primary" type="submit">Update</Button>{' '}
             </div>
           </Row>
