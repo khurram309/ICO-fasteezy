@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Notiflix from 'notiflix';
 
 import chattitle from '../../assets/images/chat-title.svg';
@@ -12,10 +12,12 @@ import copy from '../../assets/images/chat-copy.svg';
 import repeat from '../../assets/images/repeat.svg';
 import bot from '../../assets/images/bot-small.svg';
 import { apiRequests } from '../../Common/apiRequests';
+import { getChatHistory } from '../../Redux/actions/authActions';
 
 function Messages(props) {
   const userToken = useSelector(state => state.auth.token);
   const messages = props.messages;
+  const dispatch = useDispatch();
 
   const createChat = async () => {
     const endPoint = `user/chats`;
@@ -28,10 +30,10 @@ function Messages(props) {
       }
       props.addMessage(message);
       props.setChatId(response.data.data.attributes.chat_id);
+      dispatch(getChatHistory());
     })
     .catch((err) => {
-      console.log(err);
-      Notiflix.Notify.failure(err.response.data);
+      Notiflix.Notify.failure(err.response.data.status.message);
     })
   }
 
