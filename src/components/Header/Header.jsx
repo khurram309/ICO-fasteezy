@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { Nav, Navbar, Dropdown } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -16,7 +16,8 @@ import { logout } from '../../Redux/actions/authActions';
 
 function Header() {
   // const state = store.getState();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const userToken = useSelector(state => state.auth.token);
   const user = useSelector(state => state.auth.user);
 
@@ -30,6 +31,10 @@ function Header() {
     .catch((err) => {
       Notiflix.Notify.failure(err.response.data);
     })
+  }
+
+  const handleSettings = () => {
+    navigate('/settings/general');
   }
 
   return (
@@ -59,6 +64,7 @@ function Header() {
                     </span>
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
+                    <Dropdown.Item onClick={handleSettings}>Settings</Dropdown.Item>
                     <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
@@ -89,6 +95,7 @@ function Header() {
                         { `${user?.first_name} ${user?.last_name}` }
                       </Dropdown.Toggle>
                       <Dropdown.Menu>
+                        <Dropdown.Item onClick={handleSettings}>Settings</Dropdown.Item>
                         <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
                       </Dropdown.Menu>
                     </Dropdown>
