@@ -141,7 +141,7 @@ function GetStarted(props) {
         </Form>
         </Modal.Body>
       </Modal>
-      { userToken && props.source == 'footer' && <PaymentInformation showModal={showPayment} /> }
+      { userToken && <PaymentInformation showModal={showPayment} /> }
       { showLogin && <Login showLogin={showLogin} /> }
     </>
   )
