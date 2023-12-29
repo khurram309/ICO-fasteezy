@@ -14,12 +14,19 @@ import { apiRequests } from '../../Common/apiRequests';
 function History(props) {
   const userToken = useSelector(state => state.auth.token);
   const [allChats, setAllChats] = useState();
+  const getChatHistory = useSelector(state => state.auth.getChatHistory)
 
   useEffect(() => {
     if(userToken != null) {
       getAllChats();
     }
   }, [])
+
+  useEffect(() => {
+    if(userToken != null && getChatHistory) {
+      getAllChats();
+    }
+  }, [getChatHistory])
 
   const getAllChats = async () => {
     const endPoint = `user/chats`;
@@ -42,7 +49,7 @@ function History(props) {
     })
     .catch((err) => {
       console.log(err);
-      Notiflix.Notify.failure(err.response.data);
+      Notiflix.Notify.failure(err.response.data.status.message);
     })
   }
 
@@ -116,7 +123,7 @@ function History(props) {
             </ul>
           </Tab>
           <Tab eventKey="History" title="History">
-            { allChats && renderAllChats() || 'No chats found'}
+            { allChats?.length > 0 ? renderAllChats() : 'No chats found'}
           </Tab>
         </Tabs>
       </div>

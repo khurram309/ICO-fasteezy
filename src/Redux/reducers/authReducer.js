@@ -1,9 +1,10 @@
-import { SET_TOKEN, SET_SIGN_UP, LOGOUT, UPDATE_USER } from "../actions/authActionTypes";
+import { SET_TOKEN, SET_SIGN_UP, LOGOUT, UPDATE_USER, GET_CHAT_HISTORY } from "../actions/authActionTypes";
 
 const initialState = {
   token: localStorage.getItem('accessToken') || null,
   user: JSON.parse(localStorage.getItem('user')) || null,
-  showPayment: false
+  showPayment: false,
+  getChatHistory: false
 };
 
 const authReducer = (state = initialState, action) => {
@@ -31,13 +32,19 @@ const authReducer = (state = initialState, action) => {
         ...state,
         token: null,
         user: null,
-        showPayment: false
+        showPayment: false,
+        getChatHistory: false
       };
     case UPDATE_USER:
       localStorage.setItem('user', JSON.stringify(action.payload.data.data.attributes));
       return {
         ...state,
         user: action.payload.data.data.attributes
+      };
+    case GET_CHAT_HISTORY:
+      return {
+        ...state,
+        getChatHistory: true
       };
     default:
       return state;
