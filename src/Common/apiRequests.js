@@ -2,7 +2,6 @@ import axios from "axios";
 
 export var apiRequests = async (ENDPOINT, METHOD, PAYLOAD) => {
   const baseUrl = import.meta.env.VITE_UVO_HEALTH_API_URL;
-  console.log('heroku url', baseUrl);
   const options = {
     url: `${baseUrl}/${ENDPOINT}`,
     method: METHOD,

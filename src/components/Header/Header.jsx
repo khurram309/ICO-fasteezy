@@ -27,6 +27,7 @@ function Header() {
     .then((response) => {
       dispatch(logout());
       localStorage.clear();
+      navigate('/');
     })
     .catch((err) => {
       Notiflix.Notify.failure(err.response.data);
