@@ -54,7 +54,10 @@ function Messages(props) {
           </div>
         </div>
       </div>
-      <div className='chat-wrap'>
+      {messages.length == 0 && <div className='chat-wrap d-flex justify-content-center flex-column'>
+        <p className='new-chat-message'>Create New Chat or Load Chat from History</p>
+      </div>}
+      {messages.length > 0 && <div className='chat-wrap'>
         { messages.map((message, index) => (
           <Fragment key={index}>
             { message.role == 'user' && 
@@ -110,7 +113,7 @@ function Messages(props) {
             </>}
           </Fragment>
         ))}
-      </div>
+      </div>}
     </div>
   )
 }

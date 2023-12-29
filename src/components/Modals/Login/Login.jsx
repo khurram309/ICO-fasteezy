@@ -45,7 +45,7 @@ function Login(props) {
     .then((response) => {
       if(response.status === 200) {
         dispatch(setToken(response));
-        navigate('/settings/billing');
+        navigate('/chat');
       }
     })
     .catch((err) => {

@@ -232,6 +232,12 @@
     max-height: calc(100vh - 500px);
     min-height: calc(100vh - 500px);
     overflow: auto;
+    .new-chat-message {
+      justify-content: center;
+      display: flex;
+      font-size: 20px;
+      font-weight: 600;
+    }
     .chat-btns-group {
       .chat-btn {
         border: 1.5px solid var(--graye3);
