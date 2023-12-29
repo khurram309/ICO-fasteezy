@@ -5,7 +5,7 @@ import Notiflix from 'notiflix';
 
 import avatar from '../../../assets/images/avatar.png';
 import { apiRequests } from '../../../Common/apiRequests';
-import { updateUser } from '../../../Redux/actions/authActions';
+import { logout, updateUser } from '../../../Redux/actions/authActions';
 import './General.scss';
 
 function General() {
@@ -42,6 +42,22 @@ function General() {
       Notiflix.Notify.failure(err.response.data.status.message);
     })
   }
+
+  const deleteUser = async () => {
+    const endPoint = `user/deactivate`;
+    await apiRequests(endPoint, 'delete')
+    .then((response) => {
+      if(response.status === 200) {
+        Notiflix.Notify.success(response.data.status.message);
+        dispatch(logout());
+        localStorage.clear();
+      }
+    })
+    .catch((err) => {
+      Notiflix.Notify.failure(err.response.data.status.message);
+    })
+  }
+
   return (
     <div className="custom-container">
       <div className="general-page settings">
@@ -124,7 +140,7 @@ function General() {
               <div className="gray32 fw-semibold fw-small mb-1">Delete your account</div>
               <p className="fw-small-xs gray85 mb-0">If you'd like to permanently delete your account, please use the displayed button</p>
             </div>
-            <Button variant="danger">Delete</Button>{' '}
+            <Button variant="danger" onClick={deleteUser}>Delete</Button>{' '}
           </div>
         </div>
 
