@@ -15,6 +15,7 @@ import GetStarted from '../../components/Modals/GetStarted/GetStarted';
 import Messages from '../../components/Messages/Messages';
 import History from '../../components/History/History';
 import './Chatbot.scss';
+import PaymentInformation from '../../components/Modals/PaymentInformation/PaymentInformation';
 
 function Chatbot() {
   const form  = useRef(null);
@@ -67,7 +68,7 @@ function Chatbot() {
       addMessage(message);
     })
     .catch((err) => {
-      Notiflix.Notify.failure(err.response.data);
+      Notiflix.Notify.failure(err.response.data.status.message);
     })
   }
 
@@ -176,7 +177,7 @@ function Chatbot() {
           </div> }
           <Messages messages={messages} setChatId={setChatId} addMessage={addMessage} />
           <div className="suggestions">
-            <div className="d-flex justify-content-between align-items-center">
+            {/* <div className="d-flex justify-content-between align-items-center">
               <div className="gray5c fw-semibold">Suggestions</div>
               <div className="remove-tag">
                 <Link className="btn-close"></Link>
@@ -189,36 +190,37 @@ function Chatbot() {
                 <Button as="input" type="button" value="Health Questions" />{' '}
               </div>
               <div className="remove-tags"></div>
-            </div>
+            </div> */}
 
-          <div className="chat-input d-flex justify-content-between align-items-center mt-3">
-            <div className='d-flex align-items-center w-100'>
-              <div>
-                <Link>
-                  <img src={bot} alt="info" />
-                </Link>
-              </div>
-              <Form className='d-flex align-items-center' noValidate validated={validated} ref={form} onSubmit={sendMessage}>
-                <Form.Control type="text" name="message" placeholder="|How i can help you?" autoComplete="off" autofill="off" required disabled={ messages.length === 0 } />
-                <div className="d-flex align-items-center">
-                  <Button type="submit" className='up-arrow'>
-                    <img src={upArrow} alt="Up Arrow" />
-                  </Button>
-                  <div>
-                    <Link>
-                      <img src={plus} alt="info" />
-                    </Link>
-                  </div>
+            <div className="chat-input d-flex justify-content-between align-items-center mt-3">
+              <div className='d-flex align-items-center w-100'>
+                <div>
+                  <Link>
+                    <img src={bot} alt="info" />
+                  </Link>
                 </div>
-              </Form>
+                <Form className='d-flex align-items-center' noValidate validated={validated} ref={form} onSubmit={sendMessage}>
+                  <Form.Control type="text" name="message" placeholder="|How i can help you?" autoComplete="off" autofill="off" required disabled={ messages.length === 0 } />
+                  <div className="d-flex align-items-center">
+                    <Button type="submit" className='up-arrow'>
+                      <img src={upArrow} alt="Up Arrow" />
+                    </Button>
+                    <div>
+                      <Link>
+                        <img src={plus} alt="info" />
+                      </Link>
+                    </div>
+                  </div>
+                </Form>
+              </div>
             </div>
-          </div>
           </div>
         </div>
         <History getChat={getChat} />
       </div>
     </div>
-    { showSignUp && <GetStarted showRegister={showSignUp} /> }
+    { showSignUp && userToken == null && <GetStarted showRegister={showSignUp} /> }
+    { showSignUp && userToken && <PaymentInformation showModal={showSignUp} /> }
     </>
   )
 }
