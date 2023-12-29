@@ -41,6 +41,7 @@ function Security() {
     await apiRequests(endPoint, 'patch', userData)
     .then((response) => {
       if(response.status === 200) {
+        e.target.reset();
         Notiflix.Notify.success(response.data.status.message);
       }
     })
