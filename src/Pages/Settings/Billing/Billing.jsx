@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Notiflix from 'notiflix';
 
 import { Dropdown, Table } from 'react-bootstrap';
 import dot from '../../../assets/images/dot-icon.svg';
@@ -7,9 +8,29 @@ import master from '../../../assets/images/master-card.svg';
 import paypal from '../../../assets/images/paypal-card.svg';
 import applepay from '../../../assets/images/applepay-card.svg';
 import down from '../../../assets/images/down-icon.svg';
+import { apiRequests } from '../../../Common/apiRequests';
 import './Billing.scss';
 
 function Billing() {
+  const [invoices, setInvoices] = useState([]);
+
+  useEffect(() => {
+    listInvoices();
+  }, [])
+
+  const listInvoices = async () => {
+    const endPoint = `user/invoices`;
+    const response = await apiRequests(endPoint, 'get');
+    try {
+      if (response.status === 200) {
+        console.log('response', response)
+        setInvoices(response.data.data);
+      }
+    } catch (err) {
+      Notiflix.Notify.failure(err.response.data.status.message)
+    }
+  }
+
   return (
     <div className="custom-container">
       <div className="billing-page settings">
@@ -116,46 +137,21 @@ function Billing() {
               </tr>
             </thead>
             <tbody role='rowgroup'>
-              <tr role='row'>
-                <td>Invoice #163547</td>
-                <td>Oct. 03,2023</td>
-                <td>$16,32</td>
-                <td>
-                  <div className="pending status d-inline-flex align-items-center fw-small fw-semibold">
+              {invoices.map((invoice, index) => (
+                <tr role='row' key={index}>
+                  <td>{invoice.attributes.stripe_invoice_id}</td>
+                  <td>{invoice.attributes.created}</td>
+                  <td>${invoice.attributes.total}</td>
+                  <td>
+                    {invoice.attributes.status === 'paid' && <div className="available status d-inline-flex align-items-center fw-small fw-semibold">
+                      <span></span>Paid
+                    </div>}
+                    {invoice.attributes.status === 'pending' && <div className="pending status d-inline-flex align-items-center fw-small fw-semibold">
                     <span></span>Pending
-                  </div>
-                </td>
-              </tr>
-              <tr role='row'>
-                <td>Invoice #145566</td>
-                <td>Oct. 06,2023</td>
-                <td>$161,32</td>
-                <td>
-                  <div className="available status d-inline-flex align-items-center fw-small fw-semibold">
-                    <span></span>Paid
-                  </div>
-                </td>
-              </tr>
-              <tr role='row'>
-                <td>Invoice #789416</td>
-                <td>Oct. 09,2023</td>
-                <td>$112,32</td>
-                <td>
-                  <div className="available status d-inline-flex align-items-center fw-small fw-semibold">
-                    <span></span>Paid
-                  </div>
-                </td>
-              </tr>
-              <tr role='row'>
-                <td>Invoice #146567</td>
-                <td>Oct. 23,2023</td>
-                <td>$120,32</td>
-                <td>
-                  <div className="available status d-inline-flex align-items-center fw-small fw-semibold">
-                    <span></span>Paid
-                  </div>
-                </td>
-              </tr>
+                  </div>}
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </Table>
         </div>

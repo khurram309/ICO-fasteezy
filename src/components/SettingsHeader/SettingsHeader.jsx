@@ -2,12 +2,14 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Nav, Navbar } from 'react-bootstrap';
 import './SettingsHeader.scss';
+import { useSelector } from 'react-redux';
 
 function SettingsHeader() {
+  const user = useSelector(state => state.auth.user);
   return (
     <>
       <div className="custom-container settingPage mt-4 pt-2">
-        <h3 className='m-0'>Hey there, Brian Ford!</h3>
+        <h3 className='m-0'>{`Hey there, ${user.first_name} ${user.last_name}!`}</h3>
         <p className='gray85'>Welcome back, we're happy to have you here!</p>
 
         <Navbar bg="transparent" className="bg-transparent border-0 border-bottom rounded-0 p-0 mt-5">
