@@ -47,12 +47,11 @@ function History(props) {
     const endPoint = `user/chats/${chatId}`;
     await apiRequests(endPoint, 'delete')
     .then((response) => {
-      console.log("response", response);
       Notiflix.Notify.success(response.data.status.message);
       getAllChats();
+      props.getChat()
     })
     .catch((err) => {
-      console.log(err);
       Notiflix.Notify.failure(err.response.data.status.message);
     })
   }
