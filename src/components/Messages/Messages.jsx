@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Notiflix from 'notiflix';
 
@@ -18,6 +18,17 @@ function Messages(props) {
   const userToken = useSelector(state => state.auth.token);
   const messages = props.messages;
   const dispatch = useDispatch();
+  const myDivRef = useRef(null);
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
+  const scrollToBottom = () => {
+    if (myDivRef.current) {
+      myDivRef.current.scrollTop = myDivRef.current.scrollHeight;
+    }
+  };
 
   const createChat = async () => {
     const endPoint = `user/chats`;
@@ -59,7 +70,7 @@ function Messages(props) {
       {messages.length == 0 && <div className='chat-wrap d-flex justify-content-center flex-column'>
         <p className='new-chat-message'>Create New Chat or Load Chat from History</p>
       </div>}
-      {messages.length > 0 && <div className='chat-wrap'>
+      {messages.length > 0 && <div className='chat-wrap' ref={myDivRef}>
         { messages.map((message, index) => (
           <Fragment key={index}>
             { message.role == 'user' && 

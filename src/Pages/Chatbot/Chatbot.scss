@@ -231,7 +231,7 @@
   .chat-wrap {
     max-height: calc(100vh - 500px);
     min-height: calc(100vh - 500px);
-    overflow: auto;
+    overflow-y: auto;
     .new-chat-message {
       justify-content: center;
       display: flex;
