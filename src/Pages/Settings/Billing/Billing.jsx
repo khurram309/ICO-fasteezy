@@ -13,9 +13,11 @@ import './Billing.scss';
 
 function Billing() {
   const [invoices, setInvoices] = useState([]);
+  const [paymentMethods, setpaymentMethods] = useState([]);
 
   useEffect(() => {
     listInvoices();
+    listPaymentMethods();
   }, [])
 
   const listInvoices = async () => {
@@ -23,8 +25,19 @@ function Billing() {
     const response = await apiRequests(endPoint, 'get');
     try {
       if (response.status === 200) {
-        console.log('response', response)
         setInvoices(response.data.data);
+      }
+    } catch (err) {
+      Notiflix.Notify.failure(err.response.data.status.message)
+    }
+  }
+
+  const listPaymentMethods = async () => {
+    const endPoint = `user/payment_methods`;
+    const response = await apiRequests(endPoint, 'get');
+    try {
+      if (response.status === 200) {
+        setpaymentMethods(response.data.data);
       }
     } catch (err) {
       Notiflix.Notify.failure(err.response.data.status.message)
@@ -52,75 +65,28 @@ function Billing() {
             </div>
           </div>
 
-          <div className="cards-bar">
-            <div className="d-flex justify-content-between align-items-center">
-              <div className="d-flex align-content-center">
-                <div><img src={visa} alt="Visa" className="me-2" /></div>
-                <div className="d-flex flex-column ps-1">
-                  <div className="fw-small fw-semibold">Visa ending in 1234</div>
-                  <div className="fw-small-xs gray85">Expire 06/2032</div>
+          { paymentMethods.length > 0 ? paymentMethods.map((method, index) => (
+            <div className="cards-bar">
+              <div className="d-flex justify-content-between align-items-center">
+                <div className="d-flex align-content-center">
+                  <div>
+                    {method.attributes.brand === 'visa' && <img src={visa} alt="Visa" className="me-2" />}
+                    {method.attributes.brand === 'mastercard' && <img src={master} alt="Master" className="me-2" />}
+                    {method.attributes.brand === 'paypal' && <img src={paypal} alt="Paypal" className="me-2" />}
+                    {method.attributes.brand === 'applepay' && <img src={applepay} alt="Apple Pay" className="me-2" />}
+                  </div>
+                  <div className="d-flex flex-column ps-1">
+                    <div className="fw-small fw-semibold">{method.attributes.brand} ending in {method.attributes.last_digits}</div>
+                    <div className="fw-small-xs gray85">Expire {method.attributes.expiry}</div>
+                  </div>
+                </div>
+                <div className="available status d-flex align-items-center fw-small fw-semibold">
+                  <span></span>available
                 </div>
               </div>
-              <div className="available status d-flex align-items-center fw-small fw-semibold">
-                <span></span>available
-              </div>
             </div>
-          </div>
-          <div className="cards-bar">
-            <div className="d-flex justify-content-between align-items-center">
-              <div className="d-flex align-content-center">
-                <div><img src={master} alt="Master" className="me-2" /></div>
-                <div className="d-flex flex-column ps-1">
-                  <div className="fw-small fw-semibold">Mastercard ending in 4321</div>
-                  <div className="fw-small-xs gray85">Expire 24/2021</div>
-                </div>
-              </div>
-              <div className="expired status d-flex align-items-center fw-small fw-semibold">
-                <span></span>expired
-              </div>
-            </div>
-          </div>
-          <div className="cards-bar">
-            <div className="d-flex justify-content-between align-items-center">
-              <div className="d-flex align-content-center">
-                <div><img src={paypal} alt="Paypal" className="me-2" /></div>
-                <div className="d-flex flex-column ps-1">
-                  <div className="fw-small fw-semibold">PayPal</div>
-                  <div className="fw-small-xs gray85">Expire 06/2028</div>
-                </div>
-              </div>
-              <div className="available status d-flex align-items-center fw-small fw-semibold">
-                <span></span>online
-              </div>
-            </div>
-          </div>
-          <div className="cards-bar">
-            <div className="d-flex justify-content-between align-items-center">
-              <div className="d-flex align-content-center">
-                <div><img src={paypal} alt="Paypal" className="me-2" /></div>
-                <div className="d-flex flex-column ps-1">
-                  <div className="fw-small fw-semibold">PayPal</div>
-                  <div className="fw-small-xs gray85">Expire 06/2028</div>
-                </div>
-              </div>
-              <div className="available status d-flex align-items-center fw-small fw-semibold">
-                <span></span>online
-              </div>
-            </div>
-          </div>
-          <div className="cards-bar">
-            <div className="d-flex justify-content-between align-items-center">
-              <div className="d-flex align-content-center">
-                <div><img src={applepay} alt="Paypal" className="me-2" /></div>
-                <div className="d-flex flex-column ps-1">
-                  <div className="fw-small fw-semibold">Apple Pay</div>
-                </div>
-              </div>
-              <div className="expired status d-flex align-items-center fw-small fw-semibold">
-                <span></span>offline
-              </div>
-            </div>
-          </div>
+          ))
+          : 'No Payment Method Found' }
         </div>
 
         <div className="billing-outer overflow-hidden ">
@@ -137,7 +103,7 @@ function Billing() {
               </tr>
             </thead>
             <tbody role='rowgroup'>
-              {invoices.map((invoice, index) => (
+              {invoices.length > 0 ? invoices.map((invoice, index) => (
                 <tr role='row' key={index}>
                   <td>{invoice.attributes.stripe_invoice_id}</td>
                   <td>{invoice.attributes.created}</td>
@@ -151,7 +117,7 @@ function Billing() {
                   </div>}
                   </td>
                 </tr>
-              ))}
+              )) : 'No Invoices Found.'}
             </tbody>
           </Table>
         </div>
