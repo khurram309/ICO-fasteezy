@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, Button , Form } from 'react-bootstrap';
 import Notiflix from 'notiflix';
 
-import avatar from '../../../assets/images/avatar.png';
+import userImg from '../../../assets/images/userImg.png';
 import { apiRequests } from '../../../Common/apiRequests';
 import { logout, updateUser } from '../../../Redux/actions/authActions';
 import './General.scss';
@@ -80,7 +80,7 @@ function General() {
       <div className="general-page settings">
         <div className='d-flex align-content-center justify-content-between avatar-top pb-4 mb-4'>
           <div className="d-flex">
-            <img src={user.avatar || avatar} alt="info" className="rounded-circle me-3 img-fluid" />
+            <img src={user.avatar || userImg} alt="info" className="rounded-circle me-3 img-fluid" />
             <div className="d-flex flex-column justify-content-center">
               <div className="title fw-small fw-medium">Your avatar</div>
               <p className="fw-small-xs gray85 m-0">PNG or JPG no bigger than 580 px wide and tall.</p>

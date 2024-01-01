@@ -221,6 +221,9 @@
       grid-template-columns: 2rem 1fr;
       grid-gap: 1.25rem;
       .user-img {
+        .user-image {
+          border-radius: 50%;
+        }
         width: 2rem;
         img {
           width: 100%;

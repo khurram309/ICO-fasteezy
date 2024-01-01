@@ -8,7 +8,7 @@ import logo from '../../assets/images/logo.png';
 import Login from '../Modals/Login/Login';
 import GetStarted from '../Modals/GetStarted/GetStarted';
 import './Header.scss';
-import dp from '../../assets/images/dp.jpg';
+import userImg from '../../assets/images/userImg.png';
 import bell from '../../assets/images/bell-icon.svg';
 import { apiRequests } from '../../Common/apiRequests';
 import { logout } from '../../Redux/actions/authActions';
@@ -56,7 +56,7 @@ function Header() {
               <div className=' d-flex align-items-center profile-dropdown'>
                 <div className="avatar">
                   <div className="dot"></div>
-                  <img src={user?.avatar || dp} alt="Dp" />
+                  <img src={user?.avatar || userImg} alt="user-image" />
                 </div>
                 <Dropdown>
                   <Dropdown.Toggle variant="" id="dropdown-basic">
@@ -89,7 +89,7 @@ function Header() {
                   <div className='d-flex align-items-center profile-dropdown'>
                     <div className="avatar">
                       <div className="dot"></div>
-                      <img src={user?.avatar || dp} alt="Dp" />
+                      <img src={user?.avatar || userImg} alt="user-image" />
                     </div>
                     <Dropdown>
                       <Dropdown.Toggle variant="" id="dropdown-basic">

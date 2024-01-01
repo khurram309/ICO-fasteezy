@@ -4,7 +4,7 @@ import Notiflix from 'notiflix';
 
 import chattitle from '../../assets/images/chat-title.svg';
 import share from '../../assets/images/share-icon.svg';
-import user from '../../assets/images/avatar.png';
+import userImg from '../../assets/images/userImg.png';
 import thumbUp from '../../assets/images/thumb-up.svg';
 import thumbDown from '../../assets/images/thumb-down.svg';
 import shareChat from '../../assets/images/share-chat.svg';
@@ -77,7 +77,7 @@ function Messages(props) {
             <div className='chat-inner'>
               <div className="chat-grid">
                 <div className="user-img">
-                  <img src={user} alt="User"/>
+                  <img src={userImg} alt="User" className='user-image' />
                 </div>
                 <div className="chat-text">
                   <p>{ message.message }</p>
