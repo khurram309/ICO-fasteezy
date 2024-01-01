@@ -4,8 +4,10 @@ import Button from 'react-bootstrap/Button';
 import AboutCard from '../../assets/images/about-card.png';
 import GetStarted from '../Modals/GetStarted/GetStarted';
 import './About.scss';
+import { useNavigate } from 'react-router-dom';
 
 function About() {
+  const navigate = useNavigate();
   return (
     <div className="container-lg">
       <div className="about-assistant section-spacing pb-4 mt-md-5">
@@ -21,7 +23,7 @@ function About() {
               created UVO - Your Personal Medical Guru.
             </h5>
             <div className="bnt-section mt-5">
-              <Button variant="outline-primary me-1 small-btn">Try Demo</Button>{' '}
+              <Button variant="outline-primary me-1 small-btn" onClick={() => navigate('/chat')}>Try Demo</Button>{' '}
               <GetStarted source="home" />
             </div>
           </div>

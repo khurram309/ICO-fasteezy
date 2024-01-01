@@ -9,8 +9,10 @@ import WhatUsersSay from '../../components/WhatUsersSay/WhatUsersSay';
 import Questions from '../../components/Questions/Questions';
 import './Home.scss';
 import GetStarted from '../../components/Modals/GetStarted/GetStarted';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
+  const navigate = useNavigate();
   return (
     <>
       <div className="main-banner">
@@ -21,7 +23,7 @@ function Home() {
             </h2>
             <h5>Our AI assistant UVO is here to help you navigate the world of health and wellness.</h5>
             <div className="bnt-section mt-5">
-              <Button variant="outline-primary me-1 small-btn">Try Demo</Button>{' '}
+              <Button variant="outline-primary me-1 small-btn" onClick={() => navigate('/chat')}>Try Demo</Button>{' '}
               <GetStarted source="home" />
             </div>
           </div>
