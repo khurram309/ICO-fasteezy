@@ -35,32 +35,32 @@ function Footer() {
           </div>
           <div className="f-links">
             <Nav className="mx-auto center-nav">
-              <Nav.Link href="#About">About</Nav.Link>
-              <Nav.Link href="#Features">Features</Nav.Link>
-              <Nav.Link href="#Works">Works</Nav.Link>
-              <Nav.Link href="#Support">Support</Nav.Link>
+              <Nav.Link href="#">About</Nav.Link>
+              <Nav.Link href="#">Features</Nav.Link>
+              <Nav.Link href="#">Works</Nav.Link>
+              <Nav.Link href="#">Support</Nav.Link>
             </Nav>
           </div>
           <div className="f-social d-flex">
             <div className="mx-3 twitter">
-              <Link to="#twitter"><img src={twitter} alt="twitter" /></Link>
+              <Link to="#"><img src={twitter} alt="twitter" /></Link>
             </div>
             <div className="mx-3">
-              <Link to="#fb"><img src={fb} alt="fb" /></Link>
+              <Link to="#"><img src={fb} alt="fb" /></Link>
             </div>
             <div className="mx-3">
-              <Link to="#instagram"><img src={instagram} alt="instagram" /></Link>
+              <Link to="#"><img src={instagram} alt="instagram" /></Link>
             </div>
             <div className="mx-3 me-0">
-              <Link to="#github"><img src={github} alt="github" /></Link>
+              <Link to="#"><img src={github} alt="github" /></Link>
             </div>
           </div>
         </div>
         <div className="copyright d-flex justify-content-between align-items-center flex-column flex-md-row ">
-          <div className="cr">© Copyright 2023, All Rights Reserved</div>
+          <div className="cr">© Copyright 2024, All Rights Reserved</div>
           <div className="quick-links">
-            <Link to="pp">Privacy Policy</Link>
-            <Link to="tc">Terms & Conditions</Link>
+            <Link>Privacy Policy</Link>
+            <Link>Terms & Conditions</Link>
           </div>
         </div>
       </div>
