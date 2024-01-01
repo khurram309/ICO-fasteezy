@@ -12,8 +12,8 @@ import { deviceToken } from '../../../Common/deviceToken';
 
 function GetStarted(props) {
   const dispatch = useDispatch();
-  const showPayment = useSelector(state => state.auth.showPayment);
-  const userToken = useSelector(state => state.auth.user);
+  const authState = useSelector(state => state.auth);
+  const { showPayment, user } = authState;
   const [email, setEmail] = useState('');
   const [showSignUp, setShowSignUp] = useState(props.showRegister);
   const [showLogin, setShowLogin] = useState(false);
@@ -55,16 +55,16 @@ function GetStarted(props) {
         device_token: deviceToken
       }
     }
-    await apiRequests(endPoint, 'post', userData)
-    .then((response) => {
-      if(response.status === 200) {
+    try {
+      const response = await apiRequests(endPoint, 'post', userData);
+      if (response.status === 200) {
+        Notiflix.Notify.success(response.data.status.message);
         dispatch(setSignUp(response));
         setShowSignUp(false);
       }
-    })
-    .catch((err) => {
+    } catch (err) {
       Notiflix.Notify.failure(err.response.data.status.message);
-    })
+    }
   }
 
   return (
@@ -89,14 +89,14 @@ function GetStarted(props) {
         </Modal.Header>
         <Modal.Body>
         <Form noValidate validated={validated} ref={form} onSubmit={onNextClick}>
-          <Form.Group className="mb-3" controlId="formName">
+          <Form.Group className="mb-3" controlId="formFirstName">
             <Form.Label>First Name*</Form.Label>
             <Form.Control type="text" placeholder="Insert first name" name="first_name" required />
             <Form.Control.Feedback type="invalid">
               First name is required!
             </Form.Control.Feedback>
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formName">
+          <Form.Group className="mb-3" controlId="formLastName">
             <Form.Label>Last Name*</Form.Label>
             <Form.Control type="text" placeholder="Insert last name" name="last_name" required />
             <Form.Control.Feedback type="invalid">
@@ -131,7 +131,6 @@ function GetStarted(props) {
           <Button className="w-100" variant="primary" type="submit">
             Next
           </Button>
-          {/* <PaymentInformation onClick={buttonClick} /> */}
           <div className="text-center pt-4 gray85">
             Already have an account? <a className="fw-medium ms-2" role='button' onClick={() => {
               setShowLogin(true)
@@ -141,7 +140,7 @@ function GetStarted(props) {
         </Form>
         </Modal.Body>
       </Modal>
-      { userToken && <PaymentInformation showModal={showPayment} /> }
+      { user && <PaymentInformation showModal={showPayment} /> }
       { showLogin && <Login showLogin={showLogin} /> }
     </>
   )
