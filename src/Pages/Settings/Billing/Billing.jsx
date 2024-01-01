@@ -10,12 +10,10 @@ import applepay from '../../../assets/images/applepay-card.svg';
 import down from '../../../assets/images/down-icon.svg';
 import { apiRequests } from '../../../Common/apiRequests';
 import './Billing.scss';
-import AddPaymentMethod from '../../../components/Modals/AddPaymentMethod/AddPaymentMethod';
 
 function Billing() {
   const [invoices, setInvoices] = useState([]);
   const [paymentMethods, setpaymentMethods] = useState([]);
-  const [showPaymentMethod, setShowPaymentMethod] = useState(false);
 
   useEffect(() => {
     listInvoices();
@@ -47,7 +45,6 @@ function Billing() {
   }
 
   const addPaymentMethod = async () => {
-    setShowPaymentMethod(true);
     // const endPoint = `user/payment_methods`;
     // const response = await apiRequests(endPoint, 'post');
     // try {
@@ -61,7 +58,6 @@ function Billing() {
   }
 
   return (
-    <>
     <div className="custom-container">
       <div className="billing-page settings">
         <div className="outer">
@@ -80,7 +76,7 @@ function Billing() {
             </div> */}
           </div>
 
-          { paymentMethods.length > 0 ? paymentMethods.map((method, index) => (
+          { paymentMethods.length > 0 ? (paymentMethods.map((method, index) => (
             <div className="cards-bar" key={index}>
               <div className="d-flex justify-content-between align-items-center">
                 <div className="d-flex align-content-center">
@@ -100,7 +96,7 @@ function Billing() {
                 </div>
               </div>
             </div>
-          ))
+          )))
           : 'No Payment Method Found' }
         </div>
 
@@ -132,14 +128,16 @@ function Billing() {
                   </div>}
                   </td>
                 </tr>
-              )) : 'No Invoices Found.'}
+              )) : (
+                <tr>
+                  <td colSpan="4">No Invoices Found.</td>
+                </tr>
+              )}
             </tbody>
           </Table>
         </div>
       </div>
     </div>
-    {showPaymentMethod && <AddPaymentMethod showModal={showPaymentMethod} />}
-    </>
   )
 }
 
