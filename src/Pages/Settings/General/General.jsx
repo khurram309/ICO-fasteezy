@@ -58,19 +58,39 @@ function General() {
     })
   }
 
+  const handleFileUpload = async (event) => {
+    const formData = new FormData();
+    const file = event.target.files[0];
+    formData.append("avatar", file);
+    const endPoint = `user/avatar`;
+    await apiRequests(endPoint, 'patch', formData)
+    .then((response) => {
+      if(response.status === 200) {
+        dispatch(updateUser(response));
+        Notiflix.Notify.success(response.data.status.message);
+      }
+    })
+    .catch((err) => {
+      Notiflix.Notify.failure(err.response.data.status.message);
+    })
+  }
+
   return (
     <div className="custom-container">
       <div className="general-page settings">
         <div className='d-flex align-content-center justify-content-between avatar-top pb-4 mb-4'>
           <div className="d-flex">
-            <img src={avatar} alt="info" className="rounded-circle me-3 img-fluid" />
+            <img src={user.avatar || avatar} alt="info" className="rounded-circle me-3 img-fluid" />
             <div className="d-flex flex-column justify-content-center">
               <div className="title fw-small fw-medium">Your avatar</div>
               <p className="fw-small-xs gray85 m-0">PNG or JPG no bigger than 580 px wide and tall.</p>
             </div>
           </div>
           <div>
-            <Button variant="primary">Change Avatar</Button>{' '}
+            <Form.Group controlId="formFile" className="mb-3 upload-avatar">
+              <Form.Label className='m-0'>Change Avatar</Form.Label>
+              <Form.Control type="file" onChange={handleFileUpload} />
+            </Form.Group>
           </div>
         </div>
 

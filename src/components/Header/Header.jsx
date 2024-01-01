@@ -56,7 +56,7 @@ function Header() {
               <div className=' d-flex align-items-center profile-dropdown'>
                 <div className="avatar">
                   <div className="dot"></div>
-                  <img src={dp} alt="Dp" />
+                  <img src={user?.avatar || dp} alt="Dp" />
                 </div>
                 <Dropdown>
                   <Dropdown.Toggle variant="" id="dropdown-basic">
@@ -89,7 +89,7 @@ function Header() {
                   <div className='d-flex align-items-center profile-dropdown'>
                     <div className="avatar">
                       <div className="dot"></div>
-                      <img src={dp} alt="Dp" />
+                      <img src={user?.avatar || dp} alt="Dp" />
                     </div>
                     <Dropdown>
                       <Dropdown.Toggle variant="" id="dropdown-basic">

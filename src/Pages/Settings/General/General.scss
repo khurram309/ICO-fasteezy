@@ -17,4 +17,27 @@
       padding: .5313rem .8125rem;
     }
   }
+  .upload-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 0.5938rem 0.75rem;
+    cursor: pointer;
+    border-radius: 100px;
+    background-color: var(--primary);
+    border-color: var(--primary);
+    border: 0;
+    font-weight: 600;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: var(--primaryhover);
+      border-color: var(--primaryhover);
+    }
+
+    input {
+      display: none;
+    }
+  }
 }

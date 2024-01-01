@@ -5,7 +5,8 @@ export var apiRequests = async (ENDPOINT, METHOD, PAYLOAD) => {
   const options = {
     url: `${baseUrl}/${ENDPOINT}`,
     method: METHOD,
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "multipart/form-data" },
+    // headers: { "Content-Type": "application/json" },
     // data: PAYLOAD
   };
   if(METHOD == "get") {
