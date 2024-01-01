@@ -10,11 +10,15 @@ import chat from '../../assets/images/empty-chat.png';
 import stars from '../../assets/images/stars.svg';
 import trash from '../../assets/images/trash.svg';
 import { apiRequests } from '../../Common/apiRequests';
+import PaymentInformation from '../Modals/PaymentInformation/PaymentInformation';
 
 function History(props) {
   const userToken = useSelector(state => state.auth.token);
+  const user = useSelector(state => state.auth.user);
   const [allChats, setAllChats] = useState();
-  const getChatHistory = useSelector(state => state.auth.getChatHistory)
+  const [showSection, setShowSection] = useState(user.payment_status == 'pending' ? true : false);
+  const [showPayment, setShowPayment] = useState(false);
+  const getChatHistory = useSelector(state => state.auth.getChatHistory);
 
   useEffect(() => {
     if(userToken != null) {
@@ -70,6 +74,7 @@ function History(props) {
   }
 
   return (
+    <>
     <div className="contextual-sidebar">
       <div className="search-section d-flex align-items-center">
         <img src={search} alt="search" />
@@ -127,15 +132,17 @@ function History(props) {
           </Tab>
         </Tabs>
       </div>
-      <div className="upgrade-chat mt-0">
-        <Link className="btn-close"></Link>
+      { showSection && <div className="upgrade-chat mt-0">
+        <Link className="btn-close" onClick={() => setShowSection(false)}></Link>
         <div className="empty-chat">
           <img src={chat} alt="chat" className="img-fluid" />
         </div>
-        <Button variant="primary w-100">Upgrade to Pro <img src={stars} alt="star" className="ms-2"/> </Button>{' '}
-      </div>
+        <Button variant="primary w-100" onClick={() => setShowPayment(true)}>Upgrade to Pro <img src={stars} alt="star" className="ms-2"/> </Button>{' '}
+      </div> }
       <div className="d-flex justify-content-center fw-semibold">Follow us on</div>
     </div>
+    { showPayment && userToken && <PaymentInformation showModal={showPayment} /> }
+    </>
   )
 }
 
