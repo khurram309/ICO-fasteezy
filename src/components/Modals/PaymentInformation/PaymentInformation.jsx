@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import { apiRequests } from '../../../Common/apiRequests';
 
 function PaymentInformation(props) {
-  const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_KEY);
+  const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_KEY.toString());
   const [show, setShow] = useState(props.showModal);
   const [showWelcome, setShowWelcome] = useState(false);
   const [clientSecret, setClientSecret] = useState('');
