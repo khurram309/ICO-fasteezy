@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Row, Col, Button, Tab, Tabs, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { openai } from '../../Common/openai';
 import { deviceToken } from '../../Common/deviceToken';
 import Notiflix from 'notiflix';
@@ -16,8 +16,10 @@ import Messages from '../../components/Messages/Messages';
 import History from '../../components/History/History';
 import './Chatbot.scss';
 import PaymentInformation from '../../components/Modals/PaymentInformation/PaymentInformation';
+import { getChatHistory } from '../../Redux/actions/authActions';
 
 function Chatbot() {
+  const dispatch = useDispatch();
   const form  = useRef(null);
   const [validated, setValidated] = useState(false);
   const userToken = useSelector(state => state.auth.token);
@@ -123,6 +125,7 @@ function Chatbot() {
         role: thread.role
       }
       addMessage(message);
+      dispatch(getChatHistory());
     })
   }
 
