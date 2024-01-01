@@ -10,10 +10,12 @@ import applepay from '../../../assets/images/applepay-card.svg';
 import down from '../../../assets/images/down-icon.svg';
 import { apiRequests } from '../../../Common/apiRequests';
 import './Billing.scss';
+import AddPaymentMethod from '../../../components/Modals/AddPaymentMethod/AddPaymentMethod';
 
 function Billing() {
   const [invoices, setInvoices] = useState([]);
   const [paymentMethods, setpaymentMethods] = useState([]);
+  const [showPaymentMethod, setShowPaymentMethod] = useState(false);
 
   useEffect(() => {
     listInvoices();
@@ -44,29 +46,42 @@ function Billing() {
     }
   }
 
+  const addPaymentMethod = async () => {
+    setShowPaymentMethod(true);
+    // const endPoint = `user/payment_methods`;
+    // const response = await apiRequests(endPoint, 'post');
+    // try {
+    //   if (response.status === 200) {
+    //     Notiflix.Notify.success(response.data.status.message);
+    //     listPaymentMethods();
+    //   }
+    // } catch (err) {
+    //   Notiflix.Notify.failure(err.response.data.status.message)
+    // }
+  }
+
   return (
+    <>
     <div className="custom-container">
       <div className="billing-page settings">
         <div className="outer">
           <div className="billing-heading d-flex justify-content-between align-items-center">
             <div className="fw-semibold">Payment Methods</div>
-            <div className="dot-dropdown">
+            {/* <div className="dot-dropdown">
               <Dropdown>
                 <Dropdown.Toggle variant="dot" id="dropdown-basic">
                   <img src={dot} alt="dot" />
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                  <Dropdown.Item onClick={addPaymentMethod}>Add Payment Method</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
-            </div>
+            </div> */}
           </div>
 
           { paymentMethods.length > 0 ? paymentMethods.map((method, index) => (
-            <div className="cards-bar">
+            <div className="cards-bar" key={index}>
               <div className="d-flex justify-content-between align-items-center">
                 <div className="d-flex align-content-center">
                   <div>
@@ -123,6 +138,8 @@ function Billing() {
         </div>
       </div>
     </div>
+    {showPaymentMethod && <AddPaymentMethod showModal={showPaymentMethod} />}
+    </>
   )
 }
 
