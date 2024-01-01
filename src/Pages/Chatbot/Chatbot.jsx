@@ -202,14 +202,14 @@ function Chatbot() {
                 <Form className='d-flex align-items-center' noValidate validated={validated} ref={form} onSubmit={sendMessage}>
                   <Form.Control type="text" name="message" placeholder="|How i can help you?" autoComplete="off" autofill="off" required disabled={ messages.length === 0 } />
                   <div className="d-flex align-items-center">
-                    <Button type="submit" className='up-arrow'>
+                    <Button type="submit" className='up-arrow' disabled={ messages.length === 0 }>
                       <img src={upArrow} alt="Up Arrow" />
                     </Button>
-                    <div>
-                      <Link>
+                    {/* <div>
+                      <Link disabled={ messages.length === 0 }>
                         <img src={plus} alt="info" />
                       </Link>
-                    </div>
+                    </div> */}
                   </div>
                 </Form>
               </div>
