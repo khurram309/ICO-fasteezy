@@ -61,7 +61,7 @@ function Chatbot() {
     setMessages([]);
     const endPoint = userToken ? `user/chats/${aiChatId}` : `public_chats`;
     const userData = {
-        device_token: token
+      device_token: token
     }
     await apiRequests(endPoint, 'get', userData)
     .then((response) => {
@@ -75,6 +75,31 @@ function Chatbot() {
     })
     .catch((err) => {
       Notiflix.Notify.failure(err.response.data.status.message);
+    })
+  }
+
+  const sendPrompt = async (message) => {
+    const endPoint = userToken ? `user/chats/${chatId}` : 'public_chats';
+    const messageData = {
+      device_token: deviceToken,
+      chat: {
+          "chat_id": chatId,
+          "message": message
+      }
+    }
+    await apiRequests(endPoint, 'patch', messageData)
+    .then((response) => {
+      if(response.status === 200) {
+        setTimeout(() => {
+          checkRunRetrieve(response.data.data.attributes.run_id);
+        }, 1000)
+      }
+    })
+    .catch((err) => {
+      if(err.response.data.status.code === 403) {
+        Notiflix.Notify.failure(err.response.data.status.message);
+        setShowSignUp(true);
+      }
     })
   }
 
@@ -223,7 +248,7 @@ function Chatbot() {
             </div>
           </div>
         </div>
-        <History getChat={getChat} />
+        <History getChat={getChat} sendPrompt={sendPrompt} />
       </div>
     </div>
     { showSignUp && userToken == null && <GetStarted showRegister={showSignUp} /> }

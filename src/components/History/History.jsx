@@ -16,6 +16,7 @@ function History(props) {
   const userToken = useSelector(state => state.auth.token);
   const user = useSelector(state => state.auth.user);
   const [allChats, setAllChats] = useState();
+  const [allPrompts, setAllPrompts] = useState();
   const [showSection, setShowSection] = useState(user?.payment_status == 'pending' ? true : false);
   const [showPayment, setShowPayment] = useState(false);
   const getChatHistory = useSelector(state => state.auth.getChatHistory);
@@ -23,6 +24,7 @@ function History(props) {
   useEffect(() => {
     if(userToken != null) {
       getAllChats();
+      getAllPrompts();
     }
   }, [])
 
@@ -43,13 +45,24 @@ function History(props) {
     })
   }
 
+  const getAllPrompts = async () => {
+    const endPoint = `prompts`;
+    await apiRequests(endPoint, 'get')
+    .then((response) => {
+      setAllPrompts(response.data.data);
+    })
+    .catch((err) => {
+      Notiflix.Notify.failure(err.response.data);
+    })
+  }
+
   const deleteChat = async (chatId) => {
     const endPoint = `user/chats/${chatId}`;
     await apiRequests(endPoint, 'delete')
     .then((response) => {
       Notiflix.Notify.success(response.data.status.message);
       getAllChats();
-      props.getChat()
+      props.getChat(allChats[0].attributes.chat_id);
     })
     .catch((err) => {
       Notiflix.Notify.failure(err.response.data.status.message);
@@ -72,6 +85,21 @@ function History(props) {
     )
   }
 
+  const renderAllPrompts = () => {
+    return (
+      <ul>
+        { allPrompts.map((prompt, index) => (
+          <li key={index}>
+            <Link onClick={() => props.sendPrompt(prompt.attributes.question_text)}>
+              <img src={list} alt="List" className="me-3" />
+              {prompt.attributes.display_text}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
   return (
     <>
     <div className="contextual-sidebar">
@@ -81,51 +109,14 @@ function History(props) {
       </div> */}
       <div className="history-tabs">
         <Tabs
-            defaultActiveKey="History"
+            defaultActiveKey="Prompts"
             id="justify-tab-example"
             className="mb-3"
             justify
           >
-          {/* <Tab eventKey="Prompts" title="Prompts">
-            <ul>
-              <li>
-                <Link>
-                  <img src={list} alt="List" className="me-3" />
-                  Experiencing symptoms?
-                </Link>
-              </li>
-              <li>
-                <Link>
-                  <img src={list} alt="List" className="me-3" />
-                  Need help with lab results?
-                </Link>
-              </li>
-              <li>
-                <Link>
-                  <img src={list} alt="List" className="me-3" />
-                  Have a health question?
-                </Link>
-              </li>
-              <li>
-                <Link>
-                  <img src={list} alt="List" className="me-3" />
-                  Experiencing symptoms?
-                </Link>
-              </li>
-              <li>                    
-                <Link>
-                  <img src={list} alt="List" className="me-3" />
-                  Have a health question?
-                </Link>
-              </li>
-              <li>
-                <Link>
-                  <img src={list} alt="List" className="me-3" />
-                  Need help with lab results?
-                </Link>
-              </li>
-            </ul>
-          </Tab> */}
+          <Tab eventKey="Prompts" title="Prompts">
+            { allPrompts?.length > 0 ? renderAllPrompts() : 'No prompts found'}
+          </Tab>
           <Tab eventKey="History" title="History">
             { allChats?.length > 0 ? renderAllChats() : 'No chats found'}
           </Tab>
