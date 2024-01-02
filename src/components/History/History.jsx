@@ -75,18 +75,18 @@ function History(props) {
   return (
     <>
     <div className="contextual-sidebar">
-      <div className="search-section d-flex align-items-center">
+      {/* <div className="search-section d-flex align-items-center">
         <img src={search} alt="search" />
         <Form.Control type="text" placeholder="Search" className=" mr-sm-2" />
-      </div>
+      </div> */}
       <div className="history-tabs">
         <Tabs
-            defaultActiveKey="Prompts"
+            defaultActiveKey="History"
             id="justify-tab-example"
             className="mb-3"
             justify
           >
-          <Tab eventKey="Prompts" title="Prompts">
+          {/* <Tab eventKey="Prompts" title="Prompts">
             <ul>
               <li>
                 <Link>
@@ -125,7 +125,7 @@ function History(props) {
                 </Link>
               </li>
             </ul>
-          </Tab>
+          </Tab> */}
           <Tab eventKey="History" title="History">
             { allChats?.length > 0 ? renderAllChats() : 'No chats found'}
           </Tab>

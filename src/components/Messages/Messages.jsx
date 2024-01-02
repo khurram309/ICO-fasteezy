@@ -62,10 +62,10 @@ function Messages(props) {
             {userToken && <p className='chat-share me-2' onClick={createChat}>
               New Chat
             </p>}
-            <a href="#" className='chat-share'>
+            {/* <a href="#" className='chat-share'>
               Share
               <img src={share} alt="Share" className="ms-2"/>
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
@@ -98,7 +98,7 @@ function Messages(props) {
                   <p>
                     { message.message }
                   </p>
-                  <div className="chat-btns-group mt-2">
+                  {/* <div className="chat-btns-group mt-2">
                     <div className="d-flex justify-content-between align-content-center">
                       <div className='d-flex'>
                         <a className='chat-btn' href='#'>
@@ -120,7 +120,7 @@ function Messages(props) {
                         </a>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

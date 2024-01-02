@@ -34,12 +34,12 @@ function Footer() {
             <img className="img-fluid " src={logo} alt="Logo" />
           </div>
           <div className="f-links">
-            <Nav className="mx-auto center-nav">
+            {/* <Nav className="mx-auto center-nav">
               <Nav.Link href="#">About</Nav.Link>
               <Nav.Link href="#">Features</Nav.Link>
               <Nav.Link href="#">Works</Nav.Link>
               <Nav.Link href="#">Support</Nav.Link>
-            </Nav>
+            </Nav> */}
           </div>
           <div className="f-social d-flex">
             <div className="mx-3 twitter">
