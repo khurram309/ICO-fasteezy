@@ -16,7 +16,7 @@ function History(props) {
   const userToken = useSelector(state => state.auth.token);
   const user = useSelector(state => state.auth.user);
   const [allChats, setAllChats] = useState();
-  const [showSection, setShowSection] = useState(user.payment_status == 'pending' ? true : false);
+  const [showSection, setShowSection] = useState(user?.payment_status == 'pending' ? true : false);
   const [showPayment, setShowPayment] = useState(false);
   const getChatHistory = useSelector(state => state.auth.getChatHistory);
 
