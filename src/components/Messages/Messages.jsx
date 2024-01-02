@@ -16,6 +16,7 @@ import { getChatHistory } from '../../Redux/actions/authActions';
 
 function Messages(props) {
   const userToken = useSelector(state => state.auth.token);
+  const user = useSelector(state => state.auth.user);
   const messages = props.messages;
   const dispatch = useDispatch();
   const myDivRef = useRef(null);
@@ -78,7 +79,7 @@ function Messages(props) {
             <div className='chat-inner'>
               <div className="chat-grid">
                 <div className="user-img">
-                  <img src={userImg} alt="User" className='user-image' />
+                  <img src={user?.avatar || userImg} alt="User" className='user-image' />
                 </div>
                 <div className="chat-text">
                   <p>{ message.message }</p>
