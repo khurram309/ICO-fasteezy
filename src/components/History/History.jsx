@@ -24,8 +24,11 @@ function History(props) {
   useEffect(() => {
     if(userToken != null) {
       getAllChats();
-      getAllPrompts();
     }
+  }, [])
+  
+  useEffect(() => {
+    getAllPrompts();
   }, [])
 
   useEffect(() => {
