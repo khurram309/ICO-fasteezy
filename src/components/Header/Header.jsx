@@ -49,10 +49,10 @@ function Header() {
         <div className='d-flex justify-content-end centerNav'>
           {userToken && <div className='d-md-block d-lg-none me-4'>
             <div className="right-nav d-flex align-items-center">
-              <div className="bell me-3 d-flex align-items-center justify-content-center">
+              {/* <div className="bell me-3 d-flex align-items-center justify-content-center">
                 <div className="notification"></div>
                 <img src={bell} alt="Bell" />
-              </div>
+              </div> */}
               <div className=' d-flex align-items-center profile-dropdown'>
                 <div className="avatar">
                   <div className="dot"></div>
@@ -82,10 +82,10 @@ function Header() {
             <Nav>
               <div className='d-lg-block d-none'>
                 <div className="right-nav d-flex align-items-center">
-                  <div className="bell me-3 d-flex align-items-center justify-content-center">
+                  {/* <div className="bell me-3 d-flex align-items-center justify-content-center">
                     <div className="notification"></div>
                     <img src={bell} alt="Bell" />
-                  </div>
+                  </div> */}
                   <div className='d-flex align-items-center profile-dropdown'>
                     <div className="avatar">
                       <div className="dot"></div>
