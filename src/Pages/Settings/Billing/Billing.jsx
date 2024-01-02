@@ -97,7 +97,15 @@ function Billing() {
               </div>
             </div>
           )))
-          : 'No Payment Method Found' }
+          : (
+            <div className="cards-bar">
+              <div className="d-flex justify-content-between align-items-center">
+                <div className="d-flex align-content-center">
+                  No Payment Method Found
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="billing-outer overflow-hidden ">
@@ -130,7 +138,7 @@ function Billing() {
                 </tr>
               )) : (
                 <tr>
-                  <td colSpan="4">No Invoices Found.</td>
+                  <td className='font-weight-normal'><p>No Invoices Found.</p></td>
                 </tr>
               )}
             </tbody>
