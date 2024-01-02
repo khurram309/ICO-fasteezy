@@ -52,7 +52,7 @@ function Security() {
   return (
     <div className="custom-container">
       <div className="security-page settings">
-        <div className="d-flex justify-content-between align-items-center mb-4">
+        <div className="d-none d-flex justify-content-between align-items-center mb-4">
           <div>
             <div className="fw-small fw-semibold mb-1">Two factor security</div>
             <div className="fw-small-xs gray85">Activate two-factor security authentication by using the button to the right</div>
@@ -62,7 +62,7 @@ function Security() {
           </div>
         </div>
 
-        <div className="outer">
+        <div className="outer d-none">
           <div className="cards-bar">
             <div className="d-flex justify-content-between align-items-center">
               <div>
@@ -109,7 +109,7 @@ function Security() {
           </div>
         </div>
 
-        <div className="mb-4">
+        <div className="mb-4 d-none">
           <hr className="m-0" />
         </div>
 
@@ -164,11 +164,11 @@ function Security() {
           </Form>
         </div>
 
-        <div className="mb-4">
+        <div className="mb-4 d-none">
           <hr className="m-0" />
         </div>
 
-        <div className="d-flex justify-content-between align-items-center mb-4 pb-2">
+        <div className="d-none d-flex justify-content-between align-items-center mb-4 pb-2">
           <div>
             <div className="fw-small fw-semibold mb-1">Connected Devices</div>
             <div className="fw-small-xs gray85">If you'd like to disconnect certain devices of yours, use the functionality below</div>
@@ -178,7 +178,7 @@ function Security() {
           </div>
         </div>
 
-        <div className="outer">
+        <div className="outer d-none">
           <div className="cards-bar">
             <div className="d-flex justify-content-between align-items-center">
               <div className="d-flex align-items-center">
