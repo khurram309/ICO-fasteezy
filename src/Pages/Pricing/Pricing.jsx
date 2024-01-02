@@ -1,12 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import WhatUsersSay from '../../components/WhatUsersSay/WhatUsersSay';
 import Questions from '../../components/Questions/Questions';
 import { Container, Row, Col, Card, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 import './Pricing.scss';
+import PaymentInformation from '../../components/Modals/PaymentInformation/PaymentInformation';
+import { useSelector } from 'react-redux';
+import GetStarted from '../../components/Modals/GetStarted/GetStarted';
+import Notiflix from 'notiflix';
 
 function Pricing() {
+  const navigate = useNavigate();
+  const userToken = useSelector(state => state.auth.token);
+  const user = useSelector(state => state.auth.user);
+  const [show, setShow] = useState(false);
+  const [showSignUp, setshowSignUp] = useState(false);
+
+  const showPayment = () => {
+    if(user?.payment_status == 'pending' && userToken != null) {
+      setShow(true);
+      setshowSignUp(false);
+    }
+    if (userToken == null || userToken == undefined) {
+      setShow(false);
+      setshowSignUp(true);
+    }
+    if(user?.payment_status == 'paid') {
+      Notiflix.Notify.success('You are already subscribed to our premium plan.');
+      navigate('/chat');
+    }
+  }
   return (
     <>
       <Container fluid="lg">
@@ -18,7 +43,7 @@ function Pricing() {
             <h5 className="text-center">Explore UVO's Flexible Subscription Plans for Personalized Health Support and Guidance.</h5>
           </Col>
         </Row>
-        <Row className="my-5 pb-3 pt-md-5 pt-sm-0">
+        <Row className="my-5 pb-3 pt-md-5 pt-sm-0 justify-content-center">
         <Col sm={12} md={4} lg={4} className="mb-md-0 mb-sm-5">
           <Card className="h-100">
             <CardBody className="p-0">
@@ -37,7 +62,7 @@ function Pricing() {
                     </ul>
                   </div>
                 </div>
-                <Button className="w-100 mt-3">Get Started for Free</Button>
+                <Button className="w-100 mt-3" onClick={() => navigate('/chat')}>Get Started for Free</Button>
               </div>
             </CardBody>
           </Card>
@@ -60,12 +85,12 @@ function Pricing() {
                   </ul>
                 </div>
               </div>
-              <Button className="w-100 mt-3">Upgrade to Premium</Button>
+              <Button className="w-100 mt-3" onClick={showPayment}>Upgrade to Premium</Button>
             </div>
             </CardBody>
           </Card>
         </Col>
-        <Col sm={12} md={4} lg={4} className="mb-md-0 mb-sm-5">
+        <Col sm={12} md={4} lg={4} className="mb-md-0 mb-sm-5 d-none">
           <Card className="h-100">
             <CardBody className="p-0">
             <div className="d-flex flex-column justify-content-between h-100">
@@ -92,6 +117,8 @@ function Pricing() {
       </Container>
       <WhatUsersSay />
       <Questions />
+      {show && userToken && <PaymentInformation showModal={show} />}
+      {showSignUp && <GetStarted showRegister={showSignUp} />}
     </>
   )
 }
