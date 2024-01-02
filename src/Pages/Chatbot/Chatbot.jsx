@@ -27,6 +27,7 @@ function Chatbot() {
   const [messages, setMessages] = useState([]);
   const [chatId, setChatId] = useState(null);
   const [showSignUp, setShowSignUp] = useState(false);
+  const [showTyping, setShowTyping] = useState(false);
 
   useEffect(() => {
     setToken(deviceToken);
@@ -50,6 +51,7 @@ function Chatbot() {
     const messageExists = messages.some((msg) => msg.message === newMessage.message);
     if (!messageExists) {
       setMessages(prevMessages => [...prevMessages, newMessage]);
+      setShowTyping(false);
     }
   };
 
@@ -121,6 +123,7 @@ function Chatbot() {
           "message": text
       }
     }
+    setShowTyping(true);
     e.target.reset();
     await apiRequests(endPoint, 'patch', messageData)
     .then((response) => {
@@ -223,13 +226,11 @@ function Chatbot() {
               </div>
               <div className="remove-tags"></div>
             </div> */}
-
+            {showTyping && <p className='mx-3 typing'>Generating Response...</p>}
             <div className="chat-input d-flex justify-content-between align-items-center mt-3">
               <div className='d-flex align-items-center w-100'>
                 <div>
-                  <Link>
-                    <img src={bot} alt="info" />
-                  </Link>
+                  <img src={bot} alt="info" />
                 </div>
                 <Form className='d-flex align-items-center' noValidate validated={validated} ref={form} onSubmit={sendMessage}>
                   <Form.Control type="text" name="message" placeholder="|How i can help you?" autoComplete="off" autofill="off" required disabled={ messages.length === 0 } />
