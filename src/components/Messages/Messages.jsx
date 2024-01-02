@@ -31,6 +31,7 @@ function Messages(props) {
   };
 
   const createChat = async () => {
+    props.resetMessage();
     const endPoint = `user/chats`;
     await apiRequests(endPoint, 'post')
     .then((response) => {

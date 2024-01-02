@@ -53,6 +53,10 @@ function Chatbot() {
     }
   };
 
+  const resetMessage = () => {
+    setMessages([]);
+  }
+
   const getChat = async (aiChatId = '') => {
     setMessages([]);
     const endPoint = userToken ? `user/chats/${aiChatId}` : `public_chats`;
@@ -178,7 +182,7 @@ function Chatbot() {
               </Tab>
             </Tabs>
           </div> }
-          <Messages messages={messages} setChatId={setChatId} addMessage={addMessage} />
+          <Messages messages={messages} setChatId={setChatId} addMessage={addMessage} resetMessage={resetMessage} />
           <div className="suggestions">
             {/* <div className="d-flex justify-content-between align-items-center">
               <div className="gray5c fw-semibold">Suggestions</div>
