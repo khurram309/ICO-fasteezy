@@ -69,6 +69,9 @@ function Chatbot() {
     const userData = {
       device_token: token
     }
+    if(aiChatId != '') {
+      localStorage.setItem('loadedChatId', aiChatId);
+    }
     await apiRequests(endPoint, 'get', userData)
     .then((response) => {
       let message = {
