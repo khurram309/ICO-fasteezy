@@ -9,9 +9,11 @@ import Login from '../Login/Login';
 import { apiRequests } from '../../../Common/apiRequests';
 import { setSignUp } from '../../../Redux/actions/authActions';
 import { deviceToken } from '../../../Common/deviceToken';
+import { useNavigate } from 'react-router-dom';
 
 function GetStarted(props) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const authState = useSelector(state => state.auth);
   const { showPayment, user } = authState;
   const [email, setEmail] = useState('');
@@ -24,8 +26,12 @@ function GetStarted(props) {
 
   const handleClose = () => setShowSignUp(false);
   const handleShow = () => {
-    setShowSignUp(true);
-    setShowLogin(false);
+    if(user) {
+      navigate('/chat');
+    } else {
+      setShowSignUp(true);
+      setShowLogin(false);
+    }
   }
 
   const handlePasswordChange = (e) => {
