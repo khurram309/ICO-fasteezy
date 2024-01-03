@@ -42,7 +42,9 @@ function Chatbot() {
   }, [token])
 
   useEffect(() => {
-    getChat();
+    if(userToken != null) {
+      getChat();
+    }
   }, [userToken])
 
   useEffect(() => {
