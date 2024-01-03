@@ -93,7 +93,7 @@ function History(props) {
       <ul>
         { allPrompts.map((prompt, index) => (
           <li key={index}>
-            <Link onClick={() => props.sendPrompt(prompt.attributes.question_text)}>
+            <Link className={props.chatId == null && 'disabled-link'} onClick={() => props.sendPrompt(prompt.attributes.question_text)}>
               <img src={list} alt="List" className="me-3" />
               {prompt.attributes.display_text}
             </Link>

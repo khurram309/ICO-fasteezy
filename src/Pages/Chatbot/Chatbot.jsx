@@ -42,6 +42,10 @@ function Chatbot() {
   }, [token])
 
   useEffect(() => {
+    getChat();
+  }, [userToken])
+
+  useEffect(() => {
     if(chatId != null || chatId != undefined) {
       getOpenAIList(false);
     }
@@ -264,7 +268,7 @@ function Chatbot() {
             </div>}
           </div>
         </div>
-        <History getChat={getChat} sendPrompt={sendPrompt} setMessages={setMessages} />
+        <History getChat={getChat} sendPrompt={sendPrompt} setMessages={setMessages} chatId={chatId} />
       </div>
     </div>
     { showSignUp && userToken == null && <GetStarted showRegister={showSignUp} /> }
