@@ -15,7 +15,13 @@ function PaymentInformation(props) {
   const [showWelcome, setShowWelcome] = useState(false);
   const [clientSecret, setClientSecret] = useState('');
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false);
+    const backdrop = document.getElementsByClassName("modal-backdrop");
+    for(let i = 0; i < backdrop.length; i++) {
+      backdrop[i].style.display = 'none';
+    }
+  }
 
   const CheckoutForm = () => {
     useEffect(() => {
@@ -32,7 +38,7 @@ function PaymentInformation(props) {
     }, []);
   
     return (
-      <div id="checkout">
+      <div id="checkout" className='checkout'>
         {clientSecret && (
           <EmbeddedCheckoutProvider stripe={stripePromise} options={{clientSecret}}>
             <EmbeddedCheckout />

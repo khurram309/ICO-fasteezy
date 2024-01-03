@@ -66,3 +66,9 @@
     }
   }
 }
+  
+.PaymentInformation {
+  &:not(:has(iframe)) {
+    display: none !important;
+  }
+}
