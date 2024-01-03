@@ -65,7 +65,7 @@ function History(props) {
     .then((response) => {
       Notiflix.Notify.success(response.data.status.message);
       getAllChats();
-      props.getChat(allChats[0].attributes.chat_id);
+      props.setMessages([]);
     })
     .catch((err) => {
       Notiflix.Notify.failure(err.response.data.status.message);
