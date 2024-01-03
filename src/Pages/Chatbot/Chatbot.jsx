@@ -43,7 +43,7 @@ function Chatbot() {
 
   useEffect(() => {
     if(chatId != null || chatId != undefined) {
-      getOpenAIList();
+      getOpenAIList(false);
     }
   }, [chatId])
 
@@ -89,6 +89,8 @@ function Chatbot() {
           "message": message
       }
     }
+    addMessage({ message: message, role: 'user' });
+    setShowTyping(true);
     await apiRequests(endPoint, 'patch', messageData)
     .then((response) => {
       if(response.status === 200) {
@@ -123,6 +125,7 @@ function Chatbot() {
           "message": text
       }
     }
+    addMessage({ message: text, role: 'user' });
     setShowTyping(true);
     e.target.reset();
     await apiRequests(endPoint, 'patch', messageData)
@@ -147,18 +150,28 @@ function Chatbot() {
     })
   }
 
-  const getOpenAIList = async () => {
+  const getOpenAIList = async (isRetrievingResponse) => {
     const threadMessages = await openai.beta.threads.messages.list(
       chatId
     );
-    threadMessages.data.slice().reverse().map((thread, index) => {
+    if(!isRetrievingResponse) {
+      threadMessages.data.slice().reverse().map((thread, index) => {
+        let message = { 
+          message: thread.content[0].text.value,
+          role: thread.role
+        }
+        addMessage(message);
+        dispatch(getChatHistory());
+      })
+    }
+    if(isRetrievingResponse) {
       let message = { 
-        message: thread.content[0].text.value,
-        role: thread.role
+        message: threadMessages.data[0].content[0].text.value,
+        role: threadMessages.data[0].role
       }
       addMessage(message);
       dispatch(getChatHistory());
-    })
+    }
   }
 
   const checkRunRetrieve = async (runId) => {
@@ -169,7 +182,7 @@ function Chatbot() {
       }, 2000);
     }
     if(run.status === 'completed') {
-      getOpenAIList();
+      getOpenAIList(true);
     }
   }
 
