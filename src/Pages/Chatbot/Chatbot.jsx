@@ -103,6 +103,7 @@ function Chatbot() {
       if(err.response.data.status.code === 403) {
         Notiflix.Notify.failure(err.response.data.status.message);
         setShowSignUp(true);
+        setShowTyping(false)
       }
     })
   }
@@ -146,6 +147,7 @@ function Chatbot() {
       if(err.response.data.status.code === 403) {
         Notiflix.Notify.failure(err.response.data.status.message);
         setShowSignUp(true);
+        setShowTyping(false);
       }
     })
   }
