@@ -16,7 +16,7 @@ import Messages from '../../components/Messages/Messages';
 import History from '../../components/History/History';
 import './Chatbot.scss';
 import PaymentInformation from '../../components/Modals/PaymentInformation/PaymentInformation';
-import { getChatHistory } from '../../Redux/actions/authActions';
+import { getChatHistory, updateUser } from '../../Redux/actions/authActions';
 
 function Chatbot() {
   const dispatch = useDispatch();
@@ -44,6 +44,7 @@ function Chatbot() {
   useEffect(() => {
     if(userToken != null) {
       getChat();
+      getUser();
     }
   }, [userToken])
 
@@ -52,6 +53,18 @@ function Chatbot() {
       getOpenAIList(false);
     }
   }, [chatId])
+
+  const getUser = async () => {
+    const endPoint = `user`;
+    const response = await apiRequests(endPoint, 'get');
+    try {
+      if(response.status === 200) {
+        dispatch(updateUser(response));
+      }
+    } catch (err) {
+      Notiflix.Notify.failure(err.response.data.status.message);
+    }
+  }
 
   const addMessage = (newMessage) => {
     // const messageExists = messages.some((msg) => msg.message === newMessage.message);
