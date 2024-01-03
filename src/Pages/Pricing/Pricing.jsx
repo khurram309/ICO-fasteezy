@@ -62,7 +62,7 @@ function Pricing() {
                     </ul>
                   </div>
                 </div>
-                <Button className="w-100 mt-3" onClick={() => navigate('/chat')}>Get Started for Free</Button>
+                <Button className="w-100 mt-3" disabled={user?.payment_status == 'pending' && userToken != null} onClick={() => navigate('/chat')}>{`${user?.payment_status == 'pending' && userToken != null ? 'Current Plan' : 'Get Started for Free'} `}</Button>
               </div>
             </CardBody>
           </Card>
@@ -85,7 +85,7 @@ function Pricing() {
                   </ul>
                 </div>
               </div>
-              <Button className="w-100 mt-3" onClick={showPayment}>Upgrade to Premium</Button>
+              <Button className="w-100 mt-3" disabled={user?.payment_status == 'paid' && userToken != null} onClick={showPayment}>{`${user?.payment_status == 'paid' && userToken != null ? 'Current Plan' : 'Upgrade to Premium'} `}</Button>
             </div>
             </CardBody>
           </Card>
