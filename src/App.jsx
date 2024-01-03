@@ -14,7 +14,8 @@ function App() {
       className: 'notiflix-notify',
       width: '380px',
       position: 'right-top',
-      timeout: 6000
+      timeout: 6000,
+      closeButton: true
     });
   })
 
