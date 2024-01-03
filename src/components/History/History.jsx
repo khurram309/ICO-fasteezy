@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Tab, Tabs, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Notiflix from 'notiflix';
 
 import search from '../../assets/images/search-arrow.svg';
@@ -11,8 +11,10 @@ import stars from '../../assets/images/stars.svg';
 import trash from '../../assets/images/trash.svg';
 import { apiRequests } from '../../Common/apiRequests';
 import PaymentInformation from '../Modals/PaymentInformation/PaymentInformation';
+import { resetState } from '../../Redux/actions/authActions';
 
 function History(props) {
+  const dispatch = useDispatch();
   const userToken = useSelector(state => state.auth.token);
   const user = useSelector(state => state.auth.user);
   const [allChats, setAllChats] = useState();
@@ -42,6 +44,7 @@ function History(props) {
     await apiRequests(endPoint, 'get')
     .then((response) => {
       setAllChats(response.data.data);
+      dispatch(resetState());
     })
     .catch((err) => {
       Notiflix.Notify.failure(err.response.data);

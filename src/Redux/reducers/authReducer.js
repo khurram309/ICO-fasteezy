@@ -1,4 +1,4 @@
-import { SET_TOKEN, SET_SIGN_UP, LOGOUT, UPDATE_USER, GET_CHAT_HISTORY } from "../actions/authActionTypes";
+import { SET_TOKEN, SET_SIGN_UP, LOGOUT, UPDATE_USER, GET_CHAT_HISTORY, RESET_STATE } from "../actions/authActionTypes";
 
 const initialState = {
   token: localStorage.getItem('accessToken') || null,
@@ -45,6 +45,11 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         getChatHistory: true
+      };
+    case RESET_STATE:
+      return {
+        ...state,
+        getChatHistory: false
       };
     default:
       return state;

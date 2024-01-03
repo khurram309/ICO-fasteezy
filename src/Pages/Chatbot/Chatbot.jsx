@@ -52,11 +52,12 @@ function Chatbot() {
   }, [chatId])
 
   const addMessage = (newMessage) => {
-    const messageExists = messages.some((msg) => msg.message === newMessage.message);
-    if (!messageExists) {
+    // const messageExists = messages.some((msg) => msg.message === newMessage.message);
+    // console.log('messageExists', messageExists);
+    // if (!messageExists) {
       setMessages(prevMessages => [...prevMessages, newMessage]);
       setShowTyping(false);
-    }
+    // }
   };
 
   const resetMessage = () => {
@@ -181,6 +182,7 @@ function Chatbot() {
       addMessage(message);
       dispatch(getChatHistory());
     }
+    localStorage.removeItem('loadedChatId');
   }
 
   const checkRunRetrieve = async (runId) => {
