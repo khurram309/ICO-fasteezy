@@ -264,7 +264,7 @@ function Chatbot() {
             </div>}
           </div>
         </div>
-        <History getChat={getChat} sendPrompt={sendPrompt} />
+        <History getChat={getChat} sendPrompt={sendPrompt} setMessages={setMessages} />
       </div>
     </div>
     { showSignUp && userToken == null && <GetStarted showRegister={showSignUp} /> }
