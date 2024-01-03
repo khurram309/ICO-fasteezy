@@ -240,7 +240,7 @@ function Chatbot() {
               <div className="remove-tags"></div>
             </div> */}
             {showTyping && <p className='mx-3 typing'>Generating Response...</p>}
-            <div className="chat-input d-flex justify-content-between align-items-center mt-3">
+            {messages.length > 0 && <div className="chat-input d-flex justify-content-between align-items-center mt-3">
               <div className='d-flex align-items-center w-100'>
                 <div>
                   <img src={bot} alt="info" />
@@ -259,7 +259,7 @@ function Chatbot() {
                   </div>
                 </Form>
               </div>
-            </div>
+            </div>}
           </div>
         </div>
         <History getChat={getChat} sendPrompt={sendPrompt} />
