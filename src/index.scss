@@ -36,12 +36,13 @@ body {
   --gray32:            #323539;
   --gray97:            #979797;
   --danger:            #E33B32;
-  --dangerff:         #FF6934;
+  --dangerff:          #FF6934;
   --green:             #2AA63C;
   --green4b:           #4BAB71;
   --green400:          #F3FFF6;
   --red:               #C8322B;
   --red400:            #FFEFEE;
+  --disabled:          #827e86;
 }
 
 a {
@@ -188,6 +189,9 @@ a {
         }
       }
     }
+  }
+  &:disabled {
+    background-color: var(--disabled);
   }
 }
 
