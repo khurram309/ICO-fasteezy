@@ -135,7 +135,7 @@ function History(props) {
         </div>
         <Button variant="primary w-100" onClick={() => setShowPayment(true)}>Upgrade to Pro <img src={stars} alt="star" className="ms-2"/> </Button>{' '}
       </div> }
-      <div className="d-flex justify-content-center fw-semibold">Follow us on</div>
+      {/* <div className="d-flex justify-content-center fw-semibold">Follow us on</div> */}
     </div>
     { showPayment && userToken && <PaymentInformation showModal={showPayment} /> }
     </>
