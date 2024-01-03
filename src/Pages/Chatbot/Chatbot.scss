@@ -45,7 +45,8 @@
       min-height: 16.875rem;
     }
     .suggestions {
-      padding: 1.875rem 2.5rem;
+      padding: 1.875rem 2.5rem 0 2.5rem;
+      position: relative;
       .btn-tags {
         .btn {
           border-radius: 8px;
@@ -106,6 +107,9 @@
       .typing {
         color: #808080;
         font-style: italic;
+        position: absolute;
+        margin: 0;
+        top: 10px;
       }
     }
   }
@@ -243,8 +247,8 @@
     }
   }
   .chat-wrap {
-    max-height: calc(100vh - 500px);
-    min-height: calc(100vh - 500px);
+    max-height: calc(100vh - 400px);
+    min-height: calc(100vh - 400px);
     overflow-y: auto;
     .new-chat-message {
       justify-content: center;
@@ -285,6 +289,12 @@
         padding: 2rem;
       }
     }
+    .chat-section {
+      .chat-wrap {
+        max-height: calc(100vh - 340px);
+        min-height: calc(100vh - 340px);
+      }
+    }
   }
 }
 
@@ -301,6 +311,15 @@
           .btn {
             margin-bottom: 10px;
           }
+        }
+        .typing {
+          top: 6px;
+        }
+      }
+      .chat-section {
+        .chat-wrap {
+          max-height: calc(100vh - 300px);
+          min-height: calc(100vh - 300px);
         }
       }
     }
@@ -323,6 +342,10 @@
       }
       .suggestions {
         padding: 0;
+        margin-top: 30px;
+        .typing {
+          top: -22px;
+        }
         .btn-tags {
           .btn {
             margin-bottom: 10px;
@@ -338,6 +361,11 @@
           width: 1rem;
         }
       }
+    }
+    .chat-wrap {
+      max-height: calc(100vh - 290px);
+      min-height: calc(100vh - 290px);
+      overflow-y: auto;
     }
   }
 }
