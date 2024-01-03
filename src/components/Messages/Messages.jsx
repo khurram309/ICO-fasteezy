@@ -95,9 +95,9 @@ function Messages(props) {
                   <img src={bot} alt="info" />
                 </div>
                 <div className="chat-text">
-                  <p>
+                  <pre>
                     { message.message }
-                  </p>
+                  </pre>
                   {/* <div className="chat-btns-group mt-2">
                     <div className="d-flex justify-content-between align-content-center">
                       <div className='d-flex'>

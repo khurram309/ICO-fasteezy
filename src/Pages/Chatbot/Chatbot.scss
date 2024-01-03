@@ -236,6 +236,11 @@
         }
       }
     }
+    pre {
+      font-family: 'Open Sans', sans-serif;
+      font-size: clamp(0.875rem, 0.73228rem + 0.223vw, 1rem);
+      white-space: pre-wrap;
+    }
   }
   .chat-wrap {
     max-height: calc(100vh - 500px);
