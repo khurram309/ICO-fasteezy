@@ -11,6 +11,8 @@ import SettingsLayout from './Layouts/SettingsLayout.jsx';
 import Billing from './Pages/Settings/Billing/Billing.jsx';
 import Security from './Pages/Settings/Security/Security.jsx';
 import { useSelector } from 'react-redux';
+import TermsAndConditions from './Pages/TermsAndConditions/TermsAndConditions.jsx';
+import PrivacyPolicy from './Pages/PrivacyPolicy/PrivacyPolicy.jsx';
 
 const PrivateRoute = () => {
   const auth = useSelector(state => state.auth.token);
@@ -23,6 +25,8 @@ const router = createBrowserRouter(
       <Route path="" element={<Home />} />
       <Route path="pricing" element={<Pricing />} />
       <Route path="chat" element={<Chatbot />} />
+      <Route path="terms-and-conditions" element={<TermsAndConditions />} />
+      <Route path="privacy-policy" element={<PrivacyPolicy />} />
       <Route exact path='/' element={<PrivateRoute/>}>
         <Route path="settings" element={<SettingsLayout /> }>
           <Route path="general" element={<General />} />

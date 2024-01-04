@@ -59,8 +59,8 @@ function Footer() {
         <div className="copyright d-flex justify-content-between align-items-center flex-column flex-md-row ">
           <div className="cr">© Copyright 2024, All Rights Reserved</div>
           <div className="quick-links">
-            <Link>Privacy Policy</Link>
-            <Link>Terms & Conditions</Link>
+            <Link to="/privacy-policy">Privacy Policy</Link>
+            <Link to="terms-and-conditions">Terms & Conditions</Link>
           </div>
         </div>
       </div>
