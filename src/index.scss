@@ -433,6 +433,37 @@ hr {
   }
 }
 
+.policy-pages {
+  ol {
+    counter-reset: item;
+    li {
+      display: block;
+      position: relative;
+      font-weight: bold;
+      padding-bottom: 20px;
+      font-size: 1rem;
+      > div {
+        font-weight: normal;
+        padding-top: 6px;
+      }
+      &:before {
+        content: counters(item, ".")".";
+        counter-increment: item;
+        position: absolute;
+        margin-right: 100%;
+        right: 10px; /* space between number and text */
+      }
+      ol {
+        padding-top: 6px;
+        li {
+          font-weight: normal;
+          padding-bottom: 6px;
+        }
+      }
+    }
+  }
+}
+
 
 @media (max-width: 75rem) {
   html {
