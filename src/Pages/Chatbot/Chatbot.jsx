@@ -17,6 +17,7 @@ import History from '../../components/History/History';
 import './Chatbot.scss';
 import PaymentInformation from '../../components/Modals/PaymentInformation/PaymentInformation';
 import { getChatHistory, updateUser } from '../../Redux/actions/authActions';
+import PremiumPlan from '../../components/Modals/PremiumPlan/PremiumPlan';
 
 function Chatbot() {
   const dispatch = useDispatch();
@@ -291,6 +292,7 @@ function Chatbot() {
         <History getChat={getChat} sendPrompt={sendPrompt} setMessages={setMessages} chatId={chatId} />
       </div>
     </div>
+    <PremiumPlan showPremiumPlan={true} />
     { showSignUp && userToken == null && <GetStarted showRegister={showSignUp} /> }
     { showSignUp && userToken && <PaymentInformation showModal={showSignUp} /> }
     </>
