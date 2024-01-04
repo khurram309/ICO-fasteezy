@@ -18,6 +18,9 @@
     }
     .cust-pic {
       max-width: 42px;
+      img {
+        border-radius: 100%;
+      }
     }
     .name {
       font-size: .875rem;

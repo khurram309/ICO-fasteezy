@@ -19,9 +19,9 @@ function Home() {
         <div className="banner-inner d-flex justify-content-end align-items-center">
           <div className="banner-text mt-4 mt-md-0">
             <h2>
-              Empathetic Mental Health <span>AI Chatbot</span>
+              Have health questions? <span>Get answers now</span>
             </h2>
-            <h5>Our AI assistant UVO is here to help you navigate the world of health and wellness.</h5>
+            <h5>No waiting for your doctor's office or guessing on the internet.</h5>
             <div className="bnt-section mt-5">
               <Button variant="outline-primary me-1 small-btn" onClick={() => navigate('/chat')}>Try Demo</Button>{' '}
               <GetStarted source="home" />

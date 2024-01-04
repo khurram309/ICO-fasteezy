@@ -26,7 +26,7 @@ function KeyFeature() {
           <div className="tile">
             <img src={lab} alt="icon" />
             <h5 className='mt-3'>Lab Result Summaries</h5>
-            <p className="mb-0">Easily interpret complex lab test results, enabling you to track your health progress with simplified explanations.</p>
+            <p className="mb-0">Easily summarize complex lab test results, enabling you to track your health progress with simplified explanations.</p>
           </div>
           <div className="tile">
             <img src={heart} alt="icon" />

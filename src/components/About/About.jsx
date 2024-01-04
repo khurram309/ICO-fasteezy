@@ -16,11 +16,11 @@ function About() {
             <img src={AboutCard} alt="About" />
           </div>
           <div className="col-md-6 col-sm-12 text-center text-md-start">
-            <h2>About <span>UVO Al assistant</span></h2>
+            <h2>About <span> Uvo Health</span></h2>
             <h5 className="p-0 pe-lg-5">
-              At UVO, we're dedicated to your health and well-being. We understand that navigating
-              the world of healthcare can be complex and sometimes overwhelming. That's why we've
-              created UVO - Your Personal Medical Guru.
+              Uvo Health is an AI based medical guru to help find answers to your 
+              Symptoms, diagnoses, lab results, imaging results, our UVO assistant
+              is here to help using the latest in specialized AI technology. 
             </h5>
             <div className="bnt-section mt-5">
               <Button variant="outline-primary me-1 small-btn" onClick={() => navigate('/chat')}>Try Demo</Button>{' '}
