@@ -3,13 +3,14 @@ import { Button, Modal, Form, Row, Col, Card } from 'react-bootstrap';
 import { loadStripe } from '@stripe/stripe-js';
 import { EmbeddedCheckoutProvider, EmbeddedCheckout } from '@stripe/react-stripe-js';
 
-import del from '../../../assets/images/del-icon.svg';
 import './PaymentInformation.scss';
 import Welcome from '../Welcome/Welcome';
-import { Link } from 'react-router-dom';
 import { apiRequests } from '../../../Common/apiRequests';
+import { useDispatch } from 'react-redux';
+import { resetState } from '../../../Redux/actions/authActions';
 
 function PaymentInformation(props) {
+  const dispatch = useDispatch();
   const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_KEY.toString());
   const [show, setShow] = useState(props.showModal);
   const [showWelcome, setShowWelcome] = useState(false);
@@ -17,10 +18,15 @@ function PaymentInformation(props) {
 
   const handleClose = () => {
     setShow(false);
-    const backdrop = document.getElementsByClassName("modal-backdrop");
-    for(let i = 0; i < backdrop.length; i++) {
-      backdrop[i].style.display = 'none';
-    }
+    const backdrops = document.querySelectorAll('.modal-backdrop');
+    backdrops.forEach(backdrop => {
+      document.body.style.overflow = "auto";
+      document.body.style.paddingRight = "0";
+      box.classList.remove("show");
+      box.classList.remove("fade");
+      box.classList.remove("modal-backdrop");
+    });
+    dispatch(resetState());
   }
 
   const CheckoutForm = () => {

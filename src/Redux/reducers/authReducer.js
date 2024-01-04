@@ -49,7 +49,8 @@ const authReducer = (state = initialState, action) => {
     case RESET_STATE:
       return {
         ...state,
-        getChatHistory: false
+        getChatHistory: false,
+        showPayment: false
       };
     default:
       return state;
