@@ -12,6 +12,7 @@ import trash from '../../assets/images/trash.svg';
 import { apiRequests } from '../../Common/apiRequests';
 import PaymentInformation from '../Modals/PaymentInformation/PaymentInformation';
 import { resetState } from '../../Redux/actions/authActions';
+import PremiumPlan from '../Modals/PremiumPlan/PremiumPlan';
 
 function History(props) {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ function History(props) {
   const [showSection, setShowSection] = useState(user?.payment_status == 'pending' ? true : false);
   const [showPayment, setShowPayment] = useState(false);
   const getChatHistory = useSelector(state => state.auth.getChatHistory);
+  const [showPremiumPlan, setShowPremiumPlan] = useState(false);
 
   useEffect(() => {
     if(userToken != null) {
@@ -71,7 +73,8 @@ function History(props) {
       props.setMessages([]);
     })
     .catch((err) => {
-      Notiflix.Notify.failure(err.response.data.status.message);
+      setShowPremiumPlan(true);
+      // Notiflix.Notify.failure(err.response.data.status.message);
     })
   }
 
@@ -138,6 +141,7 @@ function History(props) {
       {/* <div className="d-flex justify-content-center fw-semibold">Follow us on</div> */}
     </div>
     { showPayment && userToken && <PaymentInformation showModal={showPayment} /> }
+    { showPremiumPlan && <PremiumPlan showPremiumPlan={showPremiumPlan} /> }
     </>
   )
 }

@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useRef } from 'react';
+import React, { useState, Fragment, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Notiflix from 'notiflix';
 
@@ -13,6 +13,7 @@ import repeat from '../../assets/images/repeat.svg';
 import bot from '../../assets/images/bot-small.svg';
 import { apiRequests } from '../../Common/apiRequests';
 import { getChatHistory } from '../../Redux/actions/authActions';
+import PremiumPlan from '../Modals/PremiumPlan/PremiumPlan';
 
 function Messages(props) {
   const userToken = useSelector(state => state.auth.token);
@@ -20,6 +21,7 @@ function Messages(props) {
   const messages = props.messages;
   const dispatch = useDispatch();
   const myDivRef = useRef(null);
+  const [showPremiumPlan, setShowPremiumPlan] = useState(false);
 
   useEffect(() => {
     scrollToBottom();
@@ -49,11 +51,13 @@ function Messages(props) {
       dispatch(getChatHistory());
     })
     .catch((err) => {
-      Notiflix.Notify.failure(err.response.data.status.message);
+      setShowPremiumPlan(true);
+      // Notiflix.Notify.failure(err.response.data.status.message);
     })
   }
 
   return (
+    <>
     <div className="chat-section">
       <div className="chat-inner">
         <div className='chat-title d-flex justify-content-between align-items-center'>
@@ -133,6 +137,8 @@ function Messages(props) {
         ))}
       </div>}
     </div>
+    { showPremiumPlan && <PremiumPlan showPremiumPlan={showPremiumPlan} /> }
+    </>
   )
 }
 
