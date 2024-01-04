@@ -22,9 +22,9 @@ function PaymentInformation(props) {
     backdrops.forEach(backdrop => {
       document.body.style.overflow = "auto";
       document.body.style.paddingRight = "0";
-      box.classList.remove("show");
-      box.classList.remove("fade");
-      box.classList.remove("modal-backdrop");
+      backdrop.classList.remove("show");
+      backdrop.classList.remove("fade");
+      backdrop.classList.remove("modal-backdrop");
     });
     dispatch(resetState());
   }
