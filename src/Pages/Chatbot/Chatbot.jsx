@@ -169,7 +169,7 @@ function Chatbot() {
     })
     .catch((err) => {
       if(err.response.data.status.code === 403) {
-        Notiflix.Notify.failure(err.response.data.status.message);
+        // Notiflix.Notify.failure(err.response.data.status.message);
         setShowSignUp(true);
         setShowTyping(false);
       }
@@ -292,9 +292,8 @@ function Chatbot() {
         <History getChat={getChat} sendPrompt={sendPrompt} setMessages={setMessages} chatId={chatId} />
       </div>
     </div>
-    <PremiumPlan showPremiumPlan={true} />
     { showSignUp && userToken == null && <GetStarted showRegister={showSignUp} /> }
-    { showSignUp && userToken && <PaymentInformation showModal={showSignUp} /> }
+    { showSignUp && userToken && <PremiumPlan showPremiumPlan={showSignUp} /> }
     </>
   )
 }

@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { Modal, Card, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'react-bootstrap';
 
 import './PremiumPlan.scss';
+import PaymentInformation from '../PaymentInformation/PaymentInformation';
 
 function PremiumPlan(props) {
   const [show, setShow] = useState(props.showPremiumPlan);
+  const [showPayment, setShowPayment] = useState(false);
 
   const handleClose = () => setShow(false);
 
@@ -17,7 +19,6 @@ function PremiumPlan(props) {
         keyboard={false}
         centered className="users-modal"
       >
-        
         <Modal.Body>
           <Modal.Header closeButton className='p-0 mb-3'>
           </Modal.Header>
@@ -38,7 +39,7 @@ function PremiumPlan(props) {
                       </ul>
                     </div>
                   </div>
-                  <Button className="w-100 mt-3">
+                  <Button className="w-100 mt-3" onClick={() => {setShowPayment(true); handleClose()}}>
                     Upgrade to Premium
                   </Button>
                 </div>
@@ -46,6 +47,7 @@ function PremiumPlan(props) {
             </Card>
         </Modal.Body>
       </Modal>
+      {showPayment && <PaymentInformation showModal={showPayment} />}
     </>
   )
 }
