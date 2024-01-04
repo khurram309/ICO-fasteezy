@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import WhatUsersSay from '../../components/WhatUsersSay/WhatUsersSay';
 import Questions from '../../components/Questions/Questions';
@@ -15,10 +15,17 @@ function Pricing() {
   const navigate = useNavigate();
   const userToken = useSelector(state => state.auth.token);
   const user = useSelector(state => state.auth.user);
+  const showPayment = useSelector(state => state.auth.showPayment);
   const [show, setShow] = useState(false);
   const [showSignUp, setshowSignUp] = useState(false);
 
-  const showPayment = () => {
+  useEffect(() => {
+    if(showPayment) {
+      setShow(true);
+    }
+  }, [showPayment]);
+
+  const upgradeToPremium = () => {
     if(user?.payment_status == 'pending' && userToken != null) {
       setShow(true);
       setshowSignUp(false);
@@ -85,7 +92,7 @@ function Pricing() {
                   </ul>
                 </div>
               </div>
-              <Button className="w-100 mt-3" disabled={user?.payment_status == 'paid' && userToken != null} onClick={showPayment}>{`${user?.payment_status == 'paid' && userToken != null ? 'Current Plan' : 'Upgrade to Premium'} `}</Button>
+              <Button className="w-100 mt-3" disabled={user?.payment_status == 'paid' && userToken != null} onClick={upgradeToPremium}>{`${user?.payment_status == 'paid' && userToken != null ? 'Current Plan' : 'Upgrade to Premium'} `}</Button>
             </div>
             </CardBody>
           </Card>

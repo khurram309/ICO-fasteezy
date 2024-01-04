@@ -24,11 +24,19 @@ function Chatbot() {
   const form  = useRef(null);
   const [validated, setValidated] = useState(false);
   const userToken = useSelector(state => state.auth.token);
+  const showPayment = useSelector(state => state.auth.showPayment);
   const [token, setToken] = useState(null);
   const [messages, setMessages] = useState([]);
   const [chatId, setChatId] = useState(null);
   const [showSignUp, setShowSignUp] = useState(false);
   const [showTyping, setShowTyping] = useState(false);
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
+
+  useEffect(() => {
+    if(showPayment) {
+      setShowPaymentModal(true);
+    }
+  }, [showPayment]);
 
   useEffect(() => {
     setToken(deviceToken);
@@ -294,6 +302,7 @@ function Chatbot() {
     </div>
     { showSignUp && userToken == null && <GetStarted showRegister={showSignUp} /> }
     { showSignUp && userToken && <PremiumPlan showPremiumPlan={showSignUp} /> }
+    { showPaymentModal && userToken && <PaymentInformation showModal={showPaymentModal} /> }
     </>
   )
 }
