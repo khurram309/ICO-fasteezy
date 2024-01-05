@@ -114,6 +114,7 @@ function Chatbot() {
   }
 
   const sendPrompt = async (message) => {
+    setShowPremiumPlan(false);
     const endPoint = userToken ? `user/chats/${chatId}` : 'public_chats';
     const messageData = {
       device_token: deviceToken,
@@ -146,6 +147,7 @@ function Chatbot() {
   }
 
   const sendMessage = async (e) => {
+    setShowPremiumPlan(false);
     setShowSignUp(false);
     e.preventDefault();
     const messageForm = e.currentTarget;

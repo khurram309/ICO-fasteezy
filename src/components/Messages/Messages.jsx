@@ -34,6 +34,7 @@ function Messages(props) {
   };
 
   const createChat = async () => {
+    setShowPremiumPlan(false);
     if(user.payment_status == 'paid') {
       props.resetMessage();
     }

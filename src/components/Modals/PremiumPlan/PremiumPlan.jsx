@@ -10,7 +10,6 @@ function PremiumPlan(props) {
 
   const handleClose = () => {
     setShow(false);
-    props.setShowPremiumPlan(false);
   }
 
   return (
@@ -42,7 +41,7 @@ function PremiumPlan(props) {
                       </ul>
                     </div>
                   </div>
-                  <Button className="w-100 mt-3" onClick={() => {setShowPayment(true)}}>
+                  <Button className="w-100 mt-3" onClick={() => {setShowPayment(true); setShow(false);}}>
                     Upgrade to Premium
                   </Button>
                 </div>

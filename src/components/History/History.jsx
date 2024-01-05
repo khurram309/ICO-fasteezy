@@ -65,6 +65,7 @@ function History(props) {
   }
 
   const deleteChat = async (chatId) => {
+    setShowPremiumPlan(false);
     const endPoint = `user/chats/${chatId}`;
     await apiRequests(endPoint, 'delete')
     .then((response) => {
