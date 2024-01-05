@@ -119,7 +119,7 @@ function Security() {
             <div className="fw-small-xs gray85">Change your account password by using the button to the right or field below</div>
           </div>
           <div>
-            <Button variant="default">Change</Button>{' '}
+            {/* <Button variant="default">Change</Button>{' '} */}
           </div>
         </div>
 
