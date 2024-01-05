@@ -9,7 +9,7 @@ import Login from '../Login/Login';
 import { apiRequests } from '../../../Common/apiRequests';
 import { setSignUp } from '../../../Redux/actions/authActions';
 import { deviceToken } from '../../../Common/deviceToken';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function GetStarted(props) {
   const dispatch = useDispatch();
@@ -132,7 +132,14 @@ function GetStarted(props) {
             {passwordsMatch ? null : <Form.Text className="text-danger">Passwords do not match</Form.Text>}
           </Form.Group>
           <Form.Group className="mb-4 pb-2 mt-3 fw-semibold" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Agree to Terms and Conditions" required />
+            <Form.Check type="checkbox" label={
+          <span>
+            Agree to{' '}
+            <Link to="/terms-and-conditions" target="_blank" rel="noopener noreferrer">
+              Terms and Conditions
+            </Link>
+          </span>
+        } required />
           </Form.Group>
           <Button className="w-100" variant="primary" type="submit">
             Next

@@ -141,7 +141,7 @@ function History(props) {
       {/* <div className="d-flex justify-content-center fw-semibold">Follow us on</div> */}
     </div>
     { showPayment && userToken && <PaymentInformation showModal={showPayment} /> }
-    { showPremiumPlan && <PremiumPlan showPremiumPlan={showPremiumPlan} /> }
+    { showPremiumPlan && <PremiumPlan showPremiumPlan={showPremiumPlan} setShowPremiumPlan={setShowPremiumPlan} /> }
     </>
   )
 }

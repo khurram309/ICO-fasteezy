@@ -8,7 +8,10 @@ function PremiumPlan(props) {
   const [show, setShow] = useState(props.showPremiumPlan);
   const [showPayment, setShowPayment] = useState(false);
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false);
+    props.setShowPremiumPlan(false);
+  }
 
   return (
     <>
@@ -39,7 +42,7 @@ function PremiumPlan(props) {
                       </ul>
                     </div>
                   </div>
-                  <Button className="w-100 mt-3" onClick={() => {setShowPayment(true); handleClose()}}>
+                  <Button className="w-100 mt-3" onClick={() => {setShowPayment(true)}}>
                     Upgrade to Premium
                   </Button>
                 </div>

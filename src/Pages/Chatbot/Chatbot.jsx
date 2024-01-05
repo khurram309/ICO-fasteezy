@@ -31,6 +31,7 @@ function Chatbot() {
   const [showSignUp, setShowSignUp] = useState(false);
   const [showTyping, setShowTyping] = useState(false);
   const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [showPremiumPlan, setShowPremiumPlan] = useState(false);
 
   useEffect(() => {
     if(showPayment) {
@@ -133,8 +134,12 @@ function Chatbot() {
     })
     .catch((err) => {
       if(err.response.data.status.code === 403) {
-        Notiflix.Notify.failure(err.response.data.status.message);
-        setShowSignUp(true);
+        // Notiflix.Notify.failure(err.response.data.status.message);
+        if(userToken != null) {
+          setShowPremiumPlan(true);
+        } else {
+          setShowSignUp(true);
+        }
         setShowTyping(false)
       }
     })
@@ -178,7 +183,11 @@ function Chatbot() {
     .catch((err) => {
       if(err.response.data.status.code === 403) {
         // Notiflix.Notify.failure(err.response.data.status.message);
-        setShowSignUp(true);
+        if(userToken != null) {
+          setShowPremiumPlan(true);
+        } else {
+          setShowSignUp(true);
+        }
         setShowTyping(false);
       }
     })
@@ -301,7 +310,7 @@ function Chatbot() {
       </div>
     </div>
     { showSignUp && userToken == null && <GetStarted showRegister={showSignUp} /> }
-    { showSignUp && userToken && <PremiumPlan showPremiumPlan={showSignUp} /> }
+    { showPremiumPlan && userToken && <PremiumPlan showPremiumPlan={showPremiumPlan} /> }
     { showPaymentModal && userToken && <PaymentInformation showModal={showPaymentModal} /> }
     </>
   )

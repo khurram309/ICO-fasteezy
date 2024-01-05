@@ -137,7 +137,7 @@ function Messages(props) {
         ))}
       </div>}
     </div>
-    { showPremiumPlan && <PremiumPlan showPremiumPlan={showPremiumPlan} /> }
+    { showPremiumPlan && <PremiumPlan showPremiumPlan={showPremiumPlan} setShowPremiumPlan={setShowPremiumPlan} /> }
     </>
   )
 }
