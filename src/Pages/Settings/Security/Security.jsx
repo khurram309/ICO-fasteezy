@@ -116,7 +116,7 @@ function Security() {
         <div className="d-flex justify-content-between align-items-center mb-4 pb-2">
           <div>
             <div className="fw-small fw-semibold mb-1">Change password</div>
-            <div className="fw-small-xs gray85">Change your account password by using the button to the right or field below</div>
+            <div className="fw-small-xs gray85">Change your account password by using the fields below</div>
           </div>
           <div>
             {/* <Button variant="default">Change</Button>{' '} */}
