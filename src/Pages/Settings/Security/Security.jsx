@@ -130,6 +130,9 @@ function Security() {
                 <Form.Group className="mb-4 form-group" controlId="formCurrentPassword">
                   <Form.Label>Current Password</Form.Label>
                   <Form.Control type="password" placeholder="Current Password" name="current_password" required />
+                  <Form.Control.Feedback type="invalid">
+                  Current Password is required!
+                  </Form.Control.Feedback>
                 </Form.Group>
               </Col>
               {/* <Col lg={6}>
