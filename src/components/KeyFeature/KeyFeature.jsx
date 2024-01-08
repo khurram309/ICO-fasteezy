@@ -20,8 +20,8 @@ function KeyFeature() {
           </div>
           <div className="tile">
             <img src={symptom} alt="icon" />
-            <h5 className='mt-3'>Understand potential causes for your symptoms and find out some of your options.</h5>
-            <p className="mb-0">Understand potential causes of your symptoms and receive preliminary diagnoses for a better grasp of your health.</p>
+            <h5 className='mt-3'>Symptom Assessment</h5>
+            <p className="mb-0">Understand potential causes for your symptoms and find out some of your options.</p>
           </div>
           <div className="tile">
             <img src={lab} alt="icon" />
