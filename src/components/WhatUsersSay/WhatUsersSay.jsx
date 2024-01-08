@@ -29,7 +29,7 @@ function WhatUsersSay() {
         <div className='d-flex flex-column justify-content-between'>
           <div>
             <h4 className='text-white bold mb-4'>Invaluable for Busy Moms</h4>
-            <p>"I would put," UVO has become a valuable resource for my health. It's really comforting to have it there anytime I need."</p>
+            <p>"UVO has become a valuable resource for my health. It's really comforting to have it there anytime I need."</p>
           </div>
           <div className="d-flex mt-2">
             <div className="cust-pic me-3">
