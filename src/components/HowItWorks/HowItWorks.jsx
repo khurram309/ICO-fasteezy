@@ -26,11 +26,11 @@ function HowItWorks() {
           <div className="tile">
             <img src={count3} alt="icon" />
             <h5 className='mt-3'>Receive Personalized Guidance</h5>
-            <p className="mb-0">Get instant, evidence-based responses with personalized recommendations.</p>
+            <p className="mb-0">Get instant, evidence-based responses with personalized suggestions.</p>
           </div>
           <div className="tile">
             <img src={count4} alt="icon" />
-            <h5 className='mt-3'>Take Informed Action</h5>
+            <h5 className='mt-3'>Armed with UVO insights, understand your options more clearly and when you may need to consult a professional.</h5>
             <p className="mb-0">Armed with UVO's insights, make informed health decisions and consult professionals if needed.</p>
           </div>
         </div>

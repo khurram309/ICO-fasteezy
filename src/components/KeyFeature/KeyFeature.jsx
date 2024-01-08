@@ -20,7 +20,7 @@ function KeyFeature() {
           </div>
           <div className="tile">
             <img src={symptom} alt="icon" />
-            <h5 className='mt-3'>Symptom Assessment</h5>
+            <h5 className='mt-3'>Understand potential causes for your symptoms and find out some of your options.</h5>
             <p className="mb-0">Understand potential causes of your symptoms and receive preliminary diagnoses for a better grasp of your health.</p>
           </div>
           <div className="tile">
@@ -31,7 +31,7 @@ function KeyFeature() {
           <div className="tile">
             <img src={heart} alt="icon" />
             <h5 className='mt-3'>Personalized Health Insights</h5>
-            <p className="mb-0">Receive tailored recommendations based on your medical history, creating a personalized healthcare experience for improved well-being.</p>
+            <p className="mb-0">Receive tailored suggestions based on your medical history, creating a personalized healthcare experience for improved well-being.</p>
           </div>
         </div>
       </div>
