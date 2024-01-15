@@ -311,7 +311,7 @@ function Chatbot() {
         <History getChat={getChat} sendPrompt={sendPrompt} setMessages={setMessages} chatId={chatId} />
       </div>
     </div>
-    { showSignUp && userToken == null && <GetStarted showRegister={showSignUp} /> }
+    { showSignUp && userToken == null && <GetStarted showRegister={showSignUp} showError={true} /> }
     { showPremiumPlan && userToken && <PremiumPlan showPremiumPlan={showPremiumPlan} /> }
     { showPaymentModal && userToken && <PaymentInformation showModal={showPaymentModal} /> }
     </>
