@@ -85,7 +85,7 @@ function Pricing() {
                 <hr />
                 <div className="list-view">
                   <ul className="mt-3">
-                    <li>Limited access to the medical chat bot.</li>
+                    <li>Unlimited access to the medical chat bot.</li>
                     <li>Ask as many questions as you want.</li>
                     <li>Priority support for faster responses.</li>
                     <li>Cancel anytime.</li>
