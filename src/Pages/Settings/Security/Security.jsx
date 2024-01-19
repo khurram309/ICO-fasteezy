@@ -42,6 +42,7 @@ function Security() {
     .then((response) => {
       if(response.status === 200) {
         e.target.reset();
+        setValidated(false);
         Notiflix.Notify.success(response.data.status.message);
       }
     })
@@ -131,7 +132,7 @@ function Security() {
                   <Form.Label>Current Password</Form.Label>
                   <Form.Control type="password" placeholder="Current Password" name="current_password" required />
                   <Form.Control.Feedback type="invalid">
-                  Current Password is required!
+                    Current Password is required!
                   </Form.Control.Feedback>
                 </Form.Group>
               </Col>

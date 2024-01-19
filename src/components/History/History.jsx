@@ -84,7 +84,7 @@ function History(props) {
       <ul>
         { allChats.map((chat, index) => (
           <li key={index} className='d-flex align-items-center justify-content-between'>
-            <Link onClick={() => (localStorage.getItem('loadedChatId') != chat.attributes.chat_id || localStorage.getItem('loadedChatId') == undefined) && props.getChat(chat.attributes.chat_id)}>
+            <Link onClick={() => props.getChat(chat.attributes.chat_id)} >
               <img src={list} alt="List" className="me-3" />
               {chat.attributes.title || 'What is your health related question?'}
             </Link>

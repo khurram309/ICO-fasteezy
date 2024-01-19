@@ -77,12 +77,8 @@ function Chatbot() {
   }
 
   const addMessage = (newMessage) => {
-    // const messageExists = messages.some((msg) => msg.message === newMessage.message);
-    // console.log('messageExists', messageExists);
-    // if (!messageExists) {
       setMessages(prevMessages => [...prevMessages, newMessage]);
       setShowTyping(false);
-    // }
   };
 
   const resetMessage = () => {
@@ -91,12 +87,10 @@ function Chatbot() {
 
   const getChat = async (aiChatId = '') => {
     setMessages([]);
+    setChatId();
     const endPoint = userToken ? `user/chats/${aiChatId}` : `public_chats`;
     const userData = {
       device_token: token
-    }
-    if(aiChatId != '') {
-      localStorage.setItem('loadedChatId', aiChatId);
     }
     await apiRequests(endPoint, 'get', userData)
     .then((response) => {
@@ -217,7 +211,6 @@ function Chatbot() {
       addMessage(message);
       dispatch(getChatHistory());
     }
-    localStorage.removeItem('loadedChatId');
   }
 
   const checkRunRetrieve = async (runId) => {

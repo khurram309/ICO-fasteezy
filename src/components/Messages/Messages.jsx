@@ -38,7 +38,6 @@ function Messages(props) {
     if(user.payment_status == 'paid') {
       props.resetMessage();
     }
-    localStorage.removeItem('loadedChatId');
     const endPoint = `user/chats`;
     await apiRequests(endPoint, 'post')
     .then((response) => {
