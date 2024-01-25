@@ -6,12 +6,21 @@ html {
 
 body {
   font-family: 'Open Sans', sans-serif;
-  color: var(--gray32);
+  color: var(--darkprimary);
 }
 
 :root {
-  --primary:           #7C2AE8;
-  --primaryhover:      #5a0dbf;
+  --primary:           #38a1fa;
+  --primaryhover:      #2681d1;
+  --white:             #fff;
+  --darkprimary:       #030303;
+  --orange:            #ffcc00; 
+  --black:             #000;
+  --gray90:            #f2f2f2;
+  --gray91:            #d9d9d9;
+
+
+
   --darkgray:          #4B3425;
   --gray50:            #52525B;
   --gray100:           #18181B;
@@ -53,6 +62,17 @@ a {
   }
 }
 
+.bg-blue {
+  background: var(--primary);
+}
+
+.pt-9 {
+  padding-top: 9rem !important;
+}
+
+.me-7 {
+  margin-right: 7rem;
+}
 .gray32 {
   color: var(--gray32);
 }
@@ -84,11 +104,11 @@ a {
 .btn {
   padding: .75rem 1.25rem;
   &-primary {
-    border-radius: 100px;
+    border-radius: 0.75rem;
     background-color: var(--primary);
     border-color: var(--primary);
     border: 0;
-    font-weight: 600;
+    font-weight: 500;
     &:hover {
       background-color: var(--primaryhover);
       border-color: var(--primaryhover);
@@ -121,6 +141,10 @@ a {
         }
       }
     }
+  }
+
+  &-light {
+    font-weight: 600;
   }
   
   &-outline-primary {
@@ -202,15 +226,13 @@ a {
 }
 
 h2 {
-  font-size: clamp(3rem, 2.7378rem + 1.104vw, 4.0625rem);
-  font-weight: 700;
-  color: var(--darkgray);
+  font-size: clamp(4.5rem, 2.7378rem + 1.104vw, 4.0625rem);
+  font-weight: 600;
+  color: var(--darkprimary);
   letter-spacing: -4px;
   span, .markerlight {
-    color: var(--primary);
-    background: url('../src/assets/images/marker.svg') no-repeat 0px 1.5625rem;
+    color: var(--orange);
     display: inline-flex;
-    background-size: 100% 100%;
     padding: 0 1.5rem 1.25rem 0;
   }
   .markerlight {
@@ -220,13 +242,13 @@ h2 {
 }
 
 h3 {
-  font-size: clamp(1.75rem, 1.17848rem + 0.893vw, 2.25rem);
-  font-weight: bold;
+  font-size: clamp(1.75rem, 1.17848rem + 0.893vw, 2rem);
+  font-weight: 700;
 }
 
 h4 {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.3rem;
+  font-weight: 500;
 }
 
 h5 {
@@ -236,7 +258,10 @@ h5 {
 }
 
 p {
-  font-size: clamp(0.875rem, 0.73228rem + 0.223vw, 1rem);
+  font-size: clamp(1rem, 0.73228rem + 0.223vw, 1rem);
+  span {
+    color: var(--orange);
+  } 
 }
 
 li {
@@ -246,6 +271,17 @@ li {
 hr {
   border-top: var(--graye5) solid;
   opacity: 1;
+}
+
+.border-behind {
+  max-width: 1100px;
+  margin-inline: auto;
+  border-radius: 1rem;
+  height: 2rem;
+  margin-top: -1rem;
+  background: var(--gray90);
+  position: relative;
+  z-index: 8;
 }
 
 .small-btn {

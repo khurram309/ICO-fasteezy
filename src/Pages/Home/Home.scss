@@ -1,31 +1,57 @@
 .main-banner {
-  background-color: var(--gray400);
-  padding: .9375rem .9375rem 1.25rem .9375rem;
+  padding: 5rem 1rem 1rem;
   .banner-text {
-    max-width: 37.5rem;
+    max-width: 37.45rem;
+    padding: 0 1.5rem 0 0;
+    h4 {
+      color: var(--orange);
+    }
+    h2 {
+      color: var(--white);
+    }
+    p {
+      font-size: 1.25rem;
+      color: var(--white);
+    }
   }
-  .AIchatbot-img {
+  .WebView-img {
     max-width: 45.833vw;
-    margin-bottom: -3.125rem;
     img {
       width: 100%;
+      border-radius: 8px;
     }
+  }
+}
+.bottom-banner {
+  margin: 5rem 0 2rem;
+  .venders {
+    margin-right: 8rem;
+    h6 {
+      font-size: 2rem;
+      color: var(--white);
+    }
+    img {
+      border-radius: 10px;
+    }
+  }
+  .mobile-img {
+    margin-top: -15.3rem;
   }
 }
 
-@media (max-width: 47.9375rem) {
-  .main-banner {
-    padding: 0.9375rem 0 1.25rem 0;
-    .banner-inner {
-      flex-flow: column-reverse;
-      .banner-text {
-        text-align: center;
-        padding: 0 10px;
-      }
-    }
-    .AIchatbot-img {
-      margin-bottom: 0rem;
-      max-width: 100%;
-    }
-  }
-}
+// @media (max-width: 47.9375rem) {
+//   .main-banner {
+//     padding: 0.9375rem 0 1.25rem 0;
+//     .banner-inner {
+//       flex-flow: column-reverse;
+//       .banner-text {
+//         text-align: center;
+//         padding: 0 10px;
+//       }
+//     }
+//     .AIchatbot-img {
+//       margin-bottom: 0rem;
+//       max-width: 100%;
+//     }
+//   }
+// }

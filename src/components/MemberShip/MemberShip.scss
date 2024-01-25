@@ -1,0 +1,62 @@
+.membership-wrapper {
+  max-width: 1150px;
+  margin-inline: auto;
+  padding: 4rem 0;
+  .img-section,
+  .text-section {
+    width: 100%;
+    .text-inner-wrapper {
+      width: 74%;
+    }
+    p {
+      font-size: 1.5rem;
+      color: var(--white);
+      margin-bottom: 25px;
+    }
+  }
+  .img-section {
+    h3 {
+      width: 80%;
+      color: var(--white);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .img-wrapper {
+      position: relative;
+      .laptop {
+        position: absolute;
+        top: 10rem;
+        right: -12.1rem;
+        img {
+          height: 275px;
+
+        }
+      }
+    }
+  }
+  .membership-plan {
+    background: var(--white);
+    padding: 2rem 5.638rem 2rem;
+    border-radius: 1rem;
+    position: relative;
+    z-index: 9;
+    .mobile-img {
+      margin: 0 8rem 0 0;
+    }
+    .plans-wrapper {
+      h3 {
+        &.title {
+          font-size: 3rem;
+          text-align: center;
+        }
+      }
+      .plan {
+        &:first-of-type {
+          padding-bottom: 0.5rem;
+          margin-bottom: 1rem;
+          border-bottom: 2px solid var(--gray91);
+        }
+      }
+    }
+  }
+}

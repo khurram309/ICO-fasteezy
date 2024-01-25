@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, Link } from 'react-router-dom';
 import { Nav, Navbar, Dropdown } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 
 import store from '../../Redux/store';
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/fasteezy_logo.png';
 import Login from '../Modals/Login/Login';
 import GetStarted from '../Modals/GetStarted/GetStarted';
 import './Header.scss';
@@ -46,13 +46,14 @@ function Header() {
             <img src={logo} alt="Logo" />
           </NavLink>
         </div>
-        <div className='d-flex justify-content-end centerNav'>
+
+        <div className='d-flex'>
+          <Link to="/" >Login</Link>
+          <Link to="/" className='sign-up'>Sign up</Link>
+        </div>
+        {/* <div className='d-flex justify-content-end centerNav'>
           {userToken && <div className='d-md-block d-lg-none me-4'>
             <div className="right-nav d-flex align-items-center">
-              {/* <div className="bell me-3 d-flex align-items-center justify-content-center">
-                <div className="notification"></div>
-                <img src={bell} alt="Bell" />
-              </div> */}
               <div className=' d-flex align-items-center profile-dropdown'>
                 <div className="avatar">
                   <div className="dot"></div>
@@ -73,19 +74,11 @@ function Header() {
             </div>
           </div>}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mx-auto center-nav">
-              <NavLink to="/pricing">Pricing</NavLink>
-              <NavLink to="/chat">Chatbot</NavLink>
-            </Nav>
+          <Navbar.Collapse id="basic-navbar-nav" className='justify-content-end'>
             {userToken ? (
             <Nav>
               <div className='d-lg-block d-none'>
                 <div className="right-nav d-flex align-items-center">
-                  {/* <div className="bell me-3 d-flex align-items-center justify-content-center">
-                    <div className="notification"></div>
-                    <img src={bell} alt="Bell" />
-                  </div> */}
                   <div className='d-flex align-items-center profile-dropdown'>
                     <div className="avatar">
                       <div className="dot"></div>
@@ -110,7 +103,7 @@ function Header() {
             </Nav>
           )}
           </Navbar.Collapse>
-        </div>
+        </div> */}
       </div>
     </Navbar>
   )
