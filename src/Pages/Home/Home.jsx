@@ -2,14 +2,12 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 
 import AIchatbot from '../../assets/images/banner-img.png';
-import About from '../../components/About/About';
-import KeyFeature from '../../components/KeyFeature/KeyFeature';
-import HowItWorks from '../../components/HowItWorks/HowItWorks';
-import WhatUsersSay from '../../components/WhatUsersSay/WhatUsersSay';
-import Questions from '../../components/Questions/Questions';
 import './Home.scss';
 import GetStarted from '../../components/Modals/GetStarted/GetStarted';
+import HowItWorks from '../../components/HowItWorks/HowItWorks';
 import { useNavigate } from 'react-router-dom';
+import MemberShip from '../../components/MemberShip/MemberShip';
+import DontTake from '../../components/DontTake/DontTake';
 
 function Home() {
   const navigate = useNavigate();
@@ -32,11 +30,9 @@ function Home() {
           </div>
         </div>
       </div>
-      <About />
-      <KeyFeature />
       <HowItWorks />
-      <WhatUsersSay />
-      <Questions />
+      <MemberShip />
+      <DontTake />
     </>
   )
 }

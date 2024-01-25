@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import Notiflix from 'notiflix';
 
 import './GetStarted.scss';
-import PaymentInformation from '../PaymentInformation/PaymentInformation';
 import Login from '../Login/Login';
 import { apiRequests } from '../../../Common/apiRequests';
 import { setSignUp } from '../../../Redux/actions/authActions';
@@ -23,8 +22,6 @@ function GetStarted(props) {
   const [validated, setValidated] = useState(false);
   const [password, setPassword] = useState('');
   const [passwordsMatch, setPasswordsMatch] = useState(true);
-  const [showError, setShowError] = useState(props.showError || false);
-  const errorString = 'Account required to continue to continue diagnosis';
 
   const handleClose = () => setShowSignUp(false);
   const handleShow = () => {
@@ -91,7 +88,6 @@ function GetStarted(props) {
         keyboard={false}
         centered className="users-modal"
       >
-        {showError && <div className="error-string">{ errorString }</div>}
         <Modal.Header closeButton className="d-flex flex-column-reverse pb-0">
           <Modal.Title>Create Your UVO Account</Modal.Title>
         </Modal.Header>
@@ -155,7 +151,6 @@ function GetStarted(props) {
         </Form>
         </Modal.Body>
       </Modal>
-      { user && <PaymentInformation showModal={showPayment} /> }
       { showLogin && <Login showLogin={showLogin} /> }
     </>
   )
