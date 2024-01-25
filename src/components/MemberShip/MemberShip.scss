@@ -1,6 +1,4 @@
 .membership-wrapper {
-  max-width: 1150px;
-  margin-inline: auto;
   padding: 4rem 0;
   .img-section,
   .text-section {
@@ -26,7 +24,7 @@
       .laptop {
         position: absolute;
         top: 10rem;
-        right: -12.1rem;
+        right: -7.1rem;
         img {
           height: 275px;
 
@@ -37,6 +35,7 @@
   .membership-plan {
     background: var(--white);
     padding: 2rem 5.638rem 2rem;
+    margin-top: 5rem;
     border-radius: 1rem;
     position: relative;
     z-index: 9;
@@ -48,6 +47,7 @@
         &.title {
           font-size: 3rem;
           text-align: center;
+          margin-bottom: 2rem;
         }
       }
       .plan {

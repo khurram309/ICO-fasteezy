@@ -18,6 +18,7 @@ body {
   --black:             #000;
   --gray90:            #f2f2f2;
   --gray91:            #d9d9d9;
+  --gray92:            #4f4f4f;
 
 
 
@@ -274,7 +275,7 @@ hr {
 }
 
 .border-behind {
-  max-width: 1100px;
+  max-width: 95%;
   margin-inline: auto;
   border-radius: 1rem;
   height: 2rem;

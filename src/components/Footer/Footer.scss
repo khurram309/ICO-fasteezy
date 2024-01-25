@@ -1,70 +1,22 @@
 footer {
-  margin-top: 6.25rem;
-  .footer-signup {
-    .btn {
-      min-width: 11.875rem;
+  padding: 1.25rem 0;
+  .logo {
+    width: 13.5rem;
+    img {
+      width: 100%;
+    }
+    p {
+      font-size: 14px;
+      margin: .55rem 0 0;
     }
   }
-  .footer-bottom {
-    margin-top: 8.25rem;
-    .f-logo {
-      max-width: 6.375rem;
-    }
-   .nav {
-      .nav-link {
-        font-size: 1.0625rem;
-        font-weight: 600;
-        color: var(--gray200);
-        padding: 0 1.5625rem;
-        &:hover {
-          color: var(--primaryhover);
-        }
-      }
-    }
-  }
-  .copyright {
-    border-top: 1px solid #D4D4D8;
-    font-size: 1rem;
-    font-weight: 400;
-    padding-top: 1.25rem;
-    padding-bottom: 3.125rem;
-    margin-top: 3.125rem;
-    .cr {
-      color: var(--gray50);
-    }
+  .links-wrapper {
     a {
-      color: var(--gray50);
-      margin: 0 1.25rem;
+      color: var(--darkprimary);
+      transition: .3s all linear;
       &:hover {
-        color: var(--primaryhover);
+        color: var(--primary);
       }
-      &:last-child {
-        margin-right: 0;
-      }
-    }
-  }
-  .twitter {
-    a {
-      img {
-        width: 16px;
-      }
-    }
-  }
-}
-
-@media (max-width: 47.9375rem) {
-  footer {
-    .footer-bottom {
-      margin-top: 4.125rem;
-      gap: 1.875rem;
-      .nav {
-        .nav-link {
-          font-size: 12px;
-        }
-      }
-    }
-    .copyright {
-      gap: 1.25rem;
     }
   }
 }

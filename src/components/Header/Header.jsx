@@ -3,13 +3,8 @@ import { NavLink, useNavigate, Link } from 'react-router-dom';
 import { Nav, Navbar, Dropdown } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 
-import store from '../../Redux/store';
 import logo from '../../assets/images/fasteezy_logo.png';
-import Login from '../Modals/Login/Login';
-import GetStarted from '../Modals/GetStarted/GetStarted';
 import './Header.scss';
-import userImg from '../../assets/images/userImg.png';
-import bell from '../../assets/images/bell-icon.svg';
 import { apiRequests } from '../../Common/apiRequests';
 import { logout } from '../../Redux/actions/authActions';
 
