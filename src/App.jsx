@@ -6,9 +6,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Notiflix from 'notiflix';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import { swiffyslider } from 'swiffy-slider';
+import "swiffy-slider/css";
 
 function App() {
   const location = useLocation();
+
+  window.swiffyslider = swiffyslider;
+
+  window.addEventListener("load", () => {
+      window.swiffyslider.init();
+  });
 
   useEffect(() => {
     Notiflix.Notify.init({

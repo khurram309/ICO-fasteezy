@@ -1,34 +1,28 @@
 .dntTake-wrapper {
   padding-bottom: 6rem;
   .dntTake-inner-wrapper {
-    text-align: center;
-    h2 {
-      font-size: 48px;
-      color: var(--orange);
-    }
-    p {
-      color: var(--white);
-      font-size: 20px;
-    }
     .reviews-wrapper {
       .review {
-        background: var(--white);
         padding: 2.8rem 2.525rem;
         border-radius: 1rem;
         p {
-          color: var(--black);
-          font-weight: 600;
-        }
-        .reviewer-name {
-          font-weight: 700;
-          margin: 0;
-        }
-        .location {
-          font-weight: 400;
-          font-size: 16px;
-          color: var(--gray92);
+          &:first-of-type {
+            min-height: 13.375rem;
+          }
         }
       }
     }
+  }
+}
+
+@media (max-width: 64rem) {
+  .slider-item-show3 {
+    --swiffy-slider-item-count: 2;
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .slider-item-show3 {
+    --swiffy-slider-item-count: 1;
   }
 }

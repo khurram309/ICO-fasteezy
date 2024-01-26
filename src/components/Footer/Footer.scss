@@ -5,10 +5,6 @@ footer {
     img {
       width: 100%;
     }
-    p {
-      font-size: 14px;
-      margin: .55rem 0 0;
-    }
   }
   .links-wrapper {
     a {
@@ -16,6 +12,22 @@ footer {
       transition: .3s all linear;
       &:hover {
         color: var(--primary);
+      }
+    }
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  footer {
+    .footer-wrapper {
+      justify-content: space-between;
+      .logo {
+        width: 9.5rem;
+      }
+      .links-wrapper {
+        width: auto !important;
+        flex-flow: column;
+        gap: .454rem;
       }
     }
   }

@@ -35,7 +35,7 @@ function Header() {
 
   return (
     <Navbar expand="lg" className='topHeader mb-0'>
-      <div className="container-lg">
+      <div className="container small-devices">
         <div className="logo">
           <NavLink to="/" className='p-0 d-flex w-100'>
             <img src={logo} alt="Logo" />

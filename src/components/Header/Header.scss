@@ -7,10 +7,10 @@
     }
   }
   a {
-    font-size: 16px;
+    font-size: 1rem;
     color: var(--darkprimary);
     font-weight: 600;
-    padding: 10px 25px;
+    padding: 0.7143rem 1.785rem;
     transition: .3s all linear;
     &:hover {
       color: var(--primary);
@@ -27,146 +27,15 @@
   }
 }
 
-//   .centerNav {
-//     width: calc(100% - 13.5rem);
-//   }
-//   .navbar-nav {
-//     a {
-//       font-weight: 600;
-//       color: var(--gray200);
-//       display: flex;
-//       align-items: center;
-//       margin: 0 1.25rem;
-//       text-decoration: none;
-//       padding: .6875rem 0 .6875rem 0;
-//       &:first-child {
-//         margin-left: 0;
-//       }
-//       &:last-child {
-//         margin-right: 0;
-//       }
-//       &:hover, &.active {
-//         box-shadow: none;
-//         color: var(--primary);
-//         box-shadow: 0px 2px 0px 0px rgba(124, 42, 232, 1);
-//         -webkit-box-shadow: 0px 2px 0px 0px rgba(124, 42, 232, 1);
-//         -moz-box-shadow: 0px 2px 0px 0px rgba(124, 42, 232, 1);
-//       }
-//     }
-//   }
-
-//   .right-nav {
-//     .bell {
-//       background: var(--grayf1);
-//       width: 2.25rem;
-//       height: 2.25rem;
-//       border-radius: .625rem;
-//       position: relative;
-//       .notification {
-//         width: 7px;
-//         height: 7px;
-//         border: 1.2px solid var(--grayf1);
-//         background-color: var(--dangerff);
-//         position: absolute;
-//         top: 7px;
-//         right: 8px;
-//         border-radius: 100%;
-//       }
-//     }
-//     .profile-dropdown {
-//       .dropdown {
-//         button {
-//           border: 0;
-//           padding: 0;
-//           &.dropdown-toggle {
-//             span {
-//               width: 50px;
-//               white-space: nowrap;
-//               overflow: hidden;
-//               text-overflow: ellipsis;
-//               display: inline-block;
-//             }
-//             &::after {
-//               border: 0;
-//               background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14 6H6C5.17595 6 4.70557 6.94076 5.2 7.6L9.2 12.9333C9.6 13.4667 10.4 13.4667 10.8 12.9333L14.8 7.6C15.2944 6.94076 14.824 6 14 6Z' fill='%23858EAD'/%3E%3C/svg%3E");
-//               background-position: center;
-//               background-repeat: no-repeat;
-//               width: 12px;
-//               height: 8px;
-//               position: relative;
-//               top: 3px;
-//               left: 4px;
-//             }
-//           }
-//         }
-//         .dropdown-menu {
-//           left: auto;
-//           right: 0;
-//           top: 36px;
-//           a {
-//             margin: 0;
-//             padding: .625rem .9375rem;
-//             font-weight: normal;
-//             font-size: 14px;
-//             &:hover, &:active {
-//               box-shadow: none;
-//               background-color: var(--bs-dropdown-link-hover-bg);
-//             }
-//           }
-//         }
-//       }
-//     }
-//     .avatar {
-//       position: relative;
-//       margin-right: .9375rem;
-//       .dot {
-//         width: 14px;
-//         height: 14px;
-//         border-radius: 100%;
-//         background-color: var( --green4b);
-//         border: 2px solid white;
-//         position: absolute;
-//         top: -4px;
-//         right: -4px;
-//         z-index: 1;
-//        }
-//       img {
-//         border-radius: 10px;
-//         position: relative;
-//         width: 2.5rem;
-//         height: 2.5rem;
-//       }
-//     }
-//   }
-// }
-
-// @media (max-width: 62rem) {
-//   .navbar-collapse {
-//     position: absolute;
-//     left: 0;
-//     width: 100%;
-//     top: 78px;
-//     background: white;
-//   }
-
-//   .topHeader {
-//     &.navbar {
-//       .navbar-toggler {
-//         &:focus:not(:focus-visible) {
-//           box-shadow: 0px 0px 0px 3px rgb(124, 42, 232);
-//         }
-//       }
-//       .navbar-nav {
-//         a {
-//           margin: 0;
-//           border-bottom: 1px solid var(--graye5);
-//           padding: .9375rem;
-//           &.nav-link {
-//             padding: .9375rem;
-//             color: var(--gray200);
-//             font-size: 14px;
-//           }
-//         }
-//       }
-//     }
-//   }
+@media (max-width: 47.9375rem) {
+  .small-devices {
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  .navbar {
+    padding: 1.57rem 0;
+    .logo {
+      width: 9.5rem;
+    }
+  }
+}

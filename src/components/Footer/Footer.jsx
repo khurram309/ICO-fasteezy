@@ -10,11 +10,13 @@ function Footer() {
 
   return (
     <footer>
-      <div className="container-lg">
+      <div className="container">
         <div className="footer-wrapper d-flex align-items-center gap-5">
           <div className="logo">
             <img src={Logo} alt="Logo" />
-            <p>Copyright &copy; Incento LLC <br></br> All Right Reserved</p>
+            <p className='fs-small m-0 mt-2'>
+              Copyright &copy; Incento LLC <br></br> All Right Reserved
+            </p>
           </div>
           <div className="links-wrapper d-flex justify-content-evenly w-100">
             <Link to="/">About Us</Link>

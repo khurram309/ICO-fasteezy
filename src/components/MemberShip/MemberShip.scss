@@ -3,14 +3,6 @@
   .img-section,
   .text-section {
     width: 100%;
-    .text-inner-wrapper {
-      width: 74%;
-    }
-    p {
-      font-size: 1.5rem;
-      color: var(--white);
-      margin-bottom: 25px;
-    }
   }
   .img-section {
     h3 {
@@ -20,16 +12,6 @@
       margin-bottom: 20px;
     }
     .img-wrapper {
-      position: relative;
-      .laptop {
-        position: absolute;
-        top: 10rem;
-        right: -7.1rem;
-        img {
-          height: 275px;
-
-        }
-      }
     }
   }
   .membership-plan {
@@ -40,22 +22,52 @@
     position: relative;
     z-index: 9;
     .mobile-img {
-      margin: 0 8rem 0 0;
+      margin: 0 5.638rem 0 0;
     }
     .plans-wrapper {
-      h3 {
-        &.title {
-          font-size: 3rem;
-          text-align: center;
-          margin-bottom: 2rem;
-        }
-      }
       .plan {
         &:first-of-type {
           padding-bottom: 0.5rem;
           margin-bottom: 1rem;
           border-bottom: 2px solid var(--gray91);
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 64rem) {
+  .text-inner-wrapper {
+    width: 80%;
+  }
+  .membership-wrapper {
+    .membership-plan {
+      padding: 2rem 2.638rem 2rem;
+      .mobile-img {
+        margin: 0 2.638rem 0 0; 
+      }
+    }
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .membership-wrapper {
+    .top-wrapper {
+      flex-flow: column-reverse;
+      .img-section {
+        h3 {
+          width: 100%;
+        }
+      }
+      .text-section {
+        .text-inner-wrapper{
+          width: 100%;
+        }
+      }
+    }
+    .membership-plan {
+      .mobile-img {
+        display: none;
       }
     }
   }

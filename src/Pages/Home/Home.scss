@@ -1,18 +1,8 @@
 .main-banner {
   padding: 5rem 1rem 1rem;
   .banner-text {
-    max-width: 37.45rem;
+    max-width: 32.45vw;
     padding: 0 1.5rem 0 0;
-    h4 {
-      color: var(--orange);
-    }
-    h2 {
-      color: var(--white);
-    }
-    p {
-      font-size: 1.25rem;
-      color: var(--white);
-    }
   }
   .WebView-img {
     max-width: 45.833vw;
@@ -23,35 +13,70 @@
   }
 }
 .bottom-banner {
-  margin: 5rem 0 2rem;
+  margin: -13rem 0 7rem;
   .venders {
     margin-right: 8rem;
-    h6 {
-      font-size: 2rem;
-      color: var(--white);
-    }
     img {
       border-radius: 10px;
     }
   }
-  .mobile-img {
-    margin-top: -15.3rem;
+}
+
+@media (max-width: 64rem) {
+  .main-banner {
+    .banner-text {
+      max-width: 50vw;
+      width: 100%;
+    }
+    .WebView-img {
+      max-width: 40vw;
+      width: 100%;
+    }
+  }
+  .bottom-banner {
+    margin: -4rem 0 4rem;
+    .venders {
+      div {
+        width: 80px;
+        height: auto;
+      }
+    }
   }
 }
 
-// @media (max-width: 47.9375rem) {
-//   .main-banner {
-//     padding: 0.9375rem 0 1.25rem 0;
-//     .banner-inner {
-//       flex-flow: column-reverse;
-//       .banner-text {
-//         text-align: center;
-//         padding: 0 10px;
-//       }
-//     }
-//     .AIchatbot-img {
-//       margin-bottom: 0rem;
-//       max-width: 100%;
-//     }
-//   }
-// }
+@media (max-width: 47.9375rem) {
+  .main-banner {
+    padding: 0.9375rem 0 1.25rem 0;
+    .banner-inner {
+      flex-flow: column-reverse;
+      .banner-text {
+        max-width: 100%;
+        padding: 0;
+        margin-top: -5rem !important;
+        h1 {
+          width: 57%;
+        }
+        p {
+          padding: 0 !important;
+        }
+      }
+      .btn-wrapper {
+        margin: 0 !important;
+      }
+    }
+    .WebView-img {
+      margin-bottom: 0rem;
+      max-width: 100%;
+    }
+  }
+  .bottom-banner {
+    margin: 1rem 0 0 !important;
+    flex-flow: column;
+    .venders {
+      margin: 0;
+      div {
+        width: 60px;
+      }
+    }
+  }
+}
