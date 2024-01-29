@@ -10,7 +10,6 @@ import { setToken } from '../../../Redux/actions/authActions';
 import GetStarted from '../GetStarted/GetStarted';
 import { deviceToken } from '../../../Common/deviceToken';
 import ResetPassword from '../ResetPassword/ResetPassword.jsx';
-import SignUp from '../GetStarted/GetStarted';
 import  Google  from '../../../assets/images/g-logo.png';
 import  FB  from '../../../assets/images/fb-logo.png';
 import Logo from '../../../assets/images/fasteezy_logo.png';
@@ -21,6 +20,7 @@ function Login(props) {
   const [email, setEmail] = useState('');
   const [show, setShow] = useState(props.showLogin);
   const [showRegister, setShowRegister] = useState(false);
+  const [showReset, setShowReset] = useState(false);
   const form  = useRef(null);
   const [validated, setValidated] = useState(false);
 
@@ -109,8 +109,10 @@ function Login(props) {
               </Form.Group>
             </div>
             <div>
-              <ResetPassword />
-              {/* <Link className='fc-darkPrimary'>Reset password</Link> */}
+              <a className="fw-500 ms-2 fc-darkPrimary" role='button' onClick={() => {
+                setShowReset(!showReset)
+                setShow(!show)
+                }}>Reset Password</a>
             </div>
           </div>
           <Button className="w-100 rounded-pill" variant="primary" type="submit">
@@ -131,11 +133,10 @@ function Login(props) {
           </div>
           <div className="signup-text text-center pt-2 gray85 text-uppercase fs-small fc-gray93">
             Don't have an account? 
-            <SignUp className="fc-darkPrimary" />
-            {/* <a className="fw-500 ms-2 fc-darkPrimary" role='button' onClick={() => {
+            <a className="fw-500 ms-2 fc-darkPrimary" role='button' onClick={() => {
               setShowRegister(!showRegister)
               setShow(!show)
-              }}>Sign Up</a> */}
+              }}>Sign Up</a>
           </div>
         </Form>
         </Modal.Body>
@@ -146,6 +147,7 @@ function Login(props) {
         </ModalFooter>
       </Modal>
       {showRegister && <GetStarted showRegister={showRegister} />}
+      {showReset && <ResetPassword showReset={showReset} />}
     </>
   );
 }

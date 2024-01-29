@@ -7,24 +7,23 @@ import Notiflix from 'notiflix';
 import './ResetPassword.scss';
 import { apiRequests } from '../../../Common/apiRequests';
 import { setToken } from '../../../Redux/actions/authActions';
-import GetStarted from '../GetStarted/GetStarted';
 import { deviceToken } from '../../../Common/deviceToken';
-import Login from '../Login/Login.jsx'
+import Login from '../Login/Login.jsx';
 import Logo from '../../../assets/images/fasteezy_logo.png';
 
 function ResetPassword(props) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
-  const [show, setShow] = useState(props.showLogin);
-  const [showRegister, setShowRegister] = useState(false);
+  const [show, setShow] = useState(props.showReset);
+  const [showLogin, setShowLogin] = useState(false);
   const form  = useRef(null);
   const [validated, setValidated] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => {
     setShow(true)
-    setShowRegister(false);
+    setShowLogin(false);
   };
 
   const handleSubmit = async (e) => {
@@ -57,8 +56,6 @@ function ResetPassword(props) {
 
   return (
     <>
-      {!props.showLogin && <Nav.Link onClick={handleShow}>Reset Password</Nav.Link>}
-
       <Modal
         show={show}
         onHide={handleClose}
@@ -90,7 +87,10 @@ function ResetPassword(props) {
             Reset Your Password
           </Button>
           <div className="d-flex signup-text justify-content-center pt-4 gray85 text-uppercase fs-small fc-gray93">
-            <span className='pe-2'>Back to</span> <Login />
+            <a className="fw-normal fc-darkPrimary ps-2" role='button' onClick={() => {
+              setShowLogin(true)
+              setShow(false)
+              }} >Back to Login</a>
           </div>
         </Form>
         </Modal.Body> 
@@ -100,7 +100,7 @@ function ResetPassword(props) {
           </Link>
         </ModalFooter>
       </Modal>
-      {showRegister && <GetStarted showRegister={showRegister} />}
+      {showLogin && <Login showLogin={showLogin} />}
     </>
   );
 }
