@@ -12,6 +12,8 @@ import HowItWorks from '../../components/HowItWorks/HowItWorks';
 import { useNavigate } from 'react-router-dom';
 import MemberShip from '../../components/MemberShip/MemberShip';
 import DontTake from '../../components/DontTake/DontTake';
+import SignUp from '../../components/Modals/GetStarted/GetStarted.jsx';
+
 
 function Home() {
   const navigate = useNavigate();
@@ -22,7 +24,7 @@ function Home() {
           <div className="container">
             <div className="banner-inner d-flex justify-content-center">
               <div className="banner-text mt-4 mt-md-0">
-                <h4 className='fc-orange ff-inter'>
+                <h4 className='fc-orange ff-primary'>
                   Free 30 DAY TRIAL
                   </h4>
                 <h1>
@@ -30,6 +32,7 @@ function Home() {
                 </h1>
                 <p className='pe-5 fs-large'>Fasteezy is your all-in-one rewards platform designed to help small to medium sized businesses easily collect leads and referrals with the click of a button. Collecting referral information and storing it in one place has never been eezier!</p>
                 <div className="mt-5 d-flex justify-content-center btn-wrapper">
+                  {/* <SignUp className='btn btn-light' /> */}
                   <Button variant="light" onClick={() => navigate('/chat')}>Try for free</Button>{' '}
                 </div>
               </div>
@@ -40,7 +43,7 @@ function Home() {
 
             <div className="bottom-banner d-flex justify-content-center">
               <div className="venders">
-                <h3 className='ff-inter'>
+                <h3 className='ff-primary'>
                   Over 75 gift card venders to redeem from!
                 </h3>
                 <div className="d-flex gap-3 justify-content-center mt-4 w-100">

@@ -4,6 +4,7 @@ import App from './App.jsx';
 import './index.scss';
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements, Navigate, Outlet } from 'react-router-dom';
 import Home from './Pages/Home/Home.jsx';
+import Dashboard from './Pages/Dashboard/Dashboard.jsx';
 // import Pricing from './Pages/Pricing/Pricing.jsx';
 // import Chatbot from './Pages/Chatbot/Chatbot.jsx';
 // import General from './Pages/Settings/General/General.jsx';
@@ -23,6 +24,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route path="" element={<Home />} />
+      <Route path="dashboard" element={<Dashboard />} />
       {/* <Route path="pricing" element={<Pricing />} />
       <Route path="chat" element={<Chatbot />} />
       <Route path="terms-and-conditions" element={<TermsAndConditions />} />

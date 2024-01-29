@@ -4,18 +4,15 @@ import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import Notiflix from 'notiflix';
 
-import './Login.scss';
+import './ResetPassword.scss';
 import { apiRequests } from '../../../Common/apiRequests';
 import { setToken } from '../../../Redux/actions/authActions';
 import GetStarted from '../GetStarted/GetStarted';
 import { deviceToken } from '../../../Common/deviceToken';
-import ResetPassword from '../ResetPassword/ResetPassword.jsx';
-import SignUp from '../GetStarted/GetStarted';
-import  Google  from '../../../assets/images/g-logo.png';
-import  FB  from '../../../assets/images/fb-logo.png';
+import Login from '../Login/Login.jsx'
 import Logo from '../../../assets/images/fasteezy_logo.png';
 
-function Login(props) {
+function ResetPassword(props) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -60,7 +57,7 @@ function Login(props) {
 
   return (
     <>
-      {!props.showLogin && <Nav.Link onClick={handleShow}>Login</Nav.Link>}
+      {!props.showLogin && <Nav.Link onClick={handleShow}>Reset Password</Nav.Link>}
 
       <Modal
         show={show}
@@ -72,73 +69,31 @@ function Login(props) {
         <Modal.Header closeButton className="d-flex flex-column-reverse pb-0 border-0">
           <Modal.Title className='text-center px-4'>
             <h2 className='fw-700'>
-              Log in
+              Forgot Password
             </h2>
             <p className='fs-small fc-gray93 fw-normal text-uppercase'>
-              sign in to access your rewards and start collecting leads and referrals.
+              please enter the email you would like your password reset information sent to.
             </p>
             </Modal.Title>
         </Modal.Header>
-        <Modal.Body className="pt-0 px-5">
+        <Modal.Body className="pt-0 px-5 text-uppercase fs-small">
         <Form noValidate validated={validated} ref={form} onSubmit={handleSubmit}>
-          <Form.Group className="mb-3 text-uppercase fs-small" controlId="formBasicEmail">
-            <Form.Label className='fs-small-xs'>account name</Form.Label>
-            <Form.Control type="email" name="email" placeholder="Enter your account name" required onChange={(e) => setEmail(e.target.value)} />
+          <Form.Group className="mb-3" controlId="formEmail">
+            <Form.Label>enter your email address</Form.Label>
+            <Form.Control type="email" placeholder="Enter email address" name="email" required onChange={(e) => setEmail(e.target.value)} />
             <Form.Control.Feedback type="invalid">
             {email === '' ? 'Email is required!' : 'Enter valid email address!'}
             </Form.Control.Feedback>
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label className='fs-small-xs'>Password</Form.Label>
-            <Form.Control type="password" name="password" placeholder="Enter your password" required />
-            <Form.Control.Feedback type="invalid">
-              Password is required!
-            </Form.Control.Feedback>
-          </Form.Group>
-          <div className='d-flex justify-content-between align-items-center text-uppercase fs-small-xs my-3'>
-            <div className='d-flex gap-2'>
-              <Form.Group className='d-flex align-items-center'
-                controlId="formBasicCheckbox">
-                  <Form.Check type="checkbox" 
-                    className='mt-1'
-                    label={
-                    <span className='fw-normal fs-small-xs'>
-                      Remeber Me
-                    </span>
-                  } required />
-              </Form.Group>
-            </div>
-            <div>
-              <ResetPassword />
-              {/* <Link className='fc-darkPrimary'>Reset password</Link> */}
-            </div>
-          </div>
-          <Button className="w-100 rounded-pill" variant="primary" type="submit">
-            Sign in
-          </Button>
 
-          <div className='another-login mt-4'>
-            <div className='divider'></div>
-            <p className="fs-small fc-gray93">OR</p>
-            <div className="d-flex gap-3 justify-content-center my-2">
-              <Link>
-                <img src={Google} alt="Google" height={14} />
-              </Link>
-              <Link>
-                <img src={FB} alt="Facebook" height={14} />
-              </Link>
-            </div>
-          </div>
-          <div className="signup-text text-center pt-2 gray85 text-uppercase fs-small fc-gray93">
-            Don't have an account? 
-            <SignUp className="fc-darkPrimary" />
-            {/* <a className="fw-500 ms-2 fc-darkPrimary" role='button' onClick={() => {
-              setShowRegister(!showRegister)
-              setShow(!show)
-              }}>Sign Up</a> */}
+          <Button className="w-100 rounded-pill" variant="primary" type="submit">
+            Reset Your Password
+          </Button>
+          <div className="d-flex signup-text justify-content-center pt-4 gray85 text-uppercase fs-small fc-gray93">
+            <span className='pe-2'>Back to</span> <Login />
           </div>
         </Form>
-        </Modal.Body>
+        </Modal.Body> 
         <ModalFooter className='border-0 justify-content-center'>
           <Link>
             <img src={Logo} alt="Logo" height={60} />
@@ -150,4 +105,4 @@ function Login(props) {
   );
 }
 
-export default Login;
+export default ResetPassword;

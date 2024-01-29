@@ -19,6 +19,8 @@ body {
   --gray90: #f2f2f2;
   --gray91: #d9d9d9;
   --gray92: #4f4f4f;
+  --gray93: #5d5d5b;
+  --gray94: #ededed;
 }
 
 a {
@@ -41,7 +43,7 @@ a {
   margin-right: 7rem;
 }
 
-.ff-inter {
+.ff-primary {
   font-family: 'Inter', sans-serif;
 }
 
@@ -51,6 +53,10 @@ a {
 
 .fs-small {
   font-size: clamp(0.875rem, 0.825rem, 0.8rem );
+}
+
+.fs-small-xs {
+  font-size: clamp(0.625rem, 0.59413rem + 0.13vw, 0.75rem);
 }
 
 .fs-large {
@@ -77,8 +83,28 @@ a {
   color: var(--primary);
 }
 
+.fc-darkPrimary {
+  color: var(--darkprimary);
+}
+
 .fc-gray92 {
   color: var(--gray92);
+}
+
+.fc-gray93 {
+  color: var(--gray93);
+}
+
+.fw-700 {
+  font-weight: 700;
+}
+
+.fw-normal {
+  font-weight: 400;
+}
+
+.fw-500 {
+  font-weight: 500;
 }
 
 .w-65 {
@@ -89,6 +115,33 @@ a {
   width: 80%;
 }
 
+.form-control {
+  border: 1px solid var(--darkprimary) !important;
+  height: 38px !important;
+}
+
+.form-check-input {
+  &[type=checkbox] {
+    border-radius: 100%;
+  }
+  border-color: var(--orange);
+  &:checked {
+    border-color: var(--orange);
+    background-color: var(--orange);
+  }
+  &:focus {
+    border-color: var(--orange);
+    box-shadow: 0 0 0 0.25rem rgb(255, 204, 0,.25);
+  }
+}
+
+.divider {
+  border-bottom: 1px solid var(--gray94);
+}
+
+.users-modal {
+  background-color: rgba(56, 159, 250, 0.37);
+}
 .btn {
   padding: .75rem 1.25rem;
   &-primary {

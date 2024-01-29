@@ -13,7 +13,9 @@ function Footer() {
       <div className="container">
         <div className="footer-wrapper d-flex align-items-center gap-5">
           <div className="logo">
-            <img src={Logo} alt="Logo" />
+            <Link to="/">
+              <img src={Logo} alt="Logo" />
+            </Link>
             <p className='fs-small m-0 mt-2'>
               Copyright &copy; Incento LLC <br></br> All Right Reserved
             </p>

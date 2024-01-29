@@ -1,0 +1,45 @@
+.another-login {
+  .divider {
+    margin-block: 1rem
+  }
+  p {
+    margin: -1.7rem auto 0;
+    text-align: center;
+    background: var(--white);
+    width: 3rem;
+  }
+  a {
+    background: var(--gray94);
+    padding: .3rem 2.5rem;
+    border-radius: .6rem;
+    transition: .3s all linear;
+    img {
+      width: 100%;
+    }
+    &:hover {
+      background: var(--gray91);
+    }
+  }
+}
+a.fc-darkPrimary {
+  transition: .3s all linear;
+  &:hover {
+    color: var(--gray93);
+  }
+}
+.signup-text {
+  button {
+    background: transparent;
+    padding: 0;
+    color: var(--darkprimary);
+    font-weight: 500;
+    padding-left: .3rem;
+    &:hover,
+    &:focus,
+    &:focus-visible,
+    &:active  {
+      background: transparent !important;
+      color: var(--gray93) !important;
+    }
+  }
+}
