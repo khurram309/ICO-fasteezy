@@ -127,10 +127,6 @@ function Sidebar() {
             </div>
           </div>
         </div>
-
-        <div className="col py-3">
-          <h3>Left Sidebar with Submenus</h3>
-        </div>
       </div>
     </div>
     </>

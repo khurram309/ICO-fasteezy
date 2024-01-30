@@ -5,8 +5,14 @@ import Sidebar from '../components/Sidebar/Sidebar';
 function DashboardLayout() {
   return (
     <>
-    <Sidebar />
-    <Outlet />
+      <div className='row'>
+        <div className='col-1'>
+          <Sidebar />
+        </div>
+        <div className='col-11'>
+          <Outlet />
+        </div>
+      </div>
     </>
   )
 }
