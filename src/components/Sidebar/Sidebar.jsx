@@ -1,14 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Nav, Navbar } from 'react-bootstrap';
-import './SettingsHeader.scss';
+import './Sidebar.scss';
 import { useSelector } from 'react-redux';
 
-function SettingsHeader() {
+function Sidebar() {
   const user = useSelector(state => state.auth.user);
   return (
     <>
-      <div className="custom-container settingPage mt-4 pt-2">
+      <p>Sidebar</p>
+      {/* <div className="custom-container settingPage mt-4 pt-2">
         <h3 className='m-0'>{`Hey there, ${user.first_name} ${user.last_name}!`}</h3>
         <p className='gray85'>Welcome back, we're happy to have you here!</p>
 
@@ -19,9 +20,9 @@ function SettingsHeader() {
             <NavLink to="/settings/security">Security</NavLink>
           </Nav>
         </Navbar>
-      </div>
+      </div> */}
     </>
   )
 }
 
-export default SettingsHeader;
+export default Sidebar;

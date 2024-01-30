@@ -9,7 +9,7 @@ import { apiRequests } from '../../Common/apiRequests';
 import { logout } from '../../Redux/actions/authActions';
 
 import Login from '../Modals/Login/Login.jsx';
-import SignUp from '../Modals/GetStarted/GetStarted.jsx';
+import GetStarted from '../Modals/GetStarted/GetStarted.jsx';
 
 function Header() {
   // const state = store.getState();
@@ -47,7 +47,7 @@ function Header() {
         <div className='d-flex'>
           <Login />
           {/* <Link to="/" >Login</Link> */}
-          <SignUp />
+          <GetStarted />
           {/* <Link to="/" className='sign-up'>Sign up</Link> */}
         </div>
         {/* <div className='d-flex justify-content-end centerNav'>

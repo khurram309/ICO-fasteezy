@@ -7,7 +7,6 @@ import Notiflix from 'notiflix';
 import './ResetPassword.scss';
 import { apiRequests } from '../../../Common/apiRequests';
 import { setToken } from '../../../Redux/actions/authActions';
-import { deviceToken } from '../../../Common/deviceToken';
 import Login from '../Login/Login.jsx';
 import Logo from '../../../assets/images/fasteezy_logo.png';
 
@@ -39,7 +38,6 @@ function ResetPassword(props) {
       user : {
         email: data.get('email'),
         password: data.get('password'),
-        device_token: deviceToken
       }
     }
     await apiRequests(endPoint, 'post', userData)

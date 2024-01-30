@@ -8,10 +8,9 @@ import './Login.scss';
 import { apiRequests } from '../../../Common/apiRequests';
 import { setToken } from '../../../Redux/actions/authActions';
 import GetStarted from '../GetStarted/GetStarted';
-import { deviceToken } from '../../../Common/deviceToken';
 import ResetPassword from '../ResetPassword/ResetPassword.jsx';
-import  Google  from '../../../assets/images/g-logo.png';
-import  FB  from '../../../assets/images/fb-logo.png';
+import Google  from '../../../assets/images/g-logo.png';
+import FB  from '../../../assets/images/fb-logo.png';
 import Logo from '../../../assets/images/fasteezy_logo.png';
 
 function Login(props) {
@@ -43,7 +42,6 @@ function Login(props) {
       user : {
         email: data.get('email'),
         password: data.get('password'),
-        device_token: deviceToken
       }
     }
     await apiRequests(endPoint, 'post', userData)

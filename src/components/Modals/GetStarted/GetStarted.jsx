@@ -7,7 +7,6 @@ import './GetStarted.scss';
 import Login from '../Login/Login';
 import { apiRequests } from '../../../Common/apiRequests';
 import { setSignUp } from '../../../Redux/actions/authActions';
-import { deviceToken } from '../../../Common/deviceToken';
 import { Link, useNavigate } from 'react-router-dom';
 import  Google  from '../../../assets/images/g-logo.png'
 import  FB  from '../../../assets/images/fb-logo.png'
@@ -17,7 +16,7 @@ function GetStarted(props) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const authState = useSelector(state => state.auth);
-  const { showPayment, user } = authState;
+  const { user } = authState;
   const [email, setEmail] = useState('');
   const [showSignUp, setShowSignUp] = useState(props.showRegister);
   const [showLogin, setShowLogin] = useState(false);
@@ -51,20 +50,21 @@ function GetStarted(props) {
       setValidated(true);
       return;
     }
-    const endPoint = `signup`;
+    const endPoint = `register`;
     const data = new FormData(form.current);
     const userData = {
       user: {
         first_name: data.get('first_name'),
         last_name: data.get('last_name'),
         email: data.get('email'),
+        organization_name: data.get('organization_name'),
         password: data.get('password'),
-        password_confirmation: data.get('confirm_password'),
-        device_token: deviceToken
+        // password_confirmation: data.get('confirm_password'),
       }
     }
     try {
-      const response = await apiRequests(endPoint, 'post', userData);
+      const response = await apiRequests(endPoint, 'post', data);
+      console.log('line 67', response);
       if (response.status === 200) {
         Notiflix.Notify.success(response.data.status.message);
         dispatch(setSignUp(response));
@@ -124,11 +124,11 @@ function GetStarted(props) {
           </div>
 
           <Form.Group className="mb-3" controlId="formFirstName">
-            <Form.Label>account name</Form.Label>
-            <Form.Control type="text" placeholder="Create account name" name="accountName" required />
-            {/* <Form.Control.Feedback type="invalid">
-              First name is required!
-            </Form.Control.Feedback> */}
+            <Form.Label>Organization Name</Form.Label>
+            <Form.Control type="text" placeholder="Create account name" name="organization_name" required />
+            <Form.Control.Feedback type="invalid">
+              Organization Name is required!
+            </Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formPassword">
@@ -137,6 +137,15 @@ function GetStarted(props) {
             <Form.Control.Feedback type="invalid">
               Password is required!
             </Form.Control.Feedback>
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formConfirmPassword">
+            <Form.Label>Confirm Password*</Form.Label>
+            <Form.Control type="password" placeholder="Confirm your password" name="confirm_password" required onChange={handleConfirmPasswordChange} />
+            <Form.Control.Feedback type="invalid">
+              Confirm Password is required!
+            </Form.Control.Feedback>
+            {passwordsMatch ? null : <Form.Text className="text-danger">Passwords do not match</Form.Text>}
           </Form.Group>
 
           <Form.Group className="mb-4 pb-2 mt-3 fw-semibold" controlId="formBasicCheckbox">
