@@ -1,0 +1,37 @@
+.dashboard-wrapper {
+  .setting-sec {
+    width: 40%;
+    .cards-wrapper {
+      .card {
+        border: 0;
+        border-radius: 1rem;
+        .card-inner-wrapper {
+          width: 83%;
+          margin-inline: auto;
+          h4 {
+            min-height: 3.75rem;
+          }
+          p {
+            min-height: 6.25rem;
+          }
+        }
+      }
+    }
+  }
+  .account-sec {
+    width: 60%;
+    text-align: center;
+    .bg-pill {
+      min-width: 17.375rem;
+      border-radius: 1rem;
+      width: max-content;
+      a {
+        &.active,
+        &:hover {
+          background: rgb(56, 161, 250, .53);
+          border-radius: 1rem;
+        }
+      }
+    }
+  }
+}
