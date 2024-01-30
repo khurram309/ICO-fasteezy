@@ -9,13 +9,13 @@ function Footer() {
   const userToken = useSelector(state => state.auth.token);
 
   return (
-    <footer>
+    <footer className={`${userToken ? 'bg-blue' : ''}`}>
       <div className="container">
         <div className="footer-wrapper d-flex align-items-center gap-5">
           <div className="logo">
-            <Link to="/">
+            {userToken == null && <Link to="/">
               <img src={Logo} alt="Logo" />
-            </Link>
+            </Link>}
             <p className='fs-small m-0 mt-2'>
               Copyright &copy; Incento LLC <br></br> All Right Reserved
             </p>

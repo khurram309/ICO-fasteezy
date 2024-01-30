@@ -44,19 +44,13 @@ function Header() {
           </NavLink>
         </div>
 
-        <div className='d-flex'>
-          <Login />
-          {/* <Link to="/" >Login</Link> */}
-          <GetStarted />
-          {/* <Link to="/" className='sign-up'>Sign up</Link> */}
-        </div>
-        {/* <div className='d-flex justify-content-end centerNav'>
+        <div className='d-flex justify-content-end centerNav'>
           {userToken && <div className='d-md-block d-lg-none me-4'>
             <div className="right-nav d-flex align-items-center">
               <div className=' d-flex align-items-center profile-dropdown'>
                 <div className="avatar">
                   <div className="dot"></div>
-                  <img src={user?.avatar || userImg} alt="user-image" />
+                  {/* <img src={user?.avatar || userImg} alt="user-image" /> */}
                 </div>
                 <Dropdown>
                   <Dropdown.Toggle variant="" id="dropdown-basic">
@@ -81,7 +75,7 @@ function Header() {
                   <div className='d-flex align-items-center profile-dropdown'>
                     <div className="avatar">
                       <div className="dot"></div>
-                      <img src={user?.avatar || userImg} alt="user-image" />
+                      {/* <img src={user?.avatar || userImg} alt="user-image" /> */}
                     </div>
                     <Dropdown>
                       <Dropdown.Toggle variant="" id="dropdown-basic">
@@ -96,13 +90,19 @@ function Header() {
                 </div>
               </div>
             </Nav>) : (
-            <Nav>
-              <Login />
-              <GetStarted />
-            </Nav>
+              <div className='d-flex'>
+                <Login />
+                {/* <Link to="/" >Login</Link> */}
+                <GetStarted />
+                {/* <Link to="/" className='sign-up'>Sign up</Link> */}
+              </div> 
+            // <Nav>
+            //   <Login />
+            //   <GetStarted />
+            // </Nav>
           )}
           </Navbar.Collapse>
-        </div> */}
+        </div>
       </div>
     </Navbar>
   )
