@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './HowItWorks.scss';
-import Speed from '../../assets/images/bolt-lightning.png';
-import Trending from '../../assets/images/trending-up.png';
-import Poll from '../../assets/images/poll.png';
+import Speed from '../../assets/images/bolt-lightning.svg';
+import Trending from '../../assets/images/trending-up.svg';
+import Poll from '../../assets/images/poll.svg';
 import Desktop from '../../assets/images/desktop.png';
 
 function HowItWorks() {

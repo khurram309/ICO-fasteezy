@@ -4,8 +4,8 @@ import './Dashboard.scss';
 
 function Dashboard() {
   return (
-    <div className="container">
-
+    <div className="dashboard-wrapper">
+      <p>dashboard</p>
     </div>
   )
 }

@@ -36,75 +36,70 @@ function Header() {
   }
 
   return (
-    <Navbar expand="lg" className='topHeader mb-0'>
-      <div className="container small-devices">
-        <div className="logo">
-          <NavLink to="/" className='p-0 d-flex w-100'>
-            <img src={logo} alt="Logo" />
-          </NavLink>
-        </div>
+    <header className={`${userToken ? 'bg-blue fc-white' : ''}`}>
+      <Navbar expand="lg" className='topHeader mb-0'>
+        <div className={`${userToken ? 'd-flex justify-content-between px-5 w-100' : 'container small-devices'}`}>
+          <div className="logo">
+            <NavLink to="/" className='p-0 d-flex w-100'>
+              <img src={logo} alt="Logo" />
+            </NavLink>
+          </div>
 
-        <div className='d-flex justify-content-end centerNav'>
-          {userToken && <div className='d-md-block d-lg-none me-4'>
-            <div className="right-nav d-flex align-items-center">
-              <div className=' d-flex align-items-center profile-dropdown'>
-                <div className="avatar">
-                  <div className="dot"></div>
-                  {/* <img src={user?.avatar || userImg} alt="user-image" /> */}
-                </div>
-                <Dropdown>
-                  <Dropdown.Toggle variant="" id="dropdown-basic">
-                    <span>
-                      { `${user?.first_name} ${user?.last_name}` }
-                    </span>
-                  </Dropdown.Toggle>
-                  <Dropdown.Menu>
-                    <Dropdown.Item onClick={handleSettings}>Settings</Dropdown.Item>
-                    <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
-              </div>
-            </div>
-          </div>}
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav" className='justify-content-end'>
-            {userToken ? (
-            <Nav>
-              <div className='d-lg-block d-none'>
-                <div className="right-nav d-flex align-items-center">
-                  <div className='d-flex align-items-center profile-dropdown'>
-                    <div className="avatar">
-                      <div className="dot"></div>
-                      {/* <img src={user?.avatar || userImg} alt="user-image" /> */}
-                    </div>
-                    <Dropdown>
-                      <Dropdown.Toggle variant="" id="dropdown-basic">
+          <div className='d-flex justify-content-end centerNav'>
+            {userToken && <div className='d-md-block d-lg-none me-4'>
+              <div className="right-nav d-flex align-items-center">
+                <div className=' d-flex align-items-center profile-dropdown'>
+                  <div className="avatar">
+                    <div className="dot"></div>
+                  </div>
+                  <Dropdown>
+                    <Dropdown.Toggle variant="" id="dropdown-basic">
+                      <span>
                         { `${user?.first_name} ${user?.last_name}` }
-                      </Dropdown.Toggle>
-                      <Dropdown.Menu>
-                        <Dropdown.Item onClick={handleSettings}>Settings</Dropdown.Item>
-                        <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
-                      </Dropdown.Menu>
-                    </Dropdown>
+                      </span>
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                      <Dropdown.Item onClick={handleSettings}>Settings</Dropdown.Item>
+                      <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </div>
+              </div>
+            </div>}
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav" className='justify-content-end'>
+              {userToken ? (
+              <Nav>
+                <div className='d-lg-block d-none'>
+                  <div className="right-nav d-flex align-items-center">
+                    <div className='d-flex align-items-center profile-dropdown'>
+                      <div className="avatar">
+                        <div className="dot"></div>
+                      </div>
+                      <Dropdown>
+                        <Dropdown.Toggle variant="" id="dropdown-basic">
+                          { `${user?.first_name} ${user?.last_name}` }
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                          <Dropdown.Item onClick={handleSettings}>Settings</Dropdown.Item>
+                          <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
+                        </Dropdown.Menu>
+                      </Dropdown>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Nav>) : (
-              <div className='d-flex'>
-                <Login />
-                {/* <Link to="/" >Login</Link> */}
-                <GetStarted />
-                {/* <Link to="/" className='sign-up'>Sign up</Link> */}
-              </div> 
-            // <Nav>
-            //   <Login />
-            //   <GetStarted />
-            // </Nav>
-          )}
-          </Navbar.Collapse>
+              </Nav>) : (
+                <div className='d-flex'>
+                  <Login />
+                  <GetStarted />
+                </div> 
+            )}
+            </Navbar.Collapse>
+          </div>
         </div>
-      </div>
-    </Navbar>
+      </Navbar>
+
+    </header>
   )
 }
 

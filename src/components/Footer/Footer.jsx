@@ -9,9 +9,9 @@ function Footer() {
   const userToken = useSelector(state => state.auth.token);
 
   return (
-    <footer className={`${userToken ? 'bg-blue' : ''}`}>
-      <div className="container">
-        <div className="footer-wrapper d-flex align-items-center gap-5">
+    <footer className={`${userToken ? 'bg-blue fc-white' : ''}`}>
+      <div className={`${userToken ? 'd-flex jusitfy-content-between w-100 px-5' : 'container'}`}>
+        <div className="footer-wrapper d-flex align-items-center w-100 gap-5">
           <div className="logo">
             {userToken == null && <Link to="/">
               <img src={Logo} alt="Logo" />

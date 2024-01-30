@@ -35,6 +35,10 @@ a {
   background: var(--primary);
 }
 
+.bg-gray90 {
+  background: var(--gray90);
+}
+
 .pt-9 {
   padding-top: 9rem !important;
 }
@@ -113,6 +117,10 @@ a {
 
 .w-80 {
   width: 80%;
+}
+
+.dashboard-wrapper {
+  
 }
 
 .form-control {
