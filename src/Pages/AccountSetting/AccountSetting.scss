@@ -1,0 +1,46 @@
+.account-wrapper {
+  .lower-account-wrapper {
+    .account-basic {
+      width: 49%;
+      .avtar-wrapper {
+        background: var(--gray94);
+        border-radius: 50%;
+        max-width: 14.375rem;
+        max-height: 14.375rem;
+        position: relative;
+        margin-inline: auto;
+        .trash {
+          background: var(--white);
+          padding: .5rem;
+          border-radius: 50%;
+          position: absolute;
+          top: 1rem;
+          right: 0;
+        }
+      }
+    }
+    .account-security {
+      width: 49%;
+      .flex-row {
+        flex-flow: row !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .account-wrapper {
+    .lower-account-wrapper {
+      flex-flow: column;
+      .account-basic {
+        width: 100%;
+      }
+      .account-security {
+        width: 100%;
+        .address-wrapper {
+          flex-flow: column;
+        }
+      }
+    }
+  }
+}
