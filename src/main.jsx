@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 
 import Home from './Pages/Home/Home.jsx';
 import Dashboard from './Pages/Dashboard/Dashboard.jsx';
+import Funds from './Pages/Funds/Funds.jsx';
 import DashboardLayout from './Layouts/DashboardLayout.jsx';
 
 const PrivateRoute = () => {
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
       <Route exact path='/' element={<PrivateRoute/>}>
         <Route path="user" element={<DashboardLayout /> }>
           <Route path="dashboard" element={<Dashboard />} />
+          <Route path="funds" element={<Funds />} />
           {/* <Route path="general" element={<General />} />
           <Route path="billing" element={<Billing />} />
           <Route path="security" element={<Security />} /> */}

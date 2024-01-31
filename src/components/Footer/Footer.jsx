@@ -10,7 +10,7 @@ function Footer() {
 
   return (
     <footer className={`${userToken ? 'bg-blue fc-white' : ''}`}>
-      <div className={`${userToken ? 'w-100 px-5' : 'container'}`}>
+      <div className={`${userToken ? 'w-100 px-2 px-sm-5' : 'container'}`}>
         <div className={`${userToken ? 'divider-lg mb-2' : ''}`}></div>
         <div className="footer-wrapper d-flex align-items-center w-100 gap-5">
           <div className="logo">

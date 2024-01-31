@@ -21,7 +21,7 @@ function Sidebar() {
         </Navbar>
       </div> */}
     <div className="sidebar px-sm-2 px-0 bg-gray90">
-      <div className="d-flex flex-column align-items-center align-items-sm-start px-2 pt-2 text-white min-vh-100">
+      <div className="d-flex flex-column align-items-center justify-content-between px-2 pt-2 text-white h-100">
         <ul className="nav nav-list flex-column mb-0 align-items-center w-100 text-uppercase" id="menu">
           <li className="nav-item active">
             <a href="#" className="nav-link align-middle px-0 d-flex align-items-center gap-2 flex-column fs-small fc-darkPrimary">

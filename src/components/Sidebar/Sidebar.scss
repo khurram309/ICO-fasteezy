@@ -1,7 +1,34 @@
-.nav-list {
-  .nav-item {
+.sidebar {
+  min-height: calc(100vh - 13.575rem);
+  .nav-list {
+    .nav-item {
+      .nav-link {
+        transition: .3s all linear;
+        svg {
+          width: 2.5rem;
+          transition: .3s all linear;
+          fill: var(--darkprimary);
+        }
+        &:hover {
+          color: var(--primary);
+          svg {
+            fill: var(--primary);
+          }
+        }
+      }
+      &.active {
+        .nav-link {
+          color: var(--primary);
+          svg {
+            fill: var(--primary);
+          }
+        }
+      }
+    }
+  }
+  .dropdown {
     .nav-link {
-      transition: .3s all linear;
+      white-space: nowrap;
       svg {
         width: 2.5rem;
         transition: .3s all linear;
@@ -14,75 +41,55 @@
         }
       }
     }
-    &.active {
-      .nav-link {
-        color: var(--primary);
-        svg {
-          fill: var(--primary);
-        }
-      }
-    }
-  }
-}
-.dropdown {
-  .nav-link {
-    white-space: nowrap;
-    svg {
-      width: 2.5rem;
-      transition: .3s all linear;
-      fill: var(--darkprimary);
-    }
-    &:hover {
-      color: var(--primary);
-      svg {
-        fill: var(--primary);
-      }
-    }
   }
 }
 
 @media (max-width: 64rem)  {
-  .nav-list {
-    .nav-item {
-      .nav-link {
-        svg {
-          width: 2.188rem;
+  .sidebar {
+    .nav-list {
+      .nav-item {
+        .nav-link {
+          svg {
+            width: 2.188rem;
+          }
         }
       }
     }
-  }
-}
-.dropdown {
-  .nav-link {
-    svg {
-      width: 2.188rem;
-      transition: .3s all linear;
-      fill: var(--darkprimary);
-    }
-    &:hover {
-      color: var(--primary);
-      svg {
-        fill: var(--primary);
+    .dropdown {
+      .nav-link {
+        svg {
+          width: 2.188rem;
+          transition: .3s all linear;
+          fill: var(--darkprimary);
+        }
+        &:hover {
+          color: var(--primary);
+          svg {
+            fill: var(--primary);
+          }
+        }
       }
     }
   }
 }
 
 @media (max-width: 47.9375rem) {
-  .nav-list {
-    .nav-item {
+  .sidebar {
+    .nav-list {
+      .nav-item {
+        .nav-link {
+          svg {
+            width: 1.488rem;
+          }
+        }
+      }
+    }
+    .dropdown {
       .nav-link {
         svg {
           width: 1.488rem;
         }
       }
-    }
-  }
-}
-.dropdown {
-  .nav-link {
-    svg {
-      width: 1.488rem;
     }
   }
 }

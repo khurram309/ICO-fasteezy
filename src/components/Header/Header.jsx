@@ -40,7 +40,7 @@ function Header() {
   return (
     <header className={`${userToken ? 'bg-blue fc-white pb-4' : 'pb-2'}`}>
       <Navbar expand="lg" className='topHeader mb-0 pb-3'>
-        <div className={`${userToken ? 'd-flex justify-content-between px-5 w-100 align-items-center' : 'container small-devices'}`}>
+        <div className={`${userToken ? 'd-flex justify-content-between px-sm-5 px-2 w-100 align-items-center' : 'container small-devices'}`}>
           <div className="logo">
             <NavLink to="/" className='p-0 d-flex w-100'>
               <img src={logo} alt="Logo" />
@@ -113,7 +113,7 @@ function Header() {
           
         </div>
       </Navbar>
-      <div className={`${userToken ? 'divider-lg mx-5' : ''}`}></div>
+      <div className={`${userToken ? 'divider-lg mx-sm-5 mx-2' : ''}`}></div>
     </header>
   )
 }
