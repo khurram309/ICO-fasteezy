@@ -7,7 +7,7 @@ import { Button } from 'react-bootstrap';
 
 function Dashboard() {
   return (
-    <div className="dashboard-wrapper d-flex px-3 pt-3">
+    <div className="dashboard-wrapper d-flex px-4 pt-3">
       <div className="setting-sec">
         <h4>Welcome, User</h4>
         <p className='fw-300'>View your referrals, leads, and feedback.</p>

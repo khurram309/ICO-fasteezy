@@ -35,3 +35,34 @@
     }
   }
 }
+
+@media (max-width: 64rem)  {
+  .dashboard-wrapper {
+    .setting-sec {
+      width: 50%;
+      .cards-wrapper {
+        margin-right: 0 !important;
+        gap: 1rem !important;
+      }
+    }
+    .account-sec {
+      width: 50%;
+    }
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .dashboard-wrapper {
+    flex-direction: column-reverse;
+    .setting-sec {
+      width: 100%;
+      .cards-wrapper {
+        flex-direction: column;
+        margin-bottom: 3rem;
+      }
+    }
+    .account-sec {
+      width: 100%;
+    }
+  }
+}

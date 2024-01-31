@@ -152,6 +152,11 @@ a {
   border-bottom: 1px solid var(--gray94);
 }
 
+.divider-lg {
+  height: 3px;
+  background: var(--gray91);
+}
+
 .users-modal {
   background-color: rgba(56, 159, 250, 0.37);
 }

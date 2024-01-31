@@ -82,7 +82,7 @@ function GetStarted(props) {
       ) : props.source == 'footer' ? (
         <Button variant="primary mt-lg-0" onClick={handleShow}>Sign Up Now</Button>
       ) : (
-        !props.showRegister && <Button variant="primary my-lg-0 my-4 mx-3 mx-lg-0" onClick={handleShow}>Sign Up</Button>
+        !props.showRegister && <Button variant="primary" onClick={handleShow}>Sign Up</Button>
       )}
       <Modal
         show={showSignUp}
