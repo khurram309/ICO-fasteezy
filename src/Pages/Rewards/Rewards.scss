@@ -1,0 +1,15 @@
+.users-table {
+  a {
+    padding: 0;
+    svg {
+      transition: .3s all linear;
+      width: 1.3rem;
+      fill: var(--primary);
+    }
+    &:hover {
+      svg {
+        fill: var(--primaryhover);
+      }
+    }
+  }
+}

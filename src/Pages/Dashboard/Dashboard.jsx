@@ -7,8 +7,8 @@ import { Button } from 'react-bootstrap';
 
 function Dashboard() {
   return (
-    <div className="dashboard-wrapper d-flex px-4 pt-3">
-      <div className="setting-sec">
+    <div className="dashboard-wrapper row px-4 pt-3">
+      <div className="setting-sec col-12 col-md-5">
         <h4>Welcome, User</h4>
         <p className='fw-300'>View your referrals, leads, and feedback.</p>
         <div className="btn-wrapper mt-4">
@@ -45,7 +45,7 @@ function Dashboard() {
         </div>
       </div>
 
-      <div className="account-sec">
+      <div className="account-sec col-12 col-md-7">
         <h3>Account Balance</h3>
         <div className='bg-pill card-shadow p-4 m-auto px-5 mt-5'>
           <div className='d-flex align-items-center gap-4'>

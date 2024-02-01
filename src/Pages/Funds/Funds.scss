@@ -1,10 +1,8 @@
 .funds-wrapper {
   .upper-wrapper {
     .funds-section {
-      width: 40%;
     }
     .balance-section {
-      width: 60%;
       .card-inner-wrapper {
         min-width: 13.175rem;
         border-radius: 1rem;
@@ -14,8 +12,6 @@
   }
   .lower-wrapper {
     .payment-wrapper {
-      width: 50%;
-      margin-inline: auto;
       .filed-cards {
         svg {
           height: 1.25rem;
@@ -44,7 +40,7 @@
         }
         &.active {
           a {
-            background-color: var(--gray91);
+            background-color: rgba(56, 161, 250, 0.53);
           }
         }
       }

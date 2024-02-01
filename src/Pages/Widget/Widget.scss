@@ -1,0 +1,44 @@
+.share-widgets {
+  svg {
+    width: 4rem;
+  }
+  .singleWidget {
+    min-height: 13.363rem;
+    transition: .3s all linear;
+    svg {
+      fill: var(--darkprimary);
+      transition: .3s all linear;
+    }
+    &.active,
+    &:hover {
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      svg {
+        fill: var(--primary);
+      }
+    }
+  }
+  .social-media {
+    svg {
+      width: 3rem;
+    }
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .share-widgets {
+    gap: 1rem;
+    svg {
+      width: 2rem;
+    }
+    .singleWidget {
+      min-height: 6.363rem;
+      transition: .3s all linear;
+    }
+    .social-media {
+      svg {
+        width: 2rem;
+      }
+    }
+  }
+}

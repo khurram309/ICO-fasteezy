@@ -21,6 +21,7 @@ body {
   --gray92: #4f4f4f;
   --gray93: #5d5d5b;
   --gray94: #ededed;
+  --gray95: #e5e5e5;
 }
 
 a {
@@ -113,7 +114,7 @@ a {
 }
 
 .fw-500 {
-  font-weight: 500;
+  font-weight: 500 !important;
 }
 
 .fw-700 {
@@ -127,8 +128,13 @@ a {
 .w-80 {
   width: 80%;
 }
-
+.form-select {
+  border: 1px solid var(--darkprimary) !important;
+  height: 38px !important;
+  margin-bottom: 1rem;
+}
 .form-control {
+  background: var(--white) !important;
   border: 1px solid var(--darkprimary) !important;
   height: 38px !important;
   &::-webkit-outer-spin-button,
@@ -136,6 +142,19 @@ a {
     -webkit-appearance: none;
     -moz-appearance: textfield;
   }
+  &[type="textarea"] {
+    height: auto !important;
+  }
+}
+
+.squared-check {
+  .check-primary {
+    .form-check-input {
+      &[type=checkbox] {
+        border-radius: 17%;
+      }
+    }
+  }  
 }
 
 .check-primary {
@@ -180,10 +199,31 @@ a {
 }
 
 .users-modal {
-  background-color: rgba(56, 159, 250, 0.37);
+  background-color: rgba(56, 159, 250, 0.17);
 }
+
+.blue-modal {
+  .modal-content {
+    background: var(--primary);
+    color: var(--white);
+  }
+}
+
+.accordion-button {
+  background: var(--primary);
+  color: var(--white);
+  text-align: center;
+  &:focus {
+    box-shadow: none;
+  }
+  &[aria-expanded="true"] {
+    background: var(--primary);
+    color: var(--white);
+  }
+}
+
 .btn {
-  padding: .75rem 1.25rem;
+  padding: .65rem 1.25rem;
   &-primary {
     border-radius: 0.75rem;
     background-color: var(--primary);
@@ -226,10 +266,20 @@ a {
 
   &-light {
     font-weight: 600;
+    background: var(--gray95);
+    color: var(--darkprimary);
   }
+
   &-outlined {
     border: 1px solid var(--darkprimary);
     border-radius: 1rem;
+  }
+  
+
+  &.active {
+    background: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
   }
 }
 

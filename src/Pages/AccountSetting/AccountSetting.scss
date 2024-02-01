@@ -1,7 +1,6 @@
 .account-wrapper {
   .lower-account-wrapper {
     .account-basic {
-      width: 49%;
       .avtar-wrapper {
         background: var(--gray94);
         border-radius: 50%;
@@ -20,7 +19,6 @@
       }
     }
     .account-security {
-      width: 49%;
       .flex-row {
         flex-flow: row !important;
       }
