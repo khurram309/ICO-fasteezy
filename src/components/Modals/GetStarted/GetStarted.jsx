@@ -109,7 +109,7 @@ function GetStarted(props) {
           <div className='d-flex justify-content-between gap-3'>
             <Form.Group className="mb-3" controlId="formFirstName">
               <Form.Label>First Name</Form.Label>
-              <Form.Control type="text" placeholder="Enter first name" name="First_name" required />
+              <Form.Control type="text" placeholder="Enter first name" name="first_name" required />
               <Form.Control.Feedback type="invalid">
                 First name is required!
               </Form.Control.Feedback>
@@ -141,7 +141,7 @@ function GetStarted(props) {
 
           <Form.Group className="mb-3" controlId="formConfirmPassword">
             <Form.Label>Confirm Password*</Form.Label>
-            <Form.Control type="password" placeholder="Confirm your password" name="confirm_password" required onChange={handleConfirmPasswordChange} />
+            <Form.Control type="password" placeholder="Confirm your password" name="password_confirmation" required onChange={handleConfirmPasswordChange} />
             <Form.Control.Feedback type="invalid">
               Confirm Password is required!
             </Form.Control.Feedback>

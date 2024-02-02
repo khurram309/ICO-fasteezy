@@ -2,17 +2,23 @@ import React from 'react';
 
 import './Dashboard.scss';
 import User from '../../assets/images/user-icon.svg'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
 function Dashboard() {
+  const navigate = useNavigate();
+
+  // const goToSettings = () => {
+  //   navigate('/user/account-setting');
+  // }
+
   return (
     <div className="dashboard-wrapper row px-4 pt-3">
       <div className="setting-sec col-12 col-md-5">
         <h4>Welcome, User</h4>
         <p className='fw-300'>View your referrals, leads, and feedback.</p>
         <div className="btn-wrapper mt-4">
-          <Button variant='primary'>Account Settings</Button>
+          <Button variant='primary' onClick={() => { navigate('/user/account-setting'); }}>Account Settings</Button>
         </div>
         <div className="cards-wrapper d-flex gap-5 me-5 mt-5">
           <div className="card w-100 p-3 py-4 card-shadow">
