@@ -1,5 +1,6 @@
 .sidebar {
   min-height: calc(100vh - 13.575rem);
+  height: 100%;
   .nav-list {
     .nav-item {
       .nav-link {
@@ -78,6 +79,7 @@
   .sidebar {
     .nav-list {
       .nav-item {
+        padding: 1rem 0;
         .nav-link {
           svg {
             width: 1.488rem;

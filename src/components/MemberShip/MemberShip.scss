@@ -1,9 +1,5 @@
 .membership-wrapper {
   padding: 4rem 0;
-  .img-section,
-  .text-section {
-    width: 100%;
-  }
   .img-section {
     h3 {
       width: 80%;
@@ -11,19 +7,12 @@
       font-weight: 600;
       margin-bottom: 20px;
     }
-    .img-wrapper {
-    }
   }
   .membership-plan {
-    background: var(--white);
-    padding: 2rem 5.638rem 2rem;
     margin-top: 5rem;
     border-radius: 1rem;
     position: relative;
     z-index: 9;
-    .mobile-img {
-      margin: 0 5.638rem 0 0;
-    }
     .plans-wrapper {
       .plan {
         &:first-of-type {
@@ -40,35 +29,7 @@
   .text-inner-wrapper {
     width: 80%;
   }
-  .membership-wrapper {
-    .membership-plan {
-      padding: 2rem 2.638rem 2rem;
-      .mobile-img {
-        margin: 0 2.638rem 0 0; 
-      }
-    }
-  }
 }
 
 @media (max-width: 47.9375rem) {
-  .membership-wrapper {
-    .top-wrapper {
-      flex-flow: column-reverse;
-      .img-section {
-        h3 {
-          width: 100%;
-        }
-      }
-      .text-section {
-        .text-inner-wrapper{
-          width: 100%;
-        }
-      }
-    }
-    .membership-plan {
-      .mobile-img {
-        display: none;
-      }
-    }
-  }
 }

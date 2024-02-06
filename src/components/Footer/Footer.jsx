@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './Footer.scss';
-import Logo from '../../assets/images/fasteezy_logo.png';
+import MainLogo from '../../assets/images/fasteezy_clr.png';
 import { useSelector } from 'react-redux';
 
 function Footer() {
@@ -15,7 +15,7 @@ function Footer() {
         <div className="footer-wrapper d-flex align-items-center w-100 gap-5">
           <div className="logo">
             {userToken == null && <Link to="/">
-              <img src={Logo} alt="Logo" />
+              <img src={ MainLogo } alt="Logo" />
             </Link>}
             <p className='fs-small m-0 mt-2'>
               Copyright &copy; Incento LLC <br></br> All Right Reserved

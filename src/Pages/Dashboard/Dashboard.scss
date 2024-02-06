@@ -1,28 +1,20 @@
 .dashboard-wrapper {
   .setting-sec {
-    .cards-wrapper {
-      .card {
-        border: 0;
-        border-radius: 1rem;
-        .card-inner-wrapper {
-          width: 83%;
-          margin-inline: auto;
-          h4 {
-            min-height: 3.75rem;
-          }
-          p {
-            min-height: 6.25rem;
-          }
-        }
+    .card {
+      border: 0;
+      border-radius: 1rem;;
+      h4 {
+        min-height: 3.75rem;
+      }
+      p {
+        min-height: 7.55rem;
       }
     }
   }
   .account-sec {
     text-align: center;
     .bg-pill {
-      min-width: 17.375rem;
       border-radius: 1rem;
-      width: max-content;
       a {
         &.active,
         &:hover {

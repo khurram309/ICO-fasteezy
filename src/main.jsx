@@ -12,6 +12,10 @@ import DashboardLayout from './Layouts/DashboardLayout.jsx';
 import AccountSetting from './Pages/AccountSetting/AccountSetting.jsx';
 import Rewards from './Pages/Rewards/Rewards.jsx';
 import Widget from './Pages/Widget/Widget.jsx';
+import Redeem from './Pages/Redeem/Redeem.jsx';
+import Reports from './Pages/Reports/Reports.jsx';
+import Users from './Pages/Users/Users.jsx';
+import Subscription from './Pages/Subscription/Subscription.jsx';
 
 const PrivateRoute = () => {
   const auth = useSelector(state => state.auth.token);
@@ -33,6 +37,10 @@ const router = createBrowserRouter(
           <Route path="account-setting" element={<AccountSetting />} />
           <Route path="rewards" element={<Rewards />} />
           <Route path="widget" element={<Widget />} />
+          <Route path="redeem" element={<Redeem />} />
+          <Route path="reports" element={<Reports />} />
+          <Route path="view-users" element={<Users />} />
+          <Route path="subscription" element={<Subscription />} />
           {/* <Route path="general" element={<General />} />
           <Route path="billing" element={<Billing />} />
           <Route path="security" element={<Security />} /> */}

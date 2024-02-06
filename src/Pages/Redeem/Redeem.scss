@@ -1,0 +1,17 @@
+.dark-card {
+  background: var(--gray94);
+  img {
+    width: auto;
+    height: 14rem;
+    object-fit: cover;
+    object-position: top center;
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .dark-card {
+    img {
+      height: 7rem;
+    }
+  }
+}

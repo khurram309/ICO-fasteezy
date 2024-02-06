@@ -24,6 +24,16 @@
     }
   }
 }
+.widget-svgs {
+  svg {
+    width: 4rem;
+  }
+  &.qr {
+    svg {
+      width: 8rem;
+    }
+  }
+}
 
 @media (max-width: 47.9375rem) {
   .share-widgets {
