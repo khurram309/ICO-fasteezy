@@ -4,8 +4,11 @@ import './Dashboard.scss';
 import User from '../../assets/images/user-icon.svg'
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Col, Row } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+import AccountBalance from '../../components/AccountBalance/AccountBalance';
 
 function Dashboard() {
+  const user = useSelector(state => state.auth.user);
   const navigate = useNavigate();
   const [showReferrals, setShowReferrals] = useState(false);
 
@@ -21,13 +24,10 @@ function Dashboard() {
             <div className="setting-sec">
               <Row>
                 <Col>
-                  <h4>Welcome, User</h4>
+                  <h4>Welcome, {`${user.first_name} ${user.last_name}`}</h4>
                   <p className='fw-300'>View your referrals, leads, and feedback.</p>
                   <div className="btn-wrapper mt-4">
-                    <Button 
-                      variant='primary' 
-                      onClick={() => { navigate('/user/account-setting'); }}
-                    >
+                    <Button variant='primary' onClick={() => { navigate('/user/account-setting'); }}>
                       Account Settings
                     </Button>
                   </div>
@@ -41,11 +41,9 @@ function Dashboard() {
                       <h4 className='text-center'>Send a Reward</h4>
                       <p className='fw-500'>Create your own offer or reward in points redeemable for valuable gift codes at the nations leading retailers</p>
                       <div className="card-btn-wrapper d-flex justify-content-center">
-                        <Button 
-                          variant='primary'
-                        >
+                        <Link to="/user/rewards" className="btn btn-primary" variant='primary'>
                           Let's Go
-                        </Button>
+                        </Link>
                       </div>
                     </Col>
                   </div>
@@ -56,9 +54,7 @@ function Dashboard() {
                       <h4 className='text-center'>Get Referrals, Leads & Reviews</h4>
                       <p className='fw-500'>Try 5 useful tools to increase engagement</p>
                       <div className="card-btn-wrapper d-flex justify-content-center">
-                        <Button 
-                          variant='primary'
-                        >
+                        <Button variant='primary'>
                           Start Now
                         </Button>
                       </div>
@@ -66,23 +62,12 @@ function Dashboard() {
                   </div>
                 </Col>
               </Row>
-
             </div>
           </Col>
 
           <Col xs={12} md={7}>
             <div className="account-sec">
-              <Row>
-                <Col xs={12} xl={4} lg={7} className='mx-auto'>
-                  <h3>Account Balance</h3>
-                  <div className='bg-pill card-shadow p-4 m-auto p-3 mt-5'>
-                    <div className='d-flex align-items-center gap-4 justify-content-center'>
-                      <h3 className='m-0'>$<span>43.43</span></h3>
-                      <Button variant='primary'>Add Funds</Button>
-                    </div>
-                  </div>
-                </Col>
-              </Row>
+              <AccountBalance />
               
               <Row className='mt-2 mt-md-4'>
                 <Col xs={12} xl={5} lg={9} className='mx-auto'>

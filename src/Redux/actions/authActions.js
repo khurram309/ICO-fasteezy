@@ -5,6 +5,11 @@ export const setToken = (token) => ({
   payload: token,
 });
 
+export const setProgram = (payload) => ({
+  type: SET_PROGRAM,
+  payload: payload
+});
+
 export const setSignUp = (payload) => ({
   type: SET_SIGN_UP,
   payload: payload
