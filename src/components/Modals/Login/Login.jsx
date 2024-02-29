@@ -12,6 +12,7 @@ import ResetPassword from '../ResetPassword/ResetPassword.jsx';
 import Google  from '../../../assets/images/g-logo.png';
 import FB  from '../../../assets/images/fb-logo.png';
 import Logo from '../../../assets/images/fasteezy_logo.png';
+import Program from '../Program/Program.jsx';
 
 function Login(props) {
   const dispatch = useDispatch();
@@ -20,6 +21,8 @@ function Login(props) {
   const [show, setShow] = useState(props.showLogin);
   const [showRegister, setShowRegister] = useState(false);
   const [showReset, setShowReset] = useState(false);
+  const [showProgram, setShowProgram] = useState(false);
+  const [response, setResponse] = useState();
   const form  = useRef(null);
   const [validated, setValidated] = useState(false);
 
@@ -39,16 +42,20 @@ function Login(props) {
     const endPoint = `login`;
     const data = new FormData(form.current);
     const userData = {
-      user : {
-        email: data.get('email'),
-        password: data.get('password'),
-      }
+      email: data.get('email'),
+      password: data.get('password')
     }
     await apiRequests(endPoint, 'post', userData)
     .then((response) => {
       if(response.status === 200) {
-        dispatch(setToken(response));
-        navigate('/chat');
+        if(response.data.domain.programs.length > 1) {
+          localStorage.setItem('accessToken', response.data.access_token);
+          setResponse(response);
+          setShowProgram(true);
+        } else {
+          dispatch(setToken(response));
+          navigate('/user/dashboard');
+        }
       }
     })
     .catch((err) => {
@@ -103,7 +110,7 @@ function Login(props) {
                     <span className='fw-normal fs-small-xs'>
                       Remeber Me
                     </span>
-                  } required />
+                  } />
               </Form.Group>
             </div>
             <div>
@@ -146,6 +153,7 @@ function Login(props) {
       </Modal>
       {showRegister && <GetStarted showRegister={showRegister} />}
       {showReset && <ResetPassword showReset={showReset} />}
+      {showProgram && <Program showProgram={showProgram} response={response} />}
     </>
   );
 }
