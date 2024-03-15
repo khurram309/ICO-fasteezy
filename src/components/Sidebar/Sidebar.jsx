@@ -1,24 +1,19 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { Nav, Navbar } from 'react-bootstrap';
 import './Sidebar.scss';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../../Redux/actions/authActions';
 
 function Sidebar() {
   const user = useSelector(state => state.auth.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleLogout = async () => {
-    console.log('logout');
-    // const endPoint = `logout`;
-    // await apiRequests(endPoint, 'delete')
-    // .then((response) => {
-    //   dispatch(logout());
-    //   localStorage.clear();
-    //   navigate('/');
-    // })
-    // .catch((err) => {
-    //   Notiflix.Notify.failure(err.response.data);
-    // })
+    dispatch(logout());
+    localStorage.clear();
+    navigate('/');
   }
 
   return (
