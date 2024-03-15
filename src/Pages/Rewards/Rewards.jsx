@@ -54,7 +54,7 @@ function Rewards() {
             </Accordion>
 
             {showRewardExistingUser && <RewardExistingUser />}
-            { showRewardNewUser && <RewardNewUser />}
+            {showRewardNewUser && <RewardNewUser />}
           </Col>
         </Row>
 

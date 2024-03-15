@@ -1,7 +1,7 @@
 import { SET_TOKEN, SET_PROGRAM, SET_SIGN_UP, LOGOUT, UPDATE_USER } from "../actions/authActionTypes";
 
 const initialState = {
-token: localStorage.getItem('accessToken') || null,
+  token: localStorage.getItem('accessToken') || null,
   user: JSON.parse(localStorage.getItem('user')) || null,
   domain: JSON.parse(localStorage.getItem('domain')) || null,
   program: JSON.parse(localStorage.getItem('program')) || null
