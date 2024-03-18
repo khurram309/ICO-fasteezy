@@ -1,10 +1,11 @@
-import { SET_TOKEN, SET_PROGRAM, SET_SIGN_UP, LOGOUT, UPDATE_USER } from "../actions/authActionTypes";
+import { SET_TOKEN, SET_PROGRAM, SET_SIGN_UP, LOGOUT, UPDATE_USER, SET_AUTH_POINTS } from "../actions/authActionTypes";
 
 const initialState = {
   token: localStorage.getItem('accessToken') || null,
   user: JSON.parse(localStorage.getItem('user')) || null,
   domain: JSON.parse(localStorage.getItem('domain')) || null,
-  program: JSON.parse(localStorage.getItem('program')) || null
+  program: JSON.parse(localStorage.getItem('program')) || null,
+  authPoints: JSON.parse(localStorage.getItem('authPoints')) || null
 };
 
 const authReducer = (state = initialState, action) => {
@@ -47,6 +48,12 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         user: action.payload.data.data.attributes
+      };
+    case SET_AUTH_POINTS:
+      localStorage.setItem('authPoints', JSON.stringify(action.payload));
+      return {
+        ...state,
+        authPoints: action.payload
       };
     default:
       return state;

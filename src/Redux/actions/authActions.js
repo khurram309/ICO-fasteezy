@@ -1,4 +1,4 @@
-import { SET_TOKEN, SET_SIGN_UP, LOGOUT, UPDATE_USER } from './authActionTypes';
+import { SET_TOKEN, SET_SIGN_UP, LOGOUT, UPDATE_USER, SET_AUTH_POINTS } from './authActionTypes';
 
 export const setToken = (token) => ({
   type: SET_TOKEN,
@@ -21,5 +21,10 @@ export const logout = () => ({
 
 export const updateUser = (payload) => ({
   type: UPDATE_USER,
+  payload: payload
+});
+
+export const setAuthPoints = (payload) => ({
+  type: SET_AUTH_POINTS,
   payload: payload
 });
