@@ -85,7 +85,7 @@ function RedeemAlert(props) {
               </Col>
               <Col md={8} className='fc-darkPrimary'>
                 <h4>{merchant.name}</h4>
-                <p>{merchant.description}</p>
+                <p dangerouslySetInnerHTML={{ __html: merchant.description }}></p>
                 <div className="d-flex justify-content-center gap-3">
                   <Select options={giftCodes} clearable={false} className="react-select" placeholder={" Select Gift Codes with Points "} classNamePrefix="react-select" value={selectedGiftcode} onChange={onChangeGiftcode} />
                   <Button variant='primary'>Add to Cart</Button>
