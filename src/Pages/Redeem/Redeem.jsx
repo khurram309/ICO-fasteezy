@@ -1,14 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Accordion, Badge, Button, Col, Row, Stack, Form, InputGroup } from 'react-bootstrap'
 import './Redeem.scss'
 
-import Amazon from '../../assets/images/amazon.png';
-import Starbucks from '../../assets/images/starbucks.png';
-import Nike from '../../assets/images/nike.png';
-import Visa from '../../assets/images/visa.png';
-import Hulu from '../../assets/images/hulu.png';
-import Delta from '../../assets/images/delta.png';
 import RedeemAlert from '../../components/Modals/RedeemAlert/RedeemAlert';
+import { useSelector } from 'react-redux';
+import { apiRequests } from '../../Common/apiRequests';
 
 function Redeem() {
   const redeemList = [
@@ -19,6 +15,24 @@ function Redeem() {
     {item: 'if you have questions, our team has answers! just call 1-800-XXX-XXXX.', key: 4},
     {item: 'please be aware that once your order has been placed, it cannot be exchanged or cancelled.', key: 5}
   ]
+  const LOGO_PUBLIC_URL = import.meta.env.VITE_REACT_APP_API_STORAGE_URL;
+  const authState = useSelector(state => state.auth);
+  const [merchants, setMerchants] = useState([]);
+
+  useEffect(() => {
+    getMerchants();
+  }, [])
+
+  const getMerchants = async () => {
+    const endPoint = `organization/${authState.user.organization_id}/program/${authState.program.id}/merchant`;
+    await apiRequests(endPoint, 'get')
+    .then((response) => {
+      setMerchants(response.data);
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
+
   return (
     <div className="redem-wrapper p-2 p-md-4">
       <Row>
@@ -103,72 +117,19 @@ function Redeem() {
         </Row>
 
         <Row>
-          <Col md={3} xs={6}>
-            <div className="dark-card mb-4">
-              <div className="d-flex flex-column gap-3 p-2 p-md-4">
-                <img src={ Amazon } alt="amaon" />
-                <div className="d-flex justify-content-between align-items-center">
-                  <p className='m-0 fs-large fw-500'>Amazon</p>
-                  <RedeemAlert />
+          {merchants.map((merchant, index) => (
+            <Col md={3} xs={6} key={index}>
+              <div className="dark-card mb-4">
+                <div className="d-flex flex-column gap-3 p-2 p-md-4">
+                  <img src={ `${LOGO_PUBLIC_URL}/${merchant.logo}` } alt="logo" />
+                  <div className="d-flex justify-content-between align-items-center">
+                    <p className='m-0 fs-large fw-500'>{merchant.name}</p>
+                    <RedeemAlert merchant={merchant} />
+                  </div>
                 </div>
               </div>
-            </div>
-          </Col>
-          <Col md={3} xs={6}>
-            <div className="dark-card mb-4">
-              <div className="d-flex flex-column gap-3 p-2 p-md-4">
-                <img src={ Starbucks } alt="amaon" />
-                <div className="d-flex justify-content-between align-items-center">
-                  <p className='m-0 fs-large fw-500'>Starbucks</p>
-                  <Button variant='outlined' className='px-3 py-2'>Redeem</Button>
-                </div>
-              </div>
-            </div>
-          </Col>
-          <Col md={3} xs={6}>
-            <div className="dark-card mb-4">
-              <div className="d-flex flex-column gap-3 p-2 p-md-4">
-                <img src={ Nike } alt="amaon" />
-                <div className="d-flex justify-content-between align-items-center">
-                  <p className='m-0 fs-large fw-500'>Nike</p>
-                  <RedeemAlert />
-                </div>
-              </div>
-            </div>
-          </Col>
-          <Col md={3} xs={6}>
-            <div className="dark-card mb-4">
-              <div className="d-flex flex-column gap-3 p-2 p-md-4">
-                <img src={ Visa } alt="amaon" />
-                <div className="d-flex justify-content-between align-items-center">
-                  <p className='m-0 fs-large fw-500'>Visa</p>
-                  <Button variant='outlined' className='px-3 py-2'>Redeem</Button>
-                </div>
-              </div>
-            </div>
-          </Col>
-          <Col md={3} xs={6}>
-            <div className="dark-card mb-4">
-              <div className="d-flex flex-column gap-3 p-2 p-md-4">
-                <img src={ Hulu } alt="amaon" />
-                <div className="d-flex justify-content-between align-items-center">
-                  <p className='m-0 fs-large fw-500'>Hulu</p>
-                  <Button variant='outlined' className='px-3 py-2'>Redeem</Button>
-                </div>
-              </div>
-            </div>
-          </Col>
-          <Col md={3} xs={6}>
-            <div className="dark-card mb-4">
-              <div className="d-flex flex-column gap-3 p-2 p-md-4">
-                <img src={ Delta } alt="amaon" />
-                <div className="d-flex justify-content-between align-items-center">
-                  <p className='m-0 fs-large fw-500'>Delta</p>
-                  <Button variant='outlined' className='px-3 py-2'>Redeem</Button>
-                </div>
-              </div>
-            </div>
-          </Col>
+            </Col>
+          ))}
         </Row>
       </Row>
     </div>
