@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { apiRequests } from '../../Common/apiRequests';
-import { setAuthPoints } from '../../Redux/actions/authActions';
+import { setAccountBalance, setAuthPoints } from '../../Redux/actions/authActions';
 
 function AccountBalance() {
   const dispatch = useDispatch();
@@ -15,6 +15,7 @@ function AccountBalance() {
       apiRequests(endPoint, 'get')
       .then((response) => {
         setBalance(response.data);
+        dispatch(setAccountBalance(response.data));
       }).catch((err) => {
         console.log(err);
       });

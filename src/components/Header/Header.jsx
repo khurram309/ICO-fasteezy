@@ -10,6 +10,7 @@ import { logout } from '../../Redux/actions/authActions';
 import Login from '../Modals/Login/Login.jsx';
 import GetStarted from '../Modals/GetStarted/GetStarted.jsx';
 import Bell from '../../assets/images/bell.svg';
+import Cart from '../../assets/images/cart.svg';
 import Comment from '../../assets/images/comment.svg';
 import logo from '../../assets/images/fasteezy_logo.png';
 import MainLogo from '../../assets/images/fasteezy_clr.png';
@@ -20,23 +21,9 @@ function Header() {
   const navigate = useNavigate();
   const userToken = useSelector(state => state.auth.token);
   const user = useSelector(state => state.auth.user);
+  const accountBalance = useSelector(state => state.auth.accountBalance);
+  console.log(user)
 
-  const handleLogout = async () => {
-    const endPoint = `logout`;
-    await apiRequests(endPoint, 'delete')
-    .then((response) => {
-      dispatch(logout());
-      localStorage.clear();
-      navigate('/');
-    })
-    .catch((err) => {
-      Notiflix.Notify.failure(err.response.data);
-    })
-  }
-
-  const handleSettings = () => {
-    navigate('/settings/general');
-  }
 
   return (
     <header className={`${userToken ? 'bg-blue fc-white pb-4' : 'pb-2'}`}>
@@ -50,29 +37,6 @@ function Header() {
           </div>
 
           <div className='d-flex justify-content-end centerNav'>
-            {/* {userToken && <div className='d-md-block d-lg-none me-4'>
-              <div className="right-nav d-flex align-items-center">
-                <div className=' d-flex align-items-center profile-dropdown'>
-                  <div className="avatar">
-                    <div className="dot"></div>
-                  </div>
-                  <Dropdown>
-                    <Dropdown.Toggle variant="" id="dropdown-basic">
-                      <span>
-                        { `${user?.first_name} ${user?.last_name}` }
-                      </span>
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                      <Dropdown.Item onClick={handleSettings}>Settings</Dropdown.Item>
-                      <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown>
-                </div>
-              </div>
-            </div>} */}
-            {/* <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav" className='justify-content-end'>
-            </Navbar.Collapse> */}
               {userToken ? (
               <Nav>
                 {/* <div className='d-lg-block d-none'>
@@ -102,12 +66,13 @@ function Header() {
             <div className={`${userToken ? 'd-block' : 'd-none'}`}>
               <div className='fw-500 user-details'>
                 <div className='d-flex gap-3 mb-1'>
+                  <img src={ Cart } alt="cart" role="button" />
                   <img src={ Bell } alt="bell" />
-                  <img src={ Comment } alt="bell" />
-                  <p className="user-name m-0">Bob Smith</p>
+                  <img src={ Comment } alt="comment" />
+                  <p className="user-name m-0">{user && `${user.first_name} ${user.last_name}`}</p>
                 </div>
                 <div className="available-bal">
-                  <p className='m-0'>Account Balance $<span>43.43</span></p>
+                  <p className='m-0'>Account Balance $<span>{accountBalance}</span></p>
                 </div>
               </div>
             </div>

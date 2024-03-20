@@ -1,8 +1,13 @@
-import { SET_TOKEN, SET_SIGN_UP, LOGOUT, UPDATE_USER, SET_AUTH_POINTS } from './authActionTypes';
+import { SET_TOKEN, SET_ACCOUNT_BALANCE, SET_SIGN_UP, LOGOUT, UPDATE_USER, SET_AUTH_POINTS, SET_AUTH_CART } from './authActionTypes';
 
 export const setToken = (token) => ({
   type: SET_TOKEN,
   payload: token,
+});
+
+export const setAccountBalance = (payload) => ({
+  type: SET_ACCOUNT_BALANCE,
+  payload: payload,
 });
 
 export const setProgram = (payload) => ({
@@ -26,5 +31,10 @@ export const updateUser = (payload) => ({
 
 export const setAuthPoints = (payload) => ({
   type: SET_AUTH_POINTS,
+  payload: payload
+});
+
+export const setAuthCart = (payload) => ({
+  type: SET_AUTH_CART,
   payload: payload
 });
