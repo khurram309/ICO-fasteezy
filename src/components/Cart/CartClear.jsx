@@ -1,43 +1,63 @@
 import React from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 function CartClear(props) {
+  const navigate = useNavigate();
   const cart = useSelector((state) => state.auth.authCart);
+  const program = useSelector((state) => state.auth.program);
 
   return (
     <>
-    {props.showDiv && (<div
-      style={{width: '400px', height: '400px', backgroundColor: '#fff', position: 'absolute', top: '60px', right: '10px', zIndex: 999}}>
-      {cart.items.map((item, index) => (
-        <Row className="cart-item mb-3">
-          <Col md={4} className="flex-column">
-            <div>
-              <strong>{item.merchant_name}</strong>
-            </div>
-            {/* <span>{giftCode}</span> */}
-          </Col>
-          <Col md={2}>
-            <span>{`x ${item.qty}`}</span>
-          </Col>
+      {props.showDiv && (<div className='cartClear'>
+        {console.log(cart)}
+        {cart.items.map((item, index) => (
+          <Row className="cart-item mb-3 mx-0">
+            <Col md={4} className="flex-column ps-0">
+              <div>
+                <p className='merchantName'>{item.merchant_name}</p>
+                <p>{`$${parseFloat(item.redemption_value, 3).toFixed(2)} Gift Code`}</p>
+              </div>
+              {/* <span>{giftCode}</span> */} 
+            </Col>
+            <Col md={2}>
+              <span>{`x ${item.qty}`}</span>
+            </Col>
+            <Col md={4}>
+              <span>
+                {item.redemption_value * program.factor_valuation * item.qty}
+                {/* {redemptionPoints} */}
+                {` Points`}
+              </span>
+            </Col>
+            <Col md={2} className='pe-0'>
+              <span className='xMark'
+                // onClick={() => onClickRemoveItem(index, program.factor_valuation)}
+              >
+                X
+              </span>
+            </Col>
+          </Row>
+        ))}
+        <Row className='m-0 text-end'>
           <Col md={4}>
-            <span>
-              {/* {redemptionPoints} */}
-              {/* {t("points")} */}
-            </span>
+            <h4>Total:</h4>
           </Col>
-          <Col md={2}>
-            <span
-              // onClick={() => onClickRemoveItem(index, program.factor_valuation)}
-              style={{ color: "red", fontSize: 11, fontWeight: 700, cursor: 'pointer' }}
-            >
-              X
-            </span>
+          <Col>
+            <p>{cart.total_points} Points</p>
           </Col>
         </Row>
-      ))}
-    </div>
-    )}
+        <Row className='m-0'>
+          <Col>
+            <Button onClick={() => navigate('/user/view-cart')}>View Cart</Button>
+          </Col>
+          <Col>
+            <Button onClick={() => navigate('user/checkout')}>Checkout</Button>
+          </Col>
+        </Row>
+      </div>
+      )}
     </>
   )
 }

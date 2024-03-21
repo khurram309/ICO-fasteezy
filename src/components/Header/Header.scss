@@ -31,6 +31,48 @@
     }
   }
 }
+.cartIcon {
+  position: relative;
+  span {
+    position: absolute;
+    bottom: 10px;
+    font-size: 10px;
+    background: var(--alert);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.cartClear {
+  position: absolute;
+  min-width: 450px;
+  min-height: 190px;
+  background: var(--white);
+  top: 60px;
+  right: 10px;
+  z-index: 999;
+  padding: 12px;
+  font-family: "Poppins";
+  .cart-item {
+    border-bottom: 2px solid var(--gray94);
+    padding-bottom: 10px;
+    font-size: 16px;
+    .merchantName {
+      font-weight: 700;
+      margin: 0;
+      font-size: 16px;
+    }
+  }
+  .xMark {
+    color: var(--alert); 
+    font-size: 11px; 
+    font-weight: 700; 
+    cursor: pointer;
+  }
+}
 
 @media (max-width: 47.9375rem) {
   .small-devices {

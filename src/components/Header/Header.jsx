@@ -75,8 +75,11 @@ function Header() {
             )}
             <div className={`${userToken ? 'd-block' : 'd-none'}`}>
               <div className='fw-500 user-details'>
-                <div className='d-flex gap-3 mb-1'>
-                  <img src={ Cart } alt="cart" role="button" onClick={handleMouseEnter} />{cart && cart.items.length}
+                <div className='d-flex gap-4 mb-1'>
+                  <div className='cartIcon'>
+                    <img src={ Cart } alt="cart" role="button" onClick={handleMouseEnter} />
+                    {cart != null && <span>{cart && cart.items.length}</span>}
+                    </div>
                   <img src={ Bell } alt="bell" />
                   <img src={ Comment } alt="comment" />
                   <p className="user-name m-0">{user && `${user.first_name} ${user.last_name}`}</p>

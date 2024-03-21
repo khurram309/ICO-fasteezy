@@ -16,6 +16,8 @@ import Redeem from './Pages/Redeem/Redeem.jsx';
 import Reports from './Pages/Reports/Reports.jsx';
 import Users from './Pages/Users/Users.jsx';
 import Subscription from './Pages/Subscription/Subscription.jsx';
+import ViewCart from './Pages/ViewCart/ViewCart.jsx';
+import Checkout from './Pages/Checkout/Checkout.jsx';
 
 const PrivateRoute = () => {
   const auth = useSelector(state => state.auth.token);
@@ -41,6 +43,8 @@ const router = createBrowserRouter(
           <Route path="reports" element={<Reports />} />
           <Route path="view-users" element={<Users />} />
           <Route path="subscription" element={<Subscription />} />
+          <Route path="view-cart" element={<ViewCart />} />
+          <Route path="checkout" element={<Checkout />} />
           {/* <Route path="general" element={<General />} />
           <Route path="billing" element={<Billing />} />
           <Route path="security" element={<Security />} /> */}

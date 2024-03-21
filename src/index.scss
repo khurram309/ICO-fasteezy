@@ -16,6 +16,7 @@ body {
   --white:        #fff;
   --black:        #000;
   --orange:       #ffc14b; 
+  --orange2:      #E29400;
   --gray90:       #f2f2f2;
   --gray91:       #d9d9d9;
   --gray92:       #4f4f4f;
@@ -41,6 +42,10 @@ a {
   background: var(--gray90);
 }
 
+.bg-orange2 {
+  background: var(--orange2);
+}
+
 .pt-9 {
   padding-top: 9rem !important;
 }
@@ -50,11 +55,11 @@ a {
 }
 
 .ff-primary {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter';
 }
 
 .ff-secondary {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins';
 }
 
 .fs-small {

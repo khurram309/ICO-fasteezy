@@ -1,0 +1,11 @@
+table {
+  &.checkoutTable {
+    border-block: 2px solid #E29400;
+    thead,
+    tbody {
+      tr {
+        border-color: transparent;
+      }
+    }
+  }
+}

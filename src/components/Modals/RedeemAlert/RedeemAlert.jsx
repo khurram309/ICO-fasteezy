@@ -103,7 +103,9 @@ function RedeemAlert(props) {
     datacart.total_points += addPoints;
     datacart.total_dollar += $addTotal;
     if (updateAuthCart(datacart)) {
+      Notiflix.Notify.success('Added to cart');
       dispatch(setAuthCart(datacart));
+      handleClose();
     }
   };
 
