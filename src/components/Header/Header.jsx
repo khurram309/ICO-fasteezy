@@ -14,6 +14,7 @@ import Cart from '../../assets/images/cart.svg';
 import Comment from '../../assets/images/comment.svg';
 import logo from '../../assets/images/fasteezy_logo.png';
 import MainLogo from '../../assets/images/fasteezy_clr.png';
+import CartClear from '../Cart/CartClear.jsx';
 
 function Header() {
   // const state = store.getState();
@@ -22,10 +23,19 @@ function Header() {
   const userToken = useSelector(state => state.auth.token);
   const user = useSelector(state => state.auth.user);
   const accountBalance = useSelector(state => state.auth.accountBalance);
-  console.log(user)
+  const cart = useSelector((state) => state.auth.authCart);
+  const [showDiv, setShowDiv] = useState(false);
 
+  const handleMouseEnter = () => {
+    setShowDiv(!showDiv);
+  };
+
+  const handleMouseLeave = () => {
+    setShowDiv(!showDiv);
+  };
 
   return (
+    <>
     <header className={`${userToken ? 'bg-blue fc-white pb-4' : 'pb-2'}`}>
       <Navbar expand="lg" className='topHeader mb-0 pb-3'>
         <div className={`${userToken ? 'd-flex justify-content-between px-sm-5 px-2 w-100 align-items-center' : 'container small-devices'}`}>
@@ -66,7 +76,7 @@ function Header() {
             <div className={`${userToken ? 'd-block' : 'd-none'}`}>
               <div className='fw-500 user-details'>
                 <div className='d-flex gap-3 mb-1'>
-                  <img src={ Cart } alt="cart" role="button" />
+                  <img src={ Cart } alt="cart" role="button" onClick={handleMouseEnter} />{cart && cart.items.length}
                   <img src={ Bell } alt="bell" />
                   <img src={ Comment } alt="comment" />
                   <p className="user-name m-0">{user && `${user.first_name} ${user.last_name}`}</p>
@@ -82,6 +92,8 @@ function Header() {
       </Navbar>
       <div className={`${userToken ? 'divider-lg mx-sm-5 mx-2' : ''}`}></div>
     </header>
+    <CartClear showDiv={showDiv} />
+    </>
   )
 }
 
