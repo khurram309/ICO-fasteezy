@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import '../Rewards.scss';
 import { useSelector } from 'react-redux';
 import { apiRequests } from '../../../Common/apiRequests';
+import ParticipantView from '../../../components/Modals/ParticipantView/ParticipantView';
 
 function RewardExistingUser() {
   const authState = useSelector(state => state.auth);
@@ -12,6 +13,8 @@ function RewardExistingUser() {
   const [limit, setLimit] = useState(10);
   const [keyword, setKeyword] = useState('');
   const [selectAll, setSelectAll] = useState(false);
+  const [showParticipantModal, setShowParticipantModal] = useState(false);
+  const [selectedParticipant, setSelectedParticipant] = useState();
 
   useEffect(() => {
     getExistingUsers();
@@ -99,7 +102,7 @@ function RewardExistingUser() {
                       <Form.Check type="checkbox" className='mt-1 check-primary' checked={item.checked} onChange={() => handleCheckboxChange(item.id)} />
                     </Form.Group>
                   </td>
-                  <td className="py-2">{ item.name }</td>
+                  <td className="py-2" onClick={() => {setShowParticipantModal(true); setSelectedParticipant(item)}}>{ item.name }</td>
                   <td className="py-2">{ item.email }</td>
                   <td className="py-2">{ item.pointBalance }</td>
                   <td className="py-2">  
@@ -117,6 +120,7 @@ function RewardExistingUser() {
         </Col>
       </Row>
     </div>
+    {showParticipantModal && <ParticipantView show={showParticipantModal} participant={selectedParticipant} setSelectedParticipant={setSelectedParticipant} />}
     </>
   )
 }
