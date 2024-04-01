@@ -28,10 +28,6 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route path="" element={<Home />} />
-      {/* <Route path="pricing" element={<Pricing />} />
-      <Route path="chat" element={<Chatbot />} />
-      <Route path="terms-and-conditions" element={<TermsAndConditions />} />
-    <Route path="privacy-policy" element={<PrivacyPolicy />} /> */}
       <Route exact path='/' element={<PrivateRoute/>}>
         <Route path="user" element={<DashboardLayout /> }>
           <Route path="dashboard" element={<Dashboard />} />
@@ -45,9 +41,6 @@ const router = createBrowserRouter(
           <Route path="subscription" element={<Subscription />} />
           <Route path="view-cart" element={<ViewCart />} />
           <Route path="checkout" element={<Checkout />} />
-          {/* <Route path="general" element={<General />} />
-          <Route path="billing" element={<Billing />} />
-          <Route path="security" element={<Security />} /> */}
         </Route>
       </Route>
     </Route>
