@@ -44,7 +44,7 @@ function AccountBalance() {
         <h3>Account Balance</h3>
         <div className='bg-pill card-shadow p-3 m-auto'>
           <div className='d-flex align-items-center gap-4 justify-content-center'>
-            <h3 className='m-0'>$<span>{balance}</span></h3>
+            <h3 className='m-0'>$<span>{balance?.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span></h3>
             <Button variant='primary'>Add Funds</Button>
           </div>
         </div>

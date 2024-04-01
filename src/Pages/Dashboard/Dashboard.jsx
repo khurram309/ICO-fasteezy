@@ -39,7 +39,7 @@ function Dashboard() {
                   <div className="card p-3 py-4 card-shadow">
                     <Col xs={12} md={10} className='mx-auto'>
                       <h4 className='text-center'>Send a Reward</h4>
-                      <p className='fw-500'>Create your own offer or reward in points redeemable for valuable gift codes at the nations leading retailers</p>
+                      <p className='fw-500'>Create your own offer or reward in points, redeemable for valuable gift codes at the nation`s leading retailers.</p>
                       <div className="card-btn-wrapper d-flex justify-content-center">
                         <Link to="/user/rewards" className="btn btn-primary" variant='primary'>
                           Let's Go

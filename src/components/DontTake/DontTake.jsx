@@ -13,7 +13,7 @@ function DontTake() {
             Don't take it from us!
           </h2>
           <p className='fs-large-lg'>
-            People love what we do and we want to let your know
+            {`Here’s what our users have to say about Fasteezy`}
           </p>
           <div className="swiffy-slider">
             <ul className="slider-container slider-item-show3 slider-nav-outside ff-secondary fc-black reviews-wrapper">

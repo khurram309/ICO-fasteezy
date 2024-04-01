@@ -108,7 +108,7 @@ function Login(props) {
                     className='mt-1'
                     label={
                     <span className='fw-normal fs-small-xs'>
-                      Remeber Me
+                      Remember Me
                     </span>
                   } />
               </Form.Group>

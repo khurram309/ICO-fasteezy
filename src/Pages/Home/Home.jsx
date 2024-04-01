@@ -30,8 +30,8 @@ function Home() {
                   <h4 className='fc-orange ff-primary'>
                     Free 30 DAY TRIAL
                     </h4>
-                  <h1 className='w-50 w-md-100'>
-                    Make collecting referrals <span className='fc-orange'>eezy!</span>
+                  <h1 className='w-100 w-md-100'>
+                    Make collecting <span className='fc-orange'>referrals eezy!</span>
                   </h1>
                   <p className='fs-large'>Fasteezy is your all-in-one rewards platform designed to help small to medium sized businesses easily collect leads and referrals with the click of a button. Collecting referral information and storing it in one place has never been eezier!</p>
                   <div className="mt-5 d-flex justify-content-center btn-wrapper">
