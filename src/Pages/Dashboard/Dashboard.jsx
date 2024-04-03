@@ -36,7 +36,7 @@ function Dashboard() {
 
               <Row className='mt-5'>
                 <Col xs={12} xl={5} lg={6}>
-                  <div className="card p-3 py-4 card-shadow">
+                  <div className="card p-3 py-4 card-shadow card-h-315">
                     <Col xs={12} md={10} className='mx-auto'>
                       <h4 className='text-center'>Send a Reward</h4>
                       <p className='fw-500'>Create your own offer or reward in points, redeemable for valuable gift codes at the nation`s leading retailers.</p>
@@ -49,7 +49,7 @@ function Dashboard() {
                   </div>
                 </Col>
                 <Col xs={12} xl={5} lg={6}>
-                  <div className="card p-3 py-4 card-shadow">
+                  <div className="card p-3 py-4 card-shadow card-h-315">
                     <Col xs={12} md={10} className='mx-auto'>
                       <h4 className='text-center'>Get Referrals, Leads & Reviews</h4>
                       <p className='fw-500'>Try 5 useful tools to increase engagement</p>
@@ -70,7 +70,7 @@ function Dashboard() {
               <AccountBalance />
               
               <Row className='mt-2 mt-md-4'>
-                <Col xs={12} xl={5} lg={9} className='mx-auto'>
+                <Col xs={12} xl={6} lg={9} className='mx-auto'>
                   <div className="bg-pill card-shadow d-flex justify-content-center gap-3 text-uppercase fs-small p-3 p-md-4 px-md-5 px-2">
                     <Link className='d-flex flex-column gap-1 fc-darkPrimary p-2 px-3'>
                       <span className='fs-large-xl'>32</span>
@@ -92,7 +92,7 @@ function Dashboard() {
                 <Col xs={12} md={9} className='mx-auto'>
                   <ul className='accounts-list list-unstyled'>
                     <li className='mb-3'>
-                      <Row>
+                      <Row className='justify-content-center'>
                         <Col md={1} xs={2}>
                           <div className="icon">
                             <img src={ User } alt="User Icon" height={40} />
@@ -114,7 +114,7 @@ function Dashboard() {
                     </li>
 
                     <li className='mb-3'>
-                      <Row>
+                      <Row className='justify-content-center'>
                         <Col md={1} xs={2}>
                           <div className="icon">
                             <img src={ User } alt="User Icon" height={40} />

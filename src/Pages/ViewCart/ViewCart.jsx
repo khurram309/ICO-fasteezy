@@ -21,10 +21,10 @@ function ViewCart() {
             >
               <thead>
                 <tr className='tableHeader'>
+                  <th></th>
                   <th>
                     <h6 className='p-0 m-0 my-1'>Merchant</h6>
                   </th>
-                  <th></th>
                   <th>
                     <h6 className='p-0 m-0 my-1'>Gift Code Value</h6>
                   </th>
@@ -58,7 +58,7 @@ function ViewCart() {
                 <tr>
                   <td colSpan={4}></td>
                   <td>Balance After Purchase: :</td>
-                  <td>{balance.points - cart.total_points} Points</td>
+                  <td>{(balance.points - cart.total_points).toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} Points</td>
                 </tr>
               </tbody>
           </Table>

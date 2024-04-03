@@ -17,12 +17,14 @@ function ParticipantView(props) {
   const handleClose = () => {
     setShow(false);
     props.setSelectedParticipant(false);
+    props.setShowParticipantModal(false);
   }
   // const handleShow = () => setShow(true);
 
   return (
     <>
     <Modal show={show} onHide={handleClose} animation={false} size="xl" aria-labelledby="contained-modal-title-vcenter" centered backdrop="static">
+    <Modal.Header className='border-0' closeButton onClick={handleClose}></Modal.Header>
       <Modal.Body>
         <Container fluid>
           <Row>

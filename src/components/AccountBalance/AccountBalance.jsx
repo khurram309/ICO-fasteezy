@@ -40,7 +40,7 @@ function AccountBalance() {
   return (
     <>
     <Row>
-      <Col xs={12} xl={4} lg={7} className='mx-auto'>
+      <Col xs={12} xl={6} lg={7} className='mx-auto'>
         <h3>Account Balance</h3>
         <div className='bg-pill card-shadow p-3 m-auto'>
           <div className='d-flex align-items-center gap-4 justify-content-center'>

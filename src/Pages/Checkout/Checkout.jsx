@@ -40,10 +40,10 @@ const Checkout = () => {
           >
             <thead className='bg-orange2'>
               <tr className='tableHeader'>
+                <th></th>
                 <th>
                   <h6 className='p-0 m-0 my-1 fc-white'>Merchant</h6>
                 </th>
-                <th></th>
                 <th>
                   <h6 className='p-0 m-0 my-1 fc-white'>Gift Code Value</h6>
                 </th>
@@ -72,20 +72,27 @@ const Checkout = () => {
             </tbody>
           </Table>
             <div className='w-100'>
-              <div className="d-flex p-3">
-                <div className='w-75 text-end pe-5'>
-                  <p className='m-0'>Total:</p>
-                </div>
-                <div className='w-25'>
-                  <p className='m-0'>{cart.total_points} Points</p>
+              <div className='d-flex w-100 p-3 justify-content-end'>
+                <div className="d-flex w-35 pe-5">
+                  <div className='w-75 text-start'>
+                    <p className='m-0'>Total:</p>
+                  </div>
+                  <div className='w-25'>
+                    <p className='m-0'>{cart.total_points} Points</p>
+                  </div>
                 </div>
               </div>
-              <div className='d-flex p-3'>
-                <div className='w-75 text-end pe-5'>
-                  <p className='m-0'>Balance After Purchase: :</p>
-                </div>
-                <div className='w-25'>
-                  <p className='m-0'>{balance.points - cart.total_points} Points</p>
+              <div className='d-flex w-100 p-3 justify-content-end'>
+                <div className='d-flex w-35 pe-5'>
+                  <div className='w-75 text-start'>
+                    <span>
+                      <p className='m-0'>Balance After</p>
+                      <p>Purchase:</p>
+                    </span>
+                  </div>
+                  <div className='w-25'>
+                    <p className='m-0'>{balance.points - cart.total_points} Points</p>
+                  </div>
                 </div>
               </div>
             </div>

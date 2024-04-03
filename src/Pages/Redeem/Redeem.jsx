@@ -45,8 +45,8 @@ function Redeem() {
           </div>
         </Col>
         <Col xs={12} md={6}>
-          <Row>
-            <Col xs={12} md={5} className='mx-auto'>
+          <Row className='justify-content-end'>
+            <Col xs={12} md={5}>
               <div className="card-shadow border border-1 d-flex flex-column gap-2 align-items-center justify-content-center p-4">
                 <h4 className='fw-300'>Redeemable Points</h4>
                 <p className='fs-large-xxl m-0'><span>1,000</span> points</p>

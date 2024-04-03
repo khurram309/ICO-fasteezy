@@ -51,7 +51,7 @@ function RewardExistingUser() {
     <>
     <div className="card-shadow">
       <Row className='pt-2 pt-md-3'>
-        <Col xs={12} md={8} className='mx-auto d-flex'>
+        <Col xs={12} md={8} className='d-flex mx-5 gap-3'>
           <Form.Group>
             <Form.Select onChange={(e) => setLimit(e.target.value)}>
               <option value={10}>10</option>
@@ -78,7 +78,7 @@ function RewardExistingUser() {
 
       <Row className='mt-2 mt-md-4 mx-4'>
         <Col>
-          <Table striped bordered responsive hover className="users-table">
+          <Table bordered responsive hover className="users-table">
             <thead className="bg-blue fc-white">
               <tr>
                 <th className="py-2">
@@ -120,7 +120,7 @@ function RewardExistingUser() {
         </Col>
       </Row>
     </div>
-    {showParticipantModal && <ParticipantView show={showParticipantModal} participant={selectedParticipant} setSelectedParticipant={setSelectedParticipant} />}
+    {showParticipantModal && <ParticipantView show={showParticipantModal} participant={selectedParticipant} setSelectedParticipant={setSelectedParticipant} setShowParticipantModal={setShowParticipantModal} />}
     </>
   )
 }
