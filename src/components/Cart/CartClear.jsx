@@ -11,9 +11,8 @@ function CartClear(props) {
   return (
     <>
       {props.showDiv && (<div className='cartClear'>
-        {console.log(cart)}
-        {cart.items.map((item, index) => (
-          <Row className="cart-item mb-3 mx-0">
+        {cart && cart.items.map((item, index) => (
+          <Row className="cart-item mb-3 mx-0" key={index}>
             <Col md={4} className="flex-column ps-0">
               <div>
                 <p className='merchantName'>{item.merchant_name}</p>
@@ -45,7 +44,7 @@ function CartClear(props) {
             <h4>Total:</h4>
           </Col>
           <Col>
-            <p>{cart.total_points} Points</p>
+            <p>{cart && cart.total_points} Points</p>
           </Col>
         </Row>
         <Row className='m-0'>

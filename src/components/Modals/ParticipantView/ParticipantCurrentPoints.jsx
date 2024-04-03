@@ -16,10 +16,10 @@ function ParticipantCurrentPoints(participant, program) {
           <td><strong>Current Points Balance:</strong></td>
           <td><strong>{participant?.pointBalance ? participant?.pointBalance * program.factor_valuation : 0 }</strong></td>
         </tr>
-        <tr>
+        {/* <tr>
           <td><strong>Current Peer Points Balance:</strong></td>
           <td><strong>{participant?.peerBalance ? participant?.peerBalance * program.factor_valuation : 0}</strong></td>
-        </tr>
+        </tr> */}
       </tbody>
     </Table>
     </>

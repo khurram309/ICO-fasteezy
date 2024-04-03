@@ -26,11 +26,13 @@ function Header() {
   const cart = useSelector((state) => state.auth.authCart);
   const [showDiv, setShowDiv] = useState(false);
 
-  const handleMouseEnter = () => {
-    setShowDiv(!showDiv);
-  };
+  useEffect(() => {
+    if(cart && cart.items.length > 0) {
+      setShowDiv(true);
+    }
+  }, [cart])
 
-  const handleMouseLeave = () => {
+  const handleMouseEnter = () => {
     setShowDiv(!showDiv);
   };
 

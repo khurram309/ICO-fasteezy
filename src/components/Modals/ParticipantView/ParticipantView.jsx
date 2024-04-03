@@ -54,7 +54,7 @@ function ParticipantView(props) {
                 <ResendIcon />
                 Resend Invite
               </span>
-              {program.uses_peer2peer && <Button
+              {/* {program.uses_peer2peer && <Button
                 onClick={() =>
                   onClickAction("Reclaim Peer Allocations", participants)
                 }
@@ -64,7 +64,7 @@ function ParticipantView(props) {
               >
                 <PeerIcon />
                 Reclaim Peer Allocations
-              </Button>}
+              </Button>} */}
             </Col>
           </Row>
           <Row>

@@ -38,7 +38,7 @@ function ParticipantInfo(props) {
         {participant.status?.status ? participant.status.status : ''}
       </Col>
     </Row>
-    <Row>
+    {/* <Row>
       <Col md="6" lg="6" xl="6" sm="12">
         External ID:
       </Col>
@@ -53,7 +53,7 @@ function ParticipantInfo(props) {
       <Col md="6" lg="6" xl="6" sm="12">
         { participant?.work_anniversary ? `${new Date(participant.work_anniversary).toLocaleDateString("en-US", {})}`: ''}
       </Col>
-    </Row>
+    </Row> */}
     <Row>
       <Col md="6" lg="6" xl="6" sm="12">
         Birthday:
@@ -62,14 +62,14 @@ function ParticipantInfo(props) {
         { participant?.dob ? `${new Date(participant.dob).toLocaleDateString("en-US", {})}`: ''}
       </Col>
     </Row>
-    <Row>
+    {/* <Row>
       <Col md="6" lg="6" xl="6" sm="12">
         Department / Team:
       </Col>
       <Col md="6" lg="6" xl="6" sm="12">
         {participant?.division}
       </Col>
-    </Row>
+    </Row> */}
     </>
   )
 }
