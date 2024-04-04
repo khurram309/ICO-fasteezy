@@ -34,7 +34,7 @@ function Home() {
                     Make collecting <span className='fc-orange'>referrals eezy!</span>
                   </h1>
                   <p className='fs-large'>Fasteezy is your all-in-one rewards platform designed to help small to medium sized businesses easily collect leads and referrals with the click of a button. Collecting referral information and storing it in one place has never been eezier!</p>
-                  <div className="mt-5 d-flex justify-content-center btn-wrapper">
+                  <div className="mt-5 d-flex btn-wrapper">
                     <Button variant="secondary" onClick={() => navigate('/chat')}>Try for free</Button>{' '}
                   </div>
                 </div>

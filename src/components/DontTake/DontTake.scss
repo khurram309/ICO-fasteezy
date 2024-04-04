@@ -5,14 +5,17 @@
         border-radius: 1rem;
         p {
           &:first-of-type {
-            min-height: 13.375rem;
+            min-height: 12.375rem;
           }
         }
       }
     }
   }
 }
-
+.starIcon {
+  width: 15px;
+  height: 15px;
+}
 @media (max-width: 64rem) {
   .slider-item-show3 {
     --swiffy-slider-item-count: 2;

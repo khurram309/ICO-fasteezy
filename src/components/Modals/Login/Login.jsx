@@ -12,6 +12,7 @@ import ResetPassword from '../ResetPassword/ResetPassword.jsx';
 import Google  from '../../../assets/images/g-logo.png';
 import FB  from '../../../assets/images/fb-logo.png';
 import Logo from '../../../assets/images/fasteezy_logo.png';
+import LogoColored from '../../../assets/images/fasteezy_clr.png';
 import Program from '../Program/Program.jsx';
 
 function Login(props) {
@@ -147,7 +148,7 @@ function Login(props) {
         </Modal.Body>
         <ModalFooter className='border-0 justify-content-center'>
           <Link>
-            <img src={Logo} alt="Logo" height={60} />
+            <img src={LogoColored} alt="Logo" height={60} />
           </Link>
         </ModalFooter>
       </Modal>
