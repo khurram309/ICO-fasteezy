@@ -52,7 +52,7 @@ function Dashboard() {
                   <div className="card p-3 py-4 card-shadow card-h-315">
                     <Col xs={12} md={10} className='mx-auto'>
                       <h4 className='text-center'>Get Referrals, Leads & Reviews</h4>
-                      <p className='fw-500'>Try 5 useful tools to increase engagement</p>
+                      <p className='fw-500'>Try 5 useful tools to increase engagement.</p>
                       <div className="card-btn-wrapper d-flex justify-content-center">
                         <Button variant='primary'>
                           Start Now

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Col, Row, Table } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux';
-import './checkout.scss'
+import './Checkout.scss'
 import { apiRequests } from '../../Common/apiRequests';
 import { useNavigate } from 'react-router-dom';
 import { setAuthCart } from '../../Redux/actions/authActions';
