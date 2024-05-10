@@ -36,12 +36,12 @@ const authReducer = (state = initialState, action) => {
          program: action.payload
       };
     case SET_SIGN_UP:
-      localStorage.setItem('accessToken', action.payload.headers.authorization);
-      localStorage.setItem('user', JSON.stringify(action.payload.data.data.attributes));
+      localStorage.setItem('accessToken', action.payload.data.access_token);
+      localStorage.setItem('user', JSON.stringify(action.payload.data.user));
       return {
         ...state,
-        token: action.payload.headers.authorization,
-        user: action.payload.data.data.attributes,
+        token: action.payload.data.access_token,
+        user: action.payload.data.user,
       };
     case LOGOUT:
       return {

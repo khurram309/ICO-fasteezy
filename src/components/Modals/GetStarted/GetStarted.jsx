@@ -43,7 +43,7 @@ function GetStarted(props) {
     setPasswordsMatch(password === e.target.value);
   };
 
-  const onNextClick = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const signupForm = e.currentTarget;
     if(!signupForm.checkValidity()) {
@@ -59,19 +59,25 @@ function GetStarted(props) {
         email: data.get('email'),
         organization_name: data.get('organization_name'),
         password: data.get('password'),
-        // password_confirmation: data.get('confirm_password'),
+        password_confirmation: data.get('confirm_password'),
       }
     }
     try {
       const response = await apiRequests(endPoint, 'post', data);
-      console.log('line 67', response);
       if (response.status === 200) {
-        Notiflix.Notify.success(response.data.status.message);
         dispatch(setSignUp(response));
+        navigate('/user/dashboard');
         setShowSignUp(false);
       }
     } catch (err) {
-      Notiflix.Notify.failure(err.response.data.status.message);
+      let errors = err.response.data.errors;
+      if(errors.email) {
+        Notiflix.Notify.failure(errors.email[0]);
+      } else if(errors.organization_name) {
+        Notiflix.Notify.failure(errors.organization_name[0]);
+      } else if(errors.password) {
+        Notiflix.Notify.failure(errors.password[0]);
+      }
     }
   }
 
@@ -98,7 +104,7 @@ function GetStarted(props) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className='fs-small text-uppercase px-5'>
-        <Form noValidate validated={validated} ref={form} onSubmit={onNextClick}>
+        <Form noValidate validated={validated} ref={form} onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formEmail">
             <Form.Label>Email</Form.Label>
             <Form.Control type="email" placeholder="Enter email address" name="email" required onChange={(e) => setEmail(e.target.value)} />
