@@ -84,7 +84,7 @@ function Header() {
                     </div>
                   <img src={ Bell } alt="bell" />
                   <img src={ Comment } alt="comment" />
-                  <p className="user-name m-0">{user && `${user.first_name} ${user.last_name}`}</p>
+                  <p className="user-name m-0" role="button" onClick={() => navigate('/user/dashboard')}>{user && `${user.first_name} ${user.last_name}`}</p>
                 </div>
                 <div className="available-bal">
                   <p className='m-0'>Account Balance $<span>{accountBalance?.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span></p>
