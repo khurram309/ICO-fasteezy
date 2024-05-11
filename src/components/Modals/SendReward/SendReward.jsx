@@ -8,7 +8,7 @@ function SendReward(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => {
     setShow(true)
-    setShowRegister(false);
+    // setShowRegister(false);
   };
 
 

@@ -1,3 +1,4 @@
+import Notiflix from 'notiflix';
 import React from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
@@ -7,6 +8,15 @@ function CartClear(props) {
   const navigate = useNavigate();
   const cart = useSelector((state) => state.auth.authCart);
   const program = useSelector((state) => state.auth.program);
+
+  const viewCart = () => {
+    console.log(cart);
+    if(cart == null) {
+      Notiflix.Notify.failure('Please add items to cart')
+    } else {
+      navigate('/user/view-cart')
+    }
+  }
 
   return (
     <>
@@ -49,7 +59,7 @@ function CartClear(props) {
         </Row>
         <Row className='m-0'>
           <Col>
-            <Button onClick={() => navigate('/user/view-cart')}>View Cart</Button>
+            <Button onClick={viewCart}>View Cart</Button>
           </Col>
           <Col>
             <Button onClick={() => navigate('user/checkout')}>Checkout</Button>

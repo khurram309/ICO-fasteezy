@@ -1,10 +1,57 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Form, Row } from "react-bootstrap";
+import EVENT_TYPES from "../../../shared/json/eventTypes.json";
 
 import RewardSend from "../../../components/Modals/RewardSend/RewardSend";
 import '../Rewards.scss';
+import { useSelector } from 'react-redux';
+import { apiRequests } from '../../../Common/apiRequests';
 
 function RewardNewUser() {
+  const [events, setEvents] = useState([]);
+  const authState = useSelector(state => state.auth);
+  const organizationId = authState.user.organization_id
+  const program = authState.program
+
+  useEffect(() => {
+    if (!organizationId || !program?.id) return;
+    const getRewardType = async () => {
+      let except_type = [
+        EVENT_TYPES.find((type) => type.name === "peer2peer allocation")?.value,
+        EVENT_TYPES.find((type) => type.name === "peer2peer")?.value,
+        EVENT_TYPES.find((type) => type.name === "peer2peer badge")?.value,
+      ];
+      let paramStr = prepareRequestParams({except_type}, ['type', 'except_type', 'disabled']);
+      const endPoint = `organization/${organizationId}/program/${program.id}/event?minimal=true&${paramStr}`
+      apiRequests(endPoint, 'get')
+      .then((response) => {
+        setEvents(labelizeNamedData(response.data));
+      }).catch((err) => {
+        console.log(err);
+      })
+    }
+    getRewardType()
+  }, [organizationId, program]);
+
+  const prepareRequestParams = (filter, fields) => {
+    const params = []
+    let paramStr = ''
+    if (filter) {
+      fields.map((field) => (filter[field] !== 'undefined' && filter[field]) ? params.push(field + `=${filter[field]}`) : null);
+      paramStr = params.join('&')
+    }
+    return paramStr;
+  }
+
+  const labelizeNamedData = (data, fields = ["id", "name"]) => {
+    if (!data) return null
+    let newData = []
+    for( var i in data) {
+        newData.push({label: String(data[i][fields[1]]), value: String(data[i][fields[0]])})
+    }
+    return newData;
+  }
+
   return (
     <>
       <div className="card-shadow p-3 p-md-5">
@@ -12,8 +59,11 @@ function RewardNewUser() {
           <Col xs={12} md={4}>
             <Form.Select className="py-2">
               <option>Select a Reward Type</option>
-              <option value="1">Opt One</option>
-              <option value="2">Opt Two</option>
+              {events && events.map((event, index) => {
+                return (
+                  <option key={index} value={event.value}>{event.label}</option>
+                )
+              })}
             </Form.Select>
           </Col>
         </Row>

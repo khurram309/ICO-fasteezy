@@ -8,7 +8,7 @@ function Success(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => {
     setShow(true)
-    setShowRegister(false);
+    // setShowRegister(false);
   };
 
   return (

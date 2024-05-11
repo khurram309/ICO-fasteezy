@@ -8,7 +8,7 @@ function RewardSend(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => {
     setShow(true)
-    setShowRegister(false);
+    // setShowRegister(false);
   };
 
   return (
@@ -34,7 +34,7 @@ function RewardSend(props) {
         </ModalHeader>
         <ModalBody className='text-center'>
           <p>Your settings have been changed.</p>
-          <Button variant='light' className='px-5 py-2'>OK</Button>
+          <Button onClick={handleClose} variant='light' className='px-5 py-2'>OK</Button>
         </ModalBody>
       </Modal>
     </>
