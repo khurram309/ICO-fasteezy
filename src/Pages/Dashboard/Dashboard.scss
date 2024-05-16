@@ -25,7 +25,8 @@
     }
   }
   .card-h-315 {
-    min-height: 315px;
+    height: 315px;
+    overflow: auto;
   }
 }
 
@@ -35,6 +36,13 @@
       .cards-wrapper {
         margin-right: 0 !important;
         gap: 1rem !important;
+      }
+      .col-xl-5 {
+        &.col-lg-6 {
+          &.col-12 {
+            padding-bottom: 1rem;
+          }
+        }
       }
     }
   }
@@ -47,6 +55,18 @@
       .cards-wrapper {
         flex-direction: column;
         margin-bottom: 3rem;
+      }
+      .col-xl-5 {
+        &.col-lg-6 {
+          &.col-12 {
+            padding-bottom: 1rem;
+          }
+        }
+      }
+    }
+    .account-sec {
+      .bg-pill {
+        margin-bottom: 1rem;
       }
     }
   }

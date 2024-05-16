@@ -3,7 +3,7 @@ import React from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
+import '../Header/Header.scss';
 function CartClear(props) {
   const navigate = useNavigate();
   const cart = useSelector((state) => state.auth.authCart);
@@ -21,6 +21,7 @@ function CartClear(props) {
   return (
     <>
       {props.showDiv && (<div className='cartClear'>
+        <button type="button" class="btn-close" aria-label="Close" onClick={() => props.setShowDiv(false)}></button>
         {cart && cart.items.map((item, index) => (
           <Row className="cart-item mb-3 mx-0" key={index}>
             <Col md={4} className="flex-column ps-0">

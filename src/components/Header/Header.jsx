@@ -32,6 +32,19 @@ function Header() {
     }
   }, [cart])
 
+  // useEffect(() => {
+  //   const handleClickOutside = () => {
+  //     if(showDiv) {
+  //       setShowDiv(false);
+  //     }
+  //   };
+
+  //   window.addEventListener('click', handleClickOutside);
+  //   return () => {
+  //     window.removeEventListener('click', handleClickOutside);
+  //   };
+  // }, [])
+
   const handleMouseEnter = () => {
     setShowDiv(!showDiv);
   };
@@ -97,7 +110,7 @@ function Header() {
       </Navbar>
       <div className={`${userToken ? 'divider-lg mx-sm-5 mx-2' : ''}`}></div>
     </header>
-    <CartClear showDiv={showDiv} />
+    <CartClear showDiv={showDiv} setShowDiv={setShowDiv} />
     </>
   )
 }

@@ -43,9 +43,9 @@ function Funds() {
           </Col>
 
           <Col xs={12} md={7} className='text-center'>
-            <h3>Account Balance</h3>
             <Row className='mt-3'>
-              <Col xs={12} md={3} className='mx-auto'>
+              <Col xs={12} md={6} className='mx-auto'>
+                <h3>Account Balance</h3>
                 <div className="card-shadow">
                   <h3 className='p-4 px-5'>$<span>43.43</span></h3>
                 </div>

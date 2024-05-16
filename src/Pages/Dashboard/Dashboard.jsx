@@ -35,7 +35,7 @@ function Dashboard() {
               </Row>
 
               <Row className='mt-5'>
-                <Col xs={12} xl={5} lg={6}>
+                <Col xs={12} lg={6}>
                   <div className="card p-3 py-4 card-shadow card-h-315">
                     <Col xs={12} md={10} className='mx-auto'>
                       <h4 className='text-center'>Send a Reward</h4>
@@ -48,7 +48,7 @@ function Dashboard() {
                     </Col>
                   </div>
                 </Col>
-                <Col xs={12} xl={5} lg={6}>
+                <Col xs={12} lg={6}>
                   <div className="card p-3 py-4 card-shadow card-h-315">
                     <Col xs={12} md={10} className='mx-auto'>
                       <h4 className='text-center'>Get Referrals, Leads & Reviews</h4>
@@ -89,20 +89,20 @@ function Dashboard() {
               </Row>
 
               <Row className='mt-5'>
-                <Col xs={12} md={9} className='mx-auto'>
+                <Col xs={12} xl={6} lg={9} className='mx-auto'>
                   <ul className='accounts-list list-unstyled'>
                     <li className='mb-3'>
                       <Row className='justify-content-center'>
-                        <Col md={1} xs={2}>
+                        <Col xs={2}>
                           <div className="icon">
                             <img src={ User } alt="User Icon" height={40} />
                           </div>
                         </Col>
-                        <Col md={4} xs={6} className='text-start'>
+                        <Col xs={6} className='text-start'>
                           <p className='m-0 text-capitalize'>Cindy Sanders</p>
                           <p className='m-0 fc-gray92 fw-300'>cindysanders@gmail.xy</p>
                         </Col>
-                        <Col xd={3} xs={4}>
+                        <Col xs={4}>
                           <p 
                             className='fs-small-xs m-0 fw-500'
                           >
@@ -115,16 +115,16 @@ function Dashboard() {
 
                     <li className='mb-3'>
                       <Row className='justify-content-center'>
-                        <Col md={1} xs={2}>
+                        <Col xs={2}>
                           <div className="icon">
                             <img src={ User } alt="User Icon" height={40} />
                           </div>
                         </Col>
-                        <Col md={4} xs={6} className='text-start'>
+                        <Col xs={6} className='text-start'>
                           <p className='m-0 text-capitalize'>Cindy Sanders</p>
                           <p className='m-0 fc-gray92 fw-300'>cindysanders@gmail.xy</p>
                         </Col>
-                        <Col xd={3} xs={4}>
+                        <Col xs={4}>
                           <p 
                             className='fs-small-xs m-0 fw-500'
                           >

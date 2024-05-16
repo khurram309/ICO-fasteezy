@@ -10,7 +10,7 @@ import { setSignUp } from '../../../Redux/actions/authActions';
 import { Link, useNavigate } from 'react-router-dom';
 import  Google  from '../../../assets/images/g-logo.png'
 import  FB  from '../../../assets/images/fb-logo.png'
-import Logo from '../../../assets/images/fasteezy_logo.png';
+import LogoColored from '../../../assets/images/fasteezy_clr.png';
 
 function GetStarted(props) {
   const dispatch = useDispatch();
@@ -189,7 +189,7 @@ function GetStarted(props) {
         </Modal.Body>
         <ModalFooter className='border-0 justify-content-center'>
           <Link>
-            <img src={Logo} alt="Logo" height={60} />
+            <img src={LogoColored} alt="Logo" height={60} />
           </Link>
         </ModalFooter>
       </Modal>

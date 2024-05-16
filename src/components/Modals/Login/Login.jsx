@@ -11,7 +11,6 @@ import GetStarted from '../GetStarted/GetStarted';
 import ResetPassword from '../ResetPassword/ResetPassword.jsx';
 import Google  from '../../../assets/images/g-logo.png';
 import FB  from '../../../assets/images/fb-logo.png';
-import Logo from '../../../assets/images/fasteezy_logo.png';
 import LogoColored from '../../../assets/images/fasteezy_clr.png';
 import Program from '../Program/Program.jsx';
 
