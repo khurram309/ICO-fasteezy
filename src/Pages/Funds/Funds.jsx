@@ -54,15 +54,15 @@ function Funds() {
           </Col>
         </Row>
 
-        <div className="card-shadow p-4 mx-1 mt-5 mx-md-5">
+        <div className="card-shadow p-4 mx-1 mt-3 mt-lg-5">
           <Row>
-            <Col xs={12} md={7} className='mx-auto'>
+            <Col xs={12} lg={7} md={9} className='mx-auto'>
               <p className='text-center text-uppercase fs-small fw-500'>Enter your deposit amount. An invoice will be automatically created which you can download and print. Once the payment has been received, the balance will be shown on your manager dashboard.</p>
             </Col>
           </Row>
 
           <Row>
-            <Col xs={12} md={7} className='mx-auto'>
+            <Col xs={12} lg={7} md={9} className='mx-auto'>
               <Form>
                 <Row>
                   <Col xs={12} md={6}>
@@ -119,34 +119,28 @@ function Funds() {
             </Col>
           </Row>
 
-          <Row className='other-cards mt-4 justify-content-center gap-5'>
-            <Col xs={12} md={2}>
-              <div className="card-shadow">
-                <Link className='d-flex justify-content-center align-items-center p-3'>
-                  <img src={ MultiCards } alt="Other Cards" />
-                </Link>
-              </div>
-            </Col>
+          <Row className='other-cards mt-4 justify-content-center gap-2 gap-lg-4'>
+            <div className="card-btn card-shadow">
+              <Link className='d-flex justify-content-center align-items-center p-3'>
+                <img src={ MultiCards } alt="Other Cards" />
+              </Link>
+            </div>
 
-            <Col xs={12} md={2}>
-              <div className="card-shadow">
-                <Link className='d-flex justify-content-center align-items-center'>
-                  <img src={ PayPal } alt="Paypal" />
-                </Link>
-              </div>
-            </Col>
+            <div className="card-btn card-shadow">
+              <Link className='d-flex justify-content-center align-items-center'>
+                <img src={ PayPal } alt="Paypal" />
+              </Link>
+            </div>
 
-            <Col xs={12} md={2}>
-              <div className="card-shadow">
-                <Link className='d-flex justify-content-center align-items-center'>
-                  <img src={ ApplePay } alt="Apple Pay" />
-                </Link>
-              </div>
-            </Col>
+            <div className="card-btn card-shadow">
+              <Link className='d-flex justify-content-center align-items-center'>
+                <img src={ ApplePay } alt="Apple Pay" />
+              </Link>
+            </div>
           </Row>
 
           <Row className='mt-5'>
-            <Col xs={12} md={7} className='mx-auto'>
+            <Col xs={12} lg={7} md={9} className='mx-auto'>
               <Form>
                 <div className='d-flex gap-4'>
                   <Form.Group className="mb-3 w-100 text-uppercase fs-small" controlId="formAmount">
@@ -179,9 +173,9 @@ function Funds() {
         </div>
 
         <div className="card-shadow p-3 mt-4">
-          <Row className='align-items-center'>
-            <Col xs={2} md={1}>
-              <div className='mx-0 mx-md-5'>
+          <Row>
+            <div className="d-flex align-items-center">
+              <div className='mx-2 mx-md-3'>
                 <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" width="40" height="40" fill="none">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="40" height="40" fill="#fc0" x="0" y="0" opacity="100%">
                     <path d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z">
@@ -189,10 +183,8 @@ function Funds() {
                   </svg>
                 </svg>
               </div>
-            </Col>
-            <Col>
               <p className='fs-small m-0 text-uppercase fw-500'>Keep in mind that 40 points = $1 when making point rewards. Point rewards in the amount of $10 or more are common. You may consider creating a cumulative program using lower reward amounts so recipients can earn more frequently and save up to redeem when they’ve accumulated more points.</p> 
-            </Col>
+            </div>
           </Row>
         </div>
       </div>
