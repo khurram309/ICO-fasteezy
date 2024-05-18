@@ -3,11 +3,13 @@ import { Row, Col, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { apiRequests } from '../../Common/apiRequests';
 import { setAccountBalance, setAuthPoints } from '../../Redux/actions/authActions';
+import { useNavigate } from 'react-router-dom';
 
 function AccountBalance() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const authState = useSelector(state => state.auth);
-  const [balance, setBalance] = useState();
+  const [balance, setBalance] = useState(0);
 
   useEffect(() => {
     const getBalance = async () => {
@@ -45,7 +47,7 @@ function AccountBalance() {
         <div className='bg-pill card-shadow p-3 m-auto'>
           <div className='d-flex align-items-center gap-4 justify-content-center'>
             <h3 className='m-0'>$<span>{balance?.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span></h3>
-            <Button variant='primary'>Add Funds</Button>
+            <Button variant='primary' onClick={() => navigate('/user/funds')}>Add Funds</Button>
           </div>
         </div>
       </Col>
