@@ -26,6 +26,8 @@ function DontTake() {
                   <li><img className='starIcon' src={Star}  /></li>
                   <li><img className='starIcon' src={Star}  /></li>
                   <li><img className='starIcon' src={Star}  /></li>
+                  <li><img className='starIcon' src={Star}  /></li>
+                  <li><img className='starIcon' src={Star}  /></li>
                 </ul>
               </li>
               <li className='review bg-white p-4'>
@@ -33,6 +35,7 @@ function DontTake() {
                 <p className="reviewer-name m-0">Lisa P.</p>
                 <p className="location fs-small fc-gray92">Pittsburgh, PA</p>
                 <ul className='d-flex p-0 m-0 justify-content-center list-inline gap-1'>
+                  <li><img className='starIcon' src={Star}  /></li>
                   <li><img className='starIcon' src={Star}  /></li>
                   <li><img className='starIcon' src={Star}  /></li>
                   <li><img className='starIcon' src={Star}  /></li>
@@ -56,6 +59,8 @@ function DontTake() {
                 <p className="reviewer-name m-0">Daniel J.</p>
                 <p className="location fs-small fc-gray92">Orange Country, CA</p>
                 <ul className='d-flex p-0 m-0 justify-content-center list-inline gap-1'>
+                  <li><img className='starIcon' src={Star}  /></li>
+                  <li><img className='starIcon' src={Star}  /></li>
                   <li><img className='starIcon' src={Star}  /></li>
                   <li><img className='starIcon' src={Star}  /></li>
                   <li><img className='starIcon' src={Star}  /></li>
