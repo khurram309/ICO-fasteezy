@@ -59,7 +59,7 @@ function RedeemAlert(props) {
     item.merchant_name = merchant.name;
     item.merchant_icon = merchant.icon;
     let redemption_points = item.redemption_value * authState.program.factor_valuation;
-    if ( pointBalance.points < redemption_points ) {
+    if ( pointBalance?.pointBalance < redemption_points ) {
       Notiflix.Notify.failure('You do not have sufficient balance to redeem');
       return;
     }
