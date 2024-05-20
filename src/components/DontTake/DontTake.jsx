@@ -54,7 +54,7 @@ function DontTake() {
                   <li><img className='starIcon' src={Star}  /></li>
                 </ul>
               </li>
-              <li className='review bg-white p-4'>
+              {/* <li className='review bg-white p-4'>
                 <p>“Owning a restaurant has its hurdles. Since COVID, we dealt with a lot of issues in regards to staffing. Since implementing Fasteezy's tools, we started collecting employee referrals and our workforce is stronger than ever. We rewarded the employees who pushed the referrals in and everyone is happy!”</p>
                 <p className="reviewer-name m-0">Daniel J.</p>
                 <p className="location fs-small fc-gray92">Orange Country, CA</p>
@@ -65,10 +65,10 @@ function DontTake() {
                   <li><img className='starIcon' src={Star}  /></li>
                   <li><img className='starIcon' src={Star}  /></li>
                 </ul>
-              </li>
+              </li> */}
             </ul>
-            <button type="button" className="slider-nav"></button>
-            <button type="button" className="slider-nav slider-nav-next"></button>
+            {/* <button type="button" className="slider-nav"></button>
+            <button type="button" className="slider-nav slider-nav-next"></button> */}
           </div>
         </div>
 

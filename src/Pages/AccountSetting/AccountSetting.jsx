@@ -3,7 +3,7 @@ import './AccountSetting.scss'
 import { Button, Col, Form, Row } from 'react-bootstrap'
 import User from '../../assets/images/person.svg'
 import Trash from '../../assets/images/trash.svg'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Success from '../../components/Modals/Success/Success'
 import InviteAccount from '../../components/Modals/InviteAccount/InviteAccount'
 import { useSelector } from 'react-redux'
@@ -12,6 +12,7 @@ function AccountSetting() {
   const accountForm = useRef();
   const [validated, setValidated] = useState(false);
   const user = useSelector((state) => state.auth.user);
+  const navigate = useNavigate();
 
   const handleAccountInforamtion = (e) => {
     e.preventDefault();
@@ -30,7 +31,7 @@ function AccountSetting() {
             <h4>Account Settings</h4>
             <p className='fw-300'>Manage your account settings</p>
             <div className="d-flex gap-3 flex-column flex-sm-row">
-              <Button variant='primary'>Subscription</Button>
+              <Button variant='primary' onClick={() => navigate("/user/subscription")}>Subscription</Button>
               <InviteAccount />
             </div>
           </Col>
