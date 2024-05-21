@@ -112,7 +112,7 @@ function Subscription() {
             <Col xs={12} md={8}>
               <Form.Group className='d-flex align-items-center'
               controlId="accurateBilling">
-                <Form.Check type="checkbox" 
+                <Form.Check type="radio" 
                   className='mt-1 check-primary'
                   label={
                     <span className='fw-normal'>
@@ -129,7 +129,7 @@ function Subscription() {
               <div className="card-shadow p-3 fs-small text-uppercase">
                 <Form.Group className='d-flex align-items-center'
                 controlId="filedCard">
-                  <Form.Check type="checkbox" 
+                  <Form.Check type="radio" 
                     className='mt-1 check-primary'
                     label={
                       <span className='fw-normal'>
@@ -154,7 +154,7 @@ function Subscription() {
 
                 <Form.Group className='d-flex align-items-center'
                 controlId="newCard">
-                  <Form.Check type="checkbox" 
+                  <Form.Check type="radio" 
                     className='mt-1 check-primary'
                     label={
                       <span className='fw-normal'>

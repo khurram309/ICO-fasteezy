@@ -18,7 +18,7 @@ function Footer() {
               <img src={ MainLogo } alt="Logo" />
             </Link>}
             <p className='fs-small m-0 mt-2'>
-              Copyright &copy; Incento LLC <br></br> All Right Reserved
+              Copyright &copy; Incentco LLC <br></br> All Right Reserved
             </p>
           </div>
           <div className="links-wrapper d-flex justify-content-evenly w-100">

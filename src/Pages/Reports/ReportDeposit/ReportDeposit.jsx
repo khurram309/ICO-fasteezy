@@ -9,7 +9,7 @@ function ReportDeposit() {
     <>
       <Row className='mt-3'>
         <Col xs={12} md={12} lg={10} className='mx-auto'>
-          <Accordion>
+          <Accordion defaultActiveKey="0">
               <Accordion.Item eventKey="0">
                 <Accordion.Header>
                   <span>

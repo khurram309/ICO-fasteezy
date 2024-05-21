@@ -32,7 +32,7 @@ function Rewards() {
 
         <Row>
           <Col>
-            <Accordion className="my-4">
+            <Accordion defaultActiveKey="0" className="my-4">
               <Accordion.Item eventKey="0">
                 <Accordion.Header>
                   <span>

@@ -3,11 +3,14 @@ import { Button, Form, Row, Col } from 'react-bootstrap';
 import MultiCards from '../../assets/images/multi-cards.png';
 import PayPal from '../../assets/images/paypal.svg';
 import ApplePay from '../../assets/images/apple-pay.svg';
+import { useSelector } from 'react-redux';
 
 import './Funds.scss';
 import { Link } from 'react-router-dom';
 
 function Funds() {
+  const accountBalance = useSelector(state => state.auth.accountBalance || 0);
+
   return (
     <>
       <div className="funds-wrapper p-4">
@@ -47,7 +50,7 @@ function Funds() {
               <Col xs={12} md={10} lg={6} className='mx-auto'>
                 <h3>Account Balance</h3>
                 <div className="card-shadow">
-                  <h3 className='p-4 px-5'>$<span>43.43</span></h3>
+                  <h3 className='p-4 px-5'>$<span>{accountBalance?.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span></h3>
                 </div>
               </Col>
             </Row>

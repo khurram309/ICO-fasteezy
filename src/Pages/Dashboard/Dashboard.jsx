@@ -137,7 +137,7 @@ function Dashboard() {
                   </ul>
 
                   <div className='my-4'>
-                    <Button variant='outlined'>View All</Button>
+                    <Button variant='outlined' onClick={() => navigate("/user/view-users")}>View All</Button>
                   </div>
                 </Col>
               </Row>

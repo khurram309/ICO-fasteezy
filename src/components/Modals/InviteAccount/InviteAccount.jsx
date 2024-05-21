@@ -8,7 +8,7 @@ function InviteAccount(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => {
     setShow(true)
-    setShowRegister(false);
+    // setShowRegister(false);
   };
 
   return (
@@ -18,7 +18,7 @@ function InviteAccount(props) {
       <Modal
       show={show}
       onHide={handleClose}
-      backdrop="static"
+      // backdrop="static"
       keyboard={false}
       centered 
       className="users-modal blue-modal"
@@ -40,7 +40,7 @@ function InviteAccount(props) {
               <Form.Control type="number" name="amount" placeholder="Enter email address" required/>
             </Form.Group>
 
-          <Button variant='light' className='px-5 py-2'>Invite</Button>
+          <Button variant='light' className='px-5 py-2' onClick={handleClose}>Invite</Button>
         </ModalBody>
       </Modal>
     </>

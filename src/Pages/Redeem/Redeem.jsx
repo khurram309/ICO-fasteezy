@@ -17,11 +17,21 @@ function Redeem() {
   ]
   const LOGO_PUBLIC_URL = import.meta.env.VITE_REACT_APP_API_STORAGE_URL;
   const authState = useSelector(state => state.auth);
+  const pointBalance = useSelector(state => state.auth.authPoints);
   const [merchants, setMerchants] = useState([]);
+  const [query, setQuery] = useState('');
 
   useEffect(() => {
     getMerchants();
   }, [])
+
+  useEffect(() => {
+    if(query != "") {
+      handleSearch(query);
+    } else {
+      getMerchants();
+    }
+  }, [query]);
 
   const getMerchants = async () => {
     const endPoint = `organization/${authState.user.organization_id}/program/${authState.program.id}/merchant`;
@@ -32,6 +42,11 @@ function Redeem() {
       console.log(err);
     });
   }
+
+  const handleSearch = (query) => {
+    const found = merchants.filter(item => {return item.name.toLowerCase().includes(query.toString().toLowerCase())});
+    setMerchants(found);
+  };
 
   return (
     <div className="redem-wrapper p-2 p-md-4">
@@ -49,7 +64,7 @@ function Redeem() {
             <Col xs={12} md={10} lg={5}>
               <div className="card-shadow border border-1 d-flex flex-column gap-2 align-items-center justify-content-center p-4">
                 <h4 className='fw-300'>Redeemable Points</h4>
-                <p className='fs-large-xxl m-0'><span>1,000</span> points</p>
+                <p className='fs-large-xxl m-0'><span>{pointBalance ? pointBalance.pointBalance?.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : 0}</span> points</p>
               </div>
             </Col>
           </Row>
@@ -58,7 +73,7 @@ function Redeem() {
 
       <Row className="my-4">
         <Col>
-          <Accordion>
+          <Accordion defaultActiveKey="0">
             <Accordion.Item eventKey="0">
               <Accordion.Header>
                 <span>
@@ -102,6 +117,7 @@ function Redeem() {
                 <Form.Control
                   type="text"
                   placeholder="Search here.."
+                  onChange={(e) => setQuery(e.target.value)}
                 />
                 <InputGroup.Text className="py-0">
                   <svg viewBox="0 0 24 24" style={{ width: '30px' }}>
@@ -117,7 +133,7 @@ function Redeem() {
         </Row>
 
         <Row>
-          {merchants.map((merchant, index) => (
+          {merchants && merchants.map((merchant, index) => (
             <Col xs={6} md={6} lg={3} key={index}>
               <div className="dark-card mb-4">
                 <div className="d-flex flex-column gap-3 p-2 p-md-4">
@@ -130,6 +146,7 @@ function Redeem() {
               </div>
             </Col>
           ))}
+          {merchants.length == 0 && <p>No results found</p>}
         </Row>
       </Row>
     </div>

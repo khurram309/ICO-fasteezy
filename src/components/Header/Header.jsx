@@ -22,7 +22,7 @@ function Header() {
   const navigate = useNavigate();
   const userToken = useSelector(state => state.auth.token);
   const user = useSelector(state => state.auth.user);
-  const accountBalance = useSelector(state => state.auth.accountBalance);
+  const accountBalance = useSelector(state => state.auth.accountBalance || 0);
   const cart = useSelector((state) => state.auth.authCart);
   const [showDiv, setShowDiv] = useState(false);
 
