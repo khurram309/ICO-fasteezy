@@ -11,8 +11,11 @@
 }
 
 @media (max-width: 64rem) {
+  .main-banner {
+    padding: 2rem 1rem 1rem;
+  }
   .bottom-banner {
-    margin: -4rem 0 4rem;
+    margin: 1rem 0 4rem;
     .venders {
       div {
         width: 80px;
@@ -24,7 +27,7 @@
 
 @media (max-width: 47.9375rem) {
   .main-banner {
-    padding: 0.9375rem 0 1.25rem 0;
+    padding: 0rem 0 1.25rem 0;
     .banner-inner {
       flex-flow: column-reverse;
       .banner-text {

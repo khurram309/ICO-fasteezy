@@ -2,7 +2,7 @@
   border-radius: 1rem;
   position: relative;
   z-index: 9;
-  padding: 4rem 5rem;
+  padding: 4rem;
   box-sizing: border-box;
   .signUp-screen {
     .desktop-img {
@@ -69,7 +69,7 @@
         flex-flow: row wrap;
         margin-bottom: 1.5rem;
         > div {
-          width: 50%;
+          // width: 50%;
         }
         .icon {
           width: 45px;

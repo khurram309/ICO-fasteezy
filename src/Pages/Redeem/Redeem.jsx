@@ -36,7 +36,7 @@ function Redeem() {
   return (
     <div className="redem-wrapper p-2 p-md-4">
       <Row>
-        <Col xs={12} md={6}>
+        <Col xs={12} md={7} lg={6}>
           <h4>User Redemption Options</h4>
           <p>Participants can redeem rewards points for instant, digital gift codes to purchase whatever they'd like at the nation's leading merchants!</p>
           <div className='d-flex gap-3'>
@@ -44,9 +44,9 @@ function Redeem() {
             <Button variant='light'>View as Manager</Button>
           </div>
         </Col>
-        <Col xs={12} md={6}>
+        <Col xs={12} md={5} lg={6}>
           <Row className='justify-content-end'>
-            <Col xs={12} md={5}>
+            <Col xs={12} md={10} lg={5}>
               <div className="card-shadow border border-1 d-flex flex-column gap-2 align-items-center justify-content-center p-4">
                 <h4 className='fw-300'>Redeemable Points</h4>
                 <p className='fs-large-xxl m-0'><span>1,000</span> points</p>
@@ -118,7 +118,7 @@ function Redeem() {
 
         <Row>
           {merchants.map((merchant, index) => (
-            <Col md={3} xs={6} key={index}>
+            <Col xs={6} md={6} lg={3} key={index}>
               <div className="dark-card mb-4">
                 <div className="d-flex flex-column gap-3 p-2 p-md-4">
                   <img src={ `${LOGO_PUBLIC_URL}/${merchant.logo}` } alt="logo" />

@@ -8,7 +8,7 @@ function Users() {
   return (
     <div className="users-wrapper p-2 p-md-4">
       <Row>
-        <Col xs={12} md={5}>
+        <Col xs={12} md={7} lg={5}>
           <h4>View Users</h4>
           <p>To view user details, search for users in the search box below. When search results are shown, select a user by clicking on the name or icon.</p>
         </Col>
@@ -22,7 +22,7 @@ function Users() {
               <Col xs={12} className='mx-auto'>
                 <div className="card-shadow p-3">
                   <Row>
-                    <Col xs={12} md={5} className='mx-auto'>
+                    <Col xs={12} md={8} lg={5} className='mx-auto'>
                       <Form.Group>
                         <InputGroup>
                           <Form.Control

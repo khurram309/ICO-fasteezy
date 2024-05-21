@@ -8,7 +8,7 @@ function ReportDeposit() {
   return (
     <>
       <Row className='mt-3'>
-        <Col xs={12} md={10} className='mx-auto'>
+        <Col xs={12} md={12} lg={10} className='mx-auto'>
           <Accordion>
               <Accordion.Item eventKey="0">
                 <Accordion.Header>
@@ -27,7 +27,7 @@ function ReportDeposit() {
       <Row className='mt-5'>
         <div className="card-shadow">
           <Row>
-            <Col xs={10} md={8} className='mx-auto'>
+            <Col xs={9} md={10} lg={8} className='mx-auto'>
               <Row>
                 <Col xs={12} md={6}>
                   <Form.Group className="mb-3 w-100 text-uppercase fs-small" controlId="from">
@@ -44,7 +44,7 @@ function ReportDeposit() {
                 </Col>
               </Row>
             </Col>
-            <Col xs={2} md={2}>
+            <Col xs={3} md={2}>
               <div className="d-flex gap-2 mt-2 mt-md-4">
                 <Link>
                   <svg  viewBox="0 0 24 24">
@@ -68,7 +68,7 @@ function ReportDeposit() {
           </Row>
 
           <Row className='mt-5 justify-content-center'>
-            <Col xs={12} md={10}>
+            <Col xs={12} md={12} lg={10}>
               <Table  
                 bordered 
                 responsive 

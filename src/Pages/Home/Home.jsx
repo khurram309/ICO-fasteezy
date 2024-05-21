@@ -24,7 +24,7 @@ function Home() {
       <div className="bg-blue">
         <div className="main-banner fc-white">
           <Container>
-            <Row className='flex-md-reverse-column flex-row'>
+            <Row className='flex-row'>
               <Col xs={12} md={6}>
                 <div className="banner-text mt-4 mt-md-0 pe-3">
                   <h4 className='fc-orange ff-primary'>
@@ -39,7 +39,7 @@ function Home() {
                   </div>
                 </div>
               </Col>
-              <Col xs={12} md={6}>
+              <Col xs={12} md={6} className='mt-3 mt-md-0'>
                 <div className="WebView-img">
                   <img src={ WebImg } alt="Apps Img" />
                 </div>
@@ -47,7 +47,7 @@ function Home() {
             </Row>
 
             <Row className='bottom-banner'>
-              <Col xl={{ span: 7 , offset: 2}} xs={12}>
+              <Col xs={12} md={7} lg={{ span: 7 , offset: 2}}>
                 <h3 className='ff-primary text-center'>
                   Over 75 gift card venders to redeem from!
                 </h3>
