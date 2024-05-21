@@ -9,7 +9,7 @@ function UserDetails() {
           <Col>
             <h4 className='text-center'>Susan Coley</h4>
             <Row className='justify-content-center'>
-              <Col xs={12} md={6}>
+              <Col xs={12} lg={6}>
                 <Row>
                   <Col xs={12} md={6}>
                     <Form.Group className="mb-3 text-uppercase fs-small" controlId="userName">
@@ -48,9 +48,9 @@ function UserDetails() {
                 </Row>
               </Col>
 
-              <Col xs={12} md={6}>
+              <Col xs={12} lg={6}>
                 <Row>
-                  <Col md={{span: 9, offset: 3}}>
+                  <Col lg={{span: 9, offset: 3}}>
                     <Form.Group className="mb-3 text-uppercase fs-small" controlId="earnedPoints">
                       <Form.Label className='fs-small-xs'>total points rewarded</Form.Label>
                       <Form.Control type="text" name="earnedPoints" required/>
@@ -58,7 +58,7 @@ function UserDetails() {
                   </Col>
                 </Row>
                 <Row>
-                  <Col md={{span: 9, offset: 3}}>
+                  <Col lg={{span: 9, offset: 3}}>
                     <Form.Group className="mb-3 text-uppercase fs-small" controlId="currentPoints">
                       <Form.Label className='fs-small-xs'>current points balance</Form.Label>
                       <Form.Control type="text" name="currentPoints" required/>

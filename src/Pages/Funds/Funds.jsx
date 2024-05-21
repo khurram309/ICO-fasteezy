@@ -15,7 +15,7 @@ function Funds() {
     <>
       <div className="funds-wrapper p-4">
         <Row>
-          <Col xs={12} md={5}>
+          <Col xs={12} md={6} lg={5}>
             <div className="funds-section">
               <h4 className='fw-500'>Add Funds</h4>
               <p className='fw-300'>Keep your account funded so you can issue reward points anytime you'd like. Reward points are redeemable for gift codes to be used at participating program merchants.</p>
@@ -45,9 +45,9 @@ function Funds() {
             </div>
           </Col>
 
-          <Col xs={12} md={7} className='text-center'>
+          <Col xs={12} md={6} lg={7} className='text-center'>
             <Row className='mt-3'>
-              <Col xs={12} md={6} className='mx-auto'>
+              <Col xs={12} md={10} lg={6} className='mx-auto'>
                 <h3>Account Balance</h3>
                 <div className="card-shadow">
                   <h3 className='p-4 px-5'>$<span>{accountBalance?.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span></h3>

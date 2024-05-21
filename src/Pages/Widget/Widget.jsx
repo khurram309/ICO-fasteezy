@@ -19,7 +19,7 @@ function Widget() {
   return (
     <div className="widget-wrapper p-2 p-sm-4">
       <Row>
-        <Col xs={12} md={5}>
+        <Col xs={12} md={7} lg={5}>
           <h4>Fasteezy Widget</h4>
           <p>Getting referrals, new leads, and positive feedback has never been easier. The 4 tools below can be quickly and easily added to your website, emails, social media feeds, print, and more to request referrals, encourage feedback, and attract new leads.</p>
         </Col>
@@ -27,8 +27,8 @@ function Widget() {
       <Row className="mt-5">
         <Col>
           <h3 className="mb-4">Select a Share Method:</h3>
-          <Row className="share-widgets">
-            <Col xs={5} md={2}>
+          <Row className="share-widgets gy-0 gy-md-3">
+            <Col xs={5} md={4} lg={2}>
               <Link 
                 className={`card-shadow singleWidget d-flex flex-column align-items-center p-1 p-md-4 fc-darkPrimary justify-content-center gap-2 ${showWidgetLink && 'active'}`} 
                 onClick={() => {setShowWidetLink(true); setShowWidetSocial(false); setShowWidetQr(false); setShowWidetHTML(false); setShowWidetCampaign(false);}}
@@ -40,7 +40,7 @@ function Widget() {
                 </svg>
               </Link>
             </Col>
-            <Col xs={5} md={2}>
+            <Col xs={5} md={4} lg={2}>
               <Link className={`card-shadow singleWidget social-media d-flex flex-column align-items-center p-1 p-md-4 fc-darkPrimary justify-content-center gap-2 ${showWidgetSocial && 'active'}`} onClick={() => {setShowWidetSocial(true); setShowWidetLink(false); setShowWidetQr(false); setShowWidetHTML(false); setShowWidetCampaign(false);}}>
                 <h4>Social Media</h4>
                 <div className="d-flex gap-2">
@@ -61,7 +61,7 @@ function Widget() {
                 </div>
               </Link>
             </Col>
-            <Col xs={5} md={2}>
+            <Col xs={5} md={4} lg={2}>
               <Link className={`card-shadow singleWidget d-flex flex-column align-items-center p-1 p-md-4 fc-darkPrimary justify-content-center gap-2 ${showWidgetQr && 'active'}`} onClick={() => {setShowWidetQr(true); setShowWidetLink(false); setShowWidetSocial(false); setShowWidetHTML(false); setShowWidetCampaign(false);}}>
                 <h4>QR Code</h4>
                 <svg viewBox="0 0 24 24">
@@ -70,7 +70,7 @@ function Widget() {
                 </svg>
               </Link>
             </Col>
-            <Col xs={5} md={2}>
+            <Col xs={5} md={4} lg={2}>
               <Link className={`card-shadow singleWidget d-flex flex-column align-items-center p-1 p-md-4 fc-darkPrimary justify-content-center gap-2 ${showWidgetHTML && 'active'}`} onClick={() => {setShowWidetHTML(true); setShowWidetQr(false); setShowWidetLink(false); setShowWidetSocial(false); setShowWidetCampaign(false);}}>
                 <h4>Widget HTML</h4>
                 <svg viewBox="0 0 640 512">
@@ -79,7 +79,7 @@ function Widget() {
                 </svg>
               </Link>
             </Col>
-            <Col xs={5} md={2}>
+            <Col xs={5} md={4} lg={2}>
               <Link className={`card-shadow singleWidget d-flex flex-column align-items-center p-1 p-md-3 fc-darkPrimary justify-content-center gap-2 ${showWidgetCampaign && 'active'}`} onClick={() => {setShowWidetCampaign(true); setShowWidetHTML(false); setShowWidetQr(false); setShowWidetLink(false); setShowWidetSocial(false);}}>
                 <h4 className="">Start a Campaign</h4>
                 <svg viewBox="0 0 24 24">

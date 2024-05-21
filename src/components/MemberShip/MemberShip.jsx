@@ -49,12 +49,12 @@ function MemberShip() {
           </Row>
           
           <Row className='membership-plan bg-white p-3 py-5'>
-            <Col xs={0} md={3}>
+            <Col xs={12} md={4} lg={3} className='mb-2 mb-md-0'>
               <div className="mobile-img">
                 <img src={MobileView} alt="Mobile" height={400} />
               </div>
             </Col>
-            <Col xs={12} md={8}>
+            <Col xs={12} md={8} lg={9}>
               <div className="plans-wrapper">
                 <h2 className='text-center mb-5'>Membership Plans</h2>
                 <div className="plan">

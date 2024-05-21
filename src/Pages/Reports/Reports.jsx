@@ -12,7 +12,7 @@ function Reports() {
     <>
       <div className="reports-wrapper p-2 p-md-4">
         <Row>
-          <Col xs={12} md={4}>
+          <Col xs={12} md={6} lg={4}>
             <h4>Reports</h4>
             <Form.Select aria-label="Default select example">
               <option 
