@@ -49,7 +49,7 @@ function Home() {
             <Row className='bottom-banner'>
               <Col xs={12} md={7} lg={{ span: 7 , offset: 2}}>
                 <h3 className='ff-primary text-center'>
-                  Over 75 gift card venders to redeem from!
+                  Over 75 gift card vendors to redeem from!
                 </h3>
                 <Stack 
                   direction='horizontal'
