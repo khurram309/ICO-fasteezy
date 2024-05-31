@@ -20,7 +20,7 @@ function Rewards() {
     <>
       <div className="reward-wrapper p-2 p-sm-4">
         <Row>
-          <Col xs={12} md={8} lg={4}>
+          <Col xs={12} md={7} lg={6}>
             <h4>Reward User</h4>
             <p>Giving a reward is simpler than ever and we have 2 ways to do it! Create a custom ”non-monetary” offer of your own for both customers and employees OR give reward points redeemable for gift codes at the nation’s leading merchants.</p>
             <div className="btns-wrapper d-flex gap-3">

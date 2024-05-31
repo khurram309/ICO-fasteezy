@@ -30,8 +30,8 @@ function Sidebar() {
           </Nav>
         </Navbar>
       </div> */}
-      <Navbar className='sidebar px-md-2 px-0 bg-gray90 justify-content-center'>
-        <Nav className="d-flex flex-column align-items-center justify-content-between px-2 pt-2 text-white h-100" activeKey="/user/dashboard">
+      <Navbar className='sidebar px-md-2 px-0 bg-gray90 justify-content-center p-0'>
+        <Nav className="d-flex flex-column align-items-center justify-content-between p-0 text-white h-100" activeKey="/user/dashboard">
           <ul className="nav nav-list flex-column mb-0 align-items-center w-100 text-uppercase" id="menu">
             <NavLink to="/user/dashboard" className="nav-item">
               <span className="nav-link align-middle px-0 d-flex align-items-center gap-2 flex-column fs-small fc-darkPrimary">

@@ -1,8 +1,9 @@
 .dark-card {
   background: var(--gray94);
+  min-height: 20.5rem;
   img {
     width: auto;
-    height: 14rem;
+    min-height: 13rem;
     object-fit: cover;
     object-position: top center;
   }
@@ -10,6 +11,7 @@
 
 @media (max-width: 47.9375rem) {
   .dark-card {
+    min-height: 14rem;
     img {
       height: 7rem;
     }

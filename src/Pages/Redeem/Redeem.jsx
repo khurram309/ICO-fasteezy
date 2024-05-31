@@ -61,7 +61,7 @@ function Redeem() {
         </Col>
         <Col xs={12} md={5} lg={6}>
           <Row className='justify-content-end'>
-            <Col xs={12} md={10} lg={5}>
+            <Col xs={12} md={11} lg={6}>
               <div className="card-shadow border border-1 d-flex flex-column gap-2 align-items-center justify-content-center p-4">
                 <h4 className='fw-300'>Redeemable Points</h4>
                 <p className='fs-large-xxl m-0'><span>{pointBalance ? pointBalance.pointBalance?.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : 0}</span> points</p>
@@ -97,8 +97,8 @@ function Redeem() {
         </Col>
       </Row>
 
-      <Row className='my-5'>
-        <Row>
+      <Row className='mt-5 mb-0'>
+        <Row className='p-0 m-0'>
           <Col md={12}>
             <Stack direction='horizontal' gap={2} className='flex-wrap'>
               <Badge bg='light' text='dark'>All</Badge>
@@ -110,7 +110,7 @@ function Redeem() {
           </Col>
         </Row>
 
-        <Row className='my-4'>
+        <Row className='mt-4 mb-3 mx-0 px-0'>
           <Col md={12}>
             <Form.Group>
               <InputGroup>
@@ -132,10 +132,10 @@ function Redeem() {
           </Col>
         </Row>
 
-        <Row>
+        <Row className='p-0 m-0'>
           {merchants && merchants.map((merchant, index) => (
-            <Col xs={6} md={6} lg={3} key={index}>
-              <div className="dark-card mb-4">
+            <Col xs={6} md={6} lg={3} className='m-0 p-2-5' key={index}>
+              <div className="dark-card">
                 <div className="d-flex flex-column gap-3 p-2 p-md-4">
                   <img src={ `${LOGO_PUBLIC_URL}/${merchant.logo}` } alt="logo" />
                   <div className="d-flex justify-content-between align-items-center">

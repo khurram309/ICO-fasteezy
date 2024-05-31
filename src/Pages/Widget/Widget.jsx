@@ -19,7 +19,7 @@ function Widget() {
   return (
     <div className="widget-wrapper p-2 p-sm-4">
       <Row>
-        <Col xs={12} md={7} lg={5}>
+        <Col xs={12} md={7} lg={6}>
           <h4>Fasteezy Widget</h4>
           <p>Getting referrals, new leads, and positive feedback has never been easier. The 4 tools below can be quickly and easily added to your website, emails, social media feeds, print, and more to request referrals, encourage feedback, and attract new leads.</p>
         </Col>
