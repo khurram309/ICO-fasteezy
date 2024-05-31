@@ -186,10 +186,14 @@ a {
     }
   }  
 }
+.p-2-5 {
+  padding: 0.7rem !important;
+}
 
 .accordion {
   ul {
     li {
+      line-height: 1.9;
       span {
         background: var(--primary);
         display: inline-flex;

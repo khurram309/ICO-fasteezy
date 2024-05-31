@@ -8,7 +8,7 @@ function ReportDeposit() {
   return (
     <>
       <Row className='mt-3'>
-        <Col xs={12} md={12} lg={10} className='mx-auto'>
+        <Col xs={12} md={12} lg={10} className='mx-auto p-0'>
           <Accordion defaultActiveKey="0">
               <Accordion.Item eventKey="0">
                 <Accordion.Header>
@@ -25,7 +25,7 @@ function ReportDeposit() {
       </Row>
       
       <Row className='mt-5'>
-        <div className="card-shadow">
+        <Col xs={12} md={12} lg={10} className='mx-auto card-shadow'> 
           <Row>
             <Col xs={9} md={10} lg={8} className='mx-auto'>
               <Row>
@@ -100,7 +100,7 @@ function ReportDeposit() {
               </Table>
             </Col>
           </Row>
-        </div>
+        </Col>
       </Row>
     </>
   )

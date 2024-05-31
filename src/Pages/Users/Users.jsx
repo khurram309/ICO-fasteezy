@@ -74,7 +74,7 @@ function Users() {
                         </td>
                         <td>Coley.Susan@gmail.xo</td>
                         <td>susan.coley1234</td>
-                        <td>
+                        <td className='text-center'>
                           <SendReward />
                         </td>
                       </tr>

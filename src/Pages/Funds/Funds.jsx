@@ -15,7 +15,7 @@ function Funds() {
     <>
       <div className="funds-wrapper p-4">
         <Row>
-          <Col xs={12} md={6} lg={5}>
+          <Col xs={12} md={7} lg={6}>
             <div className="funds-section">
               <h4 className='fw-500'>Add Funds</h4>
               <p className='fw-300'>Keep your account funded so you can issue reward points anytime you'd like. Reward points are redeemable for gift codes to be used at participating program merchants.</p>
@@ -45,7 +45,7 @@ function Funds() {
             </div>
           </Col>
 
-          <Col xs={12} md={6} lg={7} className='text-center'>
+          <Col xs={12} md={5} lg={6} className='text-center'>
             <Row className='mt-3'>
               <Col xs={12} md={10} lg={6} className='mx-auto'>
                 <h3>Account Balance</h3>
@@ -71,13 +71,13 @@ function Funds() {
                   <Col xs={12} md={6}>
                     <Form.Group className="mb-3 text-uppercase fs-small" controlId="formAmount">
                       <Form.Label className='fs-small-xs'>amount</Form.Label>
-                      <Form.Control type="number" name="amount" placeholder="Ener amount" required/>
+                      <Form.Control type="number" name="amount" placeholder="Enter Amount" required/>
                     </Form.Group>
                   </Col>
                   <Col xs={12} md={6}>
                     <Form.Group className="mb-3 text-uppercase fs-small" controlId="formAmountReconfirm">
                       <Form.Label className='fs-small-xs'>confirm amount</Form.Label>
-                      <Form.Control type="number" name="amount" placeholder="Ener amount" required/>
+                      <Form.Control type="number" name="amount" placeholder="Enter Amount" required/>
                     </Form.Group>
                   </Col>
                 </Row>
@@ -88,7 +88,7 @@ function Funds() {
                     className='mt-1 check-primary'
                     label={
                     <span className='fw-normal'>
-                      card on file
+                      Card on file
                     </span>} 
                     required 
                   />
