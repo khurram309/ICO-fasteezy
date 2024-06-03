@@ -27,7 +27,7 @@ function Widget() {
       <Row className="mt-5">
         <Col>
           <h3 className="mb-4">Select a Share Method:</h3>
-          <Row className="share-widgets gy-0 gy-md-3">
+          <Row className="share-widgets gy-0 gy-md-3 justify-content-center">
             <Col xs={5} md={4} lg={2}>
               <Link 
                 className={`card-shadow singleWidget d-flex flex-column align-items-center p-1 p-md-4 fc-darkPrimary justify-content-center gap-2 ${showWidgetLink && 'active'}`} 
